@@ -1,8 +1,9 @@
 <template>
-	<h1>💖 Hello World!</h1>
-	<p>Welcome to your Electron application.</p>
+	<main>
+		<RouterView />
+	</main>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
+import { RouterView } from 'vue-router';
 </script>
