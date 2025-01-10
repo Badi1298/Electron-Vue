@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 
 import path from 'node:path';
-import { existsSync, readFile, writeFile, readFileSync } from 'node:fs';
+import { existsSync, writeFile, readFileSync } from 'node:fs';
 
 import started from 'electron-squirrel-startup';
 
