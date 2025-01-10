@@ -1,17 +1,29 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
+
 import path from 'node:path';
-import fs from 'node:fs';
+import { existsSync, readFile, writeFile } from 'node:fs';
+
 import started from 'electron-squirrel-startup';
+
+import path from 'node:path';
 
 const filePath = path.join(__dirname, 'time-tracking.json');
 
-ipcMain.handle('write-time-data', (event, page, timeSpent) => {
-	const data = fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf-8')) : {};
+ipcMain.handle('write-time-data', async (_, page, timeSpent) => {
+	try {
+		// Read the existing data asynchronously
+		const data = existsSync(filePath) ? JSON.parse(readFile(filePath, 'utf-8')) : {};
 
-	data[page] = (data[page] || 0) + timeSpent;
+		data[page] = (data[page] || 0) + timeSpent;
 
-	fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-	return 'success';
+		// Write the updated data asynchronously
+		writeFile(filePath, JSON.stringify(data, null, 2));
+
+		return 'success';
+	} catch (err) {
+		console.error('Error writing to file:', err);
+		return 'error';
+	}
 });
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -20,6 +32,7 @@ if (started) {
 }
 
 const createWindow = () => {
+	console.log(path.join(__dirname, 'preload.js'));
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
 		width: 800,
