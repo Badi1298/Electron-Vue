@@ -5,21 +5,7 @@
 	</div>
 </template>
 
-<script setup>
-import { onMounted, onUnmounted } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-function trackPageTime(page, timeSpent) {
-	window.electronAPI
-		.trackTime(page, timeSpent)
-		.then((response) => console.log(response))
-		.catch((err) => console.error(err));
-}
-
-let startTime;
-</script>
+<script setup></script>
 
 <style scoped>
 .home {
