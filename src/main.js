@@ -1,23 +1,32 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 
 import path from 'node:path';
-import { existsSync, readFile, writeFile } from 'node:fs';
+import { existsSync, readFile, writeFile, readFileSync } from 'node:fs';
 
 import started from 'electron-squirrel-startup';
 
-import path from 'node:path';
-
-const filePath = path.join(__dirname, 'time-tracking.json');
+// const filePath = path.join(__dirname, 'time-tracking.json');
 
 ipcMain.handle('write-time-data', async (_, page, timeSpent) => {
 	try {
 		// Read the existing data asynchronously
-		const data = existsSync(filePath) ? JSON.parse(readFile(filePath, 'utf-8')) : {};
+		const data = existsSync('time-tracking.json')
+			? JSON.parse(
+					readFileSync('time-tracking.json', {
+						encoding: 'utf-8',
+					})
+			  )
+			: {};
 
 		data[page] = (data[page] || 0) + timeSpent;
 
 		// Write the updated data asynchronously
-		writeFile(filePath, JSON.stringify(data, null, 2));
+		writeFile('time-tracking.json', JSON.stringify(data, null, 2), (err) => {
+			if (err) {
+				console.error('Error writing to file:', err);
+				return 'error';
+			}
+		});
 
 		return 'success';
 	} catch (err) {
