@@ -1,5 +1,7 @@
 import { createMemoryHistory, createRouter } from 'vue-router';
 
+import { trackPageTime } from '../utils/analytics';
+
 import Home from '../pages/Home.vue';
 import AboutUs from '../pages/AboutUs.vue';
 
@@ -12,13 +14,6 @@ const router = createRouter({
 	history: createMemoryHistory(),
 	routes,
 });
-
-function trackPageTime(page, timeSpent) {
-	window.electronAPI
-		.trackTime(page, timeSpent)
-		.then((response) => console.log(response))
-		.catch((err) => console.error(err));
-}
 
 let startTime = performance.now();
 
