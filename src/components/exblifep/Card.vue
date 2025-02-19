@@ -1,5 +1,5 @@
 <template>
-	<div class="flex gap-x-8 bg-white shadow-exblifep-card items-center rounded-[10px] px-8 pt-9 pb-6 font-effra">
+	<div class="flex max-w-[424px] justify-between bg-white shadow-exblifep-card items-center rounded-[10px] px-8 pt-9 pb-6 font-effra">
 		<div class="flex flex-col gap-y-2">
 			<h3 class="font-medium text-xl">{{ title }}</h3>
 			<p
@@ -8,7 +8,7 @@
 			></p>
 
 			<button
-				class="px-8 py-3 text-sm mt-2.5"
+				class="py-3 text-sm mt-2.5 max-w-[150px]"
 				:class="buttonClass"
 			>
 				Discover More
