@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'Effra'; /* Choose a name for your font */
+	src: url('/src/assets/fonts/EffraBoldItalic.ttf') format('truetype');
+	font-weight: bold; /* Define font-weight if needed */
+	font-style: italic; /* Define font-style if needed */
+	font-display: swap; /* Recommended for performance */
+}

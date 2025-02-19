@@ -1,41 +1,53 @@
 <template>
-	<main>
-		<div class="flex flex-col pt-28">
-			<img
-				src="../assets/images/exblifep-logo.svg"
-				alt="Exblifep Logo"
-				class="logo"
-			/>
-			<div class="images-container">
+	<div class="h-screen bg-textured">
+		<div class="flex">
+			<section class="flex flex-col pt-28">
 				<img
-					src="../assets/images/hallway-bed.png"
-					alt="Hallway Bed"
-					class="hallway-bed"
+					src="../assets/images/exblifep-logo.svg"
+					alt="Exblifep Logo"
+					class="w-64 ml-[74px]"
 				/>
-				<img
-					src="../assets/images/resistance-and-recurrence.png"
-					alt="Resistance and Recurrence"
-					class="resistance-and-recurrence"
-				/>
-			</div>
-			<div class="exblifep-description">
-				<chevron-right />
-				<h1 class="text-lg">EXBLIFEP® is where microbiological eradication* meets efficacy1</h1>
-			</div>
+				<div class="images-container">
+					<img
+						src="../assets/images/hallway-bed.png"
+						alt="Hallway Bed"
+						class="hallway-bed"
+					/>
+					<img
+						src="../assets/images/resistance-and-recurrence.png"
+						alt="Resistance and Recurrence"
+						class="resistance-and-recurrence"
+					/>
+				</div>
+				<div class="flex items-center gap-x-5 py-12 px-14 border-x-0 border-y-[6px] border-[#1F17F6] max-w-[1078px]">
+					<chevron-right />
+					<h1 class="relative text-[40px] text-center font-bold leading-tight px-2 text-electric-blue">
+						EXBLIFEP<sup class="text-2xl font-normal">®</sup> is where microbiological eradication* meets efficacy<sup class="text-[26px]">1</sup>
+					</h1>
+				</div>
+			</section>
+			<section class="pt-40">
+				<h2 class="text-[32px] font-bold text-electric-blue">I'm interested in -</h2>
+				<card
+					title="Efficacy"
+					subtitle="EXBLIFEP<sup>®</sup> superiority in primary endpoint vs. piperacillin/tazobactam<sup>1</sup>"
+					button-class="bg-[#97D700] text-black"
+				>
+					<chart-icon class="min-w-[106px]" />
+				</card>
+			</section>
 		</div>
-	</main>
+	</div>
 </template>
 
 <script setup>
+import ChartIcon from '../icons/ChartIcon.vue';
 import ChevronRight from '../icons/ChevronRight.vue';
+
+import Card from '../components/exblifep/Card.vue';
 </script>
 
 <style scoped>
-main {
-	height: 98.5vh;
-	background-image: url('../assets/images/textured-background.png');
-}
-
 .logo {
 	padding-left: 74px;
 	max-width: 250px;
@@ -57,14 +69,5 @@ main {
 	top: -190px;
 	right: 20px;
 	max-width: 644px;
-}
-
-.exblifep-description {
-	display: flex;
-	align-items: center;
-	max-width: 1078px;
-	padding: 50px 54px;
-	border-top: 6px solid #1f17f6;
-	transform: translateY(-6px);
 }
 </style>

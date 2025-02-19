@@ -2,7 +2,22 @@
 export default {
 	content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
 	theme: {
-		extend: {},
+		colors: {
+			white: '#FFFFFF',
+			black: '#000000',
+			'electric-blue': '#1F17F6',
+		},
+		extend: {
+			fontFamily: {
+				effra: ['Effra', 'sans-serif'],
+			},
+			backgroundImage: {
+				textured: "url('/src/assets/images/textured-background.png')",
+			},
+			boxShadow: {
+				'exblifep-card': '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
+			},
+		},
 	},
 	plugins: [],
 };
