@@ -10,6 +10,9 @@ export default {
 		extend: {
 			fontFamily: {
 				effra: ['Effra', 'sans-serif'],
+				gothic: ['Gothic', 'sans-serif'],
+				'stag-sans': ['StagSans', 'sans-serif'],
+				'uni-grotesk': ['UniGroteskStd', 'sans-serif'],
 			},
 			backgroundImage: {
 				textured: "url('/src/assets/images/textured-background.png')",

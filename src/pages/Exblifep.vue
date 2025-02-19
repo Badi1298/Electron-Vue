@@ -21,13 +21,13 @@
 				</div>
 				<div class="flex items-center gap-x-5 py-12 px-14 border-x-0 border-y-[6px] border-[#1F17F6] max-w-[1078px]">
 					<chevron-right />
-					<h1 class="relative text-[40px] text-center font-bold leading-tight px-2 text-electric-blue">
+					<h1 class="relative text-[40px] text-center font-bold leading-tight px-4 text-electric-blue font-effra">
 						EXBLIFEP<sup class="text-2xl font-normal">®</sup> is where microbiological eradication* meets efficacy<sup class="text-[26px]">1</sup>
 					</h1>
 				</div>
 			</section>
 			<section class="pt-40">
-				<h2 class="text-[32px] font-bold text-electric-blue">I'm interested in -</h2>
+				<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in -</h2>
 				<card
 					title="Efficacy"
 					subtitle="EXBLIFEP<sup>®</sup> superiority in primary endpoint vs. piperacillin/tazobactam<sup>1</sup>"
