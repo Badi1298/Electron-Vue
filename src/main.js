@@ -1,4 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
+import './index.css';
 
 import path from 'node:path';
 import { existsSync, writeFile, readFileSync } from 'node:fs';

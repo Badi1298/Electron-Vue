@@ -1,6 +1,6 @@
 <template>
 	<main>
-		<div class="main-container">
+		<div class="flex flex-col pt-28">
 			<img
 				src="../assets/images/exblifep-logo.svg"
 				alt="Exblifep Logo"
@@ -20,7 +20,7 @@
 			</div>
 			<div class="exblifep-description">
 				<chevron-right />
-				<h1>EXBLIFEP® is where microbiological eradication* meets efficacy1</h1>
+				<h1 class="text-lg">EXBLIFEP® is where microbiological eradication* meets efficacy1</h1>
 			</div>
 		</div>
 	</main>
@@ -34,12 +34,6 @@ import ChevronRight from '../icons/ChevronRight.vue';
 main {
 	height: 98.5vh;
 	background-image: url('../assets/images/textured-background.png');
-}
-
-.main-container {
-	display: flex;
-	flex-direction: column;
-	padding-top: 110px;
 }
 
 .logo {
