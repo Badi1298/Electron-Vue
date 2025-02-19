@@ -23,12 +23,12 @@ const handleRouteChange = (pageName) => {
 };
 
 router.beforeEach((_, from, next) => {
-	handleRouteChange(from.name);
+	// handleRouteChange(from.name);
 	next();
 });
 
 router.afterEach(() => {
-	startTime = performance.now();
+	// startTime = performance.now();
 });
 
 export default router;
