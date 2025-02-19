@@ -4,9 +4,10 @@ import { trackPageTime } from '../utils/analytics';
 
 import Home from '../pages/Home.vue';
 import AboutUs from '../pages/AboutUs.vue';
+import Exblifep from '../pages/Exblifep.vue';
 
 const routes = [
-	{ path: '/', component: Home, name: 'home' },
+	{ path: '/', component: Exblifep, name: 'home' },
 	{ path: '/about-us', component: AboutUs, name: 'about' },
 ];
 
