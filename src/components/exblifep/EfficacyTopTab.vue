@@ -1,10 +1,13 @@
 <template>
 	<div class="flex flex-col h-full">
 		<div
-			class="transition-all duration-300 pt-16 font-effra"
+			class="relative transition-all duration-300 pt-16 font-effra"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<div class="absolute left-[50px] top-1/2 -translate-y-1/2 flex flex-col gap-y-6">
+			<div
+				class="absolute top-1/2 -left-[70px] flex flex-col gap-y-6 z-20 transform transition-transform duration-300"
+				:class="{ '-translate-x-[70px]': !sidebarOpen }"
+			>
 				<img
 					src="/src/assets/images/active-dot.png"
 					alt="Active Dot"
