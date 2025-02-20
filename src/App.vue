@@ -20,7 +20,7 @@
 
 		<Sidebar v-model:open="sidebarOpen" />
 	</main>
-	<footer class="fixed bottom-5 left-5">Explore another brand</footer>
+
 	<img
 		src="./assets/images/background-green-circle.png"
 		alt="Background Green Circle"
