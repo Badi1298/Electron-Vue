@@ -1,6 +1,6 @@
 <template>
 	<div class="flex flex-col h-full">
-		<div class="pt-20 font-effra">
+		<div class="pt-16 font-effra">
 			<div class="absolute left-[50px] top-1/2 -translate-y-1/2 flex flex-col gap-y-6">
 				<img
 					src="/src/assets/images/active-dot.png"
@@ -97,12 +97,15 @@
 				alt="Down Button"
 				class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
 			/>
+			<ExploreAnother class="absolute bottom-4" />
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+
+import ExploreAnother from './ExploreAnother.vue';
 
 defineProps({
 	sidebarOpen: {
