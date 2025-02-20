@@ -1,18 +1,38 @@
 <template>
-	<main class="flex h-screen bg-textured gap-x-12">
-		<router-view v-slot="{ Component }">
-			<transition>
-				<component :is="Component" />
-			</transition>
-			<sidebar />
-		</router-view>
+	<main class="flex h-screen bg-textured gap-x-6 transition-all duration-300">
+		<div
+			:class="spacingLeft"
+			class="flex-1 transition-all duration-300"
+		>
+			<router-view v-slot="{ Component }">
+				<transition name="fade">
+					<component :is="Component" />
+				</transition>
+			</router-view>
+		</div>
+
+		<Sidebar v-model:open="sidebarOpen" />
 	</main>
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router';
+import { ref } from 'vue';
+import { RouterView, useRoute } from 'vue-router';
 
 import Sidebar from './components/exblifep/Sidebar.vue';
+import { computed } from 'vue';
+
+const sidebarOpen = ref(false);
+
+const route = useRoute();
+
+const isHome = computed(() => route.path === '/');
+
+const spacingLeft = computed(() => {
+	if (isHome.value) return '';
+
+	return sidebarOpen.value ? 'ml-[124px]' : 'ml-[224px]';
+});
 </script>
 
 <style scoped>
