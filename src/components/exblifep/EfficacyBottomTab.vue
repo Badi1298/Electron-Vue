@@ -54,10 +54,16 @@
 						@click="onClickTab"
 					/>
 				</div>
-				<InfoCard
-					:text="activeTabText"
-					:image-src="activeTabImageSrc"
-				/>
+				<Transition
+					name="fade"
+					mode="out-in"
+				>
+					<InfoCard
+						:key="activeTabText"
+						:text="activeTabText"
+						:image-src="activeTabImageSrc"
+					/>
+				</Transition>
 				<div class="pt-14 max-w-[624px]">
 					<h4 class="text-2xl font-bold leading-normal text-[#002470]">In an intrapulmonary PK study of 20 healthy volunteers:<sup>*6</sup></h4>
 					<p class="text-xl leading-normal font-medium text-cool-grey mt-4">
@@ -155,3 +161,14 @@ const onClickTab = (id) => {
 	});
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.3s ease-in-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+</style>
