@@ -1,6 +1,9 @@
 <template>
 	<div class="relative bg-white border border-electric-blue max-w-[474px] rounded-[20px] px-10 py-14 overflow-hidden">
-		<h4 class="text-2xl font-medium text-cool-grey">{{ text }}</h4>
+		<h4
+			class="text-2xl font-medium text-cool-grey"
+			v-html="text"
+		></h4>
 		<img
 			src="/src/assets/images/lime-green-border.png"
 			alt="Lime Green Border"

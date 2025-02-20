@@ -52,6 +52,23 @@
 					:text="activeTabText"
 					:image-src="activeTabImageSrc"
 				/>
+				<div class="pt-14 max-w-[624px]">
+					<h4 class="text-2xl font-bold leading-normal text-[#002470]">In an intrapulmonary PK study of 20 healthy volunteers:<sup>*6</sup></h4>
+					<p class="text-xl leading-normal font-medium text-cool-grey mt-4">
+						Concentration-time of cefepime and enmetazobactam in plasma and epithelial lining fluid were similar
+					</p>
+					<p class="text-xl text-cool-grey mt-3">
+						Percentage of partitioning of total drug concentrations between plasma and epithelial lining fluid:
+					</p>
+					<ul class="list-disc pl-5 mt-2 ml-3">
+						<li class="text-xl text-cool-grey">Cefepime: 50%</li>
+						<li class="text-xl text-cool-grey">Enmetazobactam: 45%</li>
+					</ul>
+					<p class="text-xl text-cool-grey mt-3">
+						Using the ratio of the ELF-to-plasma fAUCs over the entire 8 hour dosing interval, biodistribution coefficients of 46% for
+						enmetazobactam and 46.8% for cefepime were obtained.<sup>5</sup>
+					</p>
+				</div>
 			</section>
 			<footer class="text-cool-grey text-[10px] leading-normal mt-3.5 relative z-10">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
@@ -88,21 +105,21 @@ defineProps({
 const tabsInfo = ref([
 	{
 		id: Tabs.DROP,
-		text: 'Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.6',
+		text: 'Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>',
 		imageSrc: '/src/assets/images/water-drop.png',
 		imageAlt: 'Water Drop',
 		active: true,
 	},
 	{
 		id: Tabs.TIME,
-		text: 'Concentrations of both agents are detectable in plasma for 24 hours after last administration.6',
+		text: 'Concentrations of both agents are detectable in plasma for 24 hours after last administration.<sup>6</sup>',
 		imageSrc: '/src/assets/images/24-hours.png',
 		imageAlt: '24 Hours',
 		active: false,
 	},
 	{
 		id: Tabs.LUNGS,
-		text: 'Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines for the management of HAP/VAP.7,8',
+		text: 'Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines for the management of HAP/VAP.<sup>7,8</sup>',
 		imageSrc: '/src/assets/images/lungs.png',
 		imageAlt: 'Lungs',
 		active: false,
