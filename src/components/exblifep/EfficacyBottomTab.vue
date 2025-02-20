@@ -61,8 +61,8 @@
 						Percentage of partitioning of total drug concentrations between plasma and epithelial lining fluid:
 					</p>
 					<ul class="list-disc pl-5 mt-2 ml-3">
-						<li class="text-xl text-cool-grey">Cefepime: 50%</li>
-						<li class="text-xl text-cool-grey">Enmetazobactam: 45%</li>
+						<li class="text-xl text-cool-grey">Cefepime (mean [SD]): 60.59% (±28.62%)</li>
+						<li class="text-xl text-cool-grey">Enmetazobactam: 53.03% (±21.05%)</li>
 					</ul>
 					<p class="text-xl text-cool-grey mt-3">
 						Using the ratio of the ELF-to-plasma fAUCs over the entire 8 hour dosing interval, biodistribution coefficients of 46% for
@@ -70,13 +70,27 @@
 					</p>
 				</div>
 			</section>
-			<footer class="text-cool-grey text-[10px] leading-normal mt-3.5 relative z-10">
+			<section class="bg-[#00EAFF] py-4 flex items-center mt-9 relative z-10 border-[6px] border-white">
+				<div class="pl-9 py-3 border-r-[3px] border-[#002470]">
+					<img
+						src="/src/assets/images/chevron-right-bleu.png"
+						alt="Chevron Right Bleu"
+						class="w-[62px] h-auto mr-7"
+					/>
+				</div>
+				<h2 class="pl-10 text-2xl font-bold text-[#002470]">
+					EXBLIFEP® is indicated to treat HAP/VAP, and could be a useful carbapenem-sparing option for ESBL-producing pathogens<sup>†5,9</sup>
+				</h2>
+			</section>
+			<footer class="text-cool-grey text-[10px] leading-normal mt-11 relative z-10">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
-				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation. *The intrapulmonary PK
-				of 2.0 g-1.0 g of EXBLIFEP® IV q8h was assessed in the plasma and epithelial lining fluid obtained by bronchoalveolar lavage in 20 healthy
-				volunteers. In this study, EXBLIFEP® was well tolerated. There were no serious adverse events. None of the treatment-emergent adverse events led
-				to the discontinuation of study drugs. All adverse events spontaneously resolved without sequelae.6 †Consideration should be given to official
-				guidance on the appropriate use of antibacterial agents.
+				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
+				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
+				bronchoalveolar lavage in 20 healthy volunteers. In this study, EXBLIFEP<sup>®</sup> was well tolerated. There were no serious adverse
+				events.<br />
+				None of the treatment-emergent adverse events led to the discontinuation of study drugs. All adverse events spontaneously resolved without
+				sequelae.<sup>6</sup><br />
+				<sup>†</sup>Consideration should be given to official guidance on the appropriate use of antibacterial agents.
 			</footer>
 		</div>
 		<button>Next Section</button>

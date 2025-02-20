@@ -2,7 +2,7 @@
 	<div class="flex justify-between z-10 relative">
 		<div class="flex flex-col">
 			<div class="flex">
-				<section class="flex flex-col pt-28">
+				<section class="flex flex-col pt-24">
 					<img
 						src="../assets/images/exblifep-logo.svg"
 						alt="Exblifep Logo"
@@ -29,7 +29,7 @@
 						</h1>
 					</div>
 				</section>
-				<section class="pt-40 -translate-x-1">
+				<section class="pt-36 -translate-x-1">
 					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in -</h2>
 					<card
 						title="Efficacy"
