@@ -18,7 +18,7 @@
 					EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
 				</h1>
 				<div
-					class="flex gap-x-3.5 items-center text-[#646469] text-2xl font-medium transform transition-all duration-300"
+					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
 					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full']"
 				>
 					<img
@@ -81,7 +81,7 @@
 					</p>
 				</div>
 			</section>
-			<footer class="text-[#646469] text-[10px] leading-normal mt-3.5 relative z-10">
+			<footer class="text-cool-grey text-[10px] leading-normal mt-3.5 relative z-10">
 				CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set. *Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of
 				complete resolution of the baseline signs and symptoms present at screening (clinical cure) and reduction of qualifying baseline pathogen to

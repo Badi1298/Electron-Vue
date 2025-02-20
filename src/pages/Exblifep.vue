@@ -42,7 +42,7 @@
 					<card
 						title="Safety"
 						subtitle="Comparable safety profile to piperacillin/tazobactam<sup>5</sup>"
-						button-class="bg-[#646469] text-white"
+						button-class="bg-cool-grey text-white"
 						class="mt-11"
 					>
 						<shield-icon class="min-w-[106px]" />
@@ -57,7 +57,7 @@
 					</card>
 				</section>
 			</div>
-			<footer class="pl-[74px] pt-6 text-[10px] text-[#646469] font-effra">
+			<footer class="pl-[74px] pt-6 text-[10px] text-cool-grey font-effra">
 				*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL in urine.1
 				<br />
 				EXBLIFEP® is indicated for the treatment of the following infections in adults:5 - Complicated urinary tract infections (cUTI), including

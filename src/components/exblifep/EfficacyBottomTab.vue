@@ -20,7 +20,7 @@
 					>
 				</h1>
 				<div
-					class="flex gap-x-3.5 items-center text-[#646469] text-2xl font-medium transform transition-all duration-300"
+					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
 					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full']"
 				>
 					<img
@@ -36,13 +36,27 @@
 				alt="Lime Green Border"
 				class="h-1.5 w-auto mt-5 mb-7"
 			/>
-			<section>
-				<InfoIcon
-					image-src="/src/assets/images/water-drop.png"
-					image-alt="Water Drop"
-				/>
+			<section class="flex gap-x-16">
+				<div class="flex flex-col gap-y-12">
+					<InfoIcon
+						image-src="/src/assets/images/water-drop.png"
+						image-alt="Water Drop"
+						:active="true"
+					/>
+					<InfoIcon
+						image-src="/src/assets/images/24-hours.png"
+						image-alt="Water Drop"
+						:active="false"
+					/>
+					<InfoIcon
+						image-src="/src/assets/images/lungs.png"
+						image-alt="Water Drop"
+						:active="false"
+					/>
+				</div>
+				<InfoCard />
 			</section>
-			<footer class="text-[#646469] text-[10px] leading-normal mt-3.5 relative z-10">
+			<footer class="text-cool-grey text-[10px] leading-normal mt-3.5 relative z-10">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation. *The intrapulmonary PK
 				of 2.0 g-1.0 g of EXBLIFEP® IV q8h was assessed in the plasma and epithelial lining fluid obtained by bronchoalveolar lavage in 20 healthy
@@ -57,7 +71,9 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import InfoIcon from './efficacy/InfoIcon.vue';
+import InfoCard from './efficacy/InfoCard.vue';
 
 defineProps({
 	sidebarOpen: {
