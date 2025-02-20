@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col">
+	<div class="flex flex-col h-full">
 		<div class="pt-20 font-effra">
 			<div class="absolute left-[50px] top-1/2 -translate-y-1/2 flex flex-col gap-y-6">
 				<img
@@ -14,8 +14,10 @@
 				/>
 			</div>
 			<div class="flex justify-between mr-12">
-				<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[920px]">
-					EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
+				<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[950px]">
+					EXBLIFEP<sup>®</sup> demonstrated high intrapulmonary penetration in healthy volunteers, supporting its use in the treatment of HAP/VAP<sup
+						>6</sup
+					>
 				</h1>
 				<div
 					class="flex gap-x-3.5 items-center text-[#646469] text-2xl font-medium transform transition-all duration-300"
@@ -32,15 +34,9 @@
 			<img
 				src="/src/assets/images/lime-green-border.png"
 				alt="Lime Green Border"
-				class="h-1.5 w-auto my-5"
+				class="h-1.5 w-auto mt-5 mb-7"
 			/>
-			<p class="max-w-[1300px] text-xl leading-normal">
-				In ALLIUM, EXBLIFEP® demonstrated both non-inferiority and statistical superiority in overall treatment success (a composite endpoint of
-				clinical cure and microbiological eradication) at Day 14 vs piperacillin/tazobactam in patients in the PAS with cUTIs caused by gram-negative
-				pathogens1
-			</p>
-
-			<div class="flex pt-5 gap-x-[22px] z-10 relative">
+			<div class="flex gap-x-[22px] z-10 relative">
 				<div class="flex flex-col w-[1034px]">
 					<div class="grid grid-cols-[1fr_2fr] gap-x-2">
 						<button
@@ -91,13 +87,7 @@
 				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1
 			</footer>
 		</div>
-		<div class="relative flex-1">
-			<img
-				src="/src/assets/images/down-button-blue.png"
-				alt="Down Button"
-				class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
-			/>
-		</div>
+		<button>Next Section</button>
 	</div>
 </template>
 

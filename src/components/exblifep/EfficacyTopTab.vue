@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col relative">
+	<div class="flex flex-col h-full">
 		<div class="pt-20 font-effra">
 			<div class="absolute left-[50px] top-1/2 -translate-y-1/2 flex flex-col gap-y-6">
 				<img

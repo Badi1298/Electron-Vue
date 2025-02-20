@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col overflow-y-scroll">
+	<div class="overflow-y-scroll">
 		<EfficacyTopTab :sidebarOpen="sidebarOpen" />
 		<EfficacyBottomTab :sidebarOpen="sidebarOpen" />
 	</div>
