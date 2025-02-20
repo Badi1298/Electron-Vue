@@ -9,9 +9,9 @@
 			class="flex-1 transition-all duration-300"
 		>
 			<router-view v-slot="{ Component }">
-				<transition name="fade">
-					<component :is="Component" />
-				</transition>
+				<!-- <transition name="fade"> -->
+				<component :is="Component" />
+				<!-- </transition> -->
 			</router-view>
 		</div>
 
