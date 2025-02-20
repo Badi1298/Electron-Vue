@@ -1,35 +1,24 @@
 <template>
 	<aside
-		:class="[open ? 'w-[350px] grid-rows-[0.5fr_3fr_1fr]' : 'w-[118px] mt-40']"
+		:class="[open ? 'w-[350px] grid-rows-[0.5fr_3fr_1fr]' : 'w-[118px] mt-48']"
 		class="grid my-8 bg-white rounded-l-[20px] pt-12 transition-all duration-300 relative shadow-sidebar"
 	>
-		<div></div>
+		<div v-if="open"></div>
 		<ul class="flex flex-col gap-y-4 px-4 self-center">
-			<SidebarItem :class="{ 'justify-center': !open }">
-				<HomeIcon class="w-[30px] h-[30px]" />
-				<p v-if="open">Home</p>
-			</SidebarItem>
-			<SidebarItem>
-				<EfficacyIcon class="w-[30px] h-[30px]" />
-				<p v-if="open">Efficacy</p>
-			</SidebarItem>
-			<SidebarItem>
-				<SafetyIcon class="w-[30px] h-[30px]" />
-				<p v-if="open">Safety</p>
-			</SidebarItem>
-			<SidebarItem>
-				<DosingIcon class="w-[30px] h-[30px]" />
-				<p v-if="open">Dosing and administration</p>
-			</SidebarItem>
-			<SidebarItem>
-				<SummaryIcon class="w-[30px] h-[30px]" />
-				<p v-if="open">Summary</p>
-			</SidebarItem>
+			<SidebarItem
+				v-for="item in routes"
+				:key="item.name"
+				:to="item.route"
+				:icon="item.icon"
+				:label="item.name"
+				:is-open="open"
+			/>
 		</ul>
 		<div>aaaaaa</div>
 
 		<button
 			class="absolute top-[140px] -left-5 transform bg-gray-700 text-white p-2.5 rounded-md bg-[#ECECEC]"
+			:class="[open ? 'top-[140px]' : '-top-5']"
 			@click="toggleSidebar"
 		>
 			<SimpleChevronRightIcon
@@ -45,14 +34,13 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { ref, markRaw } from 'vue';
 
 import HomeIcon from '../../icons/HomeIcon.vue';
 import SafetyIcon from '../../icons/SafetyIcon.vue';
 import DosingIcon from '../../icons/DosingIcon.vue';
 import SummaryIcon from '../../icons/SummaryIcon.vue';
 import EfficacyIcon from '../../icons/EfficacyIcon.vue';
-import ExblifepLogo from '../../icons/ExblifepLogo.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
 
@@ -64,7 +52,36 @@ const props = defineProps({
 		required: true,
 	},
 });
+
 const emit = defineEmits(['update:open']);
+
+const routes = ref([
+	{
+		name: 'Home',
+		icon: markRaw(HomeIcon),
+		route: '/',
+	},
+	{
+		name: 'Efficacy',
+		icon: markRaw(EfficacyIcon),
+		route: '/efficacy',
+	},
+	{
+		name: 'Safety',
+		icon: markRaw(SafetyIcon),
+		route: '/safety',
+	},
+	{
+		name: 'Dosing and administration',
+		icon: markRaw(DosingIcon),
+		route: '/dosing',
+	},
+	{
+		name: 'Summary',
+		icon: markRaw(SummaryIcon),
+		route: '/summary',
+	},
+]);
 
 const toggleSidebar = () => {
 	emit('update:open', !props.open);
