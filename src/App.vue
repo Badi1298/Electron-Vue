@@ -1,5 +1,9 @@
 <template>
-	<main class="flex h-screen bg-textured gap-x-6 transition-all duration-300">
+	<main class="relative flex h-screen bg-textured gap-x-6 transition-all duration-300">
+		<div class="absolute right-12 top-[76px] z-10">
+			<ExblifepLogo />
+		</div>
+
 		<div
 			:class="spacingLeft"
 			class="flex-1 transition-all duration-300"
@@ -18,6 +22,8 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { RouterView, useRoute } from 'vue-router';
+
+import ExblifepLogo from './icons/ExblifepLogo.vue';
 
 import Sidebar from './components/exblifep/Sidebar.vue';
 

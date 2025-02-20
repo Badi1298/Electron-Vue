@@ -1,26 +1,30 @@
 <template>
 	<aside
-		:class="open ? 'w-[350px]' : 'w-[118px]'"
-		class="grid grid-rows-[0.5fr_3fr_1fr] my-8 bg-white rounded-l-[20px] pt-12 transition-all duration-300 relative shadow-sidebar"
+		:class="[open ? 'w-[350px] grid-rows-[0.5fr_3fr_1fr]' : 'w-[118px] mt-40']"
+		class="grid my-8 bg-white rounded-l-[20px] pt-12 transition-all duration-300 relative shadow-sidebar"
 	>
-		<div class="flex justify-center">
-			<ExblifepLogo />
-		</div>
+		<div></div>
 		<ul class="flex flex-col gap-y-4 px-4 self-center">
-			<SidebarItem>
-				<HomeIcon />
+			<SidebarItem :class="{ 'justify-center': !open }">
+				<HomeIcon class="w-[30px] h-[30px]" />
 				<p v-if="open">Home</p>
 			</SidebarItem>
 			<SidebarItem>
-				<EfficacyIcon />
+				<EfficacyIcon class="w-[30px] h-[30px]" />
 				<p v-if="open">Efficacy</p>
 			</SidebarItem>
 			<SidebarItem>
-				<SafetyIcon />
+				<SafetyIcon class="w-[30px] h-[30px]" />
 				<p v-if="open">Safety</p>
 			</SidebarItem>
-			<SidebarItem>Dosing and administration</SidebarItem>
-			<SidebarItem>Summary</SidebarItem>
+			<SidebarItem>
+				<DosingIcon class="w-[30px] h-[30px]" />
+				<p v-if="open">Dosing and administration</p>
+			</SidebarItem>
+			<SidebarItem>
+				<SummaryIcon class="w-[30px] h-[30px]" />
+				<p v-if="open">Summary</p>
+			</SidebarItem>
 		</ul>
 		<div>aaaaaa</div>
 
@@ -45,6 +49,8 @@ import { defineProps, defineEmits } from 'vue';
 
 import HomeIcon from '../../icons/HomeIcon.vue';
 import SafetyIcon from '../../icons/SafetyIcon.vue';
+import DosingIcon from '../../icons/DosingIcon.vue';
+import SummaryIcon from '../../icons/SummaryIcon.vue';
 import EfficacyIcon from '../../icons/EfficacyIcon.vue';
 import ExblifepLogo from '../../icons/ExblifepLogo.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
