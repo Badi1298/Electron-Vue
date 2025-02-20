@@ -16,3 +16,9 @@ defineProps({
 	},
 });
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+	display: none;
+}
+</style>
