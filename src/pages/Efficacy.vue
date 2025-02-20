@@ -16,7 +16,10 @@
 			<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[920px]">
 				EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
 			</h1>
-			<div class="flex gap-x-3.5 items-center text-[#646469] text-2xl font-medium">
+			<div
+				class="flex gap-x-3.5 items-center text-[#646469] text-2xl font-medium transform transition-all duration-300"
+				:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full']"
+			>
 				<img
 					src="../assets/images/touch.png"
 					alt="Touch to select tab"
@@ -64,13 +67,27 @@
 					alt="Chart B"
 				/>
 			</div>
-			<div class="bg-[#00EAFF]">aaaa</div>
+			<div class="bg-[#00EAFF]">
+				<img
+					src="../assets/images/chart-up.png"
+					alt="Chart Up"
+					class="w-[130px] h-[130px]"
+				/>
+				<h3 class="text-[32px] max-w-[280px]">EXBLIFEP<sup>®</sup> demonstrated superiority</h3>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+
+defineProps({
+	sidebarOpen: {
+		type: Boolean,
+		required: true,
+	},
+});
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,

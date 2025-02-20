@@ -10,7 +10,10 @@
 		>
 			<router-view v-slot="{ Component }">
 				<!-- <transition name="fade"> -->
-				<component :is="Component" />
+				<component
+					:is="Component"
+					:sidebar-open="sidebarOpen"
+				/>
 				<!-- </transition> -->
 			</router-view>
 		</div>
