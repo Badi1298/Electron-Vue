@@ -7,9 +7,18 @@
 			<ExblifepLogo />
 		</div>
 		<ul class="flex flex-col gap-y-4 px-4 self-center">
-			<SidebarItem>Home</SidebarItem>
-			<SidebarItem>Efficacy</SidebarItem>
-			<SidebarItem>Safety</SidebarItem>
+			<SidebarItem>
+				<HomeIcon />
+				<p v-if="open">Home</p>
+			</SidebarItem>
+			<SidebarItem>
+				<EfficacyIcon />
+				<p v-if="open">Efficacy</p>
+			</SidebarItem>
+			<SidebarItem>
+				<SafetyIcon />
+				<p v-if="open">Safety</p>
+			</SidebarItem>
 			<SidebarItem>Dosing and administration</SidebarItem>
 			<SidebarItem>Summary</SidebarItem>
 		</ul>
@@ -34,6 +43,9 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
 
+import HomeIcon from '../../icons/HomeIcon.vue';
+import SafetyIcon from '../../icons/SafetyIcon.vue';
+import EfficacyIcon from '../../icons/EfficacyIcon.vue';
 import ExblifepLogo from '../../icons/ExblifepLogo.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';

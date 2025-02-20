@@ -16,13 +16,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { RouterView, useRoute } from 'vue-router';
 
 import Sidebar from './components/exblifep/Sidebar.vue';
-import { computed } from 'vue';
 
-const sidebarOpen = ref(false);
+const sidebarOpen = ref(true);
 
 const route = useRoute();
 
