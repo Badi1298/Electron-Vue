@@ -1,31 +1,33 @@
 <template>
 	<aside
 		:class="open ? 'w-[350px]' : 'w-[118px]'"
-		class="my-8 bg-white pt-12 px-4 rounded-l-[20px] transition-all duration-300 relative"
+		class="grid grid-rows-[0.5fr_3fr_1fr] my-8 bg-white rounded-l-[20px] pt-12 transition-all duration-300 relative shadow-sidebar"
 	>
-		<!-- Toggle Button -->
+		<div class="flex justify-center">
+			<ExblifepLogo />
+		</div>
+		<ul class="flex flex-col gap-y-4 px-4 self-center">
+			<SidebarItem>Home</SidebarItem>
+			<SidebarItem>Efficacy</SidebarItem>
+			<SidebarItem>Safety</SidebarItem>
+			<SidebarItem>Dosing and administration</SidebarItem>
+			<SidebarItem>Summary</SidebarItem>
+		</ul>
+		<div>aaaaaa</div>
+
 		<button
-			class="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
+			class="absolute top-[140px] -left-5 transform bg-gray-700 text-white p-2.5 rounded-md bg-[#ECECEC]"
 			@click="toggleSidebar"
 		>
 			<SimpleChevronRightIcon
 				v-if="open"
-				class="w-4 h-4"
+				class="w-6 h-6"
 			/>
 			<SimpleChevronLeftIcon
 				v-else
-				class="w-4 h-4"
+				class="w-6 h-6"
 			/>
 		</button>
-
-		<!-- Sidebar Content -->
-		<div
-			class="overflow-hidden"
-			v-if="open"
-		>
-			<ExblifepLogo />
-			<p class="mt-4">Sidebar content here...</p>
-		</div>
 	</aside>
 </template>
 
@@ -36,7 +38,14 @@ import ExblifepLogo from '../../icons/ExblifepLogo.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
 
-const props = defineProps({ open: Boolean });
+import SidebarItem from './SidebarItem.vue';
+
+const props = defineProps({
+	open: {
+		type: Boolean,
+		required: true,
+	},
+});
 const emit = defineEmits(['update:open']);
 
 const toggleSidebar = () => {
