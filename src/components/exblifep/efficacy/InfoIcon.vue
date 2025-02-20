@@ -1,5 +1,8 @@
 <template>
-	<div class="relative w-fit">
+	<div
+		class="relative w-fit cursor-pointer"
+		@click="emit('click', id)"
+	>
 		<img
 			:src="imageSrc"
 			:alt="imageAlt"
@@ -17,6 +20,10 @@
 
 <script setup>
 defineProps({
+	id: {
+		type: Number,
+		required: true,
+	},
 	imageSrc: {
 		type: String,
 		required: true,
@@ -30,4 +37,6 @@ defineProps({
 		default: false,
 	},
 });
+
+const emit = defineEmits(['click']);
 </script>

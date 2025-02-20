@@ -39,22 +39,19 @@
 			<section class="flex gap-x-16">
 				<div class="flex flex-col gap-y-12">
 					<InfoIcon
-						image-src="/src/assets/images/water-drop.png"
-						image-alt="Water Drop"
-						:active="true"
-					/>
-					<InfoIcon
-						image-src="/src/assets/images/24-hours.png"
-						image-alt="Water Drop"
-						:active="false"
-					/>
-					<InfoIcon
-						image-src="/src/assets/images/lungs.png"
-						image-alt="Water Drop"
-						:active="false"
+						v-for="tab in tabsInfo"
+						:key="tab.id"
+						:id="tab.id"
+						:image-src="tab.imageSrc"
+						:image-alt="tab.imageAlt"
+						:active="tab.active"
+						@click="onClickTab"
 					/>
 				</div>
-				<InfoCard />
+				<InfoCard
+					:text="activeTabText"
+					:image-src="activeTabImageSrc"
+				/>
 			</section>
 			<footer class="text-cool-grey text-[10px] leading-normal mt-3.5 relative z-10">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
@@ -70,10 +67,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import InfoIcon from './efficacy/InfoIcon.vue';
 import InfoCard from './efficacy/InfoCard.vue';
+
+const Tabs = Object.freeze({
+	DROP: 1,
+	TIME: 2,
+	LUNGS: 3,
+});
 
 defineProps({
 	sidebarOpen: {
@@ -82,10 +85,36 @@ defineProps({
 	},
 });
 
-const Tabs = Object.freeze({
-	OVERALL_SUCCESS: 1,
-	CLINICAL_CURE: 2,
-});
+const tabsInfo = ref([
+	{
+		id: Tabs.DROP,
+		text: 'Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.6',
+		imageSrc: '/src/assets/images/water-drop.png',
+		imageAlt: 'Water Drop',
+		active: true,
+	},
+	{
+		id: Tabs.TIME,
+		text: 'Concentrations of both agents are detectable in plasma for 24 hours after last administration.6',
+		imageSrc: '/src/assets/images/24-hours.png',
+		imageAlt: '24 Hours',
+		active: false,
+	},
+	{
+		id: Tabs.LUNGS,
+		text: 'Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines for the management of HAP/VAP.7,8',
+		imageSrc: '/src/assets/images/lungs.png',
+		imageAlt: 'Lungs',
+		active: false,
+	},
+]);
 
-const activeTab = ref(Tabs.OVERALL_SUCCESS);
+const activeTabText = computed(() => tabsInfo.value.find((tab) => tab.active).text);
+const activeTabImageSrc = computed(() => tabsInfo.value.find((tab) => tab.active).imageSrc);
+
+const onClickTab = (id) => {
+	tabsInfo.value.forEach((tab) => {
+		tab.active = tab.id === id;
+	});
+};
 </script>
