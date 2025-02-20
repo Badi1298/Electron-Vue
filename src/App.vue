@@ -1,6 +1,6 @@
 <template>
 	<main class="relative flex h-screen bg-textured gap-x-6 transition-all duration-300">
-		<div class="absolute right-12 top-[76px] z-10">
+		<div class="absolute right-12 top-[76px] z-20">
 			<ExblifepLogo />
 		</div>
 
@@ -17,6 +17,12 @@
 
 		<Sidebar v-model:open="sidebarOpen" />
 	</main>
+	<footer class="fixed bottom-5 left-5">Explore another brand</footer>
+	<img
+		src="./assets/images/background-green-circle.png"
+		alt="Background Green Circle"
+		class="fixed bottom-0 right-0 z-0 w-[756px] h-auto"
+	/>
 </template>
 
 <script setup>

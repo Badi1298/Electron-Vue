@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-between">
+	<div class="flex justify-between z-10 relative">
 		<div class="flex flex-col">
 			<div class="flex">
 				<section class="flex flex-col pt-28">
