@@ -1,6 +1,9 @@
 <template>
 	<div class="flex flex-col h-full">
-		<div class="pt-16 font-effra">
+		<div
+			class="transition-all duration-300 pt-16 font-effra"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+		>
 			<div class="absolute left-[50px] top-1/2 -translate-y-1/2 flex flex-col gap-y-6">
 				<img
 					src="/src/assets/images/active-dot.png"
@@ -69,7 +72,7 @@
 						alt="Chart B"
 					/>
 				</div>
-				<div class="bg-[#00EAFF] px-[22px]">
+				<div class="bg-[#00EAFF] px-[22px] border-[6px] border-white">
 					<img
 						src="/src/assets/images/chart-up.png"
 						alt="Chart Up"

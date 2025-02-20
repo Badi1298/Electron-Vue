@@ -4,10 +4,7 @@
 			<ExblifepLogo />
 		</div>
 
-		<div
-			:class="spacingLeft"
-			class="flex flex-1 transition-all duration-300"
-		>
+		<div class="flex flex-1 transition-all duration-300">
 			<router-view v-slot="{ Component }">
 				<!-- <transition name="fade"> -->
 				<component
@@ -40,12 +37,6 @@ const sidebarOpen = ref(true);
 const route = useRoute();
 
 const isHome = computed(() => route.path === '/');
-
-const spacingLeft = computed(() => {
-	if (isHome.value) return '';
-
-	return sidebarOpen.value ? 'ml-[124px]' : 'ml-[224px]';
-});
 </script>
 
 <style scoped>
