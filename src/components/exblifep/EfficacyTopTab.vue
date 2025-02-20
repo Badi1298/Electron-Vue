@@ -40,7 +40,7 @@
 				pathogens1
 			</p>
 
-			<div class="flex pt-5 gap-x-[22px] z-10 relative">
+			<section class="flex pt-5 gap-x-[22px] z-10 relative">
 				<div class="flex flex-col w-[1034px]">
 					<div class="grid grid-cols-[1fr_2fr] gap-x-2">
 						<button
@@ -80,7 +80,7 @@
 						to piperacillin/tazobactam, representing a new appropriate option to treat cUTIs<sup>1</sup>
 					</p>
 				</div>
-			</div>
+			</section>
 			<footer class="text-[#646469] text-[10px] leading-normal mt-3.5 relative z-10">
 				CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set. *Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of

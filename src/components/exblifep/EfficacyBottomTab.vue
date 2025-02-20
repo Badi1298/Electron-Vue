@@ -36,55 +36,19 @@
 				alt="Lime Green Border"
 				class="h-1.5 w-auto mt-5 mb-7"
 			/>
-			<div class="flex gap-x-[22px] z-10 relative">
-				<div class="flex flex-col w-[1034px]">
-					<div class="grid grid-cols-[1fr_2fr] gap-x-2">
-						<button
-							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-300"
-							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
-							@click="activeTab = Tabs.OVERALL_SUCCESS"
-						>
-							Overall success*: Day 14
-						</button>
-						<button
-							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-300"
-							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
-							@click="activeTab = Tabs.CLINICAL_CURE"
-						>
-							Clinical cure & Microbiological eradication: Day 14
-						</button>
-					</div>
-					<img
-						v-if="activeTab === Tabs.OVERALL_SUCCESS"
-						src="/src/assets/images/chart-a.svg"
-						alt="Chart A"
-					/>
-					<img
-						v-if="activeTab === Tabs.CLINICAL_CURE"
-						src="/src/assets/images/chart-b.png"
-						alt="Chart B"
-					/>
-				</div>
-				<div class="bg-[#00EAFF] px-[22px]">
-					<img
-						src="/src/assets/images/chart-up.png"
-						alt="Chart Up"
-						class="w-[130px] h-[130px]"
-					/>
-					<h3 class="text-[32px] max-w-[280px] mt-14 font-bold leading-normal">EXBLIFEP<sup>®</sup> demonstrated superiority</h3>
-					<p class="max-w-[280px] mt-3.5 text-xl leading-normal">
-						to piperacillin/tazobactam, representing a new appropriate option to treat cUTIs<sup>1</sup>
-					</p>
-				</div>
-			</div>
+			<section>
+				<InfoIcon
+					image-src="/src/assets/images/water-drop.png"
+					image-alt="Water Drop"
+				/>
+			</section>
 			<footer class="text-[#646469] text-[10px] leading-normal mt-3.5 relative z-10">
-				CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
-				primary analysis set. *Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of
-				complete resolution of the baseline signs and symptoms present at screening (clinical cure) and reduction of qualifying baseline pathogen to
-				less than 103 CFU/mL in urine (microbiological eradication) at Day 14. The PAS included all patients who received at least 1 dose of study drug
-				and had a gram-negative baseline pathogen in urine at 105 CFU/mL or more or the same pathogen present in both blood and urine cultures that was
-				not resistant to either cefepime/enmetazobactam (MIC ≤8 μg/mL) or piperacillin/tazobactam (MIC ≤64 μg/mL).1†Treatment difference is the
-				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1
+				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
+				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation. *The intrapulmonary PK
+				of 2.0 g-1.0 g of EXBLIFEP® IV q8h was assessed in the plasma and epithelial lining fluid obtained by bronchoalveolar lavage in 20 healthy
+				volunteers. In this study, EXBLIFEP® was well tolerated. There were no serious adverse events. None of the treatment-emergent adverse events led
+				to the discontinuation of study drugs. All adverse events spontaneously resolved without sequelae.6 †Consideration should be given to official
+				guidance on the appropriate use of antibacterial agents.
 			</footer>
 		</div>
 		<button>Next Section</button>
@@ -93,6 +57,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import InfoIcon from './efficacy/InfoIcon.vue';
 
 defineProps({
 	sidebarOpen: {
