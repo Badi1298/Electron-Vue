@@ -44,7 +44,7 @@
 			/>
 			<section class="flex gap-x-16">
 				<div class="flex flex-col gap-y-12">
-					<InfoIcon
+					<info-icon
 						v-for="tab in tabsInfo"
 						:key="tab.id"
 						:id="tab.id"
@@ -58,7 +58,7 @@
 					name="fade"
 					mode="out-in"
 				>
-					<InfoCard
+					<info-card
 						:key="activeTabText"
 						:text="activeTabText"
 						:image-src="activeTabImageSrc"
@@ -106,14 +106,8 @@
 			</footer>
 		</div>
 		<div class="flex justify-between items-center">
-			<ExploreAnother />
-			<button class="flex justify-center items-center text-2xl font-effra gap-x-3 px-10 py-3 bg-electric-blue z-20 text-white">
-				<span>Next Section</span>
-				<img
-					src="/src/assets/images/chevron-right-white.png"
-					class="w-[50px] h-auto"
-				/>
-			</button>
+			<explore-another />
+			<next-section />
 		</div>
 	</div>
 </template>
@@ -121,6 +115,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 
+import NextSection from './NextSection.vue';
 import InfoIcon from './efficacy/InfoIcon.vue';
 import InfoCard from './efficacy/InfoCard.vue';
 import ExploreAnother from './ExploreAnother.vue';
