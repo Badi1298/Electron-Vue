@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative">
+	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -50,7 +50,7 @@
 						/>
 					</template>
 				</div>
-				<div class="border-t-[3px] border-[#97D700]">
+				<div class="border-t-[3px] border-[#97D700] w-[1412px]">
 					<p
 						v-if="steps[0].active"
 						class="text-2xl text-cool-grey pr-20 pt-12"
@@ -64,7 +64,7 @@
 						<p class="text-2xl text-cool-grey pt-12">
 							Withdraw 10 mL from an infusion bag of 250 mL (compatible injection solution) and reconstitute the EXBLIFEP<sup>®</sup> vial.
 						</p>
-						<ul class="flex flex-col gap-y-2.5 text-2xl list-disc pl-5 mt-8 ml-3">
+						<ul class="flex flex-col gap-y-2.5 text-2xl list-disc pl-5 mt-8 ml-3 max-w-[450px]">
 							<li class="text-dark-blue"><span class="text-cool-grey">0.9% sodium chloride 5% glucose</span></li>
 							<li class="text-dark-blue"><span class="text-cool-grey">5% glucose</span></li>
 							<li class="text-dark-blue"><span class="text-cool-grey">Combination containing 2.5% glucose and 0.45% sodium chloride</span></li>
@@ -81,7 +81,7 @@
 					</div>
 					<div
 						v-if="steps[3].active"
-						class="text-base text-cool-grey grid grid-cols-2 gap-x-10 pt-5"
+						class="text-base text-cool-grey grid grid-cols-2 pt-5"
 					>
 						<div class="max-w-[610px]">
 							<ul class="flex flex-col gap-y-1 list-disc pl-4 ml-3">
@@ -118,11 +118,21 @@
 		</div>
 		<footer class="relative pb-6">
 			<p
+				v-if="steps[3].active"
 				class="transition-all duration-300 mb-4 text-dark-blue font-bold text-xl"
 				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 			>
 				Any unused medicinal product or waste material should be disposed of in accordance with local requirements.
 			</p>
+			<the-footer
+				v-else
+				class="transition-all duration-300 mb-4"
+				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			>
+				EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data are
+				available.1
+			</the-footer>
+
 			<ExploreAnother />
 		</footer>
 	</div>
@@ -131,6 +141,7 @@
 <script setup>
 import { ref } from 'vue';
 
+import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
 import ChevronRight from '../../../icons/ChevronRight.vue';
 
