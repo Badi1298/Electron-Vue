@@ -16,7 +16,7 @@
 			class="flex flex-col font-effra transition-all duration-300 relative pb-6"
 			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 		>
-			<div>
+			<div class="pt-[70px]">
 				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Reconstitution and dilution of EXBLIFEP<sup>®5</sup></h1>
 				<img
 					src="/src/assets/images/lime-green-border.png"
@@ -53,7 +53,7 @@
 				<div class="border-t-[3px] border-[#97D700]">
 					<p
 						v-if="steps[0].active"
-						class="text-2xl text-cool-grey pr-20"
+						class="text-2xl text-cool-grey pr-20 pt-12"
 					>
 						EXBLIFEP® is supplied as a dry powder in a single-dose vial that must be reconstituted and further diluted prior to IV infusion. Inspect
 						the vial before use. Cefepime-enmetazobactam is compatible with sodium chloride 9 mg/ml (0.9%) solution for injection, 5% glucose
@@ -61,7 +61,7 @@
 						0.45% sodium chloride).
 					</p>
 					<div v-if="steps[1].active">
-						<p class="text-2xl text-cool-grey">
+						<p class="text-2xl text-cool-grey pt-12">
 							Withdraw 10 mL from an infusion bag of 250 mL (compatible injection solution) and reconstitute the EXBLIFEP<sup>®</sup> vial.
 						</p>
 						<ul class="flex flex-col gap-y-2.5 text-2xl list-disc pl-5 mt-8 ml-3">
@@ -72,7 +72,7 @@
 					</div>
 					<div
 						v-if="steps[2].active"
-						class="text-2xl text-cool-grey flex flex-col gap-y-5"
+						class="text-2xl text-cool-grey flex flex-col gap-y-5 pt-12"
 					>
 						<p>Mix gently to dissolve.</p>
 						<p><span class="text-dark-blue font-bold">CAUTION:</span> the reconstituted solution is not for direct injection.</p>
@@ -83,8 +83,8 @@
 						v-if="steps[3].active"
 						class="text-base text-cool-grey grid grid-cols-2 gap-x-10 pt-5"
 					>
-						<div>
-							<ul class="flex flex-col gap-y-2.5 list-disc pl-5 ml-3">
+						<div class="max-w-[610px]">
+							<ul class="flex flex-col gap-y-1 list-disc pl-4 ml-3">
 								<li class="text-dark-blue font-bold">Dilute further, immediately</li>
 								<li class="text-cool-grey">
 									Dilute the reconstituted solution <span class="text-dark-blue font-bold">in an infusion bag of 250 mL</span> (compatible
@@ -131,7 +131,6 @@
 <script setup>
 import { ref } from 'vue';
 
-import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
 import ChevronRight from '../../../icons/ChevronRight.vue';
 
