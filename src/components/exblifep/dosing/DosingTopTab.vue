@@ -48,7 +48,7 @@
 					/>
 					<div
 						v-if="tab.active"
-						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] w-[806px] -ml-20"
+						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] w-[806px] -ml-20 z-10"
 					>
 						<div class="flex items-end">
 							<img
