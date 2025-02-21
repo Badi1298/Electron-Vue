@@ -72,7 +72,7 @@ const routes = ref([
 		route: '/safety',
 	},
 	{
-		name: 'Dosing and administration',
+		name: 'Dosing',
 		icon: markRaw(DosingIcon),
 		route: '/dosing',
 	},
