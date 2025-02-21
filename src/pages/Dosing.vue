@@ -27,7 +27,7 @@
 			<div class="flex pt-5 gap-x-16">
 				<div
 					v-for="tab in tabs"
-					:key="tab.name"
+					:key="tab.id"
 					class="flex"
 					@click="activateTab(tab)"
 				>
@@ -38,7 +38,7 @@
 					/>
 					<div
 						v-if="tab.active"
-						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 pr-16 rounded-r-[30px] w-[806px] -ml-20"
+						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] w-[806px] -ml-20"
 					>
 						<div class="flex items-end">
 							<img
@@ -48,17 +48,10 @@
 							/>
 							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">Dosing</h3>
 						</div>
-						<div class="flex flex-col pl-10 text-2xl text-cool-grey">
-							<p>
-								The recommended dose for patients with normal renal function is
-								<span class="text-dark-blue font-bold">2.0 g/0.5 g cefepime/enmetazobactam.<sup>5</sup></span>
-							</p>
-							<p>
-								The usual duration of treatment is 7 to 10 days. In patients with bacteraemia treatment up to 14 days may be required.<sup
-									>5</sup
-								>
-							</p>
-						</div>
+						<div
+							class="flex flex-col pl-10 text-2xl text-cool-grey"
+							v-html="tab.details"
+						></div>
 					</div>
 				</div>
 			</div>
@@ -90,15 +83,64 @@ defineProps({
 
 const tabs = ref([
 	{
+		id: 1,
 		name: 'Dosing',
+		details: `
+			<p class="pr-20">
+				The recommended dose for patients with normal renal function is
+				<span class="text-dark-blue font-bold">2.0 g/0.5 g cefepime/enmetazobactam.<sup>5</sup></span>
+			</p>
+			<p class="pr-20 mt-5">
+				The usual duration of treatment is 7 to 10 days. In patients with bacteraemia treatment up to 14 days may be required.<sup
+					>5</sup
+				>
+			</p>
+		`,
 		active: true,
 	},
 	{
-		name: 'Administration',
+		id: 2,
+		name: 'Method of administration',
+		details: `
+			<p>Administered as:<sup>5</sup></p>
+			<ul class="flex flex-col gap-y-3.5 list-disc pl-5 ml-3">
+				<li class="text-dark-blue font-bold">
+					2-hour <span class="text-cool-grey font-normal">IV infusion for cUTI, includixng AP</span>
+				</li>
+				<li class="text-dark-blue font-bold">
+					4-hour <span class="text-cool-grey font-normal">IV infusion for HAP/VAP</span>
+				</li>
+				<li class="text-dark-blue font-bold">
+					4-hour <span class="text-cool-grey font-normal">IV infusion for patients with eGFR > 150 mL/min</span>
+				</li>
+			</ul>
+			<p class="mt-4">
+				Every <span class="text-dark-blue font-bold">8 hours<sup>5</sup></span>
+			</p>
+		`,
 		active: false,
 	},
 	{
+		id: 3,
 		name: 'Storage',
+		details: `
+			<p class="text-dark-blue font-bold">Powder vial:</p>
+			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3 pr-12">
+				<li class="text-dark-blue"><span class="text-cool-grey">Store in a refrigerator (2 °C - 8 °C)</span></li>
+				<li class="text-dark-blue">
+					<span class="text-cool-grey">Keep the vial in the outer carton in order to protect from light</span>
+				</li>
+				<li class="text-dark-blue"><span class="text-cool-grey">2-year shelf life</span></li>
+			</ul>
+			<p class="text-dark-blue font-bold mt-4">Reconstituted solution:</p>
+			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3 pr-5">
+				<li class="text-dark-blue"><span class="text-cool-grey">The reconstituted vial should be further diluted immediately</span></li>
+			</ul>
+			<p class="text-dark-blue font-bold mt-4">Diluted solution:</p>
+			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3">
+				<li class="text-dark-blue"><span class="text-cool-grey">Up to 6 hours in a refrigerator (2 °C - 8 °C)</span></li>
+			</ul>
+		`,
 		active: false,
 	},
 ]);
