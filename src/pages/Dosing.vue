@@ -16,13 +16,23 @@
 					class="h-5 w-5 cursor-pointer"
 				/>
 			</div>
-			<div>
-				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Dosing and administration of EXBLIFEP<sup>®5</sup></h1>
-				<img
-					src="/src/assets/images/lime-green-border.png"
-					alt="Lime Green Border"
-					class="h-1.5 w-[300px] my-5"
-				/>
+			<div class="flex justify-between">
+				<div>
+					<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Dosing and administration of EXBLIFEP<sup>®5</sup></h1>
+					<img
+						src="/src/assets/images/lime-green-border.png"
+						alt="Lime Green Border"
+						class="h-1.5 w-[300px] my-5"
+					/>
+				</div>
+				<div class="flex items-center gap-3.5">
+					<img
+						src="/src/assets/images/touch.png"
+						alt="Touch to select tab"
+						class="w-[70px] h-[70px]"
+					/>
+					<span class="text-cool-grey text-2xl">Touch a step to continue</span>
+				</div>
 			</div>
 			<div class="flex pt-5 gap-x-16">
 				<div
