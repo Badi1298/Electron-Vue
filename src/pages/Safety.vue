@@ -1,6 +1,9 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6">
-		<div class="flex flex-col justify-center font-effra">
+		<div
+			class="flex flex-col justify-center font-effra transition-all duration-300"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+		>
 			<div>
 				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
 					EXBLIFEP<sup>®</sup> demonstrated a favourable overall safety profile, comparable to piperacillin/tazobactam<sup>1,10</sup>
@@ -13,7 +16,7 @@
 			</div>
 			<div class="pt-10 grid grid-cols-[1fr_0.5fr] items-center">
 				<div class="flex flex-col gap-y-5">
-					<h2 class="text-2xl leading-normal font-bold text-dark-blue">
+					<h2 class="text-2xl leading-normal font-bold text-dark-blue max-w-[883px]">
 						Drug-related treatment-emergent adverse events in patients treated with EXBLIFEP<sup>®</sup> were comparable to piperacillin/tazobactam
 						in the ALLIUM study<sup>1</sup>
 					</h2>
@@ -46,6 +49,8 @@
 		</div>
 		<footer>
 			<the-footer
+				class="transition-all duration-300"
+				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
 				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
 			>
