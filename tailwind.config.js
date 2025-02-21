@@ -22,7 +22,8 @@ export default {
 			boxShadow: {
 				'exblifep-card': '0px 4px 14px 0px rgba(0, 0, 0, 0.25)',
 				sidebar: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
-				explore: '0px 0px 4px 0px rgba(0, 0, 0, 0.08);',
+				explore: '0px 0px 4px 0px rgba(0, 0, 0, 0.08)',
+				dark: '3px 4px 10px 2px rgba(0, 0, 0, 0.25)',
 			},
 		},
 	},

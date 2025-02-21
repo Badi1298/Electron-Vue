@@ -14,19 +14,23 @@
 					class="h-1.5 w-[300px] my-5"
 				/>
 			</div>
-			<section class="grid grid-cols-2 bg-white py-6 px-8 text-xl text-cool-grey gap-y-10 gap-x-20">
+			<section class="grid grid-cols-2 bg-white py-6 px-8 text-xl text-cool-grey gap-y-10 gap-x-20 max-w-[1380px]">
 				<div
 					v-for="(summary, index) in summaries"
 					class="flex gap-x-7 items-center"
 					:class="{ 'col-span-2': index === 0 }"
 				>
-					<p>image</p>
+					<img
+						:src="summary.imageScr"
+						:alt="`Summary Icon ${index + 1}`"
+						class="w-[130px] h-[130px]"
+					/>
 					<div class="min-w-[3px] h-[66px] bg-dark-blue"></div>
 					<p v-html="summary.content"></p>
 				</div>
 			</section>
 
-			<section class="max-w-[1380px] bg-[#00EAFF] py-4 flex items-center mt-9 relative z-10 border-[6px] border-white">
+			<section class="max-w-[1380px] bg-[#00EAFF] shadow-dark py-4 flex items-center mt-9 relative z-10 border-[6px] border-white">
 				<div class="pl-9 pr-7 py-3 border-r-[3px] border-[#002470]">
 					<img
 						src="/src/assets/images/chevron-right-bleu.png"
@@ -77,18 +81,23 @@ defineProps({
 
 const summaries = ref([
 	{
+		imageScr: '/src/assets/images/summary-icon-1.png',
 		content: `EXBLIFEP<sup>®</sup> is indicated for the <span class="text-dark-blue font-bold">treatment of adult patients with cUTI including AP, HAP/VAP and bacteraemia associated with these infections,</span> caused by gram-negative bacteria<sup>5</sup>`,
 	},
 	{
+		imageScr: '/src/assets/images/summary-icon-2.png',
 		content: `EXBLIFEP<sup>®</sup> demonstrated <span class="text-dark-blue font-bold">non-inferiority and superiority vs piperacillin/tazobactam</span> in the composite endpoint of clinical cure and microbiological eradication in adults with cUTIs at Day 14 in the Primary Analysis Set?<sup>†1</sup>`,
 	},
 	{
+		imageScr: '/src/assets/images/summary-icon-3.png',
 		content: `EXBLIFEP<sup>®</sup> is indicated to treat HAP/VAP, and <span class="text-dark-blue font-bold">could be a useful carbapenem-sparing option for ESBL-producing pathogens<sup>5,9</sup></span>`,
 	},
 	{
+		imageScr: '/src/assets/images/summary-icon-4.png',
 		content: `EXBLIFEP<sup>®</sup> demonstrated <span class="text-dark-blue font-bold">high intrapulmonary penetration</span> and similar distribution kinetics of both compounds into the ELF, supporting its use in the treatment of HAP/VAP<sup>6,10</sup>`,
 	},
 	{
+		imageScr: '/src/assets/images/summary-icon-5.png',
 		content: `EXBLIFEP<sup>®</sup> demonstrated a <span class="text-dark-blue font-bold">favourable overall safety profile, comparable to</span> piperacillin tazobactam<sup>1</sup>`,
 	},
 ]);
