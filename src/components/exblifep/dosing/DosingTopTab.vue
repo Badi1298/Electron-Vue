@@ -1,21 +1,21 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen">
+	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+			<img
+				src="/src/assets/images/active-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+			/>
+			<img
+				src="/src/assets/images/inactive-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+			/>
+		</div>
 		<div
 			class="flex flex-col justify-end font-effra transition-all duration-300 relative pb-6"
 			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 		>
-			<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
-				<img
-					src="/src/assets/images/active-dot.png"
-					alt="Active Dot"
-					class="h-5 w-5 cursor-pointer"
-				/>
-				<img
-					src="/src/assets/images/inactive-dot.png"
-					alt="Active Dot"
-					class="h-5 w-5 cursor-pointer"
-				/>
-			</div>
 			<div class="flex justify-between">
 				<div>
 					<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Dosing and administration of EXBLIFEP<sup>®5</sup></h1>
