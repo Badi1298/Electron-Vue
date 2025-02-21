@@ -12,6 +12,22 @@
 					class="h-1.5 w-[300px] my-5"
 				/>
 			</div>
+			<div class="relative z-20 flex items-center gap-x-10">
+				<template
+					v-for="(step, index) in steps"
+					:key="step.id"
+				>
+					<img
+						:src="step.active ? step.activeImageSrc : step.inactiveImageSrc"
+						:alt="`Dosing Step ${step.id}`"
+						class="w-[216px] h-auto"
+					/>
+					<ChevronRight
+						v-if="index < steps.length - 1"
+						class="w-24 h-24"
+					/>
+				</template>
+			</div>
 		</div>
 		<footer class="relative pb-6">
 			<the-footer
@@ -26,8 +42,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
+import ChevronRight from '../../../icons/ChevronRight.vue';
 
 defineProps({
 	sidebarOpen: {
@@ -35,4 +54,31 @@ defineProps({
 		required: true,
 	},
 });
+
+const steps = ref([
+	{
+		id: 1,
+		active: true,
+		activeImageSrc: '/src/assets/images/dosing-step-1-active.png',
+		inactiveImageSrc: '/src/assets/images/dosing-step-1-inactive.png',
+	},
+	{
+		id: 2,
+		active: false,
+		activeImageSrc: '/src/assets/images/dosing-step-2-inactive.png',
+		inactiveImageSrc: '/src/assets/images/dosing-step-2-inactive.png',
+	},
+	{
+		id: 3,
+		active: false,
+		activeImageSrc: '/src/assets/images/dosing-step-3-inactive.png',
+		inactiveImageSrc: '/src/assets/images/dosing-step-3-inactive.png',
+	},
+	{
+		id: 4,
+		active: false,
+		activeImageSrc: '/src/assets/images/dosing-step-4-inactive.png',
+		inactiveImageSrc: '/src/assets/images/dosing-step-4-inactive.png',
+	},
+]);
 </script>
