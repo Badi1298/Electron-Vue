@@ -24,12 +24,43 @@
 					class="h-1.5 w-[300px] my-5"
 				/>
 			</div>
-			<div class="pt-5">
-				<img
-					src="/src/assets/images/dosing-button-full.png"
-					alt="Dosing Full"
-					class="h-[704px] w-auto"
-				/>
+			<div class="flex pt-5 gap-x-16">
+				<div
+					v-for="tab in tabs"
+					:key="tab.name"
+					class="flex"
+					@click="activateTab(tab)"
+				>
+					<img
+						src="/src/assets/images/dosing-button-full.png"
+						alt="Dosing Full"
+						class="h-[704px] w-auto z-20"
+					/>
+					<div
+						v-if="tab.active"
+						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 pr-16 rounded-r-[30px] w-[806px] -ml-20"
+					>
+						<div class="flex items-end">
+							<img
+								src="/src/assets/images/dosing-bottle.png"
+								alt="Dosing Bottle"
+								class="w-[150px] h-[150px]"
+							/>
+							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">Dosing</h3>
+						</div>
+						<div class="flex flex-col pl-10 text-2xl text-cool-grey">
+							<p>
+								The recommended dose for patients with normal renal function is
+								<span class="text-dark-blue font-bold">2.0 g/0.5 g cefepime/enmetazobactam.<sup>5</sup></span>
+							</p>
+							<p>
+								The usual duration of treatment is 7 to 10 days. In patients with bacteraemia treatment up to 14 days may be required.<sup
+									>5</sup
+								>
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer>
@@ -45,6 +76,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 import TheFooter from '../components/exblifep/TheFooter.vue';
 import ExploreAnother from '../components/exblifep/ExploreAnother.vue';
 
@@ -54,4 +87,24 @@ defineProps({
 		required: true,
 	},
 });
+
+const tabs = ref([
+	{
+		name: 'Dosing',
+		active: true,
+	},
+	{
+		name: 'Administration',
+		active: false,
+	},
+	{
+		name: 'Storage',
+		active: false,
+	},
+]);
+
+const activateTab = (tab) => {
+	tabs.value.forEach((tab) => (tab.active = false));
+	tab.active = true;
+};
 </script>
