@@ -1,7 +1,7 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 min-h-screen">
 		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300 relative pb-6"
+			class="flex flex-col justify-center font-effra transition-all duration-300 relative pb-6"
 			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 		>
 			<div>
@@ -12,16 +12,25 @@
 					class="h-1.5 w-[300px] my-5"
 				/>
 			</div>
-			<div class="relative z-20 flex items-center gap-x-10">
+			<div class="z-20 flex items-center gap-x-10">
 				<template
 					v-for="(step, index) in steps"
 					:key="step.id"
 				>
-					<img
-						:src="step.active ? step.activeImageSrc : step.inactiveImageSrc"
-						:alt="`Dosing Step ${step.id}`"
-						class="w-[216px] h-auto"
-					/>
+					<div class="relative">
+						<img
+							:src="step.active ? step.activeImageSrc : step.inactiveImageSrc"
+							:alt="`Dosing Step ${step.id}`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(index)"
+						/>
+						<img
+							v-if="step.active"
+							src="/src/assets/images/active-arrow-down.png"
+							alt="Active Arrow Down"
+							class="absolute -bottom-16 z-0 left-1/2 -translate-x-1/2 w-[92px] h-auto"
+						/>
+					</div>
 					<ChevronRight
 						v-if="index < steps.length - 1"
 						class="w-24 h-24"
@@ -65,20 +74,26 @@ const steps = ref([
 	{
 		id: 2,
 		active: false,
-		activeImageSrc: '/src/assets/images/dosing-step-2-inactive.png',
+		activeImageSrc: '/src/assets/images/dosing-step-2-active.png',
 		inactiveImageSrc: '/src/assets/images/dosing-step-2-inactive.png',
 	},
 	{
 		id: 3,
 		active: false,
-		activeImageSrc: '/src/assets/images/dosing-step-3-inactive.png',
+		activeImageSrc: '/src/assets/images/dosing-step-3-active.png',
 		inactiveImageSrc: '/src/assets/images/dosing-step-3-inactive.png',
 	},
 	{
 		id: 4,
 		active: false,
-		activeImageSrc: '/src/assets/images/dosing-step-4-inactive.png',
+		activeImageSrc: '/src/assets/images/dosing-step-4-active.png',
 		inactiveImageSrc: '/src/assets/images/dosing-step-4-inactive.png',
 	},
 ]);
+
+const onStepClick = (index) => {
+	steps.value.forEach((step, i) => {
+		step.active = i === index;
+	});
+};
 </script>
