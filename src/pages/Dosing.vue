@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 pb-6">
+	<div class="grid grid-cols-1 grid-rows-1">
 		<div
 			class="flex flex-col justify-end font-effra transition-all duration-300 relative pb-6"
 			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
@@ -32,7 +32,7 @@
 					@click="activateTab(tab)"
 				>
 					<img
-						src="/src/assets/images/dosing-button-full.png"
+						:src="tab.active ? tab.activeImageSrc : tab.inactiveImageSrc"
 						alt="Dosing Full"
 						class="h-[704px] w-auto z-20"
 					/>
@@ -46,7 +46,7 @@
 								alt="Dosing Bottle"
 								class="w-[150px] h-[150px]"
 							/>
-							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">Dosing</h3>
+							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">{{ tab.name }}</h3>
 						</div>
 						<div
 							class="flex flex-col pl-10 text-2xl text-cool-grey"
@@ -56,7 +56,7 @@
 				</div>
 			</div>
 		</div>
-		<footer>
+		<footer class="relative pb-6">
 			<the-footer
 				class="transition-all duration-300 mb-4"
 				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
@@ -64,6 +64,11 @@
 				available.5</the-footer
 			>
 			<ExploreAnother />
+			<img
+				src="/src/assets/images/down-button-blue.png"
+				alt="Down Button"
+				class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
+			/>
 		</footer>
 	</div>
 </template>
@@ -96,6 +101,8 @@ const tabs = ref([
 				>
 			</p>
 		`,
+		activeImageSrc: '/src/assets/images/dosing-button-full.png',
+		inactiveImageSrc: '/src/assets/images/dosing-button-empty.png',
 		active: true,
 	},
 	{
@@ -118,6 +125,8 @@ const tabs = ref([
 				Every <span class="text-dark-blue font-bold">8 hours<sup>5</sup></span>
 			</p>
 		`,
+		activeImageSrc: '/src/assets/images/administration-button-full.png',
+		inactiveImageSrc: '/src/assets/images/administration-button-empty.png',
 		active: false,
 	},
 	{
@@ -141,6 +150,8 @@ const tabs = ref([
 				<li class="text-dark-blue"><span class="text-cool-grey">Up to 6 hours in a refrigerator (2 °C - 8 °C)</span></li>
 			</ul>
 		`,
+		activeImageSrc: '/src/assets/images/storage-button-full.png',
+		inactiveImageSrc: '/src/assets/images/storage-button-empty.png',
 		active: false,
 	},
 ]);
