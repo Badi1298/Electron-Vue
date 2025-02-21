@@ -6,6 +6,7 @@ export default {
 			white: '#FFFFFF',
 			black: '#000000',
 			'electric-blue': '#1F17F6',
+			'dark-blue': '#002470',
 			'cool-grey': '#646469',
 		},
 		extend: {
