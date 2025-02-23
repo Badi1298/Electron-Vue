@@ -58,7 +58,7 @@
 				baseline pathogen in urine at 105 CFU/mL or more or the same pathogen present in both blood and urine cultures that was not resistant to either
 				cefepime/enmetazobactam (MIC ≤ 8 μg/mL) or piperacillin/tazobactam (MIC ≤ 64 μg/mL).<sup>1</sup>
 			</the-footer>
-			<div class="flex justify-between items-center mt-4">
+			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<NextSection />
 			</div>
