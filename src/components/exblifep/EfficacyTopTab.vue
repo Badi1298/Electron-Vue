@@ -1,28 +1,32 @@
 <template>
-	<div class="flex flex-col h-full">
+	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+			<img
+				src="/src/assets/images/active-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+			/>
+			<img
+				src="/src/assets/images/inactive-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+			/>
+		</div>
 		<div
-			class="relative transition-all duration-300 pt-16 font-effra"
+			class="flex flex-col justify-center font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<div
-				class="absolute top-1/2 -left-[70px] flex flex-col gap-y-6 z-20 transform transition-transform duration-300"
-				:class="{ '-translate-x-[70px]': !sidebarOpen }"
-			>
-				<img
-					src="/src/assets/images/active-dot.png"
-					alt="Active Dot"
-					class="h-5 w-5 cursor-pointer"
-				/>
-				<img
-					src="/src/assets/images/inactive-dot.png"
-					alt="Active Dot"
-					class="h-5 w-5 cursor-pointer"
-				/>
-			</div>
 			<div class="flex justify-between mr-12">
-				<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[920px]">
-					EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
-				</h1>
+				<div>
+					<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[920px]">
+						EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
+					</h1>
+					<img
+						src="/src/assets/images/lime-green-border.png"
+						alt="Lime Green Border"
+						class="h-1.5 w-auto my-5"
+					/>
+				</div>
 				<div
 					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
 					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full']"
@@ -35,11 +39,7 @@
 					<span>Select a tab</span>
 				</div>
 			</div>
-			<img
-				src="/src/assets/images/lime-green-border.png"
-				alt="Lime Green Border"
-				class="h-1.5 w-auto my-5"
-			/>
+
 			<p class="max-w-[1300px] text-xl leading-normal">
 				In ALLIUM, EXBLIFEP® demonstrated both non-inferiority and statistical superiority in overall treatment success (a composite endpoint of
 				clinical cure and microbiological eradication) at Day 14 vs piperacillin/tazobactam in patients in the PAS with cUTIs caused by gram-negative

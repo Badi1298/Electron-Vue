@@ -13,7 +13,7 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300 relative pb-6"
+			class="flex flex-col justify-center font-effra transition-all duration-300 relative pb-6"
 			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 		>
 			<div class="flex justify-between">
