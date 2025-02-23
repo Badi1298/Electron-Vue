@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 pb-6">
+	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
 		<div
 			class="flex flex-col justify-center font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
@@ -54,7 +54,7 @@
 				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
 				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
 			>
-			<div class="flex justify-between items-center mt-4">
+			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<NextSection />
 			</div>

@@ -1,30 +1,33 @@
 <template>
-	<div class="flex flex-col h-full">
+	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+			<img
+				src="/src/assets/images/inactive-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+			/>
+			<img
+				src="/src/assets/images/active-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+			/>
+		</div>
 		<div
-			class="relative transition-all duration-300 pt-16 font-effra"
+			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<div
-				class="absolute top-1/2 -left-[70px] flex flex-col gap-y-6 z-20 transform transition-transform duration-300"
-				:class="{ '-translate-x-[70px]': !sidebarOpen }"
-			>
-				<img
-					src="/src/assets/images/inactive-dot.png"
-					alt="Active Dot"
-					class="h-5 w-5 cursor-pointer"
-				/>
-				<img
-					src="/src/assets/images/active-dot.png"
-					alt="Active Dot"
-					class="h-5 w-5 cursor-pointer"
-				/>
-			</div>
-			<div class="flex justify-between mr-12">
-				<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[950px]">
-					EXBLIFEP<sup>®</sup> demonstrated high intrapulmonary penetration in healthy volunteers, supporting its use in the treatment of HAP/VAP<sup
-						>6</sup
-					>
-				</h1>
+			<div class="flex justify-between mr-12 items-center">
+				<div>
+					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
+						EXBLIFEP<sup>®</sup> demonstrated high intrapulmonary penetration in healthy volunteers, supporting its use in the treatment of
+						HAP/VAP<sup>6</sup>
+					</h1>
+					<img
+						src="/src/assets/images/lime-green-border.png"
+						alt="Lime Green Border"
+						class="h-1.5 w-[300px] my-5"
+					/>
+				</div>
 				<div
 					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
 					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full']"
@@ -37,11 +40,7 @@
 					<span>Select a tab</span>
 				</div>
 			</div>
-			<img
-				src="/src/assets/images/lime-green-border.png"
-				alt="Lime Green Border"
-				class="h-1.5 w-auto mt-5 mb-7"
-			/>
+
 			<section class="flex gap-x-16">
 				<div class="flex flex-col gap-y-12">
 					<info-icon
@@ -82,7 +81,7 @@
 					</p>
 				</div>
 			</section>
-			<section class="bg-[#00EAFF] py-4 flex items-center mt-9 relative z-10 border-[6px] border-white">
+			<section class="bg-[#00EAFF] py-4 flex items-center mt-9 relative z-10 border-[6px] border-white max-w-[1400px]">
 				<div class="pl-9 py-3 border-r-[3px] border-[#002470]">
 					<img
 						src="/src/assets/images/chevron-right-bleu.png"
@@ -94,7 +93,13 @@
 					EXBLIFEP® is indicated to treat HAP/VAP, and could be a useful carbapenem-sparing option for ESBL-producing pathogens<sup>†5,9</sup>
 				</h2>
 			</section>
-			<footer class="text-cool-grey text-[10px] leading-normal mt-11 relative z-10">
+		</div>
+
+		<footer>
+			<the-footer
+				class="transition-all duration-300 mb-4"
+				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			>
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
 				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
@@ -103,18 +108,19 @@
 				None of the treatment-emergent adverse events led to the discontinuation of study drugs. All adverse events spontaneously resolved without
 				sequelae.<sup>6</sup><br />
 				<sup>†</sup>Consideration should be given to official guidance on the appropriate use of antibacterial agents.
-			</footer>
-		</div>
-		<div class="flex justify-between items-center">
-			<explore-another />
-			<next-section />
-		</div>
+			</the-footer>
+			<div class="flex justify-between items-center mt-4 mr-12">
+				<ExploreAnother />
+				<NextSection />
+			</div>
+		</footer>
 	</div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue';
 
+import TheFooter from './TheFooter.vue';
 import NextSection from './NextSection.vue';
 import InfoIcon from './efficacy/InfoIcon.vue';
 import InfoCard from './efficacy/InfoCard.vue';

@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10">
+	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10 h-full">
 		<div
 			class="flex flex-col justify-center font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
@@ -58,7 +58,7 @@
 				baseline pathogen in urine at 105 CFU/mL or more or the same pathogen present in both blood and urine cultures that was not resistant to either
 				cefepime/enmetazobactam (MIC ≤ 8 μg/mL) or piperacillin/tazobactam (MIC ≤ 64 μg/mL).<sup>1</sup>
 			</the-footer>
-			<div class="flex justify-between items-center mt-4">
+			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<NextSection />
 			</div>

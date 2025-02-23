@@ -1,7 +1,6 @@
 <template>
 	<div class="home">
-		<h1>Welcome to the Home Page</h1>
-		<RouterLink to="/about-us">About Us</RouterLink>
+		<RouterLink to="/exblifep">Exblifep</RouterLink>
 	</div>
 </template>
 

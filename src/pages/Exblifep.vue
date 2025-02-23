@@ -1,6 +1,6 @@
 <template>
-	<div class="flex justify-between z-10 relative">
-		<div class="flex flex-col">
+	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
+		<div class="flex flex-col justify-center">
 			<div class="flex">
 				<section class="flex flex-col pt-24">
 					<img
@@ -57,15 +57,15 @@
 					</card>
 				</section>
 			</div>
-			<footer class="pl-[74px] pt-6 text-[10px] text-cool-grey font-effra">
-				*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL in urine.1
-				<br />
-				EXBLIFEP® is indicated for the treatment of the following infections in adults:5 - Complicated urinary tract infections (cUTI), including
-				pyelonephritis - Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP) Treatment of patients with bacteraemia that
-				occurs in association with, or is suspected to be associated with, any of the infections listed above.5 Consideration should be given to
-				official guidance on the appropriate use of antibacterial agents.5 For healthcare professionals only.
-			</footer>
 		</div>
+		<footer class="pl-[74px] pt-6 text-[10px] text-cool-grey font-effra">
+			*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL in urine.1
+			<br />
+			EXBLIFEP® is indicated for the treatment of the following infections in adults:5 - Complicated urinary tract infections (cUTI), including
+			pyelonephritis - Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP) Treatment of patients with bacteraemia that
+			occurs in association with, or is suspected to be associated with, any of the infections listed above.5 Consideration should be given to official
+			guidance on the appropriate use of antibacterial agents.5 For healthcare professionals only.
+		</footer>
 	</div>
 </template>
 
