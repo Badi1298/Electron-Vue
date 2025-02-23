@@ -1,19 +1,15 @@
 <template>
-	<div class="grid grid-cols-5 min-h-screen bg-textured">
+	<main class="flex justify-between min-h-screen">
 		<router-view v-slot="{ Component }">
 			<!-- <transition name="fade"> -->
 			<component
 				:is="Component"
 				:sidebarOpen="sidebarOpen"
-				class="col-span-4"
 			/>
 			<!-- </transition> -->
 		</router-view>
-		<Sidebar
-			v-model:open="sidebarOpen"
-			class="justify-self-end"
-		/>
-	</div>
+		<Sidebar v-model:open="sidebarOpen" />
+	</main>
 </template>
 
 <script setup>
