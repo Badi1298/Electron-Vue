@@ -59,7 +59,7 @@ const routes = ref([
 	{
 		name: 'Home',
 		icon: markRaw(HomeIcon),
-		route: '/',
+		route: '/exblifep',
 	},
 	{
 		name: 'Efficacy',
