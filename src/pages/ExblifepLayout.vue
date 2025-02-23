@@ -1,13 +1,15 @@
 <template>
-	<main class="flex justify-between min-h-screen">
-		<router-view v-slot="{ Component }">
-			<!-- <transition name="fade"> -->
-			<component
-				:is="Component"
-				:sidebarOpen="sidebarOpen"
-			/>
-			<!-- </transition> -->
-		</router-view>
+	<main class="flex justify-between">
+		<div class="flex flex-col h-screen">
+			<router-view v-slot="{ Component }">
+				<!-- <transition name="fade"> -->
+				<component
+					:is="Component"
+					:sidebarOpen="sidebarOpen"
+				/>
+				<!-- </transition> -->
+			</router-view>
+		</div>
 		<Sidebar v-model:open="sidebarOpen" />
 	</main>
 </template>
