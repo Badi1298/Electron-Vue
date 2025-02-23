@@ -41,14 +41,17 @@
 					class="flex"
 					@click="activateTab(tab)"
 				>
+					<!-- Image Section -->
 					<img
 						:src="tab.active ? tab.activeImageSrc : tab.inactiveImageSrc"
 						alt="Dosing Full"
 						class="h-[704px] w-auto z-20 cursor-pointer"
 					/>
+
+					<!-- Expanding Content Section -->
 					<div
-						v-if="tab.active"
-						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] w-[806px] -ml-20 z-10"
+						:class="[tab.class, tab.active ? 'w-[806px]' : 'w-0 opacity-0']"
+						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
 						<div class="flex items-end">
 							<img
@@ -56,7 +59,9 @@
 								alt="Dosing Bottle"
 								class="w-[150px] h-[150px]"
 							/>
-							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">{{ tab.name }}</h3>
+							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
+								{{ tab.name }}
+							</h3>
 						</div>
 						<div
 							class="flex flex-col pl-10 text-2xl text-cool-grey"
@@ -84,7 +89,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
+import { gsap } from 'gsap';
 
 import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
@@ -99,6 +105,7 @@ defineProps({
 const tabs = ref([
 	{
 		id: 1,
+		class: 'dosing',
 		name: 'Dosing',
 		details: `
 			<p class="pr-20">
@@ -117,6 +124,7 @@ const tabs = ref([
 	},
 	{
 		id: 2,
+		class: 'administration',
 		name: 'Method of administration',
 		details: `
 			<p>Administered as:<sup>5</sup></p>
@@ -141,6 +149,7 @@ const tabs = ref([
 	},
 	{
 		id: 3,
+		class: 'storage',
 		name: 'Storage',
 		details: `
 			<p class="text-dark-blue font-bold">Powder vial:</p>
@@ -166,8 +175,37 @@ const tabs = ref([
 	},
 ]);
 
-const activateTab = (tab) => {
-	tabs.value.forEach((tab) => (tab.active = false));
-	tab.active = true;
+const activeTab = ref(1);
+
+const activateTab = async (newTab) => {
+	if (newTab.id === activeTab.value) return; // Do nothing if already active
+
+	const previousTab = tabs.value.find((tab) => tab.id === activeTab.value);
+	const nextTab = newTab;
+
+	// Shrink the currently active tab
+	gsap.to(`.${previousTab.class}`, {
+		width: 0,
+		opacity: 0,
+		duration: 0.4,
+		onComplete: async () => {
+			previousTab.active = false; // Hide the old tab content
+
+			activeTab.value = newTab.id;
+			nextTab.active = true; // Set the new tab as active
+
+			await nextTick(); // Ensure the new element is updated in the DOM
+
+			// Ensure the new tab starts at 0 width before expanding
+			gsap.set(`.${nextTab.class}`, { width: 0, opacity: 0 });
+
+			// Expand the new active tab smoothly
+			gsap.to(`.${nextTab.class}`, {
+				width: '806px',
+				opacity: 1,
+				duration: 0.4,
+			});
+		},
+	});
 };
 </script>
