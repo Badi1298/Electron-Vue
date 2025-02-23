@@ -54,7 +54,7 @@
 				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
 				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
 			>
-			<div class="flex justify-between items-center mt-4">
+			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<NextSection />
 			</div>

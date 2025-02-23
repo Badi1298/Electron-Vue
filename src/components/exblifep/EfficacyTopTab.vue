@@ -87,24 +87,27 @@
 					</p>
 				</div>
 			</section>
-			<footer class="text-cool-grey text-[10px] leading-normal mt-3.5 relative z-10">
-				CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
+		</div>
+
+		<footer class="relative pb-6">
+			<the-footer
+				class="transition-all duration-300 mb-4"
+				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set. *Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of
 				complete resolution of the baseline signs and symptoms present at screening (clinical cure) and reduction of qualifying baseline pathogen to
 				less than 103 CFU/mL in urine (microbiological eradication) at Day 14. The PAS included all patients who received at least 1 dose of study drug
 				and had a gram-negative baseline pathogen in urine at 105 CFU/mL or more or the same pathogen present in both blood and urine cultures that was
 				not resistant to either cefepime/enmetazobactam (MIC ≤8 μg/mL) or piperacillin/tazobactam (MIC ≤64 μg/mL).1†Treatment difference is the
-				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1
-			</footer>
-		</div>
-		<div class="relative flex-1">
+				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1</the-footer
+			>
+			<ExploreAnother />
 			<img
 				src="/src/assets/images/down-button-blue.png"
 				alt="Down Button"
 				class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
 			/>
-			<ExploreAnother class="absolute bottom-4" />
-		</div>
+		</footer>
 	</div>
 </template>
 
@@ -112,6 +115,7 @@
 import { ref } from 'vue';
 
 import TheTitle from './TheTitle.vue';
+import TheFooter from '../exblifep/TheFooter.vue';
 import ExploreAnother from './ExploreAnother.vue';
 
 defineProps({

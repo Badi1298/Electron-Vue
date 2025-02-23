@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
+	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6">
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -13,7 +13,7 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative pb-6"
+			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="flex justify-between mr-12 items-center">
@@ -94,25 +94,33 @@
 				</h2>
 			</section>
 		</div>
-		<footer class="text-cool-grey text-[10px] leading-normal relative z-10">
-			ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia; IV,
-			intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
-			*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
-			bronchoalveolar lavage in 20 healthy volunteers. In this study, EXBLIFEP<sup>®</sup> was well tolerated. There were no serious adverse events.<br />
-			None of the treatment-emergent adverse events led to the discontinuation of study drugs. All adverse events spontaneously resolved without
-			sequelae.<sup>6</sup><br />
-			<sup>†</sup>Consideration should be given to official guidance on the appropriate use of antibacterial agents.
+
+		<footer>
+			<the-footer
+				class="transition-all duration-300 mb-4"
+				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			>
+				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
+				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
+				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
+				bronchoalveolar lavage in 20 healthy volunteers. In this study, EXBLIFEP<sup>®</sup> was well tolerated. There were no serious adverse
+				events.<br />
+				None of the treatment-emergent adverse events led to the discontinuation of study drugs. All adverse events spontaneously resolved without
+				sequelae.<sup>6</sup><br />
+				<sup>†</sup>Consideration should be given to official guidance on the appropriate use of antibacterial agents.
+			</the-footer>
+			<div class="flex justify-between items-center mt-4 mr-12">
+				<ExploreAnother />
+				<NextSection />
+			</div>
 		</footer>
-		<div class="flex justify-between items-center">
-			<explore-another />
-			<next-section />
-		</div>
 	</div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue';
 
+import TheFooter from './TheFooter.vue';
 import NextSection from './NextSection.vue';
 import InfoIcon from './efficacy/InfoIcon.vue';
 import InfoCard from './efficacy/InfoCard.vue';
