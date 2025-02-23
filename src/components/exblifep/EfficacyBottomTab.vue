@@ -1,5 +1,8 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6">
+	<div
+		ref="bottomTab"
+		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
+	>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -118,7 +121,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 import TheFooter from './TheFooter.vue';
 import NextSection from './NextSection.vue';
@@ -132,12 +135,27 @@ const Tabs = Object.freeze({
 	LUNGS: 3,
 });
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
+	scrollIntoView: {
+		type: Boolean,
+		required: true,
+	},
 });
+
+const bottomTab = ref(null);
+
+watch(
+	() => props.scrollIntoView,
+	(value) => {
+		if (value) {
+			bottomTab.value.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+);
 
 const tabsInfo = ref([
 	{

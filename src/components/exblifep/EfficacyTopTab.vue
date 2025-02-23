@@ -10,6 +10,7 @@
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
+				@click="emit('goToBottomTab')"
 			/>
 		</div>
 		<div
@@ -112,11 +113,13 @@
 				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1</the-footer
 			>
 			<ExploreAnother />
-			<img
-				src="/src/assets/images/down-button-blue.png"
-				alt="Down Button"
-				class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
-			/>
+			<button @click="emit('goToBottomTab')">
+				<img
+					src="/src/assets/images/down-button-blue.png"
+					alt="Down Button"
+					class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
+				/>
+			</button>
 		</footer>
 	</div>
 </template>
@@ -134,6 +137,8 @@ defineProps({
 		required: true,
 	},
 });
+
+const emit = defineEmits(['goToBottomTab']);
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,
