@@ -64,16 +64,26 @@
 							Clinical cure & Microbiological eradication: Day 14
 						</button>
 					</div>
-					<img
+					<div
 						v-if="activeTab === Tabs.OVERALL_SUCCESS"
-						src="/src/assets/images/chart-a.svg"
-						alt="Chart A"
-					/>
-					<img
+						class="w-[1034px] h-[583px]"
+					>
+						<img
+							src="/src/assets/images/chart-a.svg"
+							alt="Chart A"
+							class="w-full h-full"
+						/>
+					</div>
+					<div
 						v-if="activeTab === Tabs.CLINICAL_CURE"
-						src="/src/assets/images/chart-b.png"
-						alt="Chart B"
-					/>
+						class="w-[1034px] h-[583px]"
+					>
+						<img
+							src="/src/assets/images/chart-b.png"
+							alt="Chart B"
+							class="w-full h-full"
+						/>
+					</div>
 				</div>
 				<div class="bg-[#00EAFF] px-[22px] border-[6px] border-white">
 					<img
