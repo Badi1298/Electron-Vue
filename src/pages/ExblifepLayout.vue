@@ -1,5 +1,5 @@
 <template>
-	<main class="flex justify-between">
+	<main class="flex justify-between bg-textured">
 		<div class="flex flex-1 flex-col h-screen">
 			<router-view v-slot="{ Component }">
 				<!-- <transition name="fade"> -->

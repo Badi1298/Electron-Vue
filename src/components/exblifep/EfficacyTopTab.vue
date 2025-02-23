@@ -18,9 +18,9 @@
 		>
 			<div class="flex justify-between mr-12">
 				<div>
-					<h1 class="text-[32px] text-electric-blue font-medium leading-normal max-w-[920px]">
+					<the-title class="max-w-[920px]">
 						EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
-					</h1>
+					</the-title>
 					<img
 						src="/src/assets/images/lime-green-border.png"
 						alt="Lime Green Border"
@@ -111,6 +111,7 @@
 <script setup>
 import { ref } from 'vue';
 
+import TheTitle from './TheTitle.vue';
 import ExploreAnother from './ExploreAnother.vue';
 
 defineProps({
