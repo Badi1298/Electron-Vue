@@ -53,20 +53,25 @@
 						:class="[tab.class, tab.active ? 'w-[806px]' : 'w-0 opacity-0']"
 						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
-						<div class="flex items-end">
-							<img
-								src="/src/assets/images/dosing-bottle.png"
-								alt="Dosing Bottle"
-								class="w-[150px] h-[150px]"
-							/>
-							<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
-								{{ tab.name }}
-							</h3>
-						</div>
 						<div
-							class="flex flex-col pl-10 text-2xl text-cool-grey"
-							v-html="tab.details"
-						></div>
+							class="opacity-0"
+							:class="`${tab.class}-content`"
+						>
+							<div class="flex items-end">
+								<img
+									src="/src/assets/images/dosing-bottle.png"
+									alt="Dosing Bottle"
+									class="w-[150px] h-[150px]"
+								/>
+								<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
+									{{ tab.name }}
+								</h3>
+							</div>
+							<div
+								class="flex flex-col pl-10 text-2xl text-cool-grey"
+								v-html="tab.details"
+							></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -76,8 +81,8 @@
 				class="transition-all duration-300 mb-4"
 				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 				>EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data are
-				available.5</the-footer
-			>
+				available.5
+			</the-footer>
 			<ExploreAnother />
 			<img
 				src="/src/assets/images/down-button-blue.png"
@@ -94,6 +99,7 @@ import { gsap } from 'gsap';
 
 import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
+import { onMounted } from 'vue';
 
 defineProps({
 	sidebarOpen: {
@@ -177,35 +183,46 @@ const tabs = ref([
 
 const activeTab = ref(1);
 
+onMounted(() => {
+	gsap.set('.dosing', { width: '806px', opacity: 1 });
+	gsap.set('.dosing-content', { opacity: 1 });
+});
+
 const activateTab = async (newTab) => {
 	if (newTab.id === activeTab.value) return; // Do nothing if already active
 
 	const previousTab = tabs.value.find((tab) => tab.id === activeTab.value);
 	const nextTab = newTab;
 
-	// Shrink the currently active tab
-	gsap.to(`.${previousTab.class}`, {
-		width: 0,
+	previousTab.active = false;
+
+	let tl = gsap.timeline();
+
+	tl.to(`.${previousTab.class}-content`, {
 		opacity: 0,
-		duration: 0.4,
-		onComplete: async () => {
-			previousTab.active = false; // Hide the old tab content
-
-			activeTab.value = newTab.id;
-			nextTab.active = true; // Set the new tab as active
-
-			await nextTick(); // Ensure the new element is updated in the DOM
-
-			// Ensure the new tab starts at 0 width before expanding
-			gsap.set(`.${nextTab.class}`, { width: 0, opacity: 0 });
-
-			// Expand the new active tab smoothly
-			gsap.to(`.${nextTab.class}`, {
-				width: '806px',
+		duration: 0.2,
+	})
+		.to(`.${previousTab.class}`, {
+			opacity: 0,
+			width: 0,
+			duration: 0.4,
+		})
+		.to(
+			`.${nextTab.class}`,
+			{
 				opacity: 1,
+				width: '806px',
 				duration: 0.4,
-			});
-		},
-	});
+			},
+			'-=0.2'
+		)
+		.to(`.${nextTab.class}-content`, {
+			opacity: 1,
+			duration: 0.2,
+			onComplete: () => {
+				activeTab.value = newTab.id;
+				nextTab.active = true;
+			},
+		});
 };
 </script>
