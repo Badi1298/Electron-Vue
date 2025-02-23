@@ -1,5 +1,10 @@
 <template>
 	<main class="flex justify-between bg-textured">
+		<img
+			src="/src/assets/images/exblifep-logo.svg"
+			alt="Exblifep Logo"
+			class="absolute top-14 right-10 z-50 mt-4 ml-4"
+		/>
 		<div class="flex flex-1 flex-col h-screen">
 			<router-view v-slot="{ Component }">
 				<!-- <transition name="fade"> -->
