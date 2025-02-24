@@ -1,7 +1,15 @@
 <template>
 	<div class="flex flex-col overflow-y-scroll">
-		<dosing-top-tab :sidebar-open="sidebarOpen" />
-		<dosing-bottom-tab :sidebar-open="sidebarOpen" />
+		<dosing-top-tab
+			:sidebar-open="sidebarOpen"
+			:scroll-into-view="scrollToTopTab"
+			@go-to-bottom-tab="onScrollToBottomTab"
+		/>
+		<dosing-bottom-tab
+			:sidebar-open="sidebarOpen"
+			:scroll-into-view="scrollToBottomTab"
+			@go-to-top-tab="onScrollToTopTab"
+		/>
 	</div>
 </template>
 
@@ -18,79 +26,21 @@ defineProps({
 	},
 });
 
-const tabs = ref([
-	{
-		id: 1,
-		name: 'Dosing',
-		details: `
-			<p class="pr-20">
-				The recommended dose for patients with normal renal function is
-				<span class="text-dark-blue font-bold">2.0 g/0.5 g cefepime/enmetazobactam.<sup>5</sup></span>
-			</p>
-			<p class="pr-20 mt-5">
-				The usual duration of treatment is 7 to 10 days. In patients with bacteraemia treatment up to 14 days may be required.<sup
-					>5</sup
-				>
-			</p>
-		`,
-		activeImageSrc: '/src/assets/images/dosing-button-full.png',
-		inactiveImageSrc: '/src/assets/images/dosing-button-empty.png',
-		active: true,
-	},
-	{
-		id: 2,
-		name: 'Method of administration',
-		details: `
-			<p>Administered as:<sup>5</sup></p>
-			<ul class="flex flex-col gap-y-3.5 list-disc pl-5 ml-3">
-				<li class="text-dark-blue font-bold">
-					2-hour <span class="text-cool-grey font-normal">IV infusion for cUTI, includixng AP</span>
-				</li>
-				<li class="text-dark-blue font-bold">
-					4-hour <span class="text-cool-grey font-normal">IV infusion for HAP/VAP</span>
-				</li>
-				<li class="text-dark-blue font-bold">
-					4-hour <span class="text-cool-grey font-normal">IV infusion for patients with eGFR > 150 mL/min</span>
-				</li>
-			</ul>
-			<p class="mt-4">
-				Every <span class="text-dark-blue font-bold">8 hours<sup>5</sup></span>
-			</p>
-		`,
-		activeImageSrc: '/src/assets/images/administration-button-full.png',
-		inactiveImageSrc: '/src/assets/images/administration-button-empty.png',
-		active: false,
-	},
-	{
-		id: 3,
-		name: 'Storage',
-		details: `
-			<p class="text-dark-blue font-bold">Powder vial:</p>
-			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3 pr-12">
-				<li class="text-dark-blue"><span class="text-cool-grey">Store in a refrigerator (2 °C - 8 °C)</span></li>
-				<li class="text-dark-blue">
-					<span class="text-cool-grey">Keep the vial in the outer carton in order to protect from light</span>
-				</li>
-				<li class="text-dark-blue"><span class="text-cool-grey">2-year shelf life</span></li>
-			</ul>
-			<p class="text-dark-blue font-bold mt-4">Reconstituted solution:</p>
-			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3 pr-5">
-				<li class="text-dark-blue"><span class="text-cool-grey">The reconstituted vial should be further diluted immediately</span></li>
-			</ul>
-			<p class="text-dark-blue font-bold mt-4">Diluted solution:</p>
-			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3">
-				<li class="text-dark-blue"><span class="text-cool-grey">Up to 6 hours in a refrigerator (2 °C - 8 °C)</span></li>
-			</ul>
-		`,
-		activeImageSrc: '/src/assets/images/storage-button-full.png',
-		inactiveImageSrc: '/src/assets/images/storage-button-empty.png',
-		active: false,
-	},
-]);
+const scrollToTopTab = ref(false);
+const scrollToBottomTab = ref(false);
 
-const activateTab = (tab) => {
-	tabs.value.forEach((tab) => (tab.active = false));
-	tab.active = true;
+const onScrollToTopTab = () => {
+	scrollToTopTab.value = true;
+	setTimeout(() => {
+		scrollToTopTab.value = false;
+	}, 1000);
+};
+
+const onScrollToBottomTab = () => {
+	scrollToBottomTab.value = true;
+	setTimeout(() => {
+		scrollToBottomTab.value = false;
+	}, 1000);
 };
 </script>
 

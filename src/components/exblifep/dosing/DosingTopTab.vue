@@ -1,5 +1,8 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
+	<div
+		ref="topTab"
+		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
+	>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/active-dot.png"
@@ -10,11 +13,12 @@
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
+				@click="emit('goToBottomTab')"
 			/>
 		</div>
 		<div
 			class="flex flex-col justify-center font-effra transition-all duration-300 relative pb-6"
-			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="flex justify-between mr-12">
 				<div>
@@ -87,29 +91,40 @@
 				available.5
 			</the-footer>
 			<ExploreAnother />
-			<img
-				src="/src/assets/images/down-button-blue.png"
-				alt="Down Button"
-				class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
-			/>
+			<button
+				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				@click="emit('goToBottomTab')"
+			>
+				<img
+					src="/src/assets/images/down-button-blue.png"
+					alt="Down Button"
+					class="w-[140px] h-[50px] cursor-pointer"
+				/>
+			</button>
 		</footer>
 	</div>
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+
 import { gsap } from 'gsap';
 
 import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
-import { onMounted } from 'vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
+	scrollIntoView: {
+		type: Boolean,
+		required: true,
+	},
 });
+
+const emit = defineEmits(['goToBottomTab']);
 
 const tabs = ref([
 	{
@@ -184,7 +199,17 @@ const tabs = ref([
 	},
 ]);
 
+const topTab = ref(null);
 const activeTab = ref(1);
+
+watch(
+	() => props.scrollIntoView,
+	(value) => {
+		if (value) {
+			topTab.value.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+);
 
 onMounted(() => {
 	gsap.set('.dosing', { width: '806px', opacity: 1 });

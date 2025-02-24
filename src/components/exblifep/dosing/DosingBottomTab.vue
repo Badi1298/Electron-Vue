@@ -1,10 +1,14 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
+	<div
+		ref="bottomTab"
+		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
+	>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
+				@click="emit('goToTopTab')"
 			/>
 			<img
 				src="/src/assets/images/active-dot.png"
@@ -14,7 +18,7 @@
 		</div>
 		<div
 			class="flex flex-col font-effra transition-all duration-300 relative pb-6"
-			:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="pt-[70px]">
 				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Reconstitution and dilution of EXBLIFEP<sup>®5</sup></h1>
@@ -144,19 +148,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import TheFooter from '../TheFooter.vue';
 import NextSection from '../NextSection.vue';
 import ExploreAnother from '../ExploreAnother.vue';
 import ChevronRight from '../../../icons/ChevronRight.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
+	scrollIntoView: {
+		type: Boolean,
+		required: true,
+	},
 });
+
+const emit = defineEmits(['goToTopTab']);
 
 const steps = ref([
 	{
@@ -184,6 +194,17 @@ const steps = ref([
 		inactiveImageSrc: '/src/assets/images/dosing-step-4-inactive.png',
 	},
 ]);
+
+const bottomTab = ref(null);
+
+watch(
+	() => props.scrollIntoView,
+	(value) => {
+		if (value) {
+			bottomTab.value.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+);
 
 const onStepClick = (index) => {
 	steps.value.forEach((step, i) => {
