@@ -5,14 +5,24 @@
 	>
 		<div v-if="open"></div>
 		<ul class="flex flex-col gap-y-4 px-4 self-center">
-			<SidebarItem
-				v-for="item in routes"
-				:key="item.name"
-				:to="item.route"
-				:icon="item.icon"
-				:label="item.name"
-				:is-open="open"
-			/>
+			<RouterLink
+				v-for="route in routes"
+				:to="route.route"
+				:key="route.name"
+			>
+				<li
+					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive, 'text-[#969696]': !isActive }"
+				>
+					<component
+						:is="route.icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<p class="opacity-0 hidden sidebar-text">
+						{{ route.name }}
+					</p>
+				</li>
+			</RouterLink>
 		</ul>
 		<div class="flex flex-col">
 			<div
@@ -63,7 +73,9 @@
 </template>
 
 <script setup>
-import { ref, markRaw } from 'vue';
+import { ref, markRaw, onMounted } from 'vue';
+
+import { gsap } from 'gsap';
 
 import HomeIcon from '../../icons/HomeIcon.vue';
 import SafetyIcon from '../../icons/SafetyIcon.vue';
@@ -72,8 +84,6 @@ import SummaryIcon from '../../icons/SummaryIcon.vue';
 import EfficacyIcon from '../../icons/EfficacyIcon.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
-
-import SidebarItem from './SidebarItem.vue';
 
 const props = defineProps({
 	open: {
@@ -111,6 +121,13 @@ const routes = ref([
 		route: '/summary',
 	},
 ]);
+
+onMounted(() => {
+	gsap.set('.sidebar-text', {
+		opacity: 1,
+		display: 'block',
+	});
+});
 
 const toggleSidebar = () => {
 	emit('update:open', !props.open);
