@@ -58,13 +58,14 @@
 				</section>
 			</div>
 		</div>
-		<footer class="pl-[74px] pt-6 text-[10px] text-cool-grey font-effra">
-			*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL in urine.1
-			<br />
-			EXBLIFEP® is indicated for the treatment of the following infections in adults:5 - Complicated urinary tract infections (cUTI), including
-			pyelonephritis - Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP) Treatment of patients with bacteraemia that
-			occurs in association with, or is suspected to be associated with, any of the infections listed above.5 Consideration should be given to official
-			guidance on the appropriate use of antibacterial agents.5 For healthcare professionals only.
+		<footer>
+			<the-footer class="transition-all duration-300 ml-[124px]"
+				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
+				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
+			>
+			<div class="flex justify-between items-center mt-4 mr-12">
+				<ExploreAnother />
+			</div>
 		</footer>
 	</div>
 </template>
@@ -76,7 +77,15 @@ import BottleIcon from '../icons/BottleIcon.vue';
 import ChevronRight from '../icons/ChevronRight.vue';
 
 import Card from '../components/exblifep/Card.vue';
-import Sidebar from '../components/exblifep/Sidebar.vue';
+import TheFooter from '../components/exblifep/TheFooter.vue';
+import ExploreAnother from '../components/exblifep/ExploreAnother.vue';
+
+defineProps({
+	sidebarOpen: {
+		type: Boolean,
+		required: true,
+	},
+});
 </script>
 
 <style scoped>
