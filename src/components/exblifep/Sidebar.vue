@@ -11,7 +11,14 @@
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'), 'text-[#969696]': !isActive('/exblifep') }"
 				>
 					<img
-						:src="isActive('/exblifep') ? '/src/assets/images/home-sidebar-full.png' : '/src/assets/images/home-sidebar.png'"
+						v-if="isActive('/exblifep')"
+						src="/src/assets/images/home-sidebar-full.png"
+						alt="Home Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<img
+						v-else
+						src="/src/assets/images/home-sidebar.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
@@ -24,8 +31,15 @@
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/efficacy'), 'text-[#969696]': !isActive('/efficacy') }"
 				>
 					<img
-						:src="isActive('/efficacy') ? '/src/assets/images/chart-sidebar-full.png' : '/src/assets/images/chart-sidebar.png'"
-						alt="Efficacy Icon"
+						v-if="isActive('/efficacy')"
+						src="/src/assets/images/chart-sidebar-full.png"
+						alt="Home Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<img
+						v-else
+						src="/src/assets/images/chart-sidebar.png"
+						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
 					<p class="opacity-0 hidden sidebar-text">Efficacy</p>
@@ -37,8 +51,15 @@
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/safety'), 'text-[#969696]': !isActive('/safety') }"
 				>
 					<img
-						:src="isActive('/safety') ? '/src/assets/images/shield-sidebar-full.png' : '/src/assets/images/shield-sidebar.png'"
-						alt="Safety Icon"
+						v-if="isActive('/safety')"
+						src="/src/assets/images/shield-sidebar-full.png"
+						alt="Home Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<img
+						v-else
+						src="/src/assets/images/shield-sidebar.png"
+						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
 					<p class="opacity-0 hidden sidebar-text">Safety</p>
@@ -50,8 +71,15 @@
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/dosing'), 'text-[#969696]': !isActive('/dosing') }"
 				>
 					<img
-						:src="isActive('/dosing') ? '/src/assets/images/bottle-sidebar-full.png' : '/src/assets/images/bottle-sidebar.png'"
-						alt="Safety Icon"
+						v-if="isActive('/dosing')"
+						src="/src/assets/images/bottle-sidebar-full.png"
+						alt="Home Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<img
+						v-else
+						src="/src/assets/images/bottle-sidebar.png"
+						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
 					<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
@@ -63,8 +91,15 @@
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/summary'), 'text-[#969696]': !isActive('/summary') }"
 				>
 					<img
-						:src="isActive('/summary') ? '/src/assets/images/summary-sidebar-full.png' : '/src/assets/images/summary-sidebar.png'"
-						alt="Safety Icon"
+						v-if="isActive('/summary')"
+						src="/src/assets/images/summary-sidebar-full.png"
+						alt="Home Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<img
+						v-else
+						src="/src/assets/images/summary-sidebar.png"
+						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
 					<p class="opacity-0 hidden sidebar-text">Summary</p>

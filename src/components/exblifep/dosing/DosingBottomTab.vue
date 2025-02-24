@@ -30,29 +30,97 @@
 			</div>
 			<section class="grid grid-rows-[1.3fr_2fr]">
 				<div class="z-20 flex items-center gap-x-10 mb-28">
-					<template
-						v-for="(step, index) in steps"
-						:key="step.id"
-					>
-						<div class="relative">
-							<img
-								:src="step.active ? step.activeImageSrc : step.inactiveImageSrc"
-								:alt="`Dosing Step ${step.id}`"
-								class="w-[216px] h-auto relative cursor-pointer z-10"
-								@click="onStepClick(index)"
-							/>
-							<img
-								v-if="step.active"
-								src="/src/assets/images/active-arrow-down.png"
-								alt="Active Arrow Down"
-								class="absolute -bottom-16 z-0 left-1/2 -translate-x-1/2 w-[92px] h-auto"
-							/>
-						</div>
-						<ChevronRight
-							v-if="index < steps.length - 1"
-							class="w-24 h-24"
+					<div class="relative">
+						<img
+							v-show="steps[0].active"
+							src="/src/assets/images/dosing-step-1-active.png"
+							:alt="`Dosing Step 1`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(0)"
 						/>
-					</template>
+						<img
+							v-show="!steps[0].active"
+							src="/src/assets/images/dosing-step-1-inactive.png"
+							:alt="`Dosing Step 1`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(0)"
+						/>
+						<img
+							v-if="steps[0].active"
+							src="/src/assets/images/active-arrow-down.png"
+							alt="Active Arrow Down"
+							class="absolute -bottom-16 z-0 left-1/2 -translate-x-1/2 w-[92px] h-auto"
+						/>
+					</div>
+					<ChevronRight class="w-24 h-24" />
+					<div class="relative">
+						<img
+							v-show="steps[1].active"
+							src="/src/assets/images/dosing-step-2-active.png"
+							:alt="`Dosing Step 2`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(1)"
+						/>
+						<img
+							v-show="!steps[1].active"
+							src="/src/assets/images/dosing-step-2-inactive.png"
+							:alt="`Dosing Step 2`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(1)"
+						/>
+						<img
+							v-if="steps[1].active"
+							src="/src/assets/images/active-arrow-down.png"
+							alt="Active Arrow Down"
+							class="absolute -bottom-16 z-0 left-1/2 -translate-x-1/2 w-[92px] h-auto"
+						/>
+					</div>
+					<ChevronRight class="w-24 h-24" />
+					<div class="relative">
+						<img
+							v-show="steps[2].active"
+							src="/src/assets/images/dosing-step-3-active.png"
+							:alt="`Dosing Step 3`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(2)"
+						/>
+						<img
+							v-show="!steps[2].active"
+							src="/src/assets/images/dosing-step-3-inactive.png"
+							:alt="`Dosing Step 3`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(2)"
+						/>
+						<img
+							v-if="steps[2].active"
+							src="/src/assets/images/active-arrow-down.png"
+							alt="Active Arrow Down"
+							class="absolute -bottom-16 z-0 left-1/2 -translate-x-1/2 w-[92px] h-auto"
+						/>
+					</div>
+					<ChevronRight class="w-24 h-24" />
+					<div class="relative">
+						<img
+							v-show="steps[3].active"
+							src="/src/assets/images/dosing-step-4-active.png"
+							:alt="`Dosing Step 4`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(3)"
+						/>
+						<img
+							v-show="!steps[3].active"
+							src="/src/assets/images/dosing-step-4-inactive.png"
+							:alt="`Dosing Step 4`"
+							class="w-[216px] h-auto relative cursor-pointer z-10"
+							@click="onStepClick(3)"
+						/>
+						<img
+							v-show="steps[3].active"
+							src="/src/assets/images/active-arrow-down.png"
+							alt="Active Arrow Down"
+							class="absolute -bottom-16 z-0 left-1/2 -translate-x-1/2 w-[92px] h-auto"
+						/>
+					</div>
 				</div>
 				<div class="border-t-[3px] border-[#97D700] w-[1412px]">
 					<p
@@ -170,28 +238,16 @@ const emit = defineEmits(['goToTopTab']);
 
 const steps = ref([
 	{
-		id: 1,
 		active: true,
-		activeImageSrc: '/src/assets/images/dosing-step-1-active.png',
-		inactiveImageSrc: '/src/assets/images/dosing-step-1-inactive.png',
 	},
 	{
-		id: 2,
 		active: false,
-		activeImageSrc: '/src/assets/images/dosing-step-2-active.png',
-		inactiveImageSrc: '/src/assets/images/dosing-step-2-inactive.png',
 	},
 	{
-		id: 3,
 		active: false,
-		activeImageSrc: '/src/assets/images/dosing-step-3-active.png',
-		inactiveImageSrc: '/src/assets/images/dosing-step-3-inactive.png',
 	},
 	{
-		id: 4,
 		active: false,
-		activeImageSrc: '/src/assets/images/dosing-step-4-active.png',
-		inactiveImageSrc: '/src/assets/images/dosing-step-4-inactive.png',
 	},
 ]);
 
