@@ -34,6 +34,7 @@
 					src="/src/assets/images/book.png"
 					alt="Book Icon"
 					class="w-8 h-8 justify-self-center"
+					@click="referencesPopupOpen = true"
 				/>
 				<img
 					src="/src/assets/images/pi.png"
@@ -45,7 +46,12 @@
 				v-if="open"
 				class="grid grid-cols-2 text-center"
 			>
-				<p class="text-xl font-uni-grotesk text-[#969696]">References</p>
+				<p
+					class="text-xl font-uni-grotesk text-[#969696]"
+					@click="referencesPopupOpen = true"
+				>
+					References
+				</p>
 				<p class="text-xl font-uni-grotesk text-[#969696]">Prescribing information</p>
 			</div>
 			<img
@@ -97,7 +103,7 @@ const props = defineProps({
 const emit = defineEmits(['update:open']);
 
 const route = useRoute();
-const referencesPopupOpen = ref(true);
+const referencesPopupOpen = ref(false);
 
 const routes = ref([
 	{
