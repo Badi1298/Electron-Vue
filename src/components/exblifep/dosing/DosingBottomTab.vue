@@ -133,7 +133,12 @@
 				available.1
 			</the-footer>
 
-			<ExploreAnother />
+			<div class="flex justify-between items-center mr-12">
+				<ExploreAnother />
+				<RouterLink to="/summary">
+					<NextSection />
+				</RouterLink>
+			</div>
 		</footer>
 	</div>
 </template>
@@ -142,6 +147,7 @@
 import { ref } from 'vue';
 
 import TheFooter from '../TheFooter.vue';
+import NextSection from '../NextSection.vue';
 import ExploreAnother from '../ExploreAnother.vue';
 import ChevronRight from '../../../icons/ChevronRight.vue';
 

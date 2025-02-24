@@ -56,7 +56,9 @@
 			>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
-				<NextSection />
+				<RouterLink to="/dosing">
+					<NextSection />
+				</RouterLink>
 			</div>
 		</footer>
 	</div>
