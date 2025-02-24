@@ -5,23 +5,69 @@
 	>
 		<div v-if="open"></div>
 		<ul class="flex flex-col gap-y-4 px-4 self-center">
-			<RouterLink
-				v-for="route in routes"
-				:to="route.route"
-				:key="route.name"
-			>
+			<RouterLink to="/exblifep">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive(route), 'text-[#969696]': !isActive(route) }"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'), 'text-[#969696]': !isActive('/exblifep') }"
 				>
 					<img
-						:src="isActive(route) ? route.iconActive : route.iconInactive"
-						:alt="`${route.name}-icon`"
+						:src="isActive('/exblifep') ? '/src/assets/images/home-sidebar-full.png' : '/src/assets/images/home-sidebar.png'"
+						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
-					<p class="opacity-0 hidden sidebar-text">
-						{{ route.name }}
-					</p>
+					<p class="opacity-0 hidden sidebar-text">Home</p>
+				</li>
+			</RouterLink>
+			<RouterLink to="/efficacy">
+				<li
+					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/efficacy'), 'text-[#969696]': !isActive('/efficacy') }"
+				>
+					<img
+						:src="isActive('/efficacy') ? '/src/assets/images/chart-sidebar-full.png' : '/src/assets/images/chart-sidebar.png'"
+						alt="Efficacy Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<p class="opacity-0 hidden sidebar-text">Efficacy</p>
+				</li>
+			</RouterLink>
+			<RouterLink to="/safety">
+				<li
+					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/safety'), 'text-[#969696]': !isActive('/safety') }"
+				>
+					<img
+						:src="isActive('/safety') ? '/src/assets/images/shield-sidebar-full.png' : '/src/assets/images/shield-sidebar.png'"
+						alt="Safety Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<p class="opacity-0 hidden sidebar-text">Safety</p>
+				</li>
+			</RouterLink>
+			<RouterLink to="/dosing">
+				<li
+					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/dosing'), 'text-[#969696]': !isActive('/dosing') }"
+				>
+					<img
+						:src="isActive('/dosing') ? '/src/assets/images/bottle-sidebar-full.png' : '/src/assets/images/bottle-sidebar.png'"
+						alt="Safety Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
+				</li>
+			</RouterLink>
+			<RouterLink to="/summary">
+				<li
+					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/summary'), 'text-[#969696]': !isActive('/summary') }"
+				>
+					<img
+						:src="isActive('/summary') ? '/src/assets/images/summary-sidebar-full.png' : '/src/assets/images/summary-sidebar.png'"
+						alt="Safety Icon"
+						class="w-[30px] h-[30px]"
+					/>
+					<p class="opacity-0 hidden sidebar-text">Summary</p>
 				</li>
 			</RouterLink>
 		</ul>
@@ -117,39 +163,6 @@ const route = useRoute();
 const referencesPopupOpen = ref(false);
 const prescribingPopupOpen = ref(false);
 
-const routes = ref([
-	{
-		name: 'Home',
-		iconActive: '/src/assets/images/home-sidebar-full.png',
-		iconInactive: '/src/assets/images/home-sidebar.png',
-		route: '/exblifep',
-	},
-	{
-		name: 'Efficacy',
-		iconActive: '/src/assets/images/chart-sidebar-full.png',
-		iconInactive: '/src/assets/images/chart-sidebar.png',
-		route: '/efficacy',
-	},
-	{
-		name: 'Safety',
-		iconActive: '/src/assets/images/shield-sidebar-full.png',
-		iconInactive: '/src/assets/images/shield-sidebar.png',
-		route: '/safety',
-	},
-	{
-		name: 'Dosing and administration',
-		iconActive: '/src/assets/images/bottle-sidebar-full.png',
-		iconInactive: '/src/assets/images/bottle-sidebar.png',
-		route: '/dosing',
-	},
-	{
-		name: 'Summary',
-		iconActive: '/src/assets/images/summary-sidebar-full.png',
-		iconInactive: '/src/assets/images/summary-sidebar.png',
-		route: '/summary',
-	},
-]);
-
 onMounted(() => {
 	gsap.set('.sidebar-text', {
 		opacity: 1,
@@ -158,7 +171,7 @@ onMounted(() => {
 });
 
 const isActive = (currentRoute) => {
-	return currentRoute.route === route.path;
+	return currentRoute === route.path;
 };
 
 const toggleSidebar = async () => {
