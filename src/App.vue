@@ -23,7 +23,33 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 
+import { trackPageTime } from './utils/analytics';
+
 const router = useRouter();
+
+const sessionId = ref(null);
+let startTime = performance.now();
+
+const startNewSession = () => {
+	sessionId.value = null; // Invalidate the current session
+};
+
+const handleRouteChange = (to, from) => {
+	// Access both 'to' and 'from'
+	if (from.name) {
+		// Only track if there's a previous route (not on initial load)
+		const timeSpent = performance.now() - startTime;
+		const currentSessionId = sessionId.value || crypto.randomUUID(); // Use crypto.randomUUID()
+		sessionId.value = currentSessionId;
+		trackPageTime(from.name, timeSpent / 1000, currentSessionId);
+	}
+	startTime = performance.now(); // Reset the timer *after* tracking the previous page
+};
+
+router.beforeEach((to, from, next) => {
+	// handleRouteChange(to, from);
+	next();
+});
 
 const showScreensaver = ref(false);
 let inactivityTimer;
@@ -33,6 +59,7 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
+		// startNewSession();
 	}, 30000);
 };
 
@@ -44,10 +71,18 @@ const hideScreensaver = () => {
 
 onMounted(() => {
 	resetInactivityTimer();
+
+	window.addEventListener('mousemove', resetInactivityTimer);
+	window.addEventListener('keydown', resetInactivityTimer);
+	window.addEventListener('click', resetInactivityTimer);
 });
 
 onUnmounted(() => {
 	clearTimeout(inactivityTimer);
+
+	window.removeEventListener('mousemove', resetInactivityTimer);
+	window.removeEventListener('keydown', resetInactivityTimer);
+	window.removeEventListener('click', resetInactivityTimer);
 });
 </script>
 

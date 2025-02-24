@@ -3,25 +3,30 @@ import './index.css';
 
 import path from 'node:path';
 import { existsSync, writeFile, readFileSync } from 'node:fs';
+import { v4 as uuidv4 } from 'uuid';
 
 import started from 'electron-squirrel-startup';
 
 // const filePath = path.join(__dirname, 'time-tracking.json');
 
-ipcMain.handle('write-time-data', async (_, page, timeSpent) => {
+ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 	try {
-		// Read the existing data asynchronously
-		const data = existsSync('time-tracking.json')
-			? JSON.parse(
-					readFileSync('time-tracking.json', {
-						encoding: 'utf-8',
-					})
-			  )
-			: {};
+		const data = existsSync('time-tracking.json') ? JSON.parse(readFileSync('time-tracking.json', { encoding: 'utf-8' })) : {};
 
-		data[page] = (data[page] || 0) + timeSpent;
+		if (!data.sessions) {
+			data.sessions = {};
+		}
 
-		// Write the updated data asynchronously
+		if (!sessionId) {
+			sessionId = uuidv4(); // Generate a new session ID if one isn't provided.
+		}
+
+		if (!data.sessions[sessionId]) {
+			data.sessions[sessionId] = {};
+		}
+
+		data.sessions[sessionId][page] = (data.sessions[sessionId][page] || 0) + timeSpent;
+
 		writeFile('time-tracking.json', JSON.stringify(data, null, 2), (err) => {
 			if (err) {
 				console.error('Error writing to file:', err);

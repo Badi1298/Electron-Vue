@@ -1,5 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
 contextBridge.exposeInMainWorld('electronAPI', {
-	trackTime: (page, timeSpent) => ipcRenderer.invoke('write-time-data', page, timeSpent),
+	trackTime: (page, timeSpent, sessionId) => ipcRenderer.invoke('write-time-data', page, timeSpent, sessionId),
 });
