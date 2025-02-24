@@ -1,7 +1,5 @@
 import { createMemoryHistory, createRouter } from 'vue-router';
 
-import { trackPageTime } from '../utils/analytics';
-
 import Home from '../pages/Home.vue';
 import Dosing from '../pages/Dosing.vue';
 import Safety from '../pages/Safety.vue';
@@ -29,22 +27,6 @@ const routes = [
 const router = createRouter({
 	history: createMemoryHistory(),
 	routes,
-});
-
-let startTime = performance.now();
-
-const handleRouteChange = (pageName) => {
-	const timeSpent = performance.now() - startTime;
-	trackPageTime(pageName, timeSpent / 1000);
-};
-
-router.beforeEach((_, from, next) => {
-	// handleRouteChange(from.name);
-	next();
-});
-
-router.afterEach(() => {
-	// startTime = performance.now();
 });
 
 export default router;
