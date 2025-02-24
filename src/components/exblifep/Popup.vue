@@ -22,7 +22,7 @@
 			<img
 				src="/src/assets/images/lime-green-border.png"
 				alt="Lime Green Border"
-				class="h-1.5 w-auto mt-5 mb-8"
+				class="h-1.5 w-auto my-5"
 			/>
 			<slot></slot>
 		</div>

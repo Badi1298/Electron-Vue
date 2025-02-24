@@ -4,7 +4,7 @@
 		v-on:update:popupOpen="emit('update:popupOpen', $event)"
 		title="References"
 	>
-		<ol class="text-xl text-cool-grey">
+		<ol class="text-xl text-cool-grey pt-2.5">
 			<li>1. Kaye KS <span class="italic">et al. JAMA</span> 2022;328(13):1304-1314.</li>
 			<li>2. Kiem S, Schentag JJ. Infect Chemother 2013;45(3):283-291.</li>
 			<li>3. Kadry N <span class="italic">et al. Clin Infect Dis</span> 2023;76(10):1768-1775.</li>
