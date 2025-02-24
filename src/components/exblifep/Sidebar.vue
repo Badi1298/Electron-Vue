@@ -12,7 +12,7 @@
 			>
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive, 'text-[#969696]': !isActive }"
+					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive(route), 'text-[#969696]': !isActive(route) }"
 				>
 					<component
 						:is="route.icon"
@@ -73,7 +73,8 @@
 </template>
 
 <script setup>
-import { ref, markRaw, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, computed, markRaw, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
@@ -84,6 +85,7 @@ import SummaryIcon from '../../icons/SummaryIcon.vue';
 import EfficacyIcon from '../../icons/EfficacyIcon.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
+import { nextTick } from 'vue';
 
 const props = defineProps({
 	open: {
@@ -93,6 +95,8 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:open']);
+
+const route = useRoute();
 
 const routes = ref([
 	{
@@ -129,7 +133,24 @@ onMounted(() => {
 	});
 });
 
-const toggleSidebar = () => {
-	emit('update:open', !props.open);
+const isActive = (currentRoute) => {
+	return currentRoute.route === route.path;
+};
+
+const toggleSidebar = async () => {
+	if (props.open) {
+		gsap.set('.sidebar-text', {
+			opacity: 0,
+			display: 'none',
+		});
+		emit('update:open', false);
+	} else {
+		emit('update:open', true);
+		gsap.to('.sidebar-text', {
+			opacity: 1,
+			display: 'block',
+			duration: 0.4,
+		}).delay(0.3);
+	}
 };
 </script>
