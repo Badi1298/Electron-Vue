@@ -35,22 +35,25 @@
 						title="Efficacy"
 						subtitle="EXBLIFEP<sup>®</sup> superiority in primary endpoint vs. piperacillin/tazobactam<sup>1</sup>"
 						button-class="bg-[#97D700] text-black"
+						discover-more-path="/efficacy"
 						class="mt-9"
 					>
 						<chart-icon class="min-w-[106px]" />
 					</card>
 					<card
 						title="Safety"
-						subtitle="Comparable safety profile to piperacillin/tazobactam<sup>5</sup>"
+						subtitle="Comparable safety profile<br /> to piperacillin/tazobactam<sup>5</sup>"
 						button-class="bg-cool-grey text-white"
+						discover-more-path="/safety"
 						class="mt-11"
 					>
 						<shield-icon class="min-w-[106px]" />
 					</card>
 					<card
 						title="Dosing"
-						subtitle="Recommended dosing and administration details<sup>5</sup>"
+						subtitle="Recommended dosing and<br /> administration details<sup>5</sup>"
 						button-class="bg-electric-blue text-white"
+						discover-more-path="/dosing"
 						class="mt-11"
 					>
 						<bottle-icon class="min-w-[106px]" />
