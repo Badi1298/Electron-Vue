@@ -40,6 +40,7 @@
 					src="/src/assets/images/pi.png"
 					alt="PI Icon"
 					class="w-4 h-auto justify-self-center"
+					@click="prescribingPopupOpen = true"
 				/>
 			</div>
 			<div
@@ -52,7 +53,12 @@
 				>
 					References
 				</p>
-				<p class="text-xl font-uni-grotesk text-[#969696]">Prescribing information</p>
+				<p
+					class="text-xl font-uni-grotesk text-[#969696]"
+					@click="prescribingPopupOpen = true"
+				>
+					Prescribing information
+				</p>
 			</div>
 			<img
 				:src="open ? '/src/assets/images/advanz-logo.png' : '/src/assets/images/advanz-logo-small.png'"
@@ -81,6 +87,10 @@
 		v-model:popup-open="referencesPopupOpen"
 		:popup-open="referencesPopupOpen"
 	/>
+	<prescribing-popup
+		v-model:popup-open="prescribingPopupOpen"
+		:popup-open="prescribingPopupOpen"
+	/>
 </template>
 
 <script setup>
@@ -90,6 +100,7 @@ import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 import ReferencesPopup from './popups/ReferencesPopup.vue';
+import PrescribingPopup from './popups/PrescribingPopup.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
 
@@ -104,6 +115,7 @@ const emit = defineEmits(['update:open']);
 
 const route = useRoute();
 const referencesPopupOpen = ref(false);
+const prescribingPopupOpen = ref(false);
 
 const routes = ref([
 	{
