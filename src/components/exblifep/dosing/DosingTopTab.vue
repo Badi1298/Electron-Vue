@@ -43,26 +43,31 @@
 			</div>
 			<div class="flex pt-5 gap-x-10">
 				<div
-					v-for="tab in tabs"
-					:key="tab.id"
 					class="flex"
-					@click="activateTab(tab)"
+					@click="activateTab(tabs[0])"
 				>
 					<!-- Image Section -->
 					<img
-						:src="tab.active ? tab.activeImageSrc : tab.inactiveImageSrc"
+						v-show="tabs[0].active"
+						src="/src/assets/images/dosing-button-full.png"
 						alt="Dosing Full"
+						class="h-[704px] w-auto z-20 cursor-pointer"
+					/>
+					<img
+						v-show="!tabs[0].active"
+						src="/src/assets/images/dosing-button-empty.png"
+						alt="Dosing Empty"
 						class="h-[704px] w-auto z-20 cursor-pointer"
 					/>
 
 					<!-- Expanding Content Section -->
 					<div
-						:class="[tab.class, tab.active ? 'w-[806px]' : 'w-0 opacity-0']"
+						:class="[tabs[0].class, tabs[0].active ? 'w-[806px]' : 'w-0 opacity-0']"
 						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
 						<div
 							class="opacity-0"
-							:class="`${tab.class}-content`"
+							:class="`${tabs[0].class}-content`"
 						>
 							<div class="flex items-end">
 								<img
@@ -71,12 +76,100 @@
 									class="w-[150px] h-[150px]"
 								/>
 								<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
-									{{ tab.name }}
+									{{ tabs[0].name }}
 								</h3>
 							</div>
 							<div
 								class="flex flex-col pl-10 text-2xl text-cool-grey"
-								v-html="tab.details"
+								v-html="tabs[0].details"
+							></div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="flex"
+					@click="activateTab(tabs[1])"
+				>
+					<!-- Image Section -->
+					<img
+						v-show="tabs[1].active"
+						src="/src/assets/images/administration-button-full.png"
+						alt="Dosing Full"
+						class="h-[704px] w-auto z-20 cursor-pointer"
+					/>
+					<img
+						v-show="!tabs[1].active"
+						src="/src/assets/images/administration-button-empty.png"
+						alt="Dosing Empty"
+						class="h-[704px] w-auto z-20 cursor-pointer"
+					/>
+
+					<!-- Expanding Content Section -->
+					<div
+						:class="[tabs[1].class, tabs[1].active ? 'w-[806px]' : 'w-0 opacity-0']"
+						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
+					>
+						<div
+							class="opacity-0"
+							:class="`${tabs[1].class}-content`"
+						>
+							<div class="flex items-end">
+								<img
+									src="/src/assets/images/dosing-bottle.png"
+									alt="Dosing Bottle"
+									class="w-[150px] h-[150px]"
+								/>
+								<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
+									{{ tabs[1].name }}
+								</h3>
+							</div>
+							<div
+								class="flex flex-col pl-10 text-2xl text-cool-grey"
+								v-html="tabs[1].details"
+							></div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="flex"
+					@click="activateTab(tabs[2])"
+				>
+					<!-- Image Section -->
+					<img
+						v-show="tabs[2].active"
+						src="/src/assets/images/storage-button-full.png"
+						alt="Dosing Full"
+						class="h-[704px] w-auto z-20 cursor-pointer"
+					/>
+					<img
+						v-show="!tabs[2].active"
+						src="/src/assets/images/storage-button-empty.png"
+						alt="Dosing Empty"
+						class="h-[704px] w-auto z-20 cursor-pointer"
+					/>
+
+					<!-- Expanding Content Section -->
+					<div
+						:class="[tabs[2].class, tabs[2].active ? 'w-[806px]' : 'w-0 opacity-0']"
+						class="flex justify-center flex-col bg-white border-2 border-electric-blue pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
+					>
+						<div
+							class="opacity-0"
+							:class="`${tabs[2].class}-content`"
+						>
+							<div class="flex items-end">
+								<img
+									src="/src/assets/images/dosing-bottle.png"
+									alt="Dosing Bottle"
+									class="w-[150px] h-[150px]"
+								/>
+								<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
+									{{ tabs[2].name }}
+								</h3>
+							</div>
+							<div
+								class="flex flex-col pl-10 text-2xl text-cool-grey"
+								v-html="tabs[2].details"
 							></div>
 						</div>
 					</div>
