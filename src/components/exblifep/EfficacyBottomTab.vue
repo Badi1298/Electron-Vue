@@ -118,11 +118,73 @@
 					name="fade"
 					mode="out-in"
 				>
-					<info-card
-						:key="activeTabText"
-						:text="activeTabText"
-						:image-src="activeTabImageSrc"
-					/>
+					<div
+						v-if="tabsInfo[0].active"
+						class="relative bg-white border border-electric-blue max-w-[474px] rounded-[20px] px-10 py-14 overflow-hidden"
+					>
+						<h4 class="text-2xl font-medium text-cool-grey">
+							Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>
+						</h4>
+						<img
+							src="/src/assets/images/lime-green-border.png"
+							alt="Lime Green Border"
+							class="h-1.5 w-auto mt-5"
+						/>
+						<img
+							src="/src/assets/images/background-green-circle.png"
+							alt="Green Circle"
+							class="absolute bottom-0 -right-[130px] z-0"
+						/>
+						<img
+							src="/src/assets/images/water-drop.png"
+							class="w-28 h-28 absolute bottom-3 right-6 z-10"
+						/>
+					</div>
+					<div
+						v-else-if="tabsInfo[1].active"
+						class="relative bg-white border border-electric-blue max-w-[474px] rounded-[20px] px-10 py-14 overflow-hidden"
+					>
+						<h4 class="text-2xl font-medium text-cool-grey">
+							Concentrations of both agents are detectable in plasma for 24 hours after last administration.<sup>6</sup>
+						</h4>
+						<img
+							src="/src/assets/images/lime-green-border.png"
+							alt="Lime Green Border"
+							class="h-1.5 w-auto mt-5"
+						/>
+						<img
+							src="/src/assets/images/background-green-circle.png"
+							alt="Green Circle"
+							class="absolute bottom-0 -right-[130px] z-0"
+						/>
+						<img
+							src="/src/assets/images/24-hours.png"
+							class="w-28 h-28 absolute bottom-3 right-6 z-10"
+						/>
+					</div>
+					<div
+						v-else-if="tabsInfo[2].active"
+						class="relative bg-white border border-electric-blue max-w-[474px] rounded-[20px] px-10 py-14 overflow-hidden"
+					>
+						<h4 class="text-2xl font-medium text-cool-grey">
+							Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines for
+							the management of HAP/VAP.<sup>7,8</sup>
+						</h4>
+						<img
+							src="/src/assets/images/lime-green-border.png"
+							alt="Lime Green Border"
+							class="h-1.5 w-auto mt-5"
+						/>
+						<img
+							src="/src/assets/images/background-green-circle.png"
+							alt="Green Circle"
+							class="absolute bottom-0 -right-[130px] z-0"
+						/>
+						<img
+							src="/src/assets/images/lungs.png"
+							class="w-28 h-28 absolute bottom-3 right-6 z-10"
+						/>
+					</div>
 				</Transition>
 				<div class="pt-14 max-w-[624px]">
 					<h4 class="text-2xl font-bold leading-normal text-[#002470]">In an intrapulmonary PK study of 20 healthy volunteers:<sup>*6</sup></h4>
@@ -222,23 +284,17 @@ watch(
 const tabsInfo = ref([
 	{
 		id: Tabs.DROP,
-		text: 'Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>',
 		active: true,
 	},
 	{
 		id: Tabs.TIME,
-		text: 'Concentrations of both agents are detectable in plasma for 24 hours after last administration.<sup>6</sup>',
 		active: false,
 	},
 	{
 		id: Tabs.LUNGS,
-		text: 'Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines for the management of HAP/VAP.<sup>7,8</sup>',
 		active: false,
 	},
 ]);
-
-const activeTabText = computed(() => tabsInfo.value.find((tab) => tab.active).text);
-const activeTabImageSrc = computed(() => tabsInfo.value.find((tab) => tab.active).imageSrc);
 
 const onClickTab = (id) => {
 	tabsInfo.value.forEach((tab) => {
