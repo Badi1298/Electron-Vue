@@ -47,15 +47,72 @@
 
 			<section class="flex gap-x-16">
 				<div class="flex flex-col gap-y-12">
-					<info-icon
-						v-for="tab in tabsInfo"
-						:key="tab.id"
-						:id="tab.id"
-						:image-src="tab.imageSrc"
-						:image-alt="tab.imageAlt"
-						:active="tab.active"
-						@click="onClickTab"
-					/>
+					<div
+						class="relative w-fit cursor-pointer"
+						@click="onClickTab(Tabs.DROP)"
+					>
+						<img
+							src="/src/assets/images/water-drop.png"
+							alt="Water Drop"
+							class="w-[130px] h-[130px] z-10 relative"
+						/>
+						<img
+							v-if="tabsInfo[0].active"
+							src="/src/assets/images/active-arrow.png"
+							alt="Active Arrow"
+							class="w-[70px] h-[70px] absolute top-1/2 -right-[52px] transform -translate-y-1/2 z-0"
+						/>
+						<img
+							v-else
+							src="/src/assets/images/touch.png"
+							alt="Touch"
+							class="w-[40px] h-[40px] absolute top-1/2 -right-5 transform -translate-y-1/2 z-20"
+						/>
+					</div>
+					<div
+						class="relative w-fit cursor-pointer"
+						@click="onClickTab(Tabs.TIME)"
+					>
+						<img
+							src="/src/assets/images/24-hours.png"
+							alt="24 Hours"
+							class="w-[130px] h-[130px] z-10 relative"
+						/>
+						<img
+							v-if="tabsInfo[1].active"
+							src="/src/assets/images/active-arrow.png"
+							alt="Active Arrow"
+							class="w-[70px] h-[70px] absolute top-1/2 -right-[52px] transform -translate-y-1/2 z-0"
+						/>
+						<img
+							v-else
+							src="/src/assets/images/touch.png"
+							alt="Touch"
+							class="w-[40px] h-[40px] absolute top-1/2 -right-5 transform -translate-y-1/2 z-20"
+						/>
+					</div>
+					<div
+						class="relative w-fit cursor-pointer"
+						@click="onClickTab(Tabs.LUNGS)"
+					>
+						<img
+							src="/src/assets/images/lungs.png"
+							alt="Lungs"
+							class="w-[130px] h-[130px] z-10 relative"
+						/>
+						<img
+							v-if="tabsInfo[2].active"
+							src="/src/assets/images/active-arrow.png"
+							alt="Active Arrow"
+							class="w-[70px] h-[70px] absolute top-1/2 -right-[52px] transform -translate-y-1/2 z-0"
+						/>
+						<img
+							v-else
+							src="/src/assets/images/touch.png"
+							alt="Touch"
+							class="w-[40px] h-[40px] absolute top-1/2 -right-5 transform -translate-y-1/2 z-20"
+						/>
+					</div>
 				</div>
 				<Transition
 					name="fade"
@@ -166,22 +223,16 @@ const tabsInfo = ref([
 	{
 		id: Tabs.DROP,
 		text: 'Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>',
-		imageSrc: '/src/assets/images/water-drop.png',
-		imageAlt: 'Water Drop',
 		active: true,
 	},
 	{
 		id: Tabs.TIME,
 		text: 'Concentrations of both agents are detectable in plasma for 24 hours after last administration.<sup>6</sup>',
-		imageSrc: '/src/assets/images/24-hours.png',
-		imageAlt: '24 Hours',
 		active: false,
 	},
 	{
 		id: Tabs.LUNGS,
 		text: 'Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines for the management of HAP/VAP.<sup>7,8</sup>',
-		imageSrc: '/src/assets/images/lungs.png',
-		imageAlt: 'Lungs',
 		active: false,
 	},
 ]);
