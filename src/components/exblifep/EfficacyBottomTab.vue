@@ -8,6 +8,7 @@
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
+				@click="emit('goToTopTab')"
 			/>
 			<img
 				src="/src/assets/images/active-dot.png"
@@ -145,6 +146,8 @@ const props = defineProps({
 		required: true,
 	},
 });
+
+const emit = defineEmits(['goToTopTab']);
 
 const bottomTab = ref(null);
 

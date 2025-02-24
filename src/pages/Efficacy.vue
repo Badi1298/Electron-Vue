@@ -2,11 +2,13 @@
 	<div class="overflow-y-scroll">
 		<EfficacyTopTab
 			:sidebarOpen="sidebarOpen"
-			@go-to-bottom-tab="onGoToBottomTab"
+			:scroll-into-view="scrollToTopTab"
+			@go-to-bottom-tab="onScrollToBottomTab"
 		/>
 		<EfficacyBottomTab
 			:sidebar-open="sidebarOpen"
-			:scroll-into-view="scrollIntoView"
+			:scroll-into-view="scrollToBottomTab"
+			@go-to-top-tab="onScrollToTopTab"
 		/>
 	</div>
 </template>
@@ -24,12 +26,20 @@ defineProps({
 	},
 });
 
-const scrollIntoView = ref(false);
+const scrollToTopTab = ref(false);
+const scrollToBottomTab = ref(false);
 
-const onGoToBottomTab = () => {
-	scrollIntoView.value = true;
+const onScrollToTopTab = () => {
+	scrollToTopTab.value = true;
 	setTimeout(() => {
-		scrollIntoView.value = false;
+		scrollToTopTab.value = false;
+	}, 1000);
+};
+
+const onScrollToBottomTab = () => {
+	scrollToBottomTab.value = true;
+	setTimeout(() => {
+		scrollToBottomTab.value = false;
 	}, 1000);
 };
 </script>

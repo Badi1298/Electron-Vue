@@ -1,5 +1,8 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
+	<div
+		ref="topTab"
+		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
+	>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/active-dot.png"
@@ -128,14 +131,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import TheTitle from './TheTitle.vue';
 import TheFooter from '../exblifep/TheFooter.vue';
 import ExploreAnother from './ExploreAnother.vue';
 
-defineProps({
+const Tabs = Object.freeze({
+	OVERALL_SUCCESS: 1,
+	CLINICAL_CURE: 2,
+});
+
+const props = defineProps({
 	sidebarOpen: {
+		type: Boolean,
+		required: true,
+	},
+	scrollIntoView: {
 		type: Boolean,
 		required: true,
 	},
@@ -143,10 +155,15 @@ defineProps({
 
 const emit = defineEmits(['goToBottomTab']);
 
-const Tabs = Object.freeze({
-	OVERALL_SUCCESS: 1,
-	CLINICAL_CURE: 2,
-});
-
+const topTab = ref(null);
 const activeTab = ref(Tabs.OVERALL_SUCCESS);
+
+watch(
+	() => props.scrollIntoView,
+	(value) => {
+		if (value) {
+			topTab.value.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+);
 </script>
