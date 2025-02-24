@@ -15,7 +15,10 @@
 			/>
 		</ul>
 		<div class="flex flex-col">
-			<div class="grid grid-cols-2 items-center">
+			<div
+				class="grid items-center"
+				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10']"
+			>
 				<img
 					src="/src/assets/images/book.png"
 					alt="Book Icon"
@@ -27,10 +30,19 @@
 					class="w-4 h-auto justify-self-center"
 				/>
 			</div>
-			<div class="grid grid-cols-2 text-center">
+			<div
+				v-if="open"
+				class="grid grid-cols-2 text-center"
+			>
 				<p class="text-xl font-uni-grotesk text-[#969696]">References</p>
 				<p class="text-xl font-uni-grotesk text-[#969696]">Prescribing information</p>
 			</div>
+			<img
+				:src="open ? '/src/assets/images/advanz-logo.png' : '/src/assets/images/advanz-logo-small.png'"
+				alt="Advanz Logo"
+				:class="[open ? 'w-44' : 'w-12']"
+				class="h-auto m-auto"
+			/>
 		</div>
 
 		<button
@@ -89,7 +101,7 @@ const routes = ref([
 		route: '/safety',
 	},
 	{
-		name: 'Dosing',
+		name: 'Dosing and administration',
 		icon: markRaw(DosingIcon),
 		route: '/dosing',
 	},
