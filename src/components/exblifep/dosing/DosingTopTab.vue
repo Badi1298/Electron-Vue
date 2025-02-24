@@ -25,7 +25,10 @@
 						class="h-1.5 w-[300px] my-5"
 					/>
 				</div>
-				<div class="flex items-center gap-3.5">
+				<div
+					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
+					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-52']"
+				>
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -34,7 +37,7 @@
 					<span class="text-cool-grey text-2xl">Touch a step to continue</span>
 				</div>
 			</div>
-			<div class="flex pt-5 gap-x-16">
+			<div class="flex pt-5 gap-x-10">
 				<div
 					v-for="tab in tabs"
 					:key="tab.id"

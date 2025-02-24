@@ -113,11 +113,14 @@
 				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1</the-footer
 			>
 			<ExploreAnother />
-			<button @click="emit('goToBottomTab')">
+			<button
+				@click="emit('goToBottomTab')"
+				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+			>
 				<img
 					src="/src/assets/images/down-button-blue.png"
 					alt="Down Button"
-					class="w-[140px] h-[50px] absolute left-1/2 -translate-x-1/2 bottom-0 cursor-pointer"
+					class="w-[140px] h-[50px] cursor-pointer"
 				/>
 			</button>
 		</footer>
