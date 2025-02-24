@@ -71,6 +71,10 @@
 			/>
 		</button>
 	</aside>
+	<references-popup
+		v-model:popup-open="referencesPopupOpen"
+		:popup-open="referencesPopupOpen"
+	/>
 </template>
 
 <script setup>
@@ -79,6 +83,7 @@ import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
+import ReferencesPopup from './popups/ReferencesPopup.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
 
@@ -92,6 +97,7 @@ const props = defineProps({
 const emit = defineEmits(['update:open']);
 
 const route = useRoute();
+const referencesPopupOpen = ref(true);
 
 const routes = ref([
 	{
