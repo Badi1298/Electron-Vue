@@ -14,8 +14,9 @@
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive(route), 'text-[#969696]': !isActive(route) }"
 				>
-					<component
-						:is="route.icon"
+					<img
+						:src="isActive(route) ? route.iconActive : route.iconInactive"
+						:alt="`${route.name}-icon`"
 						class="w-[30px] h-[30px]"
 					/>
 					<p class="opacity-0 hidden sidebar-text">
@@ -74,18 +75,12 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { ref, computed, markRaw, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
-import HomeIcon from '../../icons/HomeIcon.vue';
-import SafetyIcon from '../../icons/SafetyIcon.vue';
-import DosingIcon from '../../icons/DosingIcon.vue';
-import SummaryIcon from '../../icons/SummaryIcon.vue';
-import EfficacyIcon from '../../icons/EfficacyIcon.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
-import { nextTick } from 'vue';
 
 const props = defineProps({
 	open: {
@@ -101,27 +96,32 @@ const route = useRoute();
 const routes = ref([
 	{
 		name: 'Home',
-		icon: markRaw(HomeIcon),
+		iconActive: '/src/assets/images/home-sidebar-full.png',
+		iconInactive: '/src/assets/images/home-sidebar.png',
 		route: '/exblifep',
 	},
 	{
 		name: 'Efficacy',
-		icon: markRaw(EfficacyIcon),
+		iconActive: '/src/assets/images/chart-sidebar-full.png',
+		iconInactive: '/src/assets/images/chart-sidebar.png',
 		route: '/efficacy',
 	},
 	{
 		name: 'Safety',
-		icon: markRaw(SafetyIcon),
+		iconActive: '/src/assets/images/shield-sidebar-full.png',
+		iconInactive: '/src/assets/images/shield-sidebar.png',
 		route: '/safety',
 	},
 	{
 		name: 'Dosing and administration',
-		icon: markRaw(DosingIcon),
+		iconActive: '/src/assets/images/bottle-sidebar-full.png',
+		iconInactive: '/src/assets/images/bottle-sidebar.png',
 		route: '/dosing',
 	},
 	{
 		name: 'Summary',
-		icon: markRaw(SummaryIcon),
+		iconActive: '/src/assets/images/summary-sidebar-full.png',
+		iconInactive: '/src/assets/images/summary-sidebar.png',
 		route: '/summary',
 	},
 ]);
