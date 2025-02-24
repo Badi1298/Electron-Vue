@@ -33,7 +33,7 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
-	}, 20000);
+	}, 30000);
 };
 
 const hideScreensaver = () => {
