@@ -14,7 +14,24 @@
 				:is-open="open"
 			/>
 		</ul>
-		<div>aaaaaa</div>
+		<div class="flex flex-col">
+			<div class="grid grid-cols-2 items-center">
+				<img
+					src="/src/assets/images/book.png"
+					alt="Book Icon"
+					class="w-8 h-8 justify-self-center"
+				/>
+				<img
+					src="/src/assets/images/pi.png"
+					alt="PI Icon"
+					class="w-4 h-auto justify-self-center"
+				/>
+			</div>
+			<div class="grid grid-cols-2 text-center">
+				<p class="text-xl font-uni-grotesk text-[#969696]">References</p>
+				<p class="text-xl font-uni-grotesk text-[#969696]">Prescribing information</p>
+			</div>
+		</div>
 
 		<button
 			class="absolute -left-5 transform bg-gray-700 text-white p-2.5 rounded-md bg-[#ECECEC]"
