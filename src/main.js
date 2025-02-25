@@ -2,23 +2,37 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import './index.css';
 
 import path from 'node:path';
-import { existsSync, writeFile, readFileSync } from 'node:fs';
+import { existsSync, writeFile, writeFileSync, readFileSync } from 'node:fs';
 import { v4 as uuidv4 } from 'uuid';
 
 import started from 'electron-squirrel-startup';
 
 // const filePath = path.join(__dirname, 'time-tracking.json');
 
+const dataPath = app.getPath('userData');
+const filePath = path.join(dataPath, 'time-tracking.json');
+
+console.log(filePath);
+
+if (!existsSync(filePath)) {
+	try {
+		writeFileSync(filePath, '{}'); // Initialize with an empty JSON object
+		console.log('time-tracking.json created successfully');
+	} catch (createErr) {
+		console.error('Error creating time-tracking.json:', createErr);
+	}
+}
+
 ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 	try {
-		const data = existsSync('time-tracking.json') ? JSON.parse(readFileSync('time-tracking.json', { encoding: 'utf-8' })) : {};
+		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' })); // Use filePath
 
 		if (!data.sessions) {
 			data.sessions = {};
 		}
 
 		if (!sessionId) {
-			sessionId = uuidv4(); // Generate a new session ID if one isn't provided.
+			sessionId = uuidv4();
 		}
 
 		if (!data.sessions[sessionId]) {
@@ -27,12 +41,7 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 
 		data.sessions[sessionId][page] = (data.sessions[sessionId][page] || 0) + timeSpent;
 
-		writeFile('time-tracking.json', JSON.stringify(data, null, 2), (err) => {
-			if (err) {
-				console.error('Error writing to file:', err);
-				return 'error';
-			}
-		});
+		writeFileSync(filePath, JSON.stringify(data, null, 2));
 
 		return 'success';
 	} catch (err) {
