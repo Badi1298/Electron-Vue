@@ -1,18 +1,14 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import './index.css';
 
 import path from 'node:path';
-import { existsSync, writeFile, writeFileSync, readFileSync } from 'node:fs';
+import { existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { v4 as uuidv4 } from 'uuid';
 
 import started from 'electron-squirrel-startup';
 
-// const filePath = path.join(__dirname, 'time-tracking.json');
-
 const dataPath = app.getPath('userData');
 const filePath = path.join(dataPath, 'time-tracking.json');
-
-console.log(filePath);
 
 if (!existsSync(filePath)) {
 	try {
@@ -50,13 +46,41 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 	}
 });
 
+ipcMain.handle('get-time-tracking-data', async () => {
+	try {
+		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
+		return data;
+	} catch (err) {
+		console.error('Error reading time-tracking data:', err);
+		return null; // Or throw an error
+	}
+});
+
+ipcMain.handle('save-excel-file', async (_, buffer) => {
+	const { filePath } = await dialog.showSaveDialog({
+		title: 'Save Excel File',
+		defaultPath: `time-tracking.xlsx`,
+		filters: [{ name: 'Excel Files', extensions: ['xlsx'] }],
+	});
+
+	if (filePath) {
+		try {
+			writeFileSync(filePath, buffer);
+			return 'success';
+		} catch (error) {
+			console.error('Error saving Excel file:', error);
+			return 'error';
+		}
+	}
+	return 'cancelled';
+});
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
 	app.quit();
 }
 
 const createWindow = () => {
-	console.log(path.join(__dirname, 'preload.js'));
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
 		width: 800,
