@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<button
-			class="fixed top-1 left-1 bg-electric-blue text-white p-2.5 text-sm rounded-md"
+			class="fixed top-1 right-1 bg-electric-blue text-white p-2.5 text-sm rounded-md"
 			@click="exportToExcel"
 		>
 			Export to Excel
