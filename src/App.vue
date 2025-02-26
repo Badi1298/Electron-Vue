@@ -29,11 +29,12 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 import { trackPageTime, exportToExcel } from './utils/analytics';
 
+const route = useRoute();
 const router = useRouter();
 
 const sessionId = ref(crypto.randomUUID());
@@ -44,7 +45,7 @@ const startNewSession = () => {
 	startTime = performance.now();
 };
 
-const handleRouteChange = (to, from) => {
+const handleRouteChange = (_, from) => {
 	if (from.name) {
 		const timeSpent = performance.now() - startTime;
 		trackPageTime(from.name, timeSpent / 1000, sessionId.value);
@@ -65,6 +66,7 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
+		trackPageTime(route.name, 30, sessionId.value);
 		const timeSpent = performance.now() - startTime;
 		trackPageTime('screensaver', timeSpent / 1000, sessionId.value);
 	}, 30000);

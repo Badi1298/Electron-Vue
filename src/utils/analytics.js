@@ -20,7 +20,7 @@ export async function exportToExcel() {
 		const worksheet = workbook.addWorksheet('Time Tracking');
 
 		// Create header row
-		const header = ['Session ID', 'Page', 'Time Spent (seconds)', 'Timestamp/Sequence'];
+		const header = ['Session ID', 'Journey', 'Time Spent (seconds)', 'Timestamp/Sequence'];
 		worksheet.addRow(header);
 
 		// Add user journey (history) data
@@ -33,7 +33,7 @@ export async function exportToExcel() {
 			});
 
 			// Add an aggregate summary at the end of the session
-			const aggregateHeader = ['Session Summary', '', ''];
+			const aggregateHeader = ['Session Summary', 'Page', ''];
 			worksheet.addRow(aggregateHeader);
 			const pages = Object.keys(session.aggregate);
 			pages.forEach((page, idx) => {
