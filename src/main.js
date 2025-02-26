@@ -21,7 +21,7 @@ if (!existsSync(filePath)) {
 
 ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 	try {
-		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' })); // Use filePath
+		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
 
 		if (!data.sessions) {
 			data.sessions = {};
@@ -31,11 +31,20 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 			sessionId = uuidv4();
 		}
 
+		// Ensure session exists and is structured correctly
 		if (!data.sessions[sessionId]) {
-			data.sessions[sessionId] = {};
+			data.sessions[sessionId] = { history: [], aggregate: {} };
 		}
 
-		data.sessions[sessionId][page] = (data.sessions[sessionId][page] || 0) + timeSpent;
+		// Append to history
+		data.sessions[sessionId].history.push({
+			page,
+			timeSpent,
+			timestamp: new Date().toISOString(),
+		});
+
+		// Update aggregate time spent on the page
+		data.sessions[sessionId].aggregate[page] = (data.sessions[sessionId].aggregate[page] || 0) + timeSpent;
 
 		writeFileSync(filePath, JSON.stringify(data, null, 2));
 

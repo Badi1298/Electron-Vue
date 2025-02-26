@@ -8,7 +8,7 @@
 				<component :is="Component" />
 			</transition>
 		</router-view>
-		<!-- <div
+		<div
 			v-if="showScreensaver"
 			id="screensaver"
 			@click="hideScreensaver"
@@ -18,7 +18,7 @@
 			<div class="bg-lightblue-500 w-full h-full flex justify-center items-center">
 				<h1 class="text-4xl font-bold text-white">Screensaver</h1>
 			</div>
-		</div> -->
+		</div>
 		<button
 			class="fixed top-1 right-1 bg-electric-blue text-white p-2.5 text-sm rounded-md"
 			@click="exportToExcel"
@@ -55,7 +55,7 @@ const handleRouteChange = (to, from) => {
 };
 
 router.beforeEach((to, from, next) => {
-	// handleRouteChange(to, from);
+	handleRouteChange(to, from);
 	next();
 });
 
@@ -67,7 +67,7 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
-		// startNewSession();
+		startNewSession();
 	}, 30000);
 };
 
