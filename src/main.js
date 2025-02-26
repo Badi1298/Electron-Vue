@@ -6,6 +6,7 @@ import { existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { v4 as uuidv4 } from 'uuid';
 
 import started from 'electron-squirrel-startup';
+import { format } from 'date-fns';
 
 const dataPath = app.getPath('userData');
 const filePath = path.join(dataPath, 'time-tracking.json');
@@ -40,7 +41,7 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
 		data.sessions[sessionId].history.push({
 			page,
 			timeSpent,
-			timestamp: new Date().toISOString(),
+			timestamp: format(new Date(), 'pp'),
 		});
 
 		// Update aggregate time spent on the page
