@@ -54,14 +54,14 @@
 				<div class="flex flex-col w-[1034px]">
 					<div class="grid grid-cols-[1fr_2fr] gap-x-2">
 						<button
-							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-300"
+							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
 							@click="activeTab = Tabs.OVERALL_SUCCESS"
 						>
 							Overall success*: Day 14
 						</button>
 						<button
-							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-300"
+							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
 							@click="activeTab = Tabs.CLINICAL_CURE"
 						>

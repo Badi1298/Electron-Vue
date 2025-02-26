@@ -1,9 +1,12 @@
 <template>
 	<div id="app">
 		<router-view v-slot="{ Component }">
-			<!-- <transition name="fade"> -->
-			<component :is="Component" />
-			<!-- </transition> -->
+			<transition
+				name="fade"
+				mode="out-in"
+			>
+				<component :is="Component" />
+			</transition>
 		</router-view>
 		<!-- <div
 			v-if="showScreensaver"
@@ -91,10 +94,10 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
+<style>
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 0.5s;
+	transition: opacity 0.4s;
 }
 .fade-enter-from,
 .fade-leave-to {

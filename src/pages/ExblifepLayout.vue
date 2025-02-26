@@ -7,12 +7,15 @@
 		/>
 		<div class="flex flex-1 flex-col h-screen">
 			<router-view v-slot="{ Component }">
-				<!-- <transition name="fade"> -->
-				<component
-					:is="Component"
-					:sidebarOpen="sidebarOpen"
-				/>
-				<!-- </transition> -->
+				<transition
+					name="fade"
+					mode="out-in"
+				>
+					<component
+						:is="Component"
+						:sidebarOpen="sidebarOpen"
+					/>
+				</transition>
 			</router-view>
 		</div>
 		<Sidebar v-model:open="sidebarOpen" />
