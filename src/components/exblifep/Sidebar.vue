@@ -142,7 +142,15 @@
 				</p>
 			</div>
 			<img
-				:src="open ? '/src/assets/images/advanz-logo.png' : '/src/assets/images/advanz-logo-small.png'"
+				v-if="open"
+				src="/src/assets/images/advanz-logo.png"
+				alt="Advanz Logo"
+				:class="[open ? 'w-44' : 'w-12']"
+				class="h-auto m-auto"
+			/>
+			<img
+				v-else
+				src="/src/assets/images/advanz-logo-small.png"
 				alt="Advanz Logo"
 				:class="[open ? 'w-44' : 'w-12']"
 				class="h-auto m-auto"
