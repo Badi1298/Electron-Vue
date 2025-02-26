@@ -92,22 +92,22 @@
 				>
 					<!-- Image Section -->
 					<img
-						v-show="tabs[1].active"
-						:src="AdministrationButtonFull"
+						ref="fullAdministrationButton"
+						src="/src/assets/images/administration-button-full.png"
 						alt="Dosing Full"
-						class="h-[704px] w-auto z-20 cursor-pointer"
+						class="absolute h-[704px] w-auto z-20 cursor-pointer hidden opacity-0"
 					/>
 					<img
-						v-show="!tabs[1].active"
+						ref="emptyAdministrationButton"
 						src="/src/assets/images/administration-button-empty.png"
 						alt="Dosing Empty"
-						class="h-[704px] w-auto z-20 cursor-pointer"
+						class="absolute h-[704px] w-auto z-20 cursor-pointer"
 					/>
 
 					<!-- Expanding Content Section -->
 					<div
 						:class="[tabs[1].class, tabs[1].active ? 'w-[806px]' : 'w-0 opacity-0']"
-						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
+						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
 						<div
 							class="opacity-0"
@@ -136,22 +136,22 @@
 				>
 					<!-- Image Section -->
 					<img
-						v-show="tabs[2].active"
+						ref="fullStorageButton"
 						src="/src/assets/images/storage-button-full.png"
 						alt="Dosing Full"
-						class="h-[704px] w-auto z-20 cursor-pointer"
+						class="absolute h-[704px] w-auto z-20 cursor-pointer hidden opacity-0"
 					/>
 					<img
-						v-show="!tabs[2].active"
+						ref="emptyStorageButton"
 						src="/src/assets/images/storage-button-empty.png"
 						alt="Dosing Empty"
-						class="h-[704px] w-auto z-20 cursor-pointer"
+						class="absolute h-[704px] w-auto z-20 cursor-pointer"
 					/>
 
 					<!-- Expanding Content Section -->
 					<div
 						:class="[tabs[2].class, tabs[2].active ? 'w-[806px]' : 'w-0 opacity-0']"
-						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] -ml-20 z-10 overflow-hidden max-h-[704px]"
+						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
 						<div
 							class="opacity-0"
@@ -203,15 +203,6 @@ import { ref, onMounted, watch } from 'vue';
 
 import { gsap } from 'gsap';
 
-import VLazyImage from 'v-lazy-image';
-
-import DosingButtonFull from '@/assets/images/dosing-button-full.png';
-import DosingButtonEmpty from '@/assets/images/dosing-button-empty.png';
-import StorageButtonFull from '@/assets/images/storage-button-full.png';
-import StorageButtonEmpty from '@/assets/images/storage-button-empty.png';
-import AdministrationButtonFull from '@/assets/images/administration-button-full.png';
-import AdministrationButtonEmpty from '@/assets/images/administration-button-empty.png';
-
 import TheFooter from '../TheFooter.vue';
 import ExploreAnother from '../ExploreAnother.vue';
 
@@ -230,6 +221,10 @@ const emit = defineEmits(['goToBottomTab']);
 
 const fullDosingButton = ref(null);
 const emptyDosingButton = ref(null);
+const fullAdministrationButton = ref(null);
+const emptyAdministrationButton = ref(null);
+const fullStorageButton = ref(null);
+const emptyStorageButton = ref(null);
 
 const tabs = ref([
 	{
@@ -323,6 +318,22 @@ watch(tabs.value, (newValue) => {
 	} else {
 		gsap.to(fullDosingButton.value, { opacity: 0, display: 'none' });
 		gsap.to(emptyDosingButton.value, { opacity: 1, display: 'block' });
+	}
+
+	if (newValue[1].active) {
+		gsap.to(fullAdministrationButton.value, { opacity: 1, display: 'block' });
+		gsap.to(emptyAdministrationButton.value, { opacity: 0, display: 'none' });
+	} else {
+		gsap.to(fullAdministrationButton.value, { opacity: 0, display: 'none' });
+		gsap.to(emptyAdministrationButton.value, { opacity: 1, display: 'block' });
+	}
+
+	if (newValue[2].active) {
+		gsap.to(fullStorageButton.value, { opacity: 1, display: 'block' });
+		gsap.to(emptyStorageButton.value, { opacity: 0, display: 'none' });
+	} else {
+		gsap.to(fullStorageButton.value, { opacity: 0, display: 'none' });
+		gsap.to(emptyStorageButton.value, { opacity: 1, display: 'block' });
 	}
 });
 
