@@ -52,7 +52,7 @@ const handleRouteChange = (to, from) => {
 };
 
 router.beforeEach((to, from, next) => {
-	handleRouteChange(to, from);
+	// handleRouteChange(to, from);
 	next();
 });
 
@@ -64,7 +64,7 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
-		startNewSession();
+		// startNewSession();
 	}, 30000);
 };
 
