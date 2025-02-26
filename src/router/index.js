@@ -1,26 +1,54 @@
 import { createMemoryHistory, createRouter } from 'vue-router';
 
-import Home from '../pages/Home.vue';
-import Dosing from '../pages/Dosing.vue';
-import Safety from '../pages/Safety.vue';
-import Summary from '../pages/Summary.vue';
-import Exblifep from '../pages/Exblifep.vue';
-import Efficacy from '../pages/Efficacy.vue';
-import ExblifepLayout from '../pages/ExblifepLayout.vue';
-
 const routes = [
-	{ path: '/', component: Home, name: 'home' },
+	{
+		path: '/',
+		component: () => import('../pages/Home.vue'),
+		name: 'home',
+		meta: { brand: 'NONE' },
+	},
 	{
 		path: '/exblifep',
-		component: ExblifepLayout,
+		component: () => import('../pages/ExblifepLayout.vue'),
 		name: 'exblifep-index',
 		children: [
-			{ path: '', component: Exblifep, name: 'exblifep', meta: { brand: 'EXBLIFEP' } },
-			{ path: '/efficacy', component: Efficacy, name: 'efficacy', meta: { brand: 'EXBLIFEP' } },
-			{ path: '/safety', component: Safety, name: 'safety', meta: { brand: 'EXBLIFEP' } },
-			{ path: '/dosing', component: Dosing, name: 'dosing', meta: { brand: 'EXBLIFEP' } },
-			{ path: '/summary', component: Summary, name: 'summary', meta: { brand: 'EXBLIFEP' } },
+			{
+				path: '',
+				component: () => import('../pages/Exblifep.vue'),
+				name: 'exblifep',
+				meta: { brand: 'EXBLIFEP' },
+			},
+			{
+				path: '/efficacy',
+				component: () => import('../pages/Efficacy.vue'),
+				name: 'efficacy',
+				meta: { brand: 'EXBLIFEP' },
+			},
+			{
+				path: '/safety',
+				component: () => import('../pages/Safety.vue'),
+				name: 'safety',
+				meta: { brand: 'EXBLIFEP' },
+			},
+			{
+				path: '/dosing',
+				component: () => import('../pages/Dosing.vue'),
+				name: 'dosing',
+				meta: { brand: 'EXBLIFEP' },
+			},
+			{
+				path: '/summary',
+				component: () => import('../pages/Summary.vue'),
+				name: 'summary',
+				meta: { brand: 'EXBLIFEP' },
+			},
 		],
+	},
+	{
+		path: '/screensaver',
+		component: () => import('../pages/Screensaver.vue'),
+		name: 'screensaver',
+		meta: { brand: 'NONE' },
 	},
 ];
 

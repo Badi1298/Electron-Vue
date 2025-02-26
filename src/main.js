@@ -22,6 +22,10 @@ if (!existsSync(filePath)) {
 
 ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand) => {
 	try {
+		if (brand === 'NONE') {
+			return 'success';
+		}
+
 		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
 
 		if (!data.brands) {
