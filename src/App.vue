@@ -36,22 +36,20 @@ import { trackPageTime, exportToExcel } from './utils/analytics';
 
 const router = useRouter();
 
-const sessionId = ref(null);
+const sessionId = ref(crypto.randomUUID());
 let startTime = performance.now();
 
 const startNewSession = () => {
-	sessionId.value = null; // Invalidate the current session
+	sessionId.value = crypto.randomUUID(); // Invalidate the current session
+	startTime = performance.now();
 };
 
 const handleRouteChange = (to, from) => {
 	if (from.name) {
-		// Only track if there's a previous route (not on initial load)
 		const timeSpent = performance.now() - startTime;
-		const currentSessionId = sessionId.value || crypto.randomUUID(); // Use crypto.randomUUID()
-		sessionId.value = currentSessionId;
-		trackPageTime(from.name, timeSpent / 1000, currentSessionId);
+		trackPageTime(from.name, timeSpent / 1000, sessionId.value);
 	}
-	startTime = performance.now(); // Reset the timer *after* tracking the previous page
+	startTime = performance.now();
 };
 
 router.beforeEach((to, from, next) => {
@@ -67,13 +65,15 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
-		startNewSession();
+		const timeSpent = performance.now() - startTime;
+		trackPageTime('screensaver', timeSpent / 1000, sessionId.value);
 	}, 30000);
 };
 
 const hideScreensaver = () => {
 	showScreensaver.value = false;
 	resetInactivityTimer();
+	startNewSession();
 	router.push('/');
 };
 
