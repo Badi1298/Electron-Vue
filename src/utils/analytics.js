@@ -12,7 +12,7 @@ export async function exportToExcel() {
 		const data = await window.electronAPI.getTimeTrackingData();
 
 		if (!data || !data.sessions || Object.keys(data.sessions).length === 0) {
-			alert('No time tracking data available.'); // Or a better user notification
+			alert('No time tracking data available.');
 			return;
 		}
 
@@ -20,15 +20,30 @@ export async function exportToExcel() {
 		const worksheet = workbook.addWorksheet('Time Tracking');
 
 		// Create header row
-		const header = ['Session ID', 'Page', 'Time Spent (seconds)'];
+		const header = ['Session ID', 'Page', 'Time Spent (seconds)', 'Timestamp/Sequence'];
 		worksheet.addRow(header);
 
-		// Add data rows
+		// Add user journey (history) data
 		for (const sessionId in data.sessions) {
-			for (const page in data.sessions[sessionId]) {
-				const timeSpent = data.sessions[sessionId][page];
-				worksheet.addRow([sessionId, page, timeSpent]);
-			}
+			const session = data.sessions[sessionId];
+
+			// Add each page visit to the journey
+			session.history.forEach((visit, index) => {
+				worksheet.addRow([sessionId, visit.page, visit.timeSpent, `Visit #${index + 1}: ${visit.timestamp}`]);
+			});
+
+			// Add an aggregate summary at the end of the session
+			const aggregateHeader = ['Session Summary', '', ''];
+			worksheet.addRow(aggregateHeader);
+			const pages = Object.keys(session.aggregate);
+			pages.forEach((page, idx) => {
+				worksheet.addRow([sessionId, page, session.aggregate[page], '']);
+
+				// Check if this is the last page, and add an empty row after the last one
+				if (idx === pages.length - 1) {
+					worksheet.addRow(['', '', '', '']); // Empty row
+				}
+			});
 		}
 
 		const buffer = await workbook.xlsx.writeBuffer();
