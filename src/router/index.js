@@ -15,7 +15,7 @@ const routes = [
 			{
 				path: '',
 				component: () => import('../pages/Exblifep.vue'),
-				name: 'exblifep',
+				name: 'exblifep-home',
 				meta: { brand: 'EXBLIFEP' },
 			},
 			{

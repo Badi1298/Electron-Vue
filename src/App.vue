@@ -44,6 +44,7 @@ const handleRouteChange = (_, from) => {
 		const timeSpent = performance.now() - startTime;
 		trackPageTime(from.name, timeSpent / 1000, sessionId.value, route.meta.brand);
 	}
+
 	startTime = performance.now();
 };
 

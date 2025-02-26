@@ -33,7 +33,13 @@ export async function exportToExcel() {
 
 				// Add each page visit to the journey
 				session.history.forEach((visit, index) => {
-					worksheet.addRow([brand, sessionId, visit.page, visit.timeSpent, `Visit #${index + 1}: ${visit.timestamp}`]);
+					let timeSpent = visit.timeSpent;
+
+					// if (index === session.history.length - 1 && visit.timeSpent > 30) {
+					// 	timeSpent -= 30;
+					// }
+
+					worksheet.addRow([brand, sessionId, visit.page, timeSpent, `Visit #${index + 1}: ${visit.timestamp}`]);
 				});
 
 				// Add an aggregate summary at the end of the session
@@ -41,7 +47,7 @@ export async function exportToExcel() {
 				worksheet.addRow(aggregateHeader);
 				const pages = Object.keys(session.aggregate);
 				pages.forEach((page, idx) => {
-					worksheet.addRow([brand, sessionId, page, session.aggregate[page], '']);
+					worksheet.addRow([brand, 'Total for:', page, session.aggregate[page], '']);
 
 					// Add an empty row after the last page for readability
 					if (idx === pages.length - 1) {
