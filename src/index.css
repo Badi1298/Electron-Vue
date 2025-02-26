@@ -114,3 +114,12 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+.v-lazy-image {
+	filter: blur(10px);
+	transition: filter 0.5s;
+}
+
+.v-lazy-image-loaded {
+	filter: blur(0);
+}

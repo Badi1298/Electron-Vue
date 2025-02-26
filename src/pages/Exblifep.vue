@@ -3,19 +3,19 @@
 		<div class="flex flex-col justify-center">
 			<div class="flex">
 				<section class="flex flex-col pt-24">
-					<img
-						src="../assets/images/exblifep-logo.svg"
-						alt="Exblifep Logo"
+					<VLazyImage
+						:src="Logo"
+						alt="EXBLIFEP®"
 						class="w-64 ml-[74px]"
 					/>
 					<div class="images-container">
-						<img
-							src="../assets/images/hallway-bed.png"
+						<VLazyImage
+							:src="HallwayBed"
 							alt="Hallway Bed"
 							class="hallway-bed h-[560px]"
 						/>
-						<img
-							src="../assets/images/resistance-and-recurrence.png"
+						<VLazyImage
+							:src="ResistanceAndRecurrence"
 							alt="Resistance and Recurrence"
 							class="resistance-and-recurrence"
 						/>
@@ -74,6 +74,12 @@
 </template>
 
 <script setup>
+import Logo from '@/assets/images/exblifep-logo.svg';
+import HallwayBed from '@/assets/images/hallway-bed.png';
+import ResistanceAndRecurrence from '@/assets/images/resistance-and-recurrence.png';
+
+import VLazyImage from 'v-lazy-image';
+
 import ChartIcon from '../icons/ChartIcon.vue';
 import ShieldIcon from '../icons/ShieldIcon.vue';
 import BottleIcon from '../icons/BottleIcon.vue';
