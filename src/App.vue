@@ -48,7 +48,7 @@ const startNewSession = () => {
 const handleRouteChange = (_, from) => {
 	if (from.name) {
 		const timeSpent = performance.now() - startTime;
-		trackPageTime(from.name, timeSpent / 1000, sessionId.value);
+		trackPageTime(from.name, timeSpent / 1000, sessionId.value, route.meta.brand);
 	}
 	startTime = performance.now();
 };
@@ -66,9 +66,9 @@ const resetInactivityTimer = () => {
 	showScreensaver.value = false;
 	inactivityTimer = setTimeout(() => {
 		showScreensaver.value = true;
-		trackPageTime(route.name, 30, sessionId.value);
+		trackPageTime(route.name, 30, sessionId.value, route.meta.brand);
 		const timeSpent = performance.now() - startTime;
-		trackPageTime('screensaver', timeSpent / 1000, sessionId.value);
+		trackPageTime('screensaver', timeSpent / 1000, sessionId.value, route.meta.brand);
 	}, 30000);
 };
 

@@ -15,11 +15,11 @@ const routes = [
 		component: ExblifepLayout,
 		name: 'exblifep-index',
 		children: [
-			{ path: '', component: Exblifep, name: 'exblifep' },
-			{ path: '/efficacy', component: Efficacy, name: 'efficacy' },
-			{ path: '/safety', component: Safety, name: 'safety' },
-			{ path: '/dosing', component: Dosing, name: 'dosing' },
-			{ path: '/summary', component: Summary, name: 'summary' },
+			{ path: '', component: Exblifep, name: 'exblifep', meta: { brand: 'EXBLIFEP' } },
+			{ path: '/efficacy', component: Efficacy, name: 'efficacy', meta: { brand: 'EXBLIFEP' } },
+			{ path: '/safety', component: Safety, name: 'safety', meta: { brand: 'EXBLIFEP' } },
+			{ path: '/dosing', component: Dosing, name: 'dosing', meta: { brand: 'EXBLIFEP' } },
+			{ path: '/summary', component: Summary, name: 'summary', meta: { brand: 'EXBLIFEP' } },
 		],
 	},
 ];

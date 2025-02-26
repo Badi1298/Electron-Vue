@@ -1,8 +1,8 @@
 import * as excel from 'exceljs';
 
-export function trackPageTime(page, timeSpent, sessionId) {
+export function trackPageTime(page, timeSpent, sessionId, brand) {
 	window.electronAPI
-		.trackTime(page, timeSpent, sessionId)
+		.trackTime(page, timeSpent, sessionId, brand)
 		.then((response) => console.log(response))
 		.catch((err) => console.error(err));
 }
@@ -11,7 +11,7 @@ export async function exportToExcel() {
 	try {
 		const data = await window.electronAPI.getTimeTrackingData();
 
-		if (!data || !data.sessions || Object.keys(data.sessions).length === 0) {
+		if (!data || !data.brands || Object.keys(data.brands).length === 0) {
 			alert('No time tracking data available.');
 			return;
 		}
@@ -20,34 +20,38 @@ export async function exportToExcel() {
 		const worksheet = workbook.addWorksheet('Time Tracking');
 
 		// Create header row
-		const header = ['Session ID', 'Journey', 'Time Spent (seconds)', 'Timestamp/Sequence'];
+		const header = ['Brand', 'Session ID', 'Journey', 'Time Spent (seconds)', 'Timestamp/Sequence'];
 		worksheet.addRow(header);
 
-		// Add user journey (history) data
-		for (const sessionId in data.sessions) {
-			const session = data.sessions[sessionId];
+		// Iterate through brands
+		for (const brand in data.brands) {
+			const brandSessions = data.brands[brand].sessions;
 
-			// Add each page visit to the journey
-			session.history.forEach((visit, index) => {
-				worksheet.addRow([sessionId, visit.page, visit.timeSpent, `Visit #${index + 1}: ${visit.timestamp}`]);
-			});
+			// Iterate through sessions within each brand
+			for (const sessionId in brandSessions) {
+				const session = brandSessions[sessionId];
 
-			// Add an aggregate summary at the end of the session
-			const aggregateHeader = ['Session Summary', 'Page', ''];
-			worksheet.addRow(aggregateHeader);
-			const pages = Object.keys(session.aggregate);
-			pages.forEach((page, idx) => {
-				worksheet.addRow([sessionId, page, session.aggregate[page], '']);
+				// Add each page visit to the journey
+				session.history.forEach((visit, index) => {
+					worksheet.addRow([brand, sessionId, visit.page, visit.timeSpent, `Visit #${index + 1}: ${visit.timestamp}`]);
+				});
 
-				// Check if this is the last page, and add an empty row after the last one
-				if (idx === pages.length - 1) {
-					worksheet.addRow(['', '', '', '']); // Empty row
-				}
-			});
+				// Add an aggregate summary at the end of the session
+				const aggregateHeader = ['', 'Session Summary', 'Page', '', ''];
+				worksheet.addRow(aggregateHeader);
+				const pages = Object.keys(session.aggregate);
+				pages.forEach((page, idx) => {
+					worksheet.addRow([brand, sessionId, page, session.aggregate[page], '']);
+
+					// Add an empty row after the last page for readability
+					if (idx === pages.length - 1) {
+						worksheet.addRow(['', '', '', '', '']); // Empty row
+					}
+				});
+			}
 		}
 
 		const buffer = await workbook.xlsx.writeBuffer();
-
 		const result = await window.electronAPI.saveExcelFile(buffer);
 
 		if (result === 'success') {

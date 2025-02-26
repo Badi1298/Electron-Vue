@@ -20,32 +20,40 @@ if (!existsSync(filePath)) {
 	}
 }
 
-ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId) => {
+ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand) => {
 	try {
 		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
 
-		if (!data.sessions) {
-			data.sessions = {};
+		if (!data.brands) {
+			data.brands = {};
+		}
+
+		if (!brand) {
+			throw new Error('Brand is required');
+		}
+
+		if (!data.brands[brand]) {
+			data.brands[brand] = { sessions: {} };
 		}
 
 		if (!sessionId) {
 			sessionId = uuidv4();
 		}
 
-		// Ensure session exists and is structured correctly
-		if (!data.sessions[sessionId]) {
-			data.sessions[sessionId] = { history: [], aggregate: {} };
+		// Ensure session exists within the brand
+		if (!data.brands[brand].sessions[sessionId]) {
+			data.brands[brand].sessions[sessionId] = { history: [], aggregate: {} };
 		}
 
 		// Append to history
-		data.sessions[sessionId].history.push({
+		data.brands[brand].sessions[sessionId].history.push({
 			page,
 			timeSpent,
 			timestamp: format(new Date(), 'pp'),
 		});
 
 		// Update aggregate time spent on the page
-		data.sessions[sessionId].aggregate[page] = (data.sessions[sessionId].aggregate[page] || 0) + timeSpent;
+		data.brands[brand].sessions[sessionId].aggregate[page] = (data.brands[brand].sessions[sessionId].aggregate[page] || 0) + timeSpent;
 
 		writeFileSync(filePath, JSON.stringify(data, null, 2));
 
