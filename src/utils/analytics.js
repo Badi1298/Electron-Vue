@@ -11,7 +11,7 @@ export async function exportToExcel() {
 	try {
 		const data = await window.electronAPI.getTimeTrackingData();
 
-		if (!data || !data.brands || Object.keys(data.brands).length === 0) {
+		if (!data || !data.sessions || Object.keys(data.sessions).length === 0) {
 			alert('No time tracking data available.');
 			return;
 		}
@@ -20,41 +20,36 @@ export async function exportToExcel() {
 		const worksheet = workbook.addWorksheet('Time Tracking');
 
 		// Create header row
-		const header = ['Brand', 'Session ID', 'Journey', 'Time Spent (seconds)', 'Timestamp/Sequence'];
+		const header = ['Session ID', 'Brand', 'Journey', 'Time Spent (seconds)', 'Timestamp/Sequence'];
 		worksheet.addRow(header);
 
-		// Iterate through brands
-		for (const brand in data.brands) {
-			const brandSessions = data.brands[brand].sessions;
+		// Iterate through sessions
+		for (const sessionId in data.sessions) {
+			const sessionBrands = data.sessions[sessionId].brands;
 
-			// Iterate through sessions within each brand
-			for (const sessionId in brandSessions) {
-				const session = brandSessions[sessionId];
+			// Iterate through brands
+			for (const brand in sessionBrands) {
+				const currentBrand = sessionBrands[brand];
 
 				// Add each page visit to the journey
-				session.history.forEach((visit, index) => {
+				currentBrand.journey.forEach((visit) => {
 					let timeSpent = visit.timeSpent;
 
-					// if (index === session.history.length - 1 && visit.timeSpent > 30) {
-					// 	timeSpent -= 30;
-					// }
-
-					worksheet.addRow([brand, sessionId, visit.page, timeSpent, `Visit #${index + 1}: ${visit.timestamp}`]);
+					worksheet.addRow([sessionId, brand, visit.page, timeSpent, visit.timestamp]);
 				});
 
 				// Add an aggregate summary at the end of the session
-				const aggregateHeader = ['', 'Session Summary', 'Page', '', ''];
+				const aggregateHeader = ['', 'Session Summary', '', '', ''];
 				worksheet.addRow(aggregateHeader);
-				const pages = Object.keys(session.aggregate);
-				pages.forEach((page, idx) => {
-					worksheet.addRow([brand, 'Total for:', page, session.aggregate[page], '']);
-
-					// Add an empty row after the last page for readability
-					if (idx === pages.length - 1) {
-						worksheet.addRow(['', '', '', '', '']); // Empty row
-					}
+				const pages = Object.keys(currentBrand.aggregate);
+				pages.forEach((page) => {
+					worksheet.addRow([sessionId, 'Total for:', page, currentBrand.aggregate[page], '']);
 				});
+				worksheet.addRow([sessionId, 'Total Time Spent on Brand:', '', currentBrand.total, '']);
 			}
+
+			// Add a separator between sessions
+			worksheet.addRow(['', '', '', '', '']);
 		}
 
 		const buffer = await workbook.xlsx.writeBuffer();

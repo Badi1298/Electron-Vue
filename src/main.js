@@ -3,7 +3,6 @@ import './index.css';
 
 import path from 'node:path';
 import { existsSync, writeFileSync, readFileSync } from 'node:fs';
-import { v4 as uuidv4 } from 'uuid';
 
 import started from 'electron-squirrel-startup';
 import { format } from 'date-fns';
@@ -28,36 +27,39 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand) =
 
 		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
 
-		if (!data.brands) {
-			data.brands = {};
+		if (!data.sessions) {
+			data.sessions = {};
 		}
 
 		if (!brand) {
 			throw new Error('Brand is required');
 		}
 
-		if (!data.brands[brand]) {
-			data.brands[brand] = { sessions: {} };
+		if (!sessionId) {
+			sessionId = crypto.randomUUID();
 		}
 
-		if (!sessionId) {
-			sessionId = uuidv4();
+		if (!data.sessions[sessionId]) {
+			data.sessions[sessionId] = { brands: {} };
 		}
 
 		// Ensure session exists within the brand
-		if (!data.brands[brand].sessions[sessionId]) {
-			data.brands[brand].sessions[sessionId] = { history: [], aggregate: {} };
+		if (!data.sessions[sessionId].brands[brand]) {
+			data.sessions[sessionId].brands[brand] = { journey: [], aggregate: {}, total: 0 };
 		}
 
-		// Append to history
-		data.brands[brand].sessions[sessionId].history.push({
+		// Append to journey
+		data.sessions[sessionId].brands[brand].journey.push({
 			page,
 			timeSpent,
 			timestamp: format(new Date(), 'pp'),
 		});
 
 		// Update aggregate time spent on the page
-		data.brands[brand].sessions[sessionId].aggregate[page] = (data.brands[brand].sessions[sessionId].aggregate[page] || 0) + timeSpent;
+		data.sessions[sessionId].brands[brand].aggregate[page] = (data.sessions[sessionId].brands[brand].aggregate[page] || 0) + timeSpent;
+
+		// Update total time spent
+		data.sessions[sessionId].brands[brand].total += timeSpent;
 
 		writeFileSync(filePath, JSON.stringify(data, null, 2));
 
