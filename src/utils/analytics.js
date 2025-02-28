@@ -20,7 +20,7 @@ export async function exportToExcel() {
 		const worksheet = workbook.addWorksheet('Time Tracking');
 
 		// Create header row
-		const header = ['Session ID', 'Brand', 'Journey', 'Navigated Away By', 'Time Spent (seconds)', 'Timestamp/Sequence'];
+		const header = ['Session ID', 'Brand', 'Journey', 'Time Spent (seconds)', 'Navigated Away By', 'Timestamp/Sequence'];
 		worksheet.addRow(header);
 
 		// Iterate through sessions
@@ -35,7 +35,7 @@ export async function exportToExcel() {
 				currentBrand.journey.forEach((visit) => {
 					let timeSpent = visit.timeSpent;
 
-					worksheet.addRow([sessionId, brand, visit.page, visit.navigatedAwayBy, timeSpent, visit.timestamp]);
+					worksheet.addRow([sessionId, brand, visit.page, timeSpent, visit.navigatedAwayBy, visit.timestamp]);
 				});
 
 				// Add an aggregate summary at the end of the session
@@ -43,7 +43,7 @@ export async function exportToExcel() {
 				worksheet.addRow(aggregateHeader);
 				const pages = Object.keys(currentBrand.aggregate);
 				pages.forEach((page) => {
-					worksheet.addRow([sessionId, 'Total for:', page, '', currentBrand.aggregate[page], '']);
+					worksheet.addRow([sessionId, 'Total for:', page, currentBrand.aggregate[page], '', '']);
 				});
 				worksheet.addRow([sessionId, 'Total Time Spent on Brand:', '', currentBrand.total, '']);
 			}
