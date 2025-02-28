@@ -5,7 +5,7 @@
 	>
 		<div v-if="open"></div>
 		<ul class="flex flex-col gap-y-4 px-4 self-center">
-			<RouterLink to="/exblifep">
+			<RouterLink :to="{ name: 'exblifep-home', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'), 'text-[#969696]': !isActive('/exblifep') }"
@@ -25,7 +25,7 @@
 					<p class="opacity-0 hidden sidebar-text">Home</p>
 				</li>
 			</RouterLink>
-			<RouterLink to="/efficacy">
+			<RouterLink :to="{ name: 'efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/efficacy'), 'text-[#969696]': !isActive('/efficacy') }"
@@ -45,7 +45,7 @@
 					<p class="opacity-0 hidden sidebar-text">Efficacy</p>
 				</li>
 			</RouterLink>
-			<RouterLink to="/safety">
+			<RouterLink :to="{ name: 'safety', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/safety'), 'text-[#969696]': !isActive('/safety') }"
@@ -65,7 +65,7 @@
 					<p class="opacity-0 hidden sidebar-text">Safety</p>
 				</li>
 			</RouterLink>
-			<RouterLink to="/dosing">
+			<RouterLink :to="{ name: 'dosing', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/dosing'), 'text-[#969696]': !isActive('/dosing') }"
@@ -85,7 +85,7 @@
 					<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
 				</li>
 			</RouterLink>
-			<RouterLink to="/summary">
+			<RouterLink :to="{ name: 'summary', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/summary'), 'text-[#969696]': !isActive('/summary') }"

@@ -7,10 +7,7 @@
 				v-html="subtitle"
 			></p>
 
-			<RouterLink
-				:to="discoverMorePath"
-				class=""
-			>
+			<RouterLink :to="{ path: discoverMorePath, query: { navigatedAwayBy: 'discover-more-button' } }">
 				<button
 					class="py-3 text-sm mt-2.5 w-[150px]"
 					:class="buttonClass"

@@ -1,5 +1,5 @@
 <template>
-	<RouterLink to="/">
+	<RouterLink :to="{ name: 'home', query: { navigatedAwayBy: 'explore-another-button' } }">
 		<div class="flex items-center shadow-explore">
 			<div class="w-28 bg-white px-4 flex justify-end shadow-explore rounded-r-[20px] py-2.5 relative z-20">
 				<img
