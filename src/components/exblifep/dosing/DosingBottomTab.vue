@@ -207,7 +207,7 @@
 
 			<div class="flex justify-between items-center mr-12">
 				<ExploreAnother />
-				<RouterLink to="/summary">
+				<RouterLink :to="{ name: 'summary', query: { navigatedAwayBy: 'next-section-button' } }">
 					<NextSection />
 				</RouterLink>
 			</div>

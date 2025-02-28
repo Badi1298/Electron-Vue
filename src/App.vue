@@ -34,7 +34,9 @@ const startNewSession = () => {
 	startTime = performance.now();
 };
 
-const handleRouteChange = (_, from) => {
+const handleRouteChange = (to, from) => {
+	const navigatedAwayBy = to?.query?.navigatedAwayBy || '';
+
 	if (from.name === 'screensaver') {
 		resetInactivityTimer();
 		startNewSession();
@@ -42,7 +44,7 @@ const handleRouteChange = (_, from) => {
 
 	if (from.name) {
 		const timeSpent = performance.now() - startTime;
-		trackPageTime(from.name, timeSpent / 1000, sessionId.value, route.meta.brand);
+		trackPageTime(from.name, timeSpent / 1000, sessionId.value, route.meta.brand, navigatedAwayBy);
 	}
 
 	startTime = performance.now();

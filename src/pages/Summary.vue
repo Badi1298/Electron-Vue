@@ -111,7 +111,6 @@
 			</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
-				<NextSection />
 			</div>
 		</footer>
 	</div>

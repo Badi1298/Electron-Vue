@@ -19,7 +19,7 @@ if (!existsSync(filePath)) {
 	}
 }
 
-ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand) => {
+ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand, navigatedAwayBy) => {
 	try {
 		if (brand === 'NONE') {
 			return 'success';
@@ -51,6 +51,7 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand) =
 		// Append to journey
 		data.sessions[sessionId].brands[brand].journey.push({
 			page,
+			navigatedAwayBy,
 			timeSpent,
 			timestamp: format(new Date(), 'pp'),
 		});

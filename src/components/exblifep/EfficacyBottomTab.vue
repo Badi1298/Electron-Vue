@@ -234,7 +234,7 @@
 			</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
-				<RouterLink to="/safety">
+				<RouterLink :to="{ name: 'safety', query: { navigatedAwayBy: 'next-section-button' } }">
 					<NextSection />
 				</RouterLink>
 			</div>

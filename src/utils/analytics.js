@@ -1,8 +1,8 @@
 import * as excel from 'exceljs';
 
-export function trackPageTime(page, timeSpent, sessionId, brand) {
+export function trackPageTime(page, timeSpent, sessionId, brand, navigatedAwayBy) {
 	window.electronAPI
-		.trackTime(page, timeSpent, sessionId, brand)
+		.trackTime(page, timeSpent, sessionId, brand, navigatedAwayBy)
 		.then((response) => console.log(response))
 		.catch((err) => console.error(err));
 }
@@ -20,7 +20,7 @@ export async function exportToExcel() {
 		const worksheet = workbook.addWorksheet('Time Tracking');
 
 		// Create header row
-		const header = ['Session ID', 'Brand', 'Journey', 'Time Spent (seconds)', 'Timestamp/Sequence'];
+		const header = ['Session ID', 'Brand', 'Journey', 'Navigated Away By', 'Time Spent (seconds)', 'Timestamp/Sequence'];
 		worksheet.addRow(header);
 
 		// Iterate through sessions
@@ -35,22 +35,22 @@ export async function exportToExcel() {
 				currentBrand.journey.forEach((visit) => {
 					let timeSpent = visit.timeSpent;
 
-					worksheet.addRow([sessionId, brand, visit.page, timeSpent, visit.timestamp]);
+					worksheet.addRow([sessionId, brand, visit.page, visit.navigatedAwayBy, timeSpent, visit.timestamp]);
 				});
 
 				// Add an aggregate summary at the end of the session
-				const aggregateHeader = ['', 'Session Summary', '', '', ''];
+				const aggregateHeader = ['', 'Session Summary', '', '', '', ''];
 				worksheet.addRow(aggregateHeader);
 				const pages = Object.keys(currentBrand.aggregate);
 				pages.forEach((page) => {
-					worksheet.addRow([sessionId, 'Total for:', page, currentBrand.aggregate[page], '']);
+					worksheet.addRow([sessionId, 'Total for:', page, '', currentBrand.aggregate[page], '']);
 				});
 				worksheet.addRow([sessionId, 'Total Time Spent on Brand:', '', currentBrand.total, '']);
 			}
 
 			// Add a separator between sessions
-			worksheet.addRow(['', '', '', '', '']);
-			worksheet.addRow(['---', '---', '---', '---', '---']);
+			worksheet.addRow(['', '', '', '', '', '']);
+			worksheet.addRow(['---', '---', '---', '---', '---', '---']);
 		}
 
 		const buffer = await workbook.xlsx.writeBuffer();

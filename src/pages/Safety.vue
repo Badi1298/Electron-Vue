@@ -56,7 +56,7 @@
 			>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
-				<RouterLink to="/dosing">
+				<RouterLink :to="{ name: 'dosing', query: { navigatedAwayBy: 'next-section-button' } }">
 					<NextSection />
 				</RouterLink>
 			</div>
