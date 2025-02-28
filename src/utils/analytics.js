@@ -50,6 +50,7 @@ export async function exportToExcel() {
 
 			// Add a separator between sessions
 			worksheet.addRow(['', '', '', '', '']);
+			worksheet.addRow(['---', '---', '---', '---', '---']);
 		}
 
 		const buffer = await workbook.xlsx.writeBuffer();
