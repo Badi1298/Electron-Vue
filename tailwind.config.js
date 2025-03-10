@@ -10,6 +10,7 @@ export default {
 			'cool-grey': '#646469',
 			charcoal: '#2E2E2E',
 			'primary-green': '#009656',
+			'primary-purple': '#982384',
 		},
 		extend: {
 			fontFamily: {

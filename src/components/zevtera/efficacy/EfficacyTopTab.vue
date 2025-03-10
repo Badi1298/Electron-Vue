@@ -70,7 +70,7 @@
 					<img
 						src="/src/assets/images/swap-purple.png"
 						alt="Swap"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6 swap-card"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
 					/>
 					<img
 						src="/src/assets/images/arrow-down-dark-green.png"
@@ -87,7 +87,8 @@
 				</div>
 				<div
 					ref="clinicalEfficacy"
-					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer"
+					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer z-50"
+					@click="animateClinicalEfficacy"
 				>
 					<img
 						src="/src/assets/images/touch-purple.png"
@@ -143,6 +144,62 @@
 						MSSA, Methicillin-susceptible <span class="italic">S. aureus</span>.
 					</footer>
 				</div>
+				<div
+					ref="clinicalEfficacyDetails"
+					class="flex flex-col gap-y-5 pl-[276px] pt-14 pb-8 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+				>
+					<div class="flex flex-col w-[863px]">
+						<div class="grid grid-cols-[1fr_1fr] gap-x-2">
+							<button
+								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
+								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
+								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
+							>
+								Day 3
+							</button>
+							<button
+								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
+								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
+								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
+							>
+								Day 4
+							</button>
+						</div>
+						<div
+							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3"
+							class="w-[863px] h-[464px]"
+						>
+							<VLazyImage
+								:src="ChartA"
+								alt="Chart A"
+								class="w-full h-full"
+							/>
+						</div>
+						<div
+							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4"
+							class="w-[863px]"
+						>
+							<VLazyImage
+								:src="ChartB"
+								alt="Chart B"
+								class="w-full h-full"
+							/>
+						</div>
+					</div>
+					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
+						Adapted from Hebeisen P et al. 2001<sup>5</sup><br /><br />*Overnight cultures of <span class="italic">E. coli</span> and MSSA/MRSA test
+						strain were grown in 30 mL of Mueller-Hinton broth and diluted into fresh medium to yield an inoculum of 10<sup>6</sup> CFU/mL or
+						higher. Drug was added either with<br />
+						the inoculumor at intervals of 1.5 hours (early log phase) and 3 hours (log phase) after its addition. Drug concentrations of 2 times
+						the MIC were used. Ten-microlitre aliquots of appropriate dilutions were plated on Mueller-Hinton agar (MHA), and colonies were counted
+						after 24 hours of incubation. To check if resistant clones had been selected, the MICs were determined for those cultures that showed
+						growth after 24 hours. Bactericidal activity wasdefined by a ≥ 3-log<sub>10</sub> decrease in the number of CFU/mL within 24 hours.<sup
+							>5</sup
+						><br />
+						CFU, colony-forming unit; MIC, minimum inhibitory concentration; MRSA, Methicillin-resistant <span class="italic">S. aureus</span>;
+						MSSA, Methicillin-susceptible <span class="italic">S. aureus</span>.
+					</footer>
+				</div>
 			</section>
 		</div>
 
@@ -167,6 +224,11 @@ import { ref, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
+import VLazyImage from 'v-lazy-image';
+
+import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
+import ChartB from '@/assets/images/chart-b.png';
+
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
 
@@ -185,11 +247,20 @@ const emit = defineEmits(['goToBottomTab']);
 
 const topTab = ref(null);
 const content = ref(null);
-const clinicalEfficacy = ref(null);
+
 const bacterialActivity = ref(null);
 const bacterialActivityDetails = ref(null);
-
 const bacterialActivityActive = ref(false);
+
+const clinicalEfficacy = ref(null);
+const clinicalEfficacyDetails = ref(null);
+const clinicalEfficacyActive = ref(false);
+
+const clinicalEfficacyTabs = Object.freeze({
+	DAY_3: 1,
+	DAY_4: 2,
+});
+const activeClinicalEfficayTab = ref(clinicalEfficacyTabs.DAY_3);
 
 watch(
 	() => props.scrollIntoView,
@@ -202,7 +273,8 @@ watch(
 
 onMounted(() => {
 	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
-	gsap.set('.swap-card', { opacity: 0 });
+	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
+	gsap.set('.bacterial-swap-card', { opacity: 0 });
 });
 
 const animateBacterialActivity = () => {
@@ -213,6 +285,7 @@ const animateBacterialActivity = () => {
 	// Common animation properties
 	const opacityConfig = {
 		opacity: isActive ? 1 : 0,
+		pointerEvents: 'none',
 		duration: 0.7,
 		ease: 'power2.inOut',
 	};
@@ -224,7 +297,7 @@ const animateBacterialActivity = () => {
 	};
 
 	const slideConfig = {
-		x: isActive ? 0 : -window.innerWidth / 2 + 420,
+		x: isActive ? 0 : -window.innerWidth / 3.6,
 		duration: 0.9,
 		ease: 'power2.inOut',
 		onComplete: () => {
@@ -236,14 +309,61 @@ const animateBacterialActivity = () => {
 		// Animate slide first, then opacity
 		tl.to(bacterialActivityDetails.value, detailsOpacityConfig)
 			.to(bacterialActivity.value, slideConfig, '-=0.5')
-			.to('.swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
-			.to(elements, opacityConfig, '-=0.5');
+			.to('.bacterial-swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
+			.to(elements, opacityConfig, '-=0.5')
+			.to(elements, { pointerEvents: 'auto' });
 	} else {
 		// Animate opacity first, then slide
 		tl.to(elements, opacityConfig)
 			.to(bacterialActivity.value, slideConfig, '-=0.5')
 			.to(bacterialActivityDetails.value, detailsOpacityConfig, '-=0.5')
-			.to('.swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
+			.to('.bacterial-swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
+	}
+
+	return tl;
+};
+
+const animateClinicalEfficacy = () => {
+	const tl = gsap.timeline();
+	const isActive = clinicalEfficacyActive.value;
+	const elements = [bacterialActivity.value, content.value];
+
+	// Common animation properties
+	const opacityConfig = {
+		opacity: isActive ? 1 : 0,
+		pointerEvents: 'none',
+		duration: 0.7,
+		ease: 'power2.inOut',
+	};
+
+	const detailsOpacityConfig = {
+		opacity: isActive ? 0 : 1,
+		duration: 0.7,
+		ease: 'power2.inOut',
+	};
+
+	const slideConfig = {
+		x: isActive ? 0 : -window.innerWidth / 1.97,
+		duration: 0.9,
+		ease: 'power2.inOut',
+		onComplete: () => {
+			clinicalEfficacyActive.value = !isActive;
+		},
+	};
+
+	if (isActive) {
+		// Animate slide first, then opacity
+		tl.to(clinicalEfficacyDetails.value, detailsOpacityConfig)
+			.to(clinicalEfficacy.value, slideConfig, '-=0.5')
+			.to('.bacterial-swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
+			.to(elements, opacityConfig, '-=0.5')
+			.to(elements, { pointerEvents: 'auto' });
+	} else {
+		// Animate opacity first, then slide
+		tl.to(elements, opacityConfig)
+			.to(clinicalEfficacy.value, slideConfig, '-=0.5')
+			.to(clinicalEfficacyDetails.value, detailsOpacityConfig, '-=0.5')
+			.to('.bacterial-swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
 	}
 
 	return tl;
