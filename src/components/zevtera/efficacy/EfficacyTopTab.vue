@@ -137,6 +137,7 @@ import { gsap } from 'gsap';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
+import { onMounted } from 'vue';
 
 const props = defineProps({
 	sidebarOpen: {
@@ -167,6 +168,10 @@ watch(
 		}
 	}
 );
+
+onMounted(() => {
+	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
+});
 
 const animateBacterialActivity = () => {
 	const tl = gsap.timeline();
