@@ -16,7 +16,7 @@
 <script setup>
 import { ref } from 'vue';
 
-import EfficacyTopTab from '@/components/zevtera/efficay/EfficacyTopTab.vue';
+import EfficacyTopTab from '@/components/zevtera/efficacy/EfficacyTopTab.vue';
 import EfficacyBottomTab from '@/components/zevtera/efficacy/EfficacyBottomTab.vue';
 
 defineProps({

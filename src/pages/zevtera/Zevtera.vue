@@ -57,7 +57,7 @@
 						class="mt-9 font-uni-grotesk"
 					>
 						<img
-							src="/src/assets/images/chart-dark-green.png"
+							src="/src/assets/images/chart-green.png"
 							alt="Chart Dark Green"
 							class="w-[106px] h-auto"
 						/>

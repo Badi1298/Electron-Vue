@@ -243,10 +243,8 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 
-import InfoIcon from './efficacy/InfoIcon.vue';
-import InfoCard from './efficacy/InfoCard.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
