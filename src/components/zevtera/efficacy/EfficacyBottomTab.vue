@@ -191,8 +191,9 @@ const expandDetails = () => {
 		});
 	} else {
 		gsap.to(details.value, {
-			width: 1189,
-			height: 820,
+			width: 1205,
+			height: 860,
+			translateY: -30,
 			paddingTop: 30,
 		});
 		gsap.to(pathogensChart.value, {
