@@ -101,11 +101,29 @@
 				</div>
 				<div
 					ref="bacterialActivityDetails"
-					class="flex pl-[260px] pt-16 absolute top-1/2 -translate-y-1/2 right-20 bg-white z-10 w-[1174px] h-[750px] rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+					class="flex flex-col gap-y-5 pl-[260px] pt-16 absolute top-1/2 -translate-y-1/2 right-20 bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
 					<h2 class="text-[32px] font-bold pr-3">
 						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
 					</h2>
+					<div class="flex gap-x-28">
+						<div>
+							<h3 class="text-2xl font-uni-grotesk italic mb-2.5 text-center">Staphylococcus aureus*</h3>
+							<img
+								src="/src/assets/images/bacterial-activity-sa.png"
+								alt="Bacterial Activity"
+								class="h-[420px] w-auto"
+							/>
+						</div>
+						<div class="flex flex-col">
+							<h3 class="text-2xl font-uni-grotesk italic mb-2.5 text-center">Escherichia coli*</h3>
+							<img
+								src="/src/assets/images/bacterial-activity-ec.png"
+								alt="Bacterial Activity"
+								class="max-h-[400px] w-auto flex-1 mt-auto"
+							/>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>
