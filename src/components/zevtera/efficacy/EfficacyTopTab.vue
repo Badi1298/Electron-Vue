@@ -101,7 +101,7 @@
 				</div>
 				<div
 					ref="bacterialActivityDetails"
-					class="flex flex-col gap-y-5 pl-[260px] pt-16 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
 					<h2 class="text-[32px] font-bold pr-3">
 						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
@@ -124,6 +124,19 @@
 							/>
 						</div>
 					</div>
+					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
+						Adapted from Hebeisen P et al. 2001<sup>5</sup><br /><br />*Overnight cultures of <span class="italic">E. coli</span> and MSSA/MRSA test
+						strain were grown in 30 mL of Mueller-Hinton broth and diluted into fresh medium to yield an inoculum of 10<sup>6</sup> CFU/mL or
+						higher. Drug was added either with<br />
+						the inoculumor at intervals of 1.5 hours (early log phase) and 3 hours (log phase) after its addition. Drug concentrations of 2 times
+						the MIC were used. Ten-microlitre aliquots of appropriate dilutions were plated on Mueller-Hinton agar (MHA), and colonies were counted
+						after 24 hours of incubation. To check if resistant clones had been selected, the MICs were determined for those cultures that showed
+						growth after 24 hours. Bactericidal activity wasdefined by a ≥ 3-log<sub>10</sub> decrease in the number of CFU/mL within 24 hours.<sup
+							>5</sup
+						><br />
+						CFU, colony-forming unit; MIC, minimum inhibitory concentration; MRSA, Methicillin-resistant <span class="italic">S. aureus</span>;
+						MSSA, Methicillin-susceptible <span class="italic">S. aureus</span>.
+					</footer>
 				</div>
 			</section>
 		</div>
