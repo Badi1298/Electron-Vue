@@ -208,7 +208,7 @@
 			<div class="flex justify-between items-center mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'summary', query: { navigatedAwayBy: 'next-section-button' } }">
-					<NextSection />
+					<next-section />
 				</RouterLink>
 			</div>
 		</footer>
@@ -219,8 +219,8 @@
 import { ref, watch } from 'vue';
 
 import TheFooter from '../TheFooter.vue';
-import NextSection from '../NextSection.vue';
 import ExploreAnother from '../ExploreAnother.vue';
+import NextSection from '@/components/NextSection.vue';
 import ChevronRight from '../../../icons/ChevronRight.vue';
 
 const props = defineProps({

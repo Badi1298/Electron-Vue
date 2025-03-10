@@ -85,7 +85,7 @@ import ShieldIcon from '../../icons/ShieldIcon.vue';
 import BottleIcon from '../../icons/BottleIcon.vue';
 import ChevronRight from '../../icons/ChevronRight.vue';
 
-import Card from '../../components/exblifep/Card.vue';
+import Card from '@/components/Card.vue';
 import TheFooter from '../../components/exblifep/TheFooter.vue';
 import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
 

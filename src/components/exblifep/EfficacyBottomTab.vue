@@ -235,7 +235,7 @@
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'safety', query: { navigatedAwayBy: 'next-section-button' } }">
-					<NextSection />
+					<next-section />
 				</RouterLink>
 			</div>
 		</footer>
@@ -246,10 +246,10 @@
 import { computed, ref, watch } from 'vue';
 
 import TheFooter from './TheFooter.vue';
-import NextSection from './NextSection.vue';
 import InfoIcon from './efficacy/InfoIcon.vue';
 import InfoCard from './efficacy/InfoCard.vue';
 import ExploreAnother from './ExploreAnother.vue';
+import NextSection from '@/components/NextSection.vue';
 
 const Tabs = Object.freeze({
 	DROP: 1,

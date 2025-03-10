@@ -57,7 +57,7 @@
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'dosing', query: { navigatedAwayBy: 'next-section-button' } }">
-					<NextSection />
+					<next-section />
 				</RouterLink>
 			</div>
 		</footer>
@@ -65,8 +65,8 @@
 </template>
 
 <script setup>
+import NextSection from '@/components/NextSection.vue';
 import TheFooter from '../../components/exblifep/TheFooter.vue';
-import NextSection from '../../components/exblifep/NextSection.vue';
 import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
 
 defineProps({
