@@ -25,13 +25,17 @@
 					<p class="opacity-0 hidden sidebar-text">Home</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'efficacy', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/efficacy'), 'text-[#969696]': !isActive('/efficacy') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/efficacy'),
+						'text-[#969696]': !isActive('/exblifep/efficacy'),
+					}"
 				>
 					<img
-						v-if="isActive('/efficacy')"
+						v-if="isActive('/exblifep/efficacy')"
 						src="/src/assets/images/chart-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
@@ -45,13 +49,17 @@
 					<p class="opacity-0 hidden sidebar-text">Efficacy</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'safety', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/safety'), 'text-[#969696]': !isActive('/safety') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/safety'),
+						'text-[#969696]': !isActive('/exblifep/safety'),
+					}"
 				>
 					<img
-						v-if="isActive('/safety')"
+						v-if="isActive('/exblifep/safety')"
 						src="/src/assets/images/shield-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
@@ -65,13 +73,17 @@
 					<p class="opacity-0 hidden sidebar-text">Safety</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'dosing', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/dosing'), 'text-[#969696]': !isActive('/dosing') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/dosing'),
+						'text-[#969696]': !isActive('/exblifep/dosing'),
+					}"
 				>
 					<img
-						v-if="isActive('/dosing')"
+						v-if="isActive('/exblifep/dosing')"
 						src="/src/assets/images/bottle-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
@@ -85,13 +97,17 @@
 					<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'summary', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/summary'), 'text-[#969696]': !isActive('/summary') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/summary'),
+						'text-[#969696]': !isActive('/exblifep/summary'),
+					}"
 				>
 					<img
-						v-if="isActive('/summary')"
+						v-if="isActive('/exblifep/summary')"
 						src="/src/assets/images/summary-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"

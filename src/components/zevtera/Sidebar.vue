@@ -25,13 +25,17 @@
 					<p class="opacity-0 hidden sidebar-text">Home</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'efficacy', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'zevtera-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/efficacy'), 'text-[#969696]': !isActive('/efficacy') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/efficacy'),
+						'text-[#969696]': !isActive('/zevtera/efficacy'),
+					}"
 				>
 					<img
-						v-if="isActive('/efficacy')"
+						v-if="isActive('/zevtera/efficacy')"
 						src="/src/assets/images/chart-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
@@ -45,13 +49,17 @@
 					<p class="opacity-0 hidden sidebar-text">Efficacy</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'safety', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'zevtera-safety', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/safety'), 'text-[#969696]': !isActive('/safety') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/safety'),
+						'text-[#969696]': !isActive('/zevtera/safety'),
+					}"
 				>
 					<img
-						v-if="isActive('/safety')"
+						v-if="isActive('/zevtera/safety')"
 						src="/src/assets/images/shield-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
@@ -65,13 +73,17 @@
 					<p class="opacity-0 hidden sidebar-text">Safety</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'dosing', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/dosing'), 'text-[#969696]': !isActive('/dosing') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/dosing'),
+						'text-[#969696]': !isActive('/zevtera/dosing'),
+					}"
 				>
 					<img
-						v-if="isActive('/dosing')"
+						v-if="isActive('/zevtera/dosing')"
 						src="/src/assets/images/bottle-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
@@ -85,13 +97,17 @@
 					<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
 				</li>
 			</RouterLink>
-			<RouterLink :to="{ name: 'summary', query: { navigatedAwayBy: 'sidebar' } }">
+			<RouterLink :to="{ name: 'zevtera-summary', query: { navigatedAwayBy: 'sidebar' } }">
 				<li
 					class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-					:class="{ 'justify-center': !open, 'bg-[#EFEFEF] font-bold text-black': isActive('/summary'), 'text-[#969696]': !isActive('/summary') }"
+					:class="{
+						'justify-center': !open,
+						'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/summary'),
+						'text-[#969696]': !isActive('/zevtera/summary'),
+					}"
 				>
 					<img
-						v-if="isActive('/summary')"
+						v-if="isActive('/zevtera/summary')"
 						src="/src/assets/images/summary-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
