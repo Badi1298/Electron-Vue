@@ -162,42 +162,34 @@ watch(
 );
 
 const animateBacterialActivity = () => {
-	let tl = gsap.timeline();
+	const tl = gsap.timeline();
+	const isActive = bacterialActivityActive.value;
+	const elements = [clinicalEfficacy.value, content.value];
 
-	if (!bacterialActivityActive.value) {
-		tl.to([clinicalEfficacy.value, content.value], {
-			opacity: 0,
-			duration: 0.7,
-			ease: 'power2.inOut',
-		}).to(
-			bacterialActivity.value,
-			{
-				x: -window.innerWidth / 2 + 420,
-				duration: 0.9,
-				ease: 'power2.inOut',
-				onComplete: () => {
-					bacterialActivityActive.value = true;
-				},
-			},
-			'-=0.5'
-		);
+	// Common animation properties
+	const opacityConfig = {
+		opacity: isActive ? 1 : 0,
+		duration: 0.7,
+		ease: 'power2.inOut',
+	};
+
+	const slideConfig = {
+		x: isActive ? 0 : -window.innerWidth / 2 + 420,
+		duration: 0.9,
+		ease: 'power2.inOut',
+		onComplete: () => {
+			bacterialActivityActive.value = !isActive;
+		},
+	};
+
+	if (isActive) {
+		// Animate slide first, then opacity
+		tl.to(bacterialActivity.value, slideConfig).to(elements, opacityConfig, '-=0.5');
 	} else {
-		tl.to(bacterialActivity.value, {
-			x: 0,
-			duration: 0.9,
-			ease: 'power2.inOut',
-		}).to(
-			[clinicalEfficacy.value, content.value],
-			{
-				opacity: 1,
-				duration: 0.7,
-				ease: 'power2.inOut',
-				onComplete: () => {
-					bacterialActivityActive.value = false;
-				},
-			},
-			'-=0.5'
-		);
+		// Animate opacity first, then slide
+		tl.to(elements, opacityConfig).to(bacterialActivity.value, slideConfig, '-=0.5');
 	}
+
+	return tl;
 };
 </script>
