@@ -27,6 +27,8 @@ export default {
 				sidebar: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
 				explore: '0px 0px 4px 0px rgba(0, 0, 0, 0.08)',
 				dark: '3px 4px 10px 2px rgba(0, 0, 0, 0.25)',
+				'zevtera-efficacy-card':
+					'-39px 347px 98px 0px rgba(0, 0, 0, 0.00), -25px 222px 89px 0px rgba(0, 0, 0, 0.01), -14px 125px 75px 0px rgba(0, 0, 0, 0.05), -6px 56px 56px 0px rgba(0, 0, 0, 0.09), -2px 14px 31px 0px rgba(0, 0, 0, 0.10)',
 			},
 		},
 	},

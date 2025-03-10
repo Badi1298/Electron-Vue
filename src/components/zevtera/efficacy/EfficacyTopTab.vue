@@ -59,7 +59,7 @@
 				</div>
 				<div
 					ref="bacterialActivity"
-					class="relative bg-primary-green ml-10 rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer"
+					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer z-50"
 					@click="animateBacterialActivity"
 				>
 					<img
@@ -81,7 +81,7 @@
 					</p>
 					<div
 						ref="bacterialActivityDetails"
-						class="absolute bottom-0 right-0 bg-white"
+						class="absolute bottom-0 right-0 bg-white z-10 w-[1174px] h-[750px]"
 					>
 						<h2>aaaaaa</h2>
 					</div>
