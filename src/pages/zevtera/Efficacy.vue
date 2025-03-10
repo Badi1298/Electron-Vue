@@ -1,3 +1,51 @@
 <template>
-	<h1>Efficacy</h1>
+	<div class="overflow-y-scroll">
+		<EfficacyTopTab
+			:sidebarOpen="sidebarOpen"
+			:scroll-into-view="scrollToTopTab"
+			@go-to-bottom-tab="onScrollToBottomTab"
+		/>
+		<EfficacyBottomTab
+			:sidebar-open="sidebarOpen"
+			:scroll-into-view="scrollToBottomTab"
+			@go-to-top-tab="onScrollToTopTab"
+		/>
+	</div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+import EfficacyTopTab from '@/components/zevtera/efficay/EfficacyTopTab.vue';
+import EfficacyBottomTab from '@/components/zevtera/efficacy/EfficacyBottomTab.vue';
+
+defineProps({
+	sidebarOpen: {
+		type: Boolean,
+		required: true,
+	},
+});
+
+const scrollToTopTab = ref(false);
+const scrollToBottomTab = ref(false);
+
+const onScrollToTopTab = () => {
+	scrollToTopTab.value = true;
+	setTimeout(() => {
+		scrollToTopTab.value = false;
+	}, 1000);
+};
+
+const onScrollToBottomTab = () => {
+	scrollToBottomTab.value = true;
+	setTimeout(() => {
+		scrollToBottomTab.value = false;
+	}, 1000);
+};
+</script>
+
+<style scoped>
+::-webkit-scrollbar {
+	display: none;
+}
+</style>

@@ -94,7 +94,7 @@
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
-					<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
+					<p class="opacity-0 hidden sidebar-text">Dosing</p>
 				</li>
 			</RouterLink>
 			<RouterLink :to="{ name: 'zevtera-summary', query: { navigatedAwayBy: 'sidebar' } }">
