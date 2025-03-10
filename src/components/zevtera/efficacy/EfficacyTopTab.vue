@@ -65,7 +65,12 @@
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6 touch-card"
+					/>
+					<img
+						src="/src/assets/images/swap-purple.png"
+						alt="Swap"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6 swap-card"
 					/>
 					<img
 						src="/src/assets/images/arrow-down-dark-green.png"
@@ -158,14 +163,12 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
 import TheTitle from '@/components/zevtera/TheTitle.vue';
-import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-import { onMounted } from 'vue';
 
 const props = defineProps({
 	sidebarOpen: {
@@ -199,6 +202,7 @@ watch(
 
 onMounted(() => {
 	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
+	gsap.set('.swap-card', { opacity: 0 });
 });
 
 const animateBacterialActivity = () => {
@@ -230,10 +234,16 @@ const animateBacterialActivity = () => {
 
 	if (isActive) {
 		// Animate slide first, then opacity
-		tl.to(bacterialActivityDetails.value, detailsOpacityConfig).to(bacterialActivity.value, slideConfig, '-=0.5').to(elements, opacityConfig, '-=0.5');
+		tl.to(bacterialActivityDetails.value, detailsOpacityConfig)
+			.to(bacterialActivity.value, slideConfig, '-=0.5')
+			.to('.swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
+			.to(elements, opacityConfig, '-=0.5');
 	} else {
 		// Animate opacity first, then slide
-		tl.to(elements, opacityConfig).to(bacterialActivity.value, slideConfig, '-=0.5').to(bacterialActivityDetails.value, detailsOpacityConfig, '-=0.5');
+		tl.to(elements, opacityConfig)
+			.to(bacterialActivity.value, slideConfig, '-=0.5')
+			.to(bacterialActivityDetails.value, detailsOpacityConfig, '-=0.5')
+			.to('.swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
 	}
 
 	return tl;
