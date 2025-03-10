@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<section class="grid grid-cols-3 flex-1 content-center">
+			<section class="relative grid grid-cols-3 flex-1 content-center">
 				<div
 					ref="content"
 					class="flex flex-col gap-y-16"
@@ -79,12 +79,6 @@
 					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
 						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
 					</p>
-					<div
-						ref="bacterialActivityDetails"
-						class="absolute bottom-0 right-0 bg-white z-10 w-[1174px] h-[750px]"
-					>
-						<h2>aaaaaa</h2>
-					</div>
 				</div>
 				<div
 					ref="clinicalEfficacy"
@@ -105,15 +99,18 @@
 						Early improvement at Day 3 in patients with CAP by risk factors (CE)<sup>6</sup>
 					</p>
 				</div>
+				<div
+					ref="bacterialActivityDetails"
+					class="flex pl-[260px] pt-16 absolute top-1/2 -translate-y-1/2 right-20 bg-white z-10 w-[1174px] h-[750px] rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+				>
+					<h2 class="text-[32px] font-bold pr-3">
+						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
+					</h2>
+				</div>
 			</section>
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-				>*Patients' groups who are severely ill or at high risk of poor outcomes</the-footer
-			>
 			<ExploreAnother />
 			<button
 				@click="emit('goToBottomTab')"
