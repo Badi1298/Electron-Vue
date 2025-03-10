@@ -1,8 +1,8 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
 		<div class="flex flex-col justify-center">
-			<div class="grid grid-cols-[2.2fr_1fr]">
-				<section class="flex flex-col pt-24">
+			<div class="flex">
+				<section class="flex flex-col pt-24 pr-3">
 					<div class="relative">
 						<VLazyImage
 							:src="MabelioBullet"
@@ -52,7 +52,7 @@
 					<card
 						title="Efficacy"
 						subtitle="Demonstrated efficacy with clinical<br /> efficacy from Days 3-4, with more pathogens covered<sup>5-8</sup>"
-						button-class="bg-[#009656] text-black"
+						button-class="bg-[#009656] text-white"
 						discover-more-path="/efficacy"
 						class="mt-9 font-uni-grotesk"
 					>
@@ -65,7 +65,7 @@
 					<card
 						title="Safety"
 						subtitle="ZEVTERA®/MABELIO® is<br /> generally well tolerated<sup>9</sup>"
-						button-class="bg-[#FFA94D] text-white"
+						button-class="bg-[#FFA94D] text-black"
 						discover-more-path="/safety"
 						class="mt-11 font-uni-grotesk"
 					>
@@ -78,7 +78,7 @@
 					<card
 						title="Dosing"
 						subtitle="Ease-of-use dosing<sup>4</sup>"
-						button-class="bg-[#FCC100] text-white"
+						button-class="bg-[#FCC100] text-black"
 						discover-more-path="/dosing"
 						class="mt-11 font-uni-grotesk"
 					>
@@ -92,7 +92,7 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer class="transition-all duration-300 ml-[124px]"
+			<the-footer class="transition-all duration-300 ml-24"
 				>Zevtera® is the trademark in UK, Germany, Spain, Denmark, Norway, Sweden and Finland; Mabelio® is the trademark in France and Italy.
 				Commercialised by ADVANZ PHARMA® in Germany, Spain, Italy,<br />
 				France, and UK. Zevtera® / Mabelio ® is licensed to ADVANZ PHARMA by Basilea Pharmaceutica International AG.<br />©2025 ADVANZ
@@ -111,13 +111,9 @@ import MabelioBullet from '@/assets/images/mabelio-bullet.png';
 
 import VLazyImage from 'v-lazy-image';
 
-import ChartIcon from '../icons/ChartIcon.vue';
-import ShieldIcon from '../icons/ShieldIcon.vue';
-import BottleIcon from '../icons/BottleIcon.vue';
-
-import Card from '../components/exblifep/Card.vue';
-import TheFooter from '../components/exblifep/TheFooter.vue';
-import ExploreAnother from '../components/exblifep/ExploreAnother.vue';
+import Card from '../../components/exblifep/Card.vue';
+import TheFooter from '../../components/exblifep/TheFooter.vue';
+import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
 
 defineProps({
 	sidebarOpen: {

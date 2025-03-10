@@ -16,8 +16,8 @@
 <script setup>
 import { ref } from 'vue';
 
-import EfficacyTopTab from '../components/exblifep/EfficacyTopTab.vue';
-import EfficacyBottomTab from '../components/exblifep/EfficacyBottomTab.vue';
+import EfficacyTopTab from '../../components/exblifep/EfficacyTopTab.vue';
+import EfficacyBottomTab from '../../components/exblifep/EfficacyBottomTab.vue';
 
 defineProps({
 	sidebarOpen: {

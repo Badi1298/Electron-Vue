@@ -80,14 +80,14 @@ import ResistanceAndRecurrence from '@/assets/images/resistance-and-recurrence.p
 
 import VLazyImage from 'v-lazy-image';
 
-import ChartIcon from '../icons/ChartIcon.vue';
-import ShieldIcon from '../icons/ShieldIcon.vue';
-import BottleIcon from '../icons/BottleIcon.vue';
-import ChevronRight from '../icons/ChevronRight.vue';
+import ChartIcon from '../../icons/ChartIcon.vue';
+import ShieldIcon from '../../icons/ShieldIcon.vue';
+import BottleIcon from '../../icons/BottleIcon.vue';
+import ChevronRight from '../../icons/ChevronRight.vue';
 
-import Card from '../components/exblifep/Card.vue';
-import TheFooter from '../components/exblifep/TheFooter.vue';
-import ExploreAnother from '../components/exblifep/ExploreAnother.vue';
+import Card from '../../components/exblifep/Card.vue';
+import TheFooter from '../../components/exblifep/TheFooter.vue';
+import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
 
 defineProps({
 	sidebarOpen: {

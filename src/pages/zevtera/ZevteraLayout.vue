@@ -1,9 +1,9 @@
 <template>
-	<main class="flex justify-between bg-textured">
+	<main class="flex justify-between bg-zevtera">
 		<img
-			src="/src/assets/images/exblifep-logo.svg"
+			src="/src/assets/images/zevtera-mabelio-logo.png"
 			alt="Exblifep Logo"
-			class="absolute top-14 right-10 z-50 mt-4 ml-4"
+			class="absolute top-14 right-4 z-50 mt-4 ml-4 w-[310px] h-auto"
 		/>
 		<div class="flex flex-1 flex-col h-screen">
 			<router-view v-slot="{ Component }">
@@ -26,7 +26,7 @@
 import { ref } from 'vue';
 import { RouterView } from 'vue-router';
 
-import Sidebar from '../components/exblifep/Sidebar.vue';
+import Sidebar from '@/components/zevtera/Sidebar.vue';
 
 const sidebarOpen = ref(true);
 </script>

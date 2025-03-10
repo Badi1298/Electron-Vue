@@ -16,8 +16,8 @@
 <script setup>
 import { ref } from 'vue';
 
-import DosingTopTab from '../components/exblifep/dosing/DosingTopTab.vue';
-import DosingBottomTab from '../components/exblifep/dosing/DosingBottomTab.vue';
+import DosingTopTab from '../../components/exblifep/dosing/DosingTopTab.vue';
+import DosingBottomTab from '../../components/exblifep/dosing/DosingBottomTab.vue';
 
 defineProps({
 	sidebarOpen: {

@@ -9,36 +9,36 @@ const routes = [
 	},
 	{
 		path: '/exblifep',
-		component: () => import('../pages/ExblifepLayout.vue'),
+		component: () => import('@/pages/exblifep/ExblifepLayout.vue'),
 		name: 'exblifep-index',
 		children: [
 			{
 				path: '',
-				component: () => import('../pages/Exblifep.vue'),
+				component: () => import('@/pages/exblifep/Exblifep.vue'),
 				name: 'exblifep-home',
 				meta: { brand: 'EXBLIFEP' },
 			},
 			{
 				path: '/efficacy',
-				component: () => import('../pages/Efficacy.vue'),
+				component: () => import('@/pages/exblifep/Efficacy.vue'),
 				name: 'efficacy',
 				meta: { brand: 'EXBLIFEP' },
 			},
 			{
 				path: '/safety',
-				component: () => import('../pages/Safety.vue'),
+				component: () => import('@/pages/exblifep/Safety.vue'),
 				name: 'safety',
 				meta: { brand: 'EXBLIFEP' },
 			},
 			{
 				path: '/dosing',
-				component: () => import('../pages/Dosing.vue'),
+				component: () => import('@/pages/exblifep/Dosing.vue'),
 				name: 'dosing',
 				meta: { brand: 'EXBLIFEP' },
 			},
 			{
 				path: '/summary',
-				component: () => import('../pages/Summary.vue'),
+				component: () => import('@/pages/exblifep/Summary.vue'),
 				name: 'summary',
 				meta: { brand: 'EXBLIFEP' },
 			},
@@ -46,12 +46,12 @@ const routes = [
 	},
 	{
 		path: '/zevtera',
-		component: () => import('@/pages/ZevteraLayout.vue'),
+		component: () => import('@/pages/zevtera/ZevteraLayout.vue'),
 		name: 'zevtera-index',
 		children: [
 			{
 				path: '',
-				component: () => import('../pages/Zevtera.vue'),
+				component: () => import('@/pages/zevtera/Zevtera.vue'),
 				name: 'zevtera-home',
 				meta: { brand: 'ZEVTERA' },
 			},
