@@ -203,8 +203,8 @@ import { ref, onMounted, watch } from 'vue';
 
 import { gsap } from 'gsap';
 
-import TheFooter from '../TheFooter.vue';
-import ExploreAnother from '../ExploreAnother.vue';
+import TheFooter from '@/components/TheFooter.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 const props = defineProps({
 	sidebarOpen: {

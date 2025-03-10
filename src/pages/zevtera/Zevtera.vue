@@ -112,8 +112,8 @@ import MabelioBullet from '@/assets/images/mabelio-bullet.png';
 import VLazyImage from 'v-lazy-image';
 
 import Card from '@/components/Card.vue';
-import TheFooter from '../../components/exblifep/TheFooter.vue';
-import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
+import TheFooter from '@/components/TheFooter.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 defineProps({
 	sidebarOpen: {

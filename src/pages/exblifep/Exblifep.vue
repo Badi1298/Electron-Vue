@@ -86,8 +86,8 @@ import BottleIcon from '../../icons/BottleIcon.vue';
 import ChevronRight from '../../icons/ChevronRight.vue';
 
 import Card from '@/components/Card.vue';
-import TheFooter from '../../components/exblifep/TheFooter.vue';
-import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
+import TheFooter from '@/components/TheFooter.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 defineProps({
 	sidebarOpen: {

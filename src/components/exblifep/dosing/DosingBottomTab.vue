@@ -218,10 +218,10 @@
 <script setup>
 import { ref, watch } from 'vue';
 
-import TheFooter from '../TheFooter.vue';
-import ExploreAnother from '../ExploreAnother.vue';
+import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ChevronRight from '../../../icons/ChevronRight.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 const props = defineProps({
 	sidebarOpen: {

@@ -245,11 +245,11 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 
-import TheFooter from './TheFooter.vue';
 import InfoIcon from './efficacy/InfoIcon.vue';
 import InfoCard from './efficacy/InfoCard.vue';
-import ExploreAnother from './ExploreAnother.vue';
+import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 const Tabs = Object.freeze({
 	DROP: 1,

@@ -65,9 +65,9 @@
 </template>
 
 <script setup>
+import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
-import TheFooter from '../../components/exblifep/TheFooter.vue';
-import ExploreAnother from '../../components/exblifep/ExploreAnother.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 defineProps({
 	sidebarOpen: {

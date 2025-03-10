@@ -139,8 +139,8 @@ import ChartA from '@/assets/images/chart-a.svg';
 import ChartB from '@/assets/images/chart-b.png';
 
 import TheTitle from './TheTitle.vue';
-import TheFooter from '../exblifep/TheFooter.vue';
-import ExploreAnother from './ExploreAnother.vue';
+import TheFooter from '@/components/TheFooter.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,
