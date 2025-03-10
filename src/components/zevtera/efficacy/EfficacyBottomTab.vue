@@ -17,7 +17,7 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
+			class="flex flex-col font-effra transition-all duration-300 relative"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<img
@@ -25,7 +25,7 @@
 				alt="Bullet Long"
 				class="-translate-x-20"
 			/>
-			<div class="relative gap-x-28 items-center">
+			<div class="relative gap-x-28 items-center flex-1 content-center">
 				<div>
 					<the-title
 						>More pathogens<br />
@@ -62,7 +62,7 @@
 				</div>
 				<div
 					ref="details"
-					class="absolute right-[60px] bottom-0 z-50 flex flex-col bg-white p-12 rounded-[20px] border-primary-green border-[5px]"
+					class="absolute right-[60px] top-1/2 -translate-y-1/2 z-50 flex flex-col bg-white p-12 rounded-[20px] border-primary-green border-[5px]"
 				>
 					<h3
 						ref="detailsTitle"
@@ -192,8 +192,7 @@ const expandDetails = () => {
 	} else {
 		gsap.to(details.value, {
 			width: 1189,
-			height: 850,
-			translateY: 120,
+			height: 820,
 			paddingTop: 30,
 		});
 		gsap.to(pathogensChart.value, {
