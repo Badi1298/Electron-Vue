@@ -40,7 +40,10 @@
 			</div>
 
 			<section class="grid grid-cols-3 flex-1 content-center">
-				<div class="flex flex-col gap-y-16">
+				<div
+					ref="content"
+					class="flex flex-col gap-y-16"
+				>
 					<the-title>More for your difficult-to-treat patients*</the-title>
 					<div class="relative bg-primary-green px-6 h-[284px] flex flex-col justify-center rounded-[20px] overflow-hidden">
 						<h3 class="text-[32px] leading-normal font-bold text-white">
@@ -54,7 +57,11 @@
 						/>
 					</div>
 				</div>
-				<div class="relative bg-primary-green ml-10 rounded-[20px] overflow-hidden max-w-[420px]">
+				<div
+					ref="bacterialActivity"
+					class="relative bg-primary-green ml-10 rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer"
+					@click="animateBacterialActivity"
+				>
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -73,7 +80,10 @@
 						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
 					</p>
 				</div>
-				<div class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px]">
+				<div
+					ref="clinicalEfficacy"
+					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer"
+				>
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -116,19 +126,11 @@
 <script setup>
 import { ref, watch } from 'vue';
 
-import VLazyImage from 'v-lazy-image';
-
-import ChartA from '@/assets/images/chart-a.svg';
-import ChartB from '@/assets/images/chart-b.png';
+import { gsap } from 'gsap';
 
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-
-const Tabs = Object.freeze({
-	OVERALL_SUCCESS: 1,
-	CLINICAL_CURE: 2,
-});
 
 const props = defineProps({
 	sidebarOpen: {
@@ -144,7 +146,11 @@ const props = defineProps({
 const emit = defineEmits(['goToBottomTab']);
 
 const topTab = ref(null);
-const activeTab = ref(Tabs.OVERALL_SUCCESS);
+const content = ref(null);
+const clinicalEfficacy = ref(null);
+const bacterialActivity = ref(null);
+
+const bacterialActivityActive = ref(false);
 
 watch(
 	() => props.scrollIntoView,
@@ -154,4 +160,44 @@ watch(
 		}
 	}
 );
+
+const animateBacterialActivity = () => {
+	let tl = gsap.timeline();
+
+	if (!bacterialActivityActive.value) {
+		tl.to([clinicalEfficacy.value, content.value], {
+			opacity: 0,
+			duration: 0.7,
+			ease: 'power2.inOut',
+		}).to(
+			bacterialActivity.value,
+			{
+				x: -window.innerWidth / 2 + 420,
+				duration: 0.9,
+				ease: 'power2.inOut',
+				onComplete: () => {
+					bacterialActivityActive.value = true;
+				},
+			},
+			'-=0.5'
+		);
+	} else {
+		tl.to(bacterialActivity.value, {
+			x: 0,
+			duration: 0.9,
+			ease: 'power2.inOut',
+		}).to(
+			[clinicalEfficacy.value, content.value],
+			{
+				opacity: 1,
+				duration: 0.7,
+				ease: 'power2.inOut',
+				onComplete: () => {
+					bacterialActivityActive.value = false;
+				},
+			},
+			'-=0.5'
+		);
+	}
+};
 </script>
