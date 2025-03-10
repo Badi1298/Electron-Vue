@@ -75,10 +75,11 @@
 						ref="pathogensChart"
 						:src="PathogensChart"
 						alt="Pathogens Chart"
-						class="self-end mr-8"
+						class="self-end"
 					/>
-					<p class="text-[10px] text-[#555] text-center">Adapted from Scheeren T et al. 2019.6</p>
+					<p class="text-[10px] text-[#555] text-center mt-4">Adapted from Scheeren T et al. 2019.6</p>
 					<img
+						ref="details"
 						src="/src/assets/images/expand-icon-purple.png"
 						alt="Expand Icon"
 						class="absolute bottom-5 right-7 w-[60px] h-[60px] cursor-pointer"
@@ -86,7 +87,7 @@
 					/>
 					<p
 						ref="detailsFooter"
-						class="text-[10px] text-[#555] mt-7"
+						class="text-[10px] text-[#555] mt-7 pr-28"
 					>
 						<span class="font-bold">STUDY DESIGN:</span> Post hoc analysis of data from two Phase III studies to evaluate early improvement outcomes
 						in subgroups of high-risk patients treated with ceftobiprole, compared with the respective active-control therapies(ceftriaxone ±
@@ -161,39 +162,51 @@ onMounted(() => {
 	});
 	gsap.set(pathogensChart.value, {
 		width: 503,
+		marginRight: 32,
 	});
 	gsap.set(detailsFooter.value, {
+		opacity: 0,
 		display: 'none',
 	});
 });
 
 const expandDetails = () => {
 	if (detailsExpanded.value) {
+		gsap.to(detailsFooter.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.2,
+		});
 		gsap.to(details.value, {
 			width: 675,
 			height: 560,
+			translateY: 0,
 		});
 		gsap.to(pathogensChart.value, {
 			width: 503,
+			marginRight: 32,
 		});
 		gsap.to(detailsTitle.value, {
-			fontSize: 24,
+			scale: 1,
 		});
 	} else {
 		gsap.to(details.value, {
 			width: 1189,
-			height: 820,
+			height: 850,
+			translateY: 120,
 			paddingTop: 30,
 		});
 		gsap.to(pathogensChart.value, {
 			width: 800,
+			marginRight: 200,
 		});
 		gsap.to(detailsTitle.value, {
-			fontSize: 32,
+			scale: 1.3,
 		});
 		gsap.to(detailsFooter.value, {
 			opacity: 1,
-		});
+			display: 'block',
+		}).delay(0.5);
 	}
 	detailsExpanded.value = !detailsExpanded.value;
 };
