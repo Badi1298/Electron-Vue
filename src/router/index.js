@@ -45,6 +45,19 @@ const routes = [
 		],
 	},
 	{
+		path: '/zevtera',
+		component: () => import('@/pages/ZevteraLayout.vue'),
+		name: 'zevtera-index',
+		children: [
+			{
+				path: '',
+				component: () => import('../pages/Zevtera.vue'),
+				name: 'zevtera-home',
+				meta: { brand: 'ZEVTERA' },
+			},
+		],
+	},
+	{
 		path: '/screensaver',
 		component: () => import('../pages/Screensaver.vue'),
 		name: 'screensaver',

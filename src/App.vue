@@ -8,12 +8,12 @@
 				<component :is="Component" />
 			</transition>
 		</router-view>
-		<button
+		<!-- <button
 			class="fixed top-1 right-1 bg-electric-blue text-white p-2.5 text-sm rounded-md"
 			@click="exportToExcel"
 		>
 			Export to Excel
-		</button>
+		</button> -->
 	</div>
 </template>
 
@@ -51,7 +51,7 @@ const handleRouteChange = (to, from) => {
 };
 
 router.beforeEach((to, from, next) => {
-	handleRouteChange(to, from);
+	// handleRouteChange(to, from);
 	next();
 });
 
@@ -64,21 +64,21 @@ const resetInactivityTimer = () => {
 	}, 30000);
 };
 
-onMounted(() => {
-	resetInactivityTimer();
+// onMounted(() => {
+// 	resetInactivityTimer();
 
-	window.addEventListener('mousemove', resetInactivityTimer);
-	window.addEventListener('keydown', resetInactivityTimer);
-	window.addEventListener('click', resetInactivityTimer);
-});
+// 	window.addEventListener('mousemove', resetInactivityTimer);
+// 	window.addEventListener('keydown', resetInactivityTimer);
+// 	window.addEventListener('click', resetInactivityTimer);
+// });
 
-onUnmounted(() => {
-	clearTimeout(inactivityTimer);
+// onUnmounted(() => {
+// 	clearTimeout(inactivityTimer);
 
-	window.removeEventListener('mousemove', resetInactivityTimer);
-	window.removeEventListener('keydown', resetInactivityTimer);
-	window.removeEventListener('click', resetInactivityTimer);
-});
+// 	window.removeEventListener('mousemove', resetInactivityTimer);
+// 	window.removeEventListener('keydown', resetInactivityTimer);
+// 	window.removeEventListener('click', resetInactivityTimer);
+// });
 </script>
 
 <style>

@@ -3,8 +3,12 @@
 		<RouterLink to="/exblifep">
 			<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold">Explore Exblifep</button>
 		</RouterLink>
-		<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold w-fit justify-self-center">Explore Brand 2 (soon...)</button>
-		<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold w-fit justify-self-center">Explore Brand 3 (soon...)</button>
+		<RouterLink to="/zevtera">
+			<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold">Explore Brand 2 (soon...)</button>
+		</RouterLink>
+		<RouterLink to="/">
+			<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold">Explore Brand 3 (soon...)</button>
+		</RouterLink>
 	</div>
 </template>
 
