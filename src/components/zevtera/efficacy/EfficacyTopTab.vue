@@ -65,7 +65,7 @@
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6 touch-card"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6"
 					/>
 					<img
 						src="/src/assets/images/swap-purple.png"
@@ -94,6 +94,11 @@
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
 						class="absolute w-[85px] h-[85px] top-[18px] right-6"
+					/>
+					<img
+						src="/src/assets/images/swap-purple.png"
+						alt="Swap"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6 clinical-swap-card"
 					/>
 					<img
 						src="/src/assets/images/up-arrows-dark-green.png"
@@ -146,7 +151,7 @@
 				</div>
 				<div
 					ref="clinicalEfficacyDetails"
-					class="flex flex-col gap-y-5 pl-[276px] pt-14 pb-8 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+					class="flex flex-col min-h-[750px] pl-[276px] pt-[74px] absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
 					<div class="flex flex-col w-[863px]">
 						<div class="grid grid-cols-[1fr_1fr] gap-x-2">
@@ -187,14 +192,16 @@
 						</div>
 					</div>
 					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
-						STUDY DESIGN: Post hoc analysis of data from two Phase III studies to evaluate early improvement outcomes in subgroups of high-risk
-						patients treated with ceftobiprole, compared with the respective active-control therapies(ceftriaxone ± linezolid in CAP and ceftazidime
-						plus linezolid in HAP). The HAP study was a multicentre, international, double-blind, non-inferiority study of adult patients with HAP
-						undertaken at 157 centres between April 2005 and May 2007. Key inclusion criteria comprised: a clinical diagnosis of pneumonia after ≥72
-						h stay in hospital or a chronic care facility; clinical signs and symptoms of pneumonia; fever or leucocytosis / leukopenia; new
-						orpersistent radiographic infiltrates; and an Acute Physiology and Chronic Health Evaluation II (APACHE II) score between 8 and 25.6
+						<span class="font-bold">STUDY DESIGN</span>: Post hoc analysis of data from two Phase III studies to evaluate early improvement outcomes
+						in subgroups of high-risk patients treated with ceftobiprole, compared with the respective active-control therapies(ceftriaxone ±
+						linezolid in CAP and ceftazidime plus linezolid in HAP). The HAP study was a multicentre, international, double-blind, non-inferiority
+						study of adult patients with HAP undertaken at 157 centres between April 2005 and May 2007. Key inclusion criteria comprised: a clinical
+						diagnosis of pneumonia after ≥72 h stay in hospital or a chronic care facility; clinical signs and symptoms of pneumonia; fever or
+						leucocytosis / leukopenia; new orpersistent radiographic infiltrates; and an Acute Physiology and Chronic Health Evaluation II (APACHE
+						II) score between 8 and 25.<sup>6</sup><br /><br />
 						CAP, Community-acquired pneumonia; CE, clinically evaluable; CI, confidence interval; COPD, chronic obstructive pulmonary disease; HAP,
-						hospital-acquired pneumonia; CE, clinically evaluable; TOC, test ofcure.
+						hospital-acquired pneumonia; CE, clinically evaluable;<br />
+						TOC, test ofcure.
 					</footer>
 				</div>
 			</section>
@@ -272,6 +279,7 @@ onMounted(() => {
 	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
 	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
+	gsap.set('.clinical-swap-card', { opacity: 0 });
 });
 
 const animateBacterialActivity = () => {
@@ -352,7 +360,7 @@ const animateClinicalEfficacy = () => {
 		// Animate slide first, then opacity
 		tl.to(clinicalEfficacyDetails.value, detailsOpacityConfig)
 			.to(clinicalEfficacy.value, slideConfig, '-=0.5')
-			.to('.bacterial-swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
+			.to('.clinical-swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
 			.to(elements, opacityConfig, '-=0.5')
 			.to(elements, { pointerEvents: 'auto' });
 	} else {
@@ -360,7 +368,7 @@ const animateClinicalEfficacy = () => {
 		tl.to(elements, opacityConfig)
 			.to(clinicalEfficacy.value, slideConfig, '-=0.5')
 			.to(clinicalEfficacyDetails.value, detailsOpacityConfig, '-=0.5')
-			.to('.bacterial-swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
+			.to('.clinical-swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
 	}
 
 	return tl;
