@@ -1,7 +1,7 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
 		<div class="flex flex-col justify-center">
-			<div class="flex">
+			<div class="grid grid-cols-[2.2fr_1fr]">
 				<section class="flex flex-col pt-24">
 					<div class="relative">
 						<VLazyImage
@@ -10,56 +10,93 @@
 							class="w-[1070px] h-auto"
 						/>
 						<VLazyImage
-							src="/src/assets/images/strike-fast.png"
+							:src="StrikeFast"
 							alt="Strike Fast"
 							class="absolute bottom-0 right-16 w-[370px] h-auto object-cover"
 						/>
 					</div>
-					<div class="flex items-center gap-x-5 py-10 px-14 border-x-0 border-y-[6px] border-[#1F17F6] max-w-[1078px]">
-						<chevron-right class="w-24 h-24" />
-						<h1 class="relative text-[40px] text-center font-bold leading-tight text-electric-blue font-effra">
-							EXBLIFEP<sup class="text-2xl font-normal">®</sup> is where microbiological eradication* meets efficacy<sup class="text-[26px]"
-								>1</sup
-							>
+					<div class="px-24 pt-7">
+						<h1 class="relative text-[40px] font-bold leading-tight text-charcoal font-effra">
+							Allows the reduction of the number of<br />
+							agents<sup>2</sup>, thanks to its expanded spectrum<br />
+							of antimicrobial activity<sup>3</sup>
 						</h1>
+						<p class="font-uni-grotesk text-xl text-charcoal font-normal mt-9">
+							ZEVTERA®/MABELIO® is indicated for the treatment of the following infections in term neonates,<br />
+							infants, children, adolescents and adults:<sup>4</sup>
+						</p>
+						<ul>
+							<li class="flex items-center mt-4 gap-x-5">
+								<img
+									src="/src/assets/images/list-polygon.png"
+									alt="List Polygon"
+									class="w-5 h-auto"
+								/>
+								<p class="font-uni-grotesk text-xl text-charcoal font-normal">
+									Hospital-acquired pneumonia (HAP), excluding ventilator-associated pneumonia (VAP)
+								</p>
+							</li>
+							<li class="flex items-center mt-4 gap-x-5">
+								<img
+									src="/src/assets/images/list-polygon.png"
+									alt="List Polygon"
+									class="w-5 h-auto"
+								/>
+								<p class="font-uni-grotesk text-xl text-charcoal font-normal">Community-acquired pneumonia (CAP)</p>
+							</li>
+						</ul>
 					</div>
 				</section>
 				<section class="pt-36 -translate-x-1">
-					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in -</h2>
+					<h2 class="text-[32px] font-bold text-charcoal font-effra">I'm interested in:</h2>
 					<card
 						title="Efficacy"
-						subtitle="EXBLIFEP<sup>®</sup> superiority in primary endpoint vs. piperacillin/tazobactam<sup>1</sup>"
-						button-class="bg-[#97D700] text-black"
+						subtitle="Demonstrated efficacy with clinical<br /> efficacy from Days 3-4, with more pathogens covered<sup>5-8</sup>"
+						button-class="bg-[#009656] text-black"
 						discover-more-path="/efficacy"
-						class="mt-9"
+						class="mt-9 font-uni-grotesk"
 					>
-						<chart-icon class="min-w-[106px]" />
+						<img
+							src="/src/assets/images/chart-dark-green.png"
+							alt="Chart Dark Green"
+							class="w-[106px] h-auto"
+						/>
 					</card>
 					<card
 						title="Safety"
-						subtitle="Comparable safety profile<br /> to piperacillin/tazobactam<sup>5</sup>"
-						button-class="bg-cool-grey text-white"
+						subtitle="ZEVTERA®/MABELIO® is<br /> generally well tolerated<sup>9</sup>"
+						button-class="bg-[#FFA94D] text-white"
 						discover-more-path="/safety"
-						class="mt-11"
+						class="mt-11 font-uni-grotesk"
 					>
-						<shield-icon class="min-w-[106px]" />
+						<img
+							src="/src/assets/images/shield-orange.png"
+							alt="Shiled Orange"
+							class="w-[106px] h-auto"
+						/>
 					</card>
 					<card
 						title="Dosing"
-						subtitle="Recommended dosing and<br /> administration details<sup>5</sup>"
-						button-class="bg-electric-blue text-white"
+						subtitle="Ease-of-use dosing<sup>4</sup>"
+						button-class="bg-[#FCC100] text-white"
 						discover-more-path="/dosing"
-						class="mt-11"
+						class="mt-11 font-uni-grotesk"
 					>
-						<bottle-icon class="min-w-[106px]" />
+						<img
+							src="/src/assets/images/bottle-golden.png"
+							alt="Dosing Golden"
+							class="w-[106px] h-auto"
+						/>
 					</card>
 				</section>
 			</div>
 		</div>
 		<footer>
 			<the-footer class="transition-all duration-300 ml-[124px]"
-				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
-				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
+				>Zevtera® is the trademark in UK, Germany, Spain, Denmark, Norway, Sweden and Finland; Mabelio® is the trademark in France and Italy.
+				Commercialised by ADVANZ PHARMA® in Germany, Spain, Italy,<br />
+				France, and UK. Zevtera® / Mabelio ® is licensed to ADVANZ PHARMA by Basilea Pharmaceutica International AG.<br />©2025 ADVANZ
+				PHARMA®</the-footer
 			>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
@@ -69,17 +106,14 @@
 </template>
 
 <script setup>
-import Logo from '@/assets/images/exblifep-logo.svg';
-import HallwayBed from '@/assets/images/hallway-bed.png';
+import StrikeFast from '@/assets/images/strike-fast.png';
 import MabelioBullet from '@/assets/images/mabelio-bullet.png';
-import ResistanceAndRecurrence from '@/assets/images/resistance-and-recurrence.png';
 
 import VLazyImage from 'v-lazy-image';
 
 import ChartIcon from '../icons/ChartIcon.vue';
 import ShieldIcon from '../icons/ShieldIcon.vue';
 import BottleIcon from '../icons/BottleIcon.vue';
-import ChevronRight from '../icons/ChevronRight.vue';
 
 import Card from '../components/exblifep/Card.vue';
 import TheFooter from '../components/exblifep/TheFooter.vue';
@@ -92,17 +126,3 @@ defineProps({
 	},
 });
 </script>
-
-<style scoped>
-.logo {
-	padding-left: 74px;
-	max-width: 250px;
-}
-
-.resistance-and-recurrence {
-	position: absolute;
-	top: -150px;
-	right: 0px;
-	max-width: 644px;
-}
-</style>

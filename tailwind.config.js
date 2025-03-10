@@ -8,6 +8,7 @@ export default {
 			'electric-blue': '#1F17F6',
 			'dark-blue': '#002470',
 			'cool-grey': '#646469',
+			charcoal: '#2E2E2E',
 		},
 		extend: {
 			fontFamily: {
