@@ -282,10 +282,9 @@ onMounted(() => {
 	gsap.set('.clinical-swap-card', { opacity: 0 });
 });
 
-const animateBacterialActivity = () => {
+const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fadeElements, slideDivisor }) => {
 	const tl = gsap.timeline();
-	const isActive = bacterialActivityActive.value;
-	const elements = [clinicalEfficacy.value, content.value];
+	const isActive = activeRef.value;
 
 	// Common animation properties
 	const opacityConfig = {
@@ -302,75 +301,53 @@ const animateBacterialActivity = () => {
 	};
 
 	const slideConfig = {
-		x: isActive ? 0 : -window.innerWidth / 3.6,
+		x: isActive ? 0 : -window.innerWidth / slideDivisor,
 		duration: 0.9,
 		ease: 'power2.inOut',
 		onComplete: () => {
-			bacterialActivityActive.value = !isActive;
+			activeRef.value = !isActive;
 		},
 	};
 
 	if (isActive) {
 		// Animate slide first, then opacity
-		tl.to(bacterialActivityDetails.value, detailsOpacityConfig)
-			.to(bacterialActivity.value, slideConfig, '-=0.5')
-			.to('.bacterial-swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
-			.to(elements, opacityConfig, '-=0.5')
-			.to(elements, { pointerEvents: 'auto' });
+		tl.to(detailsRef.value, detailsOpacityConfig)
+			.to(mainRef.value, slideConfig, '-=0.5')
+			.to(swapCardSelector, { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
+			.to(fadeElements, opacityConfig, '-=0.5')
+			.to(fadeElements, { pointerEvents: 'auto' });
 	} else {
 		// Animate opacity first, then slide
-		tl.to(elements, opacityConfig)
-			.to(bacterialActivity.value, slideConfig, '-=0.5')
-			.to(bacterialActivityDetails.value, detailsOpacityConfig, '-=0.5')
-			.to('.bacterial-swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
+		tl.to(fadeElements, opacityConfig)
+			.to(mainRef.value, slideConfig, '-=0.5')
+			.to(detailsRef.value, detailsOpacityConfig, '-=0.5')
+			.to(swapCardSelector, { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
 	}
 
 	return tl;
 };
 
+// Now you can create the specific animations by passing the right parameters:
+
+const animateBacterialActivity = () => {
+	return animateSection({
+		activeRef: bacterialActivityActive,
+		detailsRef: bacterialActivityDetails,
+		mainRef: bacterialActivity,
+		swapCardSelector: '.bacterial-swap-card',
+		fadeElements: [clinicalEfficacy.value, content.value],
+		slideDivisor: 3.6,
+	});
+};
+
 const animateClinicalEfficacy = () => {
-	const tl = gsap.timeline();
-	const isActive = clinicalEfficacyActive.value;
-	const elements = [bacterialActivity.value, content.value];
-
-	// Common animation properties
-	const opacityConfig = {
-		opacity: isActive ? 1 : 0,
-		pointerEvents: 'none',
-		duration: 0.7,
-		ease: 'power2.inOut',
-	};
-
-	const detailsOpacityConfig = {
-		opacity: isActive ? 0 : 1,
-		duration: 0.7,
-		ease: 'power2.inOut',
-	};
-
-	const slideConfig = {
-		x: isActive ? 0 : -window.innerWidth / 1.97,
-		duration: 0.9,
-		ease: 'power2.inOut',
-		onComplete: () => {
-			clinicalEfficacyActive.value = !isActive;
-		},
-	};
-
-	if (isActive) {
-		// Animate slide first, then opacity
-		tl.to(clinicalEfficacyDetails.value, detailsOpacityConfig)
-			.to(clinicalEfficacy.value, slideConfig, '-=0.5')
-			.to('.clinical-swap-card', { opacity: 0, duration: 0.7, ease: 'power2.inOut' }, '-=0.5')
-			.to(elements, opacityConfig, '-=0.5')
-			.to(elements, { pointerEvents: 'auto' });
-	} else {
-		// Animate opacity first, then slide
-		tl.to(elements, opacityConfig)
-			.to(clinicalEfficacy.value, slideConfig, '-=0.5')
-			.to(clinicalEfficacyDetails.value, detailsOpacityConfig, '-=0.5')
-			.to('.clinical-swap-card', { opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '-=0.5');
-	}
-
-	return tl;
+	return animateSection({
+		activeRef: clinicalEfficacyActive,
+		detailsRef: clinicalEfficacyDetails,
+		mainRef: clinicalEfficacy,
+		swapCardSelector: '.clinical-swap-card',
+		fadeElements: [bacterialActivity.value, content.value],
+		slideDivisor: 1.97,
+	});
 };
 </script>
