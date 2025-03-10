@@ -101,7 +101,7 @@
 				</div>
 				<div
 					ref="bacterialActivityDetails"
-					class="flex flex-col gap-y-5 pl-[260px] pt-16 absolute top-1/2 -translate-y-1/2 right-20 bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+					class="flex flex-col gap-y-5 pl-[260px] pt-16 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
 					<h2 class="text-[32px] font-bold pr-3">
 						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
