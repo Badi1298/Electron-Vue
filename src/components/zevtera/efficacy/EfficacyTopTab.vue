@@ -151,15 +151,15 @@
 					<div class="flex flex-col w-[863px]">
 						<div class="grid grid-cols-[1fr_1fr] gap-x-2">
 							<button
-								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
-								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
+								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
+								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
 								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
 							>
 								Day 3
 							</button>
 							<button
-								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
-								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
+								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
+								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
 								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
 							>
 								Day 4
@@ -177,7 +177,7 @@
 						</div>
 						<div
 							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4"
-							class="w-[863px]"
+							class="w-[863px] h-[464px]"
 						>
 							<VLazyImage
 								:src="ChartB"
@@ -187,17 +187,14 @@
 						</div>
 					</div>
 					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
-						Adapted from Hebeisen P et al. 2001<sup>5</sup><br /><br />*Overnight cultures of <span class="italic">E. coli</span> and MSSA/MRSA test
-						strain were grown in 30 mL of Mueller-Hinton broth and diluted into fresh medium to yield an inoculum of 10<sup>6</sup> CFU/mL or
-						higher. Drug was added either with<br />
-						the inoculumor at intervals of 1.5 hours (early log phase) and 3 hours (log phase) after its addition. Drug concentrations of 2 times
-						the MIC were used. Ten-microlitre aliquots of appropriate dilutions were plated on Mueller-Hinton agar (MHA), and colonies were counted
-						after 24 hours of incubation. To check if resistant clones had been selected, the MICs were determined for those cultures that showed
-						growth after 24 hours. Bactericidal activity wasdefined by a ≥ 3-log<sub>10</sub> decrease in the number of CFU/mL within 24 hours.<sup
-							>5</sup
-						><br />
-						CFU, colony-forming unit; MIC, minimum inhibitory concentration; MRSA, Methicillin-resistant <span class="italic">S. aureus</span>;
-						MSSA, Methicillin-susceptible <span class="italic">S. aureus</span>.
+						STUDY DESIGN: Post hoc analysis of data from two Phase III studies to evaluate early improvement outcomes in subgroups of high-risk
+						patients treated with ceftobiprole, compared with the respective active-control therapies(ceftriaxone ± linezolid in CAP and ceftazidime
+						plus linezolid in HAP). The HAP study was a multicentre, international, double-blind, non-inferiority study of adult patients with HAP
+						undertaken at 157 centres between April 2005 and May 2007. Key inclusion criteria comprised: a clinical diagnosis of pneumonia after ≥72
+						h stay in hospital or a chronic care facility; clinical signs and symptoms of pneumonia; fever or leucocytosis / leukopenia; new
+						orpersistent radiographic infiltrates; and an Acute Physiology and Chronic Health Evaluation II (APACHE II) score between 8 and 25.6
+						CAP, Community-acquired pneumonia; CE, clinically evaluable; CI, confidence interval; COPD, chronic obstructive pulmonary disease; HAP,
+						hospital-acquired pneumonia; CE, clinically evaluable; TOC, test ofcure.
 					</footer>
 				</div>
 			</section>
@@ -227,7 +224,7 @@ import { gsap } from 'gsap';
 import VLazyImage from 'v-lazy-image';
 
 import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
-import ChartB from '@/assets/images/chart-b.png';
+import ChartB from '@/assets/images/clinical-efficacy-chart-2.png';
 
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
