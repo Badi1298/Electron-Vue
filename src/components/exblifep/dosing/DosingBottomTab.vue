@@ -208,7 +208,7 @@
 			<div class="flex justify-between items-center mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'next-section-button' } }">
-					<next-section />
+					<next-section class="bg-electric-blue" />
 				</RouterLink>
 			</div>
 		</footer>
