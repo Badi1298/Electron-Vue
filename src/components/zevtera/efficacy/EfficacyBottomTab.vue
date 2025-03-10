@@ -25,10 +25,13 @@
 				alt="Bullet Long"
 				class="-translate-x-20"
 			/>
-			<div class="grid grid-cols-2 gap-x-28 pr-[60px] items-center">
+			<div class="relative gap-x-28 items-center">
 				<div>
-					<the-title>More pathogens covered</the-title>
-					<div class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-8">
+					<the-title
+						>More pathogens<br />
+						covered</the-title
+					>
+					<div class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-8 max-w-[582px]">
 						<img
 							src="/src/assets/images/tick-icon-dark-green.png"
 							alt="Tick"
@@ -36,7 +39,9 @@
 						/>
 						<h4 class="text-[32px] font-bold text-white">Documented use<sup>3</sup></h4>
 					</div>
-					<div class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-[18px]">
+					<div
+						class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-[18px] max-w-[582px]"
+					>
 						<img
 							src="/src/assets/images/tick-icon-dark-green.png"
 							alt="Tick"
@@ -44,7 +49,9 @@
 						/>
 						<h4 class="text-[32px] font-bold text-white">Empiric use<sup>2,7,8</sup></h4>
 					</div>
-					<div class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-[18px]">
+					<div
+						class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-[18px] max-w-[582px]"
+					>
 						<img
 							src="/src/assets/images/tick-icon-dark-green.png"
 							alt="Tick"
@@ -53,21 +60,43 @@
 						<h4 class="text-[32px] font-bold text-white">Adapted to your local stewardship program<sup>4,8</sup></h4>
 					</div>
 				</div>
-				<div class="relative z-50 flex flex-col bg-white p-12 rounded-[20px] border-primary-green border-[5px]">
-					<h3 class="font-bold text-2xl leading-normal text-center">
-						Early improvement at Day 4 in patients with HAP (excluding VAP) by pathogen type(CE)<sup>6</sup>
+				<div
+					ref="details"
+					class="absolute right-[60px] bottom-0 z-50 flex flex-col bg-white p-12 rounded-[20px] border-primary-green border-[5px]"
+				>
+					<h3
+						ref="detailsTitle"
+						class="font-bold text-2xl leading-normal text-center"
+					>
+						Early improvement at Day 4 in patients with HAP<br />
+						(excluding VAP) by pathogen type(CE)<sup>6</sup>
 					</h3>
-					<VLazyImage
+					<img
+						ref="pathogensChart"
 						:src="PathogensChart"
 						alt="Pathogens Chart"
-						class="w-[503px] self-end mr-8"
+						class="self-end mr-8"
 					/>
-					<p class="text-[10px] text-[#555] text-center mt-8">Adapted from Scheeren T et al. 2019.6</p>
+					<p class="text-[10px] text-[#555] text-center">Adapted from Scheeren T et al. 2019.6</p>
 					<img
 						src="/src/assets/images/expand-icon-purple.png"
 						alt="Expand Icon"
 						class="absolute bottom-5 right-7 w-[60px] h-[60px] cursor-pointer"
+						@click="expandDetails"
 					/>
+					<p
+						ref="detailsFooter"
+						class="text-[10px] text-[#555] mt-7"
+					>
+						<span class="font-bold">STUDY DESIGN:</span> Post hoc analysis of data from two Phase III studies to evaluate early improvement outcomes
+						in subgroups of high-risk patients treated with ceftobiprole, compared with the respective active-control therapies(ceftriaxone ±
+						linezolid in CAP and ceftazidime plus linezolid in HAP). The HAP study was a multicentre, international, double-blind, non-inferiority
+						study of adult patients with HAP undertaken at 157 centres between April 2005 and May 2007. Key inclusion criteria comprised: a clinical
+						diagnosis of pneumonia after ≥72 h stay in hospital or a chronic care facility; clinical signs and symptoms of pneumonia; fever or
+						leucocytosis / leukopenia; new orpersistent radiographic infiltrates; and an Acute Physiology and Chronic Health Evaluation II (APACHE
+						II) score between 8 and 25.<sup>6</sup><br /><br />
+						CI, confidence interval; HAP, hospital-acquired pneumonia; CE, clinically evaluable.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -84,9 +113,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
-
-import VLazyImage from 'v-lazy-image';
+import { onMounted, ref, watch } from 'vue';
 
 import { gsap } from 'gsap';
 
@@ -111,6 +138,13 @@ const emit = defineEmits(['goToTopTab']);
 
 const bottomTab = ref(null);
 
+const details = ref(null);
+const detailsTitle = ref(null);
+const detailsFooter = ref(null);
+const pathogensChart = ref(null);
+
+const detailsExpanded = ref(false);
+
 watch(
 	() => props.scrollIntoView,
 	(value) => {
@@ -119,6 +153,50 @@ watch(
 		}
 	}
 );
+
+onMounted(() => {
+	gsap.set(details.value, {
+		width: 675,
+		height: 560,
+	});
+	gsap.set(pathogensChart.value, {
+		width: 503,
+	});
+	gsap.set(detailsFooter.value, {
+		display: 'none',
+	});
+});
+
+const expandDetails = () => {
+	if (detailsExpanded.value) {
+		gsap.to(details.value, {
+			width: 675,
+			height: 560,
+		});
+		gsap.to(pathogensChart.value, {
+			width: 503,
+		});
+		gsap.to(detailsTitle.value, {
+			fontSize: 24,
+		});
+	} else {
+		gsap.to(details.value, {
+			width: 1189,
+			height: 820,
+			paddingTop: 30,
+		});
+		gsap.to(pathogensChart.value, {
+			width: 800,
+		});
+		gsap.to(detailsTitle.value, {
+			fontSize: 32,
+		});
+		gsap.to(detailsFooter.value, {
+			opacity: 1,
+		});
+	}
+	detailsExpanded.value = !detailsExpanded.value;
+};
 </script>
 
 <style scoped>
