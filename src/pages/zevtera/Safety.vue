@@ -26,23 +26,50 @@
 				</div>
 			</div>
 
-			<section class="relative grid grid-cols-3 flex-1 content-center">
-				<div
-					ref="content"
-					class="flex flex-col gap-y-16"
+			<div class="grid grid-cols-2 mr-[60px] items-center">
+				<the-title
+					>Less burden to<br />
+					treat your patients</the-title
 				>
-					<the-title>More for your difficult-to-treat patients*</the-title>
-					<div class="relative bg-primary-green px-6 h-[284px] flex flex-col justify-center rounded-[20px] overflow-hidden">
-						<h3 class="text-[32px] leading-normal font-bold text-white">
-							Demonstrated<br />
-							efficacy<sup>5,6</sup>
-						</h3>
-						<img
-							src="/src/assets/images/chart-dark-green.png"
-							alt="Chart Dark Green"
-							class="absolute bottom-0 right-0 h-[255px] w-auto"
-						/>
-					</div>
+				<div
+					class="flex items-center gap-x-5 bg-primary-light-orange px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-8 min-w-[582px] justify-self-end"
+				>
+					<img
+						src="/src/assets/images/tick-icon-black.png"
+						alt="Tick"
+						class="w-[82px] h-auto"
+					/>
+					<h4 class="text-[32px] font-bold text-black">Less number of agents*<sup>2</sup></h4>
+				</div>
+			</div>
+			<section class="relative grid grid-cols-3 flex-1">
+				<div
+					ref="wellTolarated"
+					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer z-50"
+					@click="animateBacterialActivity"
+				>
+					<img
+						src="/src/assets/images/touch-purple.png"
+						alt="Touch to select tab"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6"
+					/>
+					<img
+						src="/src/assets/images/swap-purple.png"
+						alt="Swap"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
+					/>
+					<img
+						src="/src/assets/images/arrow-down-dark-green.png"
+						alt="Arrow Down"
+						class="h-[175px] w-auto mt-5"
+					/>
+					<h2 class="text-5xl text-white font-bold mt-7 pl-7">
+						Fast<br />
+						bactericidal activity
+					</h2>
+					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
+						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
+					</p>
 				</div>
 				<div
 					ref="bacterialActivity"
@@ -238,6 +265,10 @@ const bacterialActivityActive = ref(false);
 const clinicalEfficacy = ref(null);
 const clinicalEfficacyDetails = ref(null);
 const clinicalEfficacyActive = ref(false);
+
+const wellTolarated = ref(null);
+const wellTolaratedDetails = ref(null);
+const wellTolaratedActive = ref(false);
 
 const clinicalEfficacyTabs = Object.freeze({
 	DAY_3: 1,
