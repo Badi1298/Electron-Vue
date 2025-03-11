@@ -1,8 +1,8 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
 		<div class="flex flex-col justify-center">
-			<div class="flex">
-				<section class="flex flex-col pt-24 pr-3">
+			<div class="flex justify-between pr-[60px] items-center">
+				<section class="flex flex-col pt-24 px-24">
 					<img
 						src="/src/assets/images/xyd-logo-white.png"
 						alt="Mabelio Bullet"
@@ -14,46 +14,23 @@
 						class="absolute w-screen h-screen top-0 left-0 -z-30"
 					/>
 
-					<div class="px-24 pt-7">
-						<h1 class="relative text-[40px] font-bold leading-tight text-charcoal font-effra">
-							Allows the reduction of the number of<br />
-							agents<sup>2</sup>, thanks to its expanded spectrum<br />
-							of antimicrobial activity<sup>3</sup>
-						</h1>
-						<p class="font-uni-grotesk text-xl text-charcoal font-normal mt-9">
-							ZEVTERA®/MABELIO® is indicated for the treatment of the following infections in term neonates,<br />
-							infants, children, adolescents and adults:<sup>4</sup>
+					<div class="pt-7 mt-14">
+						<h1 class="relative text-[75px] font-bold leading-tight text-white">One dose does it.*</h1>
+						<p class="text-[32px] text-white font-normal">
+							Xydalba™ delivers two weeks of effective<br />
+							treatment in a single dose,<sup>1</sup> meaning your<br />
+							patients can spend <span class="font-bold">less days in hospital.</span><sup>2,3</sup>
 						</p>
-						<ul>
-							<li class="flex items-center mt-4 gap-x-5">
-								<img
-									src="/src/assets/images/list-polygon.png"
-									alt="List Polygon"
-									class="w-5 h-auto"
-								/>
-								<p class="font-uni-grotesk text-xl text-charcoal font-normal">
-									Hospital-acquired pneumonia (HAP), excluding ventilator-associated pneumonia (VAP)
-								</p>
-							</li>
-							<li class="flex items-center mt-4 gap-x-5">
-								<img
-									src="/src/assets/images/list-polygon.png"
-									alt="List Polygon"
-									class="w-5 h-auto"
-								/>
-								<p class="font-uni-grotesk text-xl text-charcoal font-normal">Community-acquired pneumonia (CAP)</p>
-							</li>
-						</ul>
 					</div>
 				</section>
 				<section class="pt-36 -translate-x-1">
-					<h2 class="text-[32px] font-bold text-charcoal font-effra">I'm interested in:</h2>
+					<h2 class="text-[32px] font-bold text-white">I'm interested in:</h2>
 					<card
-						title="Efficacy"
-						subtitle="Demonstrated efficacy with clinical<br /> efficacy from Days 3-4, with more pathogens covered<sup>5-8</sup>"
-						button-class="bg-[#009656] text-white"
+						title="1, 2, 3"
+						subtitle="1 dose of Xydalba™ gives your patients<br /> 2 weeks of effective treatment in a<br /> single 30-minute infusion<sup>1</sup>"
+						button-class="bg-[#982384] text-white"
 						discover-more-path="/zevtera/efficacy"
-						class="mt-9 font-uni-grotesk"
+						class="mt-9 min-w-[465px]"
 					>
 						<img
 							src="/src/assets/images/chart-green.png"
@@ -62,11 +39,11 @@
 						/>
 					</card>
 					<card
-						title="Safety"
-						subtitle="ZEVTERA®/MABELIO® is<br /> generally well tolerated<sup>9</sup>"
-						button-class="bg-[#FFA94D] text-black"
+						title="Effective paediatric treatment"
+						subtitle="Xydalba™ provided effective treatment<br /> in adult and paediatric patientst<sup>5</sup>"
+						button-class="bg-[#276B88] text-white"
 						discover-more-path="/zevtera/safety"
-						class="mt-11 font-uni-grotesk"
+						class="mt-11 max-w-[465px]"
 					>
 						<img
 							src="/src/assets/images/shield-orange.png"
@@ -75,11 +52,11 @@
 						/>
 					</card>
 					<card
-						title="Dosing"
-						subtitle="Ease-of-use dosing<sup>4</sup>"
-						button-class="bg-[#FCC100] text-black"
+						title="Safety profile"
+						subtitle="Well-tolerated safety profile, consistent in both adult and paediatric patients<sup>1,5</sup>"
+						button-class="bg-[#009656] text-white"
 						discover-more-path="/zevtera/dosing"
-						class="mt-11 font-uni-grotesk"
+						class="mt-11 max-w-[465px]"
 					>
 						<img
 							src="/src/assets/images/bottle-golden.png"
@@ -91,11 +68,19 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer class="transition-all duration-300 ml-24"
-				>Zevtera® is the trademark in UK, Germany, Spain, Denmark, Norway, Sweden and Finland; Mabelio® is the trademark in France and Italy.
-				Commercialised by ADVANZ PHARMA® in Germany, Spain, Italy,<br />
-				France, and UK. Zevtera® / Mabelio ® is licensed to ADVANZ PHARMA by Basilea Pharmaceutica International AG.<br />©2025 ADVANZ
-				PHARMA®</the-footer
+			<the-footer class="transition-all duration-300 ml-24 text-white"
+				>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen of
+				dalbavancin in ABSSSI.<sup>4</sup><br />
+				Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen (97.3%).<sup>5</sup><br />
+				Xydalba™ is indicated for the treatment of Acute Bacterial Skin and Skin Structure Infections (ABSSSI) in adults. Consideration should be given
+				to official guidance on the appropriate use of antibacterial agents.<sup>1</sup><br />
+				More information about this product may be requested from the local representative of the marketing authorisation holder. MAH for Europe: AbbVie
+				Deutschland GmbH & Co. KG, Knollstraße, 67061 Ludwigshafen, Germany. MAH for UK: AbbVie Ltd., Maidenhead, SL6 4UB, UK.<br />
+				Commercialised by ADVANZ PHARMA® in France, UK, Ireland, Luxembourg, Norway, Denmark, Finland, Sweden, Germany; local contacts are available in
+				the Patient Information Leaflet (<span class="underline"
+					>https://www.ema.europa.eu/en/documents/product-information/xydalba-epar-product-information_en.pdf</span
+				>).<br />
+				Xydalba™ is a trademark of Allergan Pharmaceuticals International Limited ©2025 ADVANZ PHARMA®</the-footer
 			>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
