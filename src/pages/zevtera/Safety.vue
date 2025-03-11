@@ -46,7 +46,7 @@
 				<div
 					ref="wellTolarated"
 					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
-					@click="animateBacterialActivity"
+					@click="animateWellTolarated"
 				>
 					<div>
 						<img
@@ -65,9 +65,9 @@
 							class="w-[234px] mt-5 ml-6"
 						/>
 					</div>
-					<div class="pb-28">
-						<h2 class="text-5xl text-white font-bold mt-7 pl-7">Well-tolerated</h2>
-						<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
+					<div class="pb-28 text-charcoal">
+						<h2 class="text-5xl font-bold mt-7 pl-7">Well-tolerated</h2>
+						<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">
 							ZEVTERA®/MABELIO® is<br />
 							generally well tolerated<sup>9</sup>
 						</p>
@@ -100,42 +100,35 @@
 				</div>
 				<div
 					ref="wellTolaratedDetails"
-					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 min-w-[1200px] min-h-[790px] absolute top-1/2 -translate-y-[59%] left-[190px] right-[60px] bg-white rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card z-10"
 				>
-					<h2 class="text-[32px] font-bold pr-3">
-						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
-					</h2>
-					<div class="flex gap-x-28">
-						<div>
-							<h3 class="text-2xl font-uni-grotesk italic mb-2.5 text-center">Staphylococcus aureus*</h3>
-							<img
-								src="/src/assets/images/bacterial-activity-sa.png"
-								alt="Bacterial Activity"
-								class="h-[420px] w-auto"
-							/>
-						</div>
-						<div class="flex flex-col">
-							<h3 class="text-2xl font-uni-grotesk italic mb-2.5 text-center">Escherichia coli*</h3>
-							<img
-								src="/src/assets/images/bacterial-activity-ec.png"
-								alt="Bacterial Activity"
-								class="max-h-[400px] w-auto flex-1 mt-auto"
-							/>
+					<h2 class="text-[32px] font-bold pr-3">ZEVTERA®/MABELIO® is generally well tolerated<sup>9</sup></h2>
+					<p class="text-2xl font-medium font-uni-grotesk">
+						Most common adverse (incidence ≥5%, regardless of causality)<br />
+						in patients with HAP<sup>9</sup>
+					</p>
+
+					<div class="flex justify-between pr-14 gap-x-16">
+						<img
+							src="/src/assets/images/adverse-events.png"
+							alt="Adverse Events"
+							class="w-[425px]"
+						/>
+						<div class="bg-[#F5F5F5] rounded-[20px] py-10 px-2.5">
+							<div class="flex flex-col items-center gap-y-6">
+								<img
+									src="/src/assets/images/caution-orange-border.png"
+									alt="Caution"
+									class="w-[80px] h-[80px]"
+								/>
+								<p class="text-xl font-uni-grotesk text-charcoal text-center">
+									ZEVTERA® - The incidence of treatment related adverse events was similar to that<br />
+									with other cephalosporins<sup>1</sup>
+								</p>
+							</div>
 						</div>
 					</div>
-					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
-						Adapted from Hebeisen P et al. 2001<sup>5</sup><br /><br />*Overnight cultures of <span class="italic">E. coli</span> and MSSA/MRSA test
-						strain were grown in 30 mL of Mueller-Hinton broth and diluted into fresh medium to yield an inoculum of 10<sup>6</sup> CFU/mL or
-						higher. Drug was added either with<br />
-						the inoculumor at intervals of 1.5 hours (early log phase) and 3 hours (log phase) after its addition. Drug concentrations of 2 times
-						the MIC were used. Ten-microlitre aliquots of appropriate dilutions were plated on Mueller-Hinton agar (MHA), and colonies were counted
-						after 24 hours of incubation. To check if resistant clones had been selected, the MICs were determined for those cultures that showed
-						growth after 24 hours. Bactericidal activity wasdefined by a ≥ 3-log<sub>10</sub> decrease in the number of CFU/mL within 24 hours.<sup
-							>5</sup
-						><br />
-						CFU, colony-forming unit; MIC, minimum inhibitory concentration; MRSA, Methicillin-resistant <span class="italic">S. aureus</span>;
-						MSSA, Methicillin-susceptible <span class="italic">S. aureus</span>.
-					</footer>
+					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">Adapted from Syed YY et al. 2014.9</footer>
 				</div>
 				<div
 					ref="clinicalEfficacyDetails"
@@ -192,7 +185,10 @@
 						TOC, test ofcure.
 					</footer>
 				</div>
-				<div class="relative bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card">
+				<div
+					ref="easeOfUse"
+					class="relative bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+				>
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -264,6 +260,8 @@ const emit = defineEmits(['goToBottomTab']);
 const topTab = ref(null);
 const content = ref(null);
 
+const easeOfUse = ref(null);
+
 const wellTolarated = ref(null);
 const wellTolaratedDetails = ref(null);
 const wellTolaratedActive = ref(false);
@@ -279,7 +277,7 @@ const clinicalEfficacyTabs = Object.freeze({
 const activeClinicalEfficayTab = ref(clinicalEfficacyTabs.DAY_3);
 
 onMounted(() => {
-	gsap.set(wellTolaratedDetails.value, { opacity: 0 });
+	gsap.set(wellTolaratedDetails.value, { opacity: 0, display: 'none' });
 	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
@@ -299,8 +297,8 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 
 	const detailsOpacityConfig = {
 		opacity: isActive ? 0 : 1,
+		display: isActive ? 'none' : 'flex',
 		duration: 0.7,
-		translateY: -50,
 		ease: 'power2.inOut',
 	};
 
@@ -333,14 +331,14 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 
 // Now you can create the specific animations by passing the right parameters:
 
-const animateBacterialActivity = () => {
+const animateWellTolarated = () => {
 	return animateSection({
 		activeRef: wellTolaratedActive,
 		detailsRef: wellTolaratedDetails,
 		mainRef: wellTolarated,
 		swapCardSelector: '.bacterial-swap-card',
-		fadeElements: [clinicalEfficacy.value, content.value],
-		slideDivisor: 3.95,
+		fadeElements: [clinicalEfficacy.value, easeOfUse.value, content.value],
+		slideDivisor: 0,
 	});
 };
 
@@ -350,7 +348,7 @@ const animateClinicalEfficacy = () => {
 		detailsRef: clinicalEfficacyDetails,
 		mainRef: clinicalEfficacy,
 		swapCardSelector: '.clinical-swap-card',
-		fadeElements: [wellTolarated.value, content.value],
+		fadeElements: [wellTolarated.value, easeOfUse.value, content.value],
 		slideDivisor: 1.97,
 	});
 };
