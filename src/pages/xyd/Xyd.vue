@@ -33,7 +33,7 @@
 						class="mt-9 min-w-[465px]"
 					>
 						<img
-							src="/src/assets/images/chart-green.png"
+							src="/src/assets/images/123-icon-purple.png"
 							alt="Chart Dark Green"
 							class="w-[106px] h-auto"
 						/>
@@ -46,7 +46,7 @@
 						class="mt-11 max-w-[465px]"
 					>
 						<img
-							src="/src/assets/images/shield-orange.png"
+							src="/src/assets/images/dosing-bottle-turqoise.png"
 							alt="Shiled Orange"
 							class="w-[106px] h-auto"
 						/>
@@ -59,7 +59,7 @@
 						class="mt-11 max-w-[465px]"
 					>
 						<img
-							src="/src/assets/images/bottle-golden.png"
+							src="/src/assets/images/shield-green.png"
 							alt="Dosing Golden"
 							class="w-[106px] h-auto"
 						/>
