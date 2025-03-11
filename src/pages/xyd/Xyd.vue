@@ -3,18 +3,17 @@
 		<div class="flex flex-col justify-center">
 			<div class="flex">
 				<section class="flex flex-col pt-24 pr-3">
-					<div class="relative">
-						<VLazyImage
-							:src="MabelioBullet"
-							alt="Mabelio Bullet"
-							class="w-[1070px] h-auto"
-						/>
-						<VLazyImage
-							:src="StrikeFast"
-							alt="Strike Fast"
-							class="absolute bottom-0 right-16 w-[370px] h-auto object-cover"
-						/>
-					</div>
+					<img
+						src="/src/assets/images/xyd-logo-white.png"
+						alt="Mabelio Bullet"
+						class="relative z-30 w-[454px] h-auto"
+					/>
+					<img
+						src="/src/assets/images/xyd-background.png"
+						alt="Background"
+						class="absolute w-screen h-screen top-0 left-0 -z-30"
+					/>
+
 					<div class="px-24 pt-7">
 						<h1 class="relative text-[40px] font-bold leading-tight text-charcoal font-effra">
 							Allows the reduction of the number of<br />
