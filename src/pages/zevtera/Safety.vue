@@ -74,9 +74,9 @@
 					</div>
 				</div>
 				<div
-					ref="clinicalEfficacy"
-					class="relative bg-primary-green rounded-[20px] overflow-hidden cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
-					@click="animateClinicalEfficacy"
+					ref="gutFlora"
+					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+					@click="animateGutFlora"
 				>
 					<img
 						src="/src/assets/images/touch-purple.png"
@@ -89,14 +89,40 @@
 						class="absolute w-[85px] h-[85px] top-[18px] right-6 clinical-swap-card"
 					/>
 					<img
-						src="/src/assets/images/up-arrows-dark-green.png"
+						src="/src/assets/images/arrow-down-black.png"
 						alt="Arrow Down"
-						class="h-[225px] w-auto mt-[22px] ml-7"
+						class="w-[291px] mt-4"
 					/>
-					<h2 class="text-5xl text-white font-bold mt-7 pl-7">Clinical efficacy from Days 3-4</h2>
-					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7 pr-4">
-						Early improvement at Day 3 in patients with CAP by risk factors (CE)<sup>6</sup>
-					</p>
+					<div class="pb-28 text-charcoal">
+						<h2 class="text-5xl font-bold mt-7 pl-7">Less impact on gut flora<sup>†4,10,11</sup></h2>
+						<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">
+							Low risk of adversely affecting<br />
+							the gut microflora
+						</p>
+					</div>
+				</div>
+				<div
+					ref="easeOfUse"
+					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+				>
+					<RouterLink
+						:to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'ease-of-use-card' } }"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6"
+					>
+						<img
+							src="/src/assets/images/chevron-right-purple-circle.png"
+							alt="Touch to select tab"
+						/>
+					</RouterLink>
+					<img
+						src="/src/assets/images/hand-cross-black.png"
+						alt="Arrow Down"
+						class="w-[276px] mt-4"
+					/>
+					<div class="pb-28 text-charcoal">
+						<h2 class="text-5xl font-bold mt-7 pl-7">Ease of use<sup>‡4</sup></h2>
+						<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">Explore the ZEVTERA® dosing regimen</p>
+					</div>
 				</div>
 				<div
 					ref="wellTolaratedDetails"
@@ -141,7 +167,7 @@
 					<footer class="text-[10px] text-[#555] mt-3 mr-12 font-uni-grotesk">Adapted from Syed YY et al. 2014.<sup>9</sup></footer>
 				</div>
 				<div
-					ref="clinicalEfficacyDetails"
+					ref="gutFloraDetails"
 					class="flex flex-col min-h-[750px] pl-[276px] pt-[74px] absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
 					<div class="flex flex-col w-[863px]">
@@ -195,33 +221,6 @@
 						TOC, test ofcure.
 					</footer>
 				</div>
-				<div
-					ref="easeOfUse"
-					class="relative bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
-				>
-					<img
-						src="/src/assets/images/touch-purple.png"
-						alt="Touch to select tab"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6"
-					/>
-					<img
-						src="/src/assets/images/swap-purple.png"
-						alt="Swap"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
-					/>
-					<img
-						src="/src/assets/images/arrow-down-dark-green.png"
-						alt="Arrow Down"
-						class="h-[175px] w-auto mt-5"
-					/>
-					<h2 class="text-5xl text-white font-bold mt-7 pl-7">
-						Fast<br />
-						bactericidal activity
-					</h2>
-					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
-						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
-					</p>
-				</div>
 			</section>
 		</div>
 
@@ -269,16 +268,15 @@ const emit = defineEmits(['goToBottomTab']);
 
 const topTab = ref(null);
 const content = ref(null);
-
 const easeOfUse = ref(null);
 
 const wellTolarated = ref(null);
 const wellTolaratedDetails = ref(null);
 const wellTolaratedActive = ref(false);
 
-const clinicalEfficacy = ref(null);
-const clinicalEfficacyDetails = ref(null);
-const clinicalEfficacyActive = ref(false);
+const gutFlora = ref(null);
+const gutFloraDetails = ref(null);
+const gutFloraActive = ref(false);
 
 const clinicalEfficacyTabs = Object.freeze({
 	DAY_3: 1,
@@ -288,7 +286,7 @@ const activeClinicalEfficayTab = ref(clinicalEfficacyTabs.DAY_3);
 
 onMounted(() => {
 	gsap.set(wellTolaratedDetails.value, { opacity: 0, display: 'none' });
-	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
+	gsap.set(gutFloraDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
 });
@@ -347,16 +345,16 @@ const animateWellTolarated = () => {
 		detailsRef: wellTolaratedDetails,
 		mainRef: wellTolarated,
 		swapCardSelector: '.bacterial-swap-card',
-		fadeElements: [clinicalEfficacy.value, easeOfUse.value, content.value],
+		fadeElements: [gutFlora.value, easeOfUse.value, content.value],
 		slideDivisor: 0,
 	});
 };
 
-const animateClinicalEfficacy = () => {
+const animateGutFlora = () => {
 	return animateSection({
-		activeRef: clinicalEfficacyActive,
-		detailsRef: clinicalEfficacyDetails,
-		mainRef: clinicalEfficacy,
+		activeRef: gutFloraActive,
+		detailsRef: gutFloraDetails,
+		mainRef: gutFlora,
 		swapCardSelector: '.clinical-swap-card',
 		fadeElements: [wellTolarated.value, easeOfUse.value, content.value],
 		slideDivisor: 1.97,
