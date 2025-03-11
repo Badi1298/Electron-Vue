@@ -14,7 +14,7 @@
 					<img
 						src="/src/assets/images/xyd-background.png"
 						alt="Background"
-						class="absolute w-screen h-screen top-0 left-0 -z-30"
+						class="absolute top-0 left-0 -z-10"
 					/>
 
 					<div class="pt-7 mt-14">
@@ -95,11 +95,6 @@
 </template>
 
 <script setup>
-import StrikeFast from '@/assets/images/strike-fast.png';
-import MabelioBullet from '@/assets/images/mabelio-bullet.png';
-
-import VLazyImage from 'v-lazy-image';
-
 import Card from '@/components/Card.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
