@@ -1,8 +1,11 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
 		<div class="flex flex-col justify-center">
-			<div class="flex justify-between pr-[60px] items-center">
-				<section class="flex flex-col pt-24 px-24">
+			<div
+				class="flex justify-between items-center transition-all duration-300"
+				:class="[sidebarOpen ? 'mr-[60px] ml-[124px]' : 'mr-[120px] ml-[224px]']"
+			>
+				<section class="flex flex-col pt-24">
 					<img
 						src="/src/assets/images/xyd-logo-white.png"
 						alt="Mabelio Bullet"
@@ -68,7 +71,9 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer class="transition-all duration-300 ml-24 text-white"
+			<the-footer
+				class="transition-all duration-300 text-white"
+				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 				>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen of
 				dalbavancin in ABSSSI.<sup>4</sup><br />
 				Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen (97.3%).<sup>5</sup><br />
