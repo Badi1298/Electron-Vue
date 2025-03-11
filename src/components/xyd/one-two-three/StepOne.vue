@@ -32,13 +32,62 @@
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="flex justify-between mr-12">
-				<div>
-					<span>1.</span>
-					<h1>One Dose</h1>
+				<div class="flex items-center gap-x-4">
+					<span class="text-[220px] text-primary-purple">1.</span>
+					<h1 class="font-bold text-[75px] text-primary-purple leading-none translate-y-3">
+						One<br />
+						dose
+					</h1>
 				</div>
 			</div>
 
-			<seciton></seciton>
+			<seciton class="-mt-8">
+				<div class="flex flex-col gap-y-5">
+					<p class="text-[24px] text-primary-purple font-bold max-w-[600px]">
+						A single dose of Xydalba™ provides a simple and full treatment course, freeing your patients from the discomfort of daily infusions and
+						potentially reduction of length of stay<sup>2,3</sup>
+					</p>
+					<p class="text-xl text-[#414042]">
+						Over a third of patients hospitalised for ABSSSIs had no reason<br />
+						to stay in hospital other than for IV antibiotics<sup>6</sup>
+					</p>
+					<p class="text-xl text-[#414042]">A single dose of Xydalba™ simplifies administration,<sup>1</sup> offering:</p>
+				</div>
+				<ul class="flex flex-col gap-y-7 mt-10">
+					<li class="flex items-center gap-x-5">
+						<img
+							src="/src/assets/images/list-item-emblem-purple.png"
+							alt="List Item Emblem"
+							class="w-[58px]"
+						/>
+						<p class="text-primary-purple text-2xl font-bold">Ease of use<sup>1</sup></p>
+					</li>
+					<li class="flex items-center gap-x-5">
+						<img
+							src="/src/assets/images/list-item-emblem-purple.png"
+							alt="List Item Emblem"
+							class="w-[58px]"
+						/>
+						<p class="text-primary-purple text-2xl font-bold">More time and resources for you<sup>2,3</sup></p>
+					</li>
+					<li class="flex items-center gap-x-5">
+						<img
+							src="/src/assets/images/list-item-emblem-purple.png"
+							alt="List Item Emblem"
+							class="w-[58px]"
+						/>
+						<p class="text-primary-purple text-2xl font-bold">Less risk of nosocomial infections<sup>2</sup></p>
+					</li>
+					<li class="flex items-center gap-x-5">
+						<img
+							src="/src/assets/images/list-item-emblem-purple.png"
+							alt="List Item Emblem"
+							class="w-[58px]"
+						/>
+						<p class="text-primary-purple text-2xl font-bold">Less time in hospital for your patients<sup>2,3</sup></p>
+					</li>
+				</ul>
+			</seciton>
 		</div>
 
 		<footer class="relative pb-6">
