@@ -23,10 +23,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { RouterView } from 'vue-router';
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 import Sidebar from '@/components/zevtera/Sidebar.vue';
 
 const sidebarOpen = ref(true);
+
+const route = useRoute();
+
+const isPopupRoute = computed(() => {
+	return route.name === 'zevtera-references' || route.name === 'zevtera-prescribing';
+});
 </script>

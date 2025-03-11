@@ -82,6 +82,12 @@ const routes = [
 		],
 	},
 	{
+		path: '/zevtera-references',
+		component: () => import('@/pages/zevtera/References.vue'),
+		name: 'zevtera-references',
+		meta: { brand: 'ZEVTERA' },
+	},
+	{
 		path: '/screensaver',
 		component: () => import('../pages/Screensaver.vue'),
 		name: 'screensaver',

@@ -127,12 +127,14 @@
 				class="grid items-center"
 				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10']"
 			>
-				<img
-					src="/src/assets/images/book.png"
-					alt="Book Icon"
-					class="w-8 h-8 justify-self-center"
-					@click="referencesPopupOpen = true"
-				/>
+				<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
+					<img
+						src="/src/assets/images/book.png"
+						alt="Book Icon"
+						class="w-8 h-8 justify-self-center"
+						@click="referencesPopupOpen = true"
+					/>
+				</RouterLink>
 				<img
 					src="/src/assets/images/pi.png"
 					alt="PI Icon"
@@ -144,12 +146,14 @@
 				v-if="open"
 				class="grid grid-cols-2 text-center"
 			>
-				<p
-					class="text-xl font-uni-grotesk text-[#969696]"
-					@click="referencesPopupOpen = true"
-				>
-					References
-				</p>
+				<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
+					<p
+						class="text-xl font-uni-grotesk text-[#969696]"
+						@click="referencesPopupOpen = true"
+					>
+						References
+					</p>
+				</RouterLink>
 				<p
 					class="text-xl font-uni-grotesk text-[#969696]"
 					@click="prescribingPopupOpen = true"
@@ -188,14 +192,6 @@
 			/>
 		</button>
 	</aside>
-	<!-- <references-popup
-		v-model:popup-open="referencesPopupOpen"
-		:popup-open="referencesPopupOpen"
-	/>
-	<prescribing-popup
-		v-model:popup-open="prescribingPopupOpen"
-		:popup-open="prescribingPopupOpen"
-	/> -->
 </template>
 
 <script setup>
