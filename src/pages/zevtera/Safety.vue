@@ -168,58 +168,48 @@
 				</div>
 				<div
 					ref="gutFloraDetails"
-					class="flex flex-col min-h-[750px] pl-[276px] pt-[74px] absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
+					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 min-w-[1200px] min-h-[790px] absolute top-1/2 -translate-y-[59%] left-[190px] right-[60px] bg-white rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card z-10"
 				>
-					<div class="flex flex-col w-[863px]">
-						<div class="grid grid-cols-[1fr_1fr] gap-x-2">
-							<button
-								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
-								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
-								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
-							>
-								Day 3
-							</button>
-							<button
-								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
-								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
-								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
-							>
-								Day 4
-							</button>
-						</div>
-						<div
-							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3"
-							class="w-[863px] h-[464px]"
-						>
-							<VLazyImage
-								:src="ChartA"
-								alt="Chart A"
-								class="w-full h-full"
+					<h2 class="text-[32px] font-bold pr-3">Less impact on gut flora<sup>4,10,11</sup></h2>
+					<div class="flex flex-col gap-y-[60px] mt-11 font-uni-grotesk text-charcoal text-xl leading-normal">
+						<div class="flex items-center gap-x-11">
+							<img
+								src="/src/assets/images/intestines-orange.png"
+								alt="Intestines"
+								class="w-[122px] h-auto"
 							/>
+							<p>
+								<span class="font-bold">Low risk of adversely affecting the gut microflora</span> because<br />
+								ZEVTERA® is eliminated almost entirely (89%) via the kidneys<sup>4,10</sup>
+							</p>
 						</div>
-						<div
-							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4"
-							class="w-[863px] h-[464px]"
-						>
-							<VLazyImage
-								:src="ChartB"
-								alt="Chart B"
-								class="w-full h-full"
+						<div class="flex items-center gap-x-11">
+							<img
+								src="/src/assets/images/flora-orange.png"
+								alt="Intestines"
+								class="w-[122px] h-auto"
 							/>
+							<p>
+								In a healthy volunteer study (N=12), 7 days of treatment with
+								<span class="font-bold"
+									>ZEVTERA®<br />
+									did not significantly impact human intestinal flora</span
+								>, and there were no<br />
+								measurable levels of ZEVTERA® in faeces<sup>11</sup>
+							</p>
+						</div>
+						<div class="flex items-center gap-x-11">
+							<img
+								src="/src/assets/images/bacteria-orange.png"
+								alt="Intestines"
+								class="w-[122px] h-auto"
+							/>
+							<p>
+								<span class="italic">Clostridioides difficile</span> colitis is uncommon with ZEVTERA® (reported during<br />
+								therapy or by follow-up visit with a frequency of 1/1,000 to&lt;1/100<sup>4</sup>)
+							</p>
 						</div>
 					</div>
-					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
-						<span class="font-bold">STUDY DESIGN</span>: Post hoc analysis of data from two Phase III studies to evaluate early improvement outcomes
-						in subgroups of high-risk patients treated with ceftobiprole, compared with the respective active-control therapies(ceftriaxone ±
-						linezolid in CAP and ceftazidime plus linezolid in HAP). The HAP study was a multicentre, international, double-blind, non-inferiority
-						study of adult patients with HAP undertaken at 157 centres between April 2005 and May 2007. Key inclusion criteria comprised: a clinical
-						diagnosis of pneumonia after ≥72 h stay in hospital or a chronic care facility; clinical signs and symptoms of pneumonia; fever or
-						leucocytosis / leukopenia; new orpersistent radiographic infiltrates; and an Acute Physiology and Chronic Health Evaluation II (APACHE
-						II) score between 8 and 25.<sup>6</sup><br /><br />
-						CAP, Community-acquired pneumonia; CE, clinically evaluable; CI, confidence interval; COPD, chronic obstructive pulmonary disease; HAP,
-						hospital-acquired pneumonia; CE, clinically evaluable;<br />
-						TOC, test ofcure.
-					</footer>
 				</div>
 			</section>
 		</div>
@@ -357,7 +347,7 @@ const animateGutFlora = () => {
 		mainRef: gutFlora,
 		swapCardSelector: '.clinical-swap-card',
 		fadeElements: [wellTolarated.value, easeOfUse.value, content.value],
-		slideDivisor: 1.97,
+		slideDivisor: 3.95,
 	});
 };
 </script>
