@@ -44,8 +44,8 @@
 			</div>
 			<section class="relative grid grid-cols-3 flex-1 mt-8 mr-[60px] gap-x-16 pb-10">
 				<div
-					ref="bacterialActivity"
-					class="relative flex flex-col justify-between bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+					ref="wellTolarated"
+					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateBacterialActivity"
 				>
 					<div>
@@ -99,7 +99,7 @@
 					</p>
 				</div>
 				<div
-					ref="bacterialActivityDetails"
+					ref="wellTolaratedDetails"
 					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
 					<h2 class="text-[32px] font-bold pr-3">
@@ -192,11 +192,7 @@
 						TOC, test ofcure.
 					</footer>
 				</div>
-				<div
-					ref="wellTolarated"
-					class="relative bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
-					@click="animateBacterialActivity"
-				>
+				<div class="relative bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card">
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -268,17 +264,13 @@ const emit = defineEmits(['goToBottomTab']);
 const topTab = ref(null);
 const content = ref(null);
 
-const bacterialActivity = ref(null);
-const bacterialActivityDetails = ref(null);
-const bacterialActivityActive = ref(false);
+const wellTolarated = ref(null);
+const wellTolaratedDetails = ref(null);
+const wellTolaratedActive = ref(false);
 
 const clinicalEfficacy = ref(null);
 const clinicalEfficacyDetails = ref(null);
 const clinicalEfficacyActive = ref(false);
-
-const wellTolarated = ref(null);
-const wellTolaratedDetails = ref(null);
-const wellTolaratedActive = ref(false);
 
 const clinicalEfficacyTabs = Object.freeze({
 	DAY_3: 1,
@@ -287,7 +279,7 @@ const clinicalEfficacyTabs = Object.freeze({
 const activeClinicalEfficayTab = ref(clinicalEfficacyTabs.DAY_3);
 
 onMounted(() => {
-	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
+	gsap.set(wellTolaratedDetails.value, { opacity: 0 });
 	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
@@ -343,9 +335,9 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 
 const animateBacterialActivity = () => {
 	return animateSection({
-		activeRef: bacterialActivityActive,
-		detailsRef: bacterialActivityDetails,
-		mainRef: bacterialActivity,
+		activeRef: wellTolaratedActive,
+		detailsRef: wellTolaratedDetails,
+		mainRef: wellTolarated,
 		swapCardSelector: '.bacterial-swap-card',
 		fadeElements: [clinicalEfficacy.value, content.value],
 		slideDivisor: 3.95,
@@ -358,7 +350,7 @@ const animateClinicalEfficacy = () => {
 		detailsRef: clinicalEfficacyDetails,
 		mainRef: clinicalEfficacy,
 		swapCardSelector: '.clinical-swap-card',
-		fadeElements: [bacterialActivity.value, content.value],
+		fadeElements: [wellTolarated.value, content.value],
 		slideDivisor: 1.97,
 	});
 };
