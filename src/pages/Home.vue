@@ -6,8 +6,8 @@
 		<RouterLink to="/zevtera">
 			<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold">Explore Zevtera + Mabelio</button>
 		</RouterLink>
-		<RouterLink to="/">
-			<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold">Explore Brand 3 (soon...)</button>
+		<RouterLink to="/xyd">
+			<button class="bg-electric-blue text-white p-4 rounded-lg font-effra font-bold">Explore Xydalba</button>
 		</RouterLink>
 	</div>
 </template>

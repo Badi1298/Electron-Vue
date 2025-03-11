@@ -82,6 +82,43 @@ const routes = [
 		],
 	},
 	{
+		path: '/xyd',
+		component: () => import('@/pages/xyd/XydLayout.vue'),
+		name: 'xyd-index',
+		children: [
+			{
+				path: '',
+				component: () => import('@/pages/xyd/Xyd.vue'),
+				name: 'xyd-home',
+				meta: { brand: 'XYD' },
+			},
+			{
+				path: 'one-two-three',
+				component: () => import('@/pages/xyd/OneTwoThree.vue'),
+				name: 'xyd-one-two-three',
+				meta: { brand: 'XYD' },
+			},
+			{
+				path: 'treatment',
+				component: () => import('@/pages/xyd/Treatment.vue'),
+				name: 'xyd-treatment',
+				meta: { brand: 'XYD' },
+			},
+			{
+				path: 'safety',
+				component: () => import('@/pages/xyd/Safety.vue'),
+				name: 'xyd-safety',
+				meta: { brand: 'XYD' },
+			},
+			{
+				path: 'summary',
+				component: () => import('@/pages/xyd/Summary.vue'),
+				name: 'xyd-summary',
+				meta: { brand: 'XYD' },
+			},
+		],
+	},
+	{
 		path: '/zevtera-references',
 		component: () => import('@/pages/zevtera/References.vue'),
 		name: 'zevtera-references',
