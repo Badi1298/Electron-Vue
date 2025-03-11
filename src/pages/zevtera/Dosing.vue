@@ -15,7 +15,10 @@
 			</p>
 			<section class="pr-[60px] mt-6">
 				<div class="relative">
-					<div class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50">
+					<div
+						class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50"
+						@click="showDosingTable"
+					>
 						<p class="text-2xl font-medium font-uni-grotesk text-charcoal">
 							Dosage in adult and paediatric patients with normal renal function or mild renal impairment<br />
 							(i.e., [CL<sub>CR</sub>] ≥ 50 mL/min)
@@ -26,7 +29,10 @@
 							class="w-11 h-11 cursor-pointer"
 						/>
 					</div>
-					<div class="bg-white absolute top-24 left-0 z-40 p-10 shadow-zevtera-efficacy-pathogens-card rounded-b-[30px]">
+					<div
+						ref="dosingTable"
+						class="bg-white absolute top-24 left-0 z-40 p-10 shadow-zevtera-efficacy-pathogens-card rounded-b-[30px]"
+					>
 						<img
 							src="/src/assets/images/zevtera-dosing-table.png"
 							alt="Zevtera Dosing Table"
@@ -116,9 +122,6 @@ import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
-import DosingTable from '../../components/zevtera/dosing/DosingTable.vue';
-
-import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
@@ -129,4 +132,21 @@ const props = defineProps({
 		required: true,
 	},
 });
+
+const dosingTable = ref(null);
+const dosingTableActive = ref(false);
+
+onMounted(() => {
+	gsap.set(dosingTable.value, { height: 0, autoAlpha: 0 });
+});
+
+const showDosingTable = () => {
+	if (dosingTableActive.value) {
+		gsap.to(dosingTable.value, { height: 0, autoAlpha: 0, duration: 0.5 });
+	} else {
+		gsap.to(dosingTable.value, { height: 480, autoAlpha: 1, duration: 0.5 });
+	}
+
+	dosingTableActive.value = !dosingTableActive.value;
+};
 </script>
