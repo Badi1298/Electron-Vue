@@ -112,9 +112,9 @@
 						<img
 							src="/src/assets/images/adverse-events.png"
 							alt="Adverse Events"
-							class="w-[425px]"
+							class="min-w-[450px] max-w-[450px] h-auto"
 						/>
-						<div class="bg-[#F5F5F5] rounded-[20px] py-10 px-2.5">
+						<div class="flex flex-col gap-y-[50px] bg-[#F5F5F5] rounded-[20px] py-10 px-2.5">
 							<div class="flex flex-col items-center gap-y-6">
 								<img
 									src="/src/assets/images/caution-orange-border.png"
@@ -122,13 +122,23 @@
 									class="w-[80px] h-[80px]"
 								/>
 								<p class="text-xl font-uni-grotesk text-charcoal text-center">
-									ZEVTERA® - The incidence of treatment related adverse events was similar to that<br />
+									ZEVTERA<sup>®</sup> - The incidence of treatment related adverse events was similar to that<br />
 									with other cephalosporins<sup>1</sup>
+								</p>
+							</div>
+							<div class="flex flex-col items-center gap-y-6">
+								<img
+									src="/src/assets/images/patients-orange-border.png"
+									alt="Caution"
+									class="w-[80px] h-[80px]"
+								/>
+								<p class="text-xl font-uni-grotesk text-charcoal text-center">
+									In pooled therapeutic clinical studies, 1,668 patients received ZEVTERA<sup>®4</sup>
 								</p>
 							</div>
 						</div>
 					</div>
-					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">Adapted from Syed YY et al. 2014.9</footer>
+					<footer class="text-[10px] text-[#555] mt-3 mr-12 font-uni-grotesk">Adapted from Syed YY et al. 2014.<sup>9</sup></footer>
 				</div>
 				<div
 					ref="clinicalEfficacyDetails"
