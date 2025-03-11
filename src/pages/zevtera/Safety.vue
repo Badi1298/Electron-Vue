@@ -1,8 +1,5 @@
 <template>
-	<div
-		ref="topTab"
-		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
-	>
+	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
 		<div
 			class="flex flex-col font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
@@ -39,7 +36,7 @@
 						alt="Tick"
 						class="w-[82px] h-auto"
 					/>
-					<h4 class="text-[32px] font-bold text-black">Less number of agents*<sup>2</sup></h4>
+					<h4 class="text-[32px] font-bold text-charcoal">Less number of agents*<sup>2</sup></h4>
 				</div>
 			</div>
 			<section class="relative grid grid-cols-3 flex-1 mt-8 mr-[60px] gap-x-16 pb-10">
@@ -236,11 +233,6 @@ import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
-import VLazyImage from 'v-lazy-image';
-
-import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
-import ChartB from '@/assets/images/clinical-efficacy-chart-2.png';
-
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
@@ -253,9 +245,6 @@ const props = defineProps({
 	},
 });
 
-const emit = defineEmits(['goToBottomTab']);
-
-const topTab = ref(null);
 const content = ref(null);
 const easeOfUse = ref(null);
 
@@ -266,12 +255,6 @@ const wellTolaratedActive = ref(false);
 const gutFlora = ref(null);
 const gutFloraDetails = ref(null);
 const gutFloraActive = ref(false);
-
-const clinicalEfficacyTabs = Object.freeze({
-	DAY_3: 1,
-	DAY_4: 2,
-});
-const activeClinicalEfficayTab = ref(clinicalEfficacyTabs.DAY_3);
 
 onMounted(() => {
 	gsap.set(wellTolaratedDetails.value, { opacity: 0, display: 'none' });
