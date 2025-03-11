@@ -88,6 +88,12 @@ const routes = [
 		meta: { brand: 'ZEVTERA' },
 	},
 	{
+		path: '/zevtera-prescribing-information',
+		component: () => import('@/pages/zevtera/PrescribingInformation.vue'),
+		name: 'zevtera-prescribing-information',
+		meta: { brand: 'ZEVTERA' },
+	},
+	{
 		path: '/screensaver',
 		component: () => import('../pages/Screensaver.vue'),
 		name: 'screensaver',

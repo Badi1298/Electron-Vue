@@ -135,12 +135,14 @@
 						@click="referencesPopupOpen = true"
 					/>
 				</RouterLink>
-				<img
-					src="/src/assets/images/pi.png"
-					alt="PI Icon"
-					class="w-4 h-auto justify-self-center"
-					@click="prescribingPopupOpen = true"
-				/>
+				<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+					<img
+						src="/src/assets/images/pi.png"
+						alt="PI Icon"
+						class="w-4 h-auto justify-self-center"
+						@click="prescribingPopupOpen = true"
+					/>
+				</RouterLink>
 			</div>
 			<div
 				v-if="open"
@@ -154,12 +156,14 @@
 						References
 					</p>
 				</RouterLink>
-				<p
-					class="text-xl font-uni-grotesk text-[#969696]"
-					@click="prescribingPopupOpen = true"
-				>
-					Prescribing information
-				</p>
+				<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+					<p
+						class="text-xl font-uni-grotesk text-[#969696]"
+						@click="prescribingPopupOpen = true"
+					>
+						Prescribing information
+					</p>
+				</RouterLink>
 			</div>
 			<img
 				v-if="open"

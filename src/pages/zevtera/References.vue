@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="relative z-[9999] w-screen h-screen flex justify-center items-center bg-black/40"
-		@click="$router.go(-1)"
+		@click="router.go(-1)"
 	>
 		<div
 			class="popup min-w-[1470px] px-16 py-12"
@@ -12,8 +12,8 @@
 				<img
 					src="/src/assets/images/close-button-purple.png"
 					alt="Close Button"
-					class="w-[60px] h-[60px] cursor-pointer"
-					@click="$router.go(-1)"
+					class="w-[60px] h-[60px] cursor-pointer -mx-3.5"
+					@click="router.go(-1)"
 				/>
 			</div>
 			<ol class="text-xl font-uni-grotesk list-decimal list-inside mt-10 pb-40">
@@ -45,6 +45,12 @@
 		</div>
 	</div>
 </template>
+
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+</script>
 
 <style scoped>
 .popup {
