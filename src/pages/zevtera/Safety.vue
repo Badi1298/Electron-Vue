@@ -105,24 +105,23 @@
 					ref="easeOfUse"
 					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 				>
-					<RouterLink
-						:to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'ease-of-use-card' } }"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6"
-					>
+					<RouterLink :to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'ease-of-use-card' } }">
 						<img
 							src="/src/assets/images/chevron-right-purple-circle.png"
 							alt="Touch to select tab"
+							class="absolute w-[85px] h-[85px] top-[18px] right-6"
 						/>
+
+						<img
+							src="/src/assets/images/hand-cross-black.png"
+							alt="Arrow Down"
+							class="w-[276px] mt-4"
+						/>
+						<div class="pb-28 text-charcoal">
+							<h2 class="text-5xl font-bold mt-7 pl-7">Ease of use<sup>‡4</sup></h2>
+							<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">Explore the ZEVTERA® dosing regimen</p>
+						</div>
 					</RouterLink>
-					<img
-						src="/src/assets/images/hand-cross-black.png"
-						alt="Arrow Down"
-						class="w-[276px] mt-4"
-					/>
-					<div class="pb-28 text-charcoal">
-						<h2 class="text-5xl font-bold mt-7 pl-7">Ease of use<sup>‡4</sup></h2>
-						<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">Explore the ZEVTERA® dosing regimen</p>
-					</div>
 				</div>
 				<div
 					ref="wellTolaratedDetails"
