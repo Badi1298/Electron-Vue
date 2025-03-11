@@ -36,13 +36,13 @@
 				>
 					<img
 						v-if="isActive('/xyd/one-two-three')"
-						src="/src/assets/images/chart-sidebar-full.png"
+						src="/src/assets/images/123-sidebar-full.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
 					<img
 						v-else
-						src="/src/assets/images/chart-sidebar.png"
+						src="/src/assets/images/123-sidebar.png"
 						alt="Home Icon"
 						class="w-[30px] h-[30px]"
 					/>
