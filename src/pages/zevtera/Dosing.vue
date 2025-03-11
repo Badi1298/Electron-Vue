@@ -14,16 +14,27 @@
 				The recommended regimen for adult and paediatric patients with normal renal function is shown in the table.
 			</p>
 			<section class="pr-[60px] mt-6">
-				<div class="flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px]">
-					<p class="text-2xl font-medium font-uni-grotesk text-charcoal">
-						Dosage in adult and paediatric patients with normal renal function or mild renal impairment<br />
-						(i.e., [CL<sub>CR</sub>] ≥ 50 mL/min)
-					</p>
-					<img
-						src="/src/assets/images/chevron-right-charcoal.png"
-						alt="Chevron Right"
-						class="w-11 h-11 cursor-pointer"
-					/>
+				<div class="relative">
+					<div class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50">
+						<p class="text-2xl font-medium font-uni-grotesk text-charcoal">
+							Dosage in adult and paediatric patients with normal renal function or mild renal impairment<br />
+							(i.e., [CL<sub>CR</sub>] ≥ 50 mL/min)
+						</p>
+						<img
+							src="/src/assets/images/chevron-right-charcoal.png"
+							alt="Chevron Right"
+							class="w-11 h-11 cursor-pointer"
+						/>
+					</div>
+					<div class="bg-white absolute top-24 left-0 z-40 p-10 shadow-zevtera-efficacy-pathogens-card rounded-b-[30px]">
+						<img
+							src="/src/assets/images/zevtera-dosing-table.png"
+							alt="Zevtera Dosing Table"
+						/>
+						<p class="pt-10 pb-6 text-xs font-uni-grotesk">
+							*Special precautions for disposal and other handling (See section Reconsitution and dilution)
+						</p>
+					</div>
 				</div>
 				<div class="flex flex-col gap-y-20 mt-8 bg-white rounded-[30px] px-10 py-12 min-h-[500px] shadow-zevtera-efficacy-pathogens-card">
 					<div class="flex gap-x-7 items-center">
@@ -104,6 +115,8 @@
 import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+import DosingTable from '../../components/zevtera/dosing/DosingTable.vue';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
