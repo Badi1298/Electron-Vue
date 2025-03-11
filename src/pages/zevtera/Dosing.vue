@@ -37,8 +37,43 @@
 							neonates.<sup>4</sup>
 						</p>
 					</div>
-					<div class="grid grid-cols-4">
-						<h5 class="text-[40px] leading-normal font-uni-grotesk"><span class="font-bold">Ease of use</span> in patients with comorbidities</h5>
+					<div class="grid grid-cols-[0.7fr_1fr_1fr_1fr] items-center">
+						<h4 class="text-[40px] leading-snug font-uni-grotesk"><span class="font-bold">Ease of use</span> in patients with comorbidities</h4>
+						<div class="flex flex-col items-center font-uni-grotesk text-charcoal mx-6">
+							<img
+								src="/src/assets/images/Elderly.png"
+								alt="Elderly"
+								class="w-[99px]"
+							/>
+							<h5 class="mt-4 text-[23px] font-medium">Elderly</h5>
+							<p class="text-center mt-1.5">
+								<span class="font-medium">No dose adjustment</span> is necessary in elderly patients, except in cases of moderate to severe
+								renal impairment<sup>4</sup>
+							</p>
+						</div>
+						<div class="flex flex-col items-center font-uni-grotesk text-charcoal mx-6">
+							<img
+								src="/src/assets/images/Liver.png"
+								alt="Elderly"
+								class="w-[90px]"
+							/>
+							<h5 class="mt-4 text-[23px] font-medium">Hepatic Impairment</h5>
+							<p class="text-center mt-1.5">
+								<span class="font-medium">No dose adjustment</span> is considered necessary as there is no relevant hepatic metabolism<sup
+									>3</sup
+								>
+								There is no experience in patients with hepatic impairement<sup>4</sup>
+							</p>
+						</div>
+						<div class="flex flex-col items-center font-uni-grotesk text-charcoal mx-6">
+							<img
+								src="/src/assets/images/Scale.png"
+								alt="Elderly"
+								class="w-[70px]"
+							/>
+							<h5 class="mt-4 text-[23px] font-medium">Weight/BMI</h5>
+							<p class="text-center mt-1.5"><span class="font-medium">No dose adjustment</span> based on body weight in adults<sup>4</sup></p>
+						</div>
 					</div>
 				</div>
 			</section>
