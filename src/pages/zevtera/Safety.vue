@@ -7,7 +7,7 @@
 			class="flex flex-col font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<div class="relative flex justify-end mr-12 mt-16">
+			<div class="relative flex justify-end mr-12 mt-14">
 				<img
 					src="/src/assets/images/bullet-long.png"
 					alt="Bullet Long"
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 
-			<div class="grid grid-cols-2 mr-[60px] items-center">
+			<div class="grid grid-cols-2 mr-[60px] items-center mt-3">
 				<the-title
 					>Less burden to<br />
 					treat your patients</the-title
@@ -42,66 +42,40 @@
 					<h4 class="text-[32px] font-bold text-black">Less number of agents*<sup>2</sup></h4>
 				</div>
 			</div>
-			<section class="relative grid grid-cols-3 flex-1">
-				<div
-					ref="wellTolarated"
-					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer z-50"
-					@click="animateBacterialActivity"
-				>
-					<img
-						src="/src/assets/images/touch-purple.png"
-						alt="Touch to select tab"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6"
-					/>
-					<img
-						src="/src/assets/images/swap-purple.png"
-						alt="Swap"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
-					/>
-					<img
-						src="/src/assets/images/arrow-down-dark-green.png"
-						alt="Arrow Down"
-						class="h-[175px] w-auto mt-5"
-					/>
-					<h2 class="text-5xl text-white font-bold mt-7 pl-7">
-						Fast<br />
-						bactericidal activity
-					</h2>
-					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
-						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
-					</p>
-				</div>
+			<section class="relative grid grid-cols-3 flex-1 mt-8 mr-[60px] gap-x-16 pb-10">
 				<div
 					ref="bacterialActivity"
-					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer z-50"
+					class="relative flex flex-col justify-between bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateBacterialActivity"
 				>
-					<img
-						src="/src/assets/images/touch-purple.png"
-						alt="Touch to select tab"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6"
-					/>
-					<img
-						src="/src/assets/images/swap-purple.png"
-						alt="Swap"
-						class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
-					/>
-					<img
-						src="/src/assets/images/arrow-down-dark-green.png"
-						alt="Arrow Down"
-						class="h-[175px] w-auto mt-5"
-					/>
-					<h2 class="text-5xl text-white font-bold mt-7 pl-7">
-						Fast<br />
-						bactericidal activity
-					</h2>
-					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
-						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
-					</p>
+					<div>
+						<img
+							src="/src/assets/images/touch-purple.png"
+							alt="Touch to select tab"
+							class="absolute w-[85px] h-[85px] top-[18px] right-6"
+						/>
+						<img
+							src="/src/assets/images/swap-purple.png"
+							alt="Swap"
+							class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
+						/>
+						<img
+							src="/src/assets/images/tick-icon-black.png"
+							alt="Arrow Down"
+							class="w-[234px] mt-5 ml-6"
+						/>
+					</div>
+					<div class="pb-28">
+						<h2 class="text-5xl text-white font-bold mt-7 pl-7">Well-tolerated</h2>
+						<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
+							ZEVTERA®/MABELIO® is<br />
+							generally well tolerated<sup>9</sup>
+						</p>
+					</div>
 				</div>
 				<div
 					ref="clinicalEfficacy"
-					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer z-50"
+					class="relative bg-primary-green rounded-[20px] overflow-hidden cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateClinicalEfficacy"
 				>
 					<img
@@ -218,10 +192,45 @@
 						TOC, test ofcure.
 					</footer>
 				</div>
+				<div
+					ref="wellTolarated"
+					class="relative bg-primary-green rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+					@click="animateBacterialActivity"
+				>
+					<img
+						src="/src/assets/images/touch-purple.png"
+						alt="Touch to select tab"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6"
+					/>
+					<img
+						src="/src/assets/images/swap-purple.png"
+						alt="Swap"
+						class="absolute w-[85px] h-[85px] top-[18px] right-6 bacterial-swap-card"
+					/>
+					<img
+						src="/src/assets/images/arrow-down-dark-green.png"
+						alt="Arrow Down"
+						class="h-[175px] w-auto mt-5"
+					/>
+					<h2 class="text-5xl text-white font-bold mt-7 pl-7">
+						Fast<br />
+						bactericidal activity
+					</h2>
+					<p class="text-2xl text-white leading-normal mt-4 font-uni-grotesk pl-7">
+						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
+					</p>
+				</div>
 			</section>
 		</div>
 
 		<footer class="relative pb-6">
+			<the-footer
+				class="transition-all duration-300 mb-4"
+				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+				>*Among patients who had requirements for de-escalation therapy from linezolid, piperacillin/tazobactam or meropenem combinations<sup>2</sup
+				><br /><sup>†</sup>I.e., ceftazidime, cefotoxitin, ceftroaxone or retapenem<sup>10</sup><br /><sup>‡</sup>No dose adjustment except for renally
+				impaired patients<sup>4</sup></the-footer
+			>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'next-section-button' } }">
@@ -242,6 +251,7 @@ import VLazyImage from 'v-lazy-image';
 import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
 import ChartB from '@/assets/images/clinical-efficacy-chart-2.png';
 
+import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
@@ -298,6 +308,7 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 	const detailsOpacityConfig = {
 		opacity: isActive ? 0 : 1,
 		duration: 0.7,
+		translateY: -50,
 		ease: 'power2.inOut',
 	};
 
@@ -337,7 +348,7 @@ const animateBacterialActivity = () => {
 		mainRef: bacterialActivity,
 		swapCardSelector: '.bacterial-swap-card',
 		fadeElements: [clinicalEfficacy.value, content.value],
-		slideDivisor: 3.6,
+		slideDivisor: 3.95,
 	});
 };
 
