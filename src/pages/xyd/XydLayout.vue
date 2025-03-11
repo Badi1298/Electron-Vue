@@ -26,7 +26,7 @@
 import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-import Sidebar from '@/components/zevtera/Sidebar.vue';
+import Sidebar from '@/components/xyd/Sidebar.vue';
 
 const sidebarOpen = ref(true);
 

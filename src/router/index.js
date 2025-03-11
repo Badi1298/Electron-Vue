@@ -131,6 +131,18 @@ const routes = [
 		meta: { brand: 'ZEVTERA' },
 	},
 	{
+		path: '/xyd-references',
+		component: () => import('@/pages/xyd/References.vue'),
+		name: 'xyd-references',
+		meta: { brand: 'XYD' },
+	},
+	{
+		path: '/xyd-prescribing-information',
+		component: () => import('@/pages/xyd/PrescribingInformation.vue'),
+		name: 'xyd-prescribing-information',
+		meta: { brand: 'XYD' },
+	},
+	{
 		path: '/screensaver',
 		component: () => import('../pages/Screensaver.vue'),
 		name: 'screensaver',

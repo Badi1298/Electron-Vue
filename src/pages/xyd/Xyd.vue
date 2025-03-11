@@ -29,7 +29,7 @@
 						title="1, 2, 3"
 						subtitle="1 dose of Xydalba™ gives your patients<br /> 2 weeks of effective treatment in a<br /> single 30-minute infusion<sup>1</sup>"
 						button-class="bg-[#982384] text-white"
-						discover-more-path="/zevtera/efficacy"
+						discover-more-path="/xyd/one-two-three"
 						class="mt-9 min-w-[465px]"
 					>
 						<img
@@ -42,7 +42,7 @@
 						title="Effective paediatric treatment"
 						subtitle="Xydalba™ provided effective treatment<br /> in adult and paediatric patientst<sup>5</sup>"
 						button-class="bg-[#276B88] text-white"
-						discover-more-path="/zevtera/safety"
+						discover-more-path="/xyd/treatment"
 						class="mt-11 max-w-[465px]"
 					>
 						<img
@@ -55,7 +55,7 @@
 						title="Safety profile"
 						subtitle="Well-tolerated safety profile, consistent in both adult and paediatric patients<sup>1,5</sup>"
 						button-class="bg-[#009656] text-white"
-						discover-more-path="/zevtera/dosing"
+						discover-more-path="/xyd/safety"
 						class="mt-11 max-w-[465px]"
 					>
 						<img
