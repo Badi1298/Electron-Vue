@@ -89,24 +89,44 @@
 							/>
 						</div>
 					</div>
-					<div class="relative flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11">
-						<p class="text-xl font-bold text-white">
-							Xydalba™ gives you the choice of two dosing regimen that both<br />
-							deliver plasma concentrations above the MIC<sub>90</sub> for over 15 days<sup>‡1</sup>
-						</p>
-						<div class="flex items-center gap-x-5">
-							<div class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
+					<div>
+						<div class="relative flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11">
+							<p class="text-xl font-bold text-white">
+								Xydalba™ gives you the choice of two dosing regimen that both<br />
+								deliver plasma concentrations above the MIC<sub>90</sub> for over 15 days<sup>‡1</sup>
+							</p>
+							<div class="flex items-center gap-x-5">
+								<div class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
+									<img
+										src="/src/assets/images/step-two-small-chart.png"
+										alt="Small Chart"
+										class="w-[120px] h-auto"
+									/>
+								</div>
 								<img
-									src="/src/assets/images/step-two-small-chart.png"
-									alt="Small Chart"
-									class="w-[120px] h-auto"
+									src="/src/assets/images/touch-purple.png"
+									alt="Touch Icon"
+									class="w-[70px] h-[70px]"
 								/>
 							</div>
+						</div>
+						<div class="bg-white px-14 py-5">
 							<img
-								src="/src/assets/images/touch-purple.png"
-								alt="Touch Icon"
-								class="w-[70px] h-[70px]"
+								src="/src/assets/images/step-2-big-chart.png"
+								alt="Big Chart"
+								class="w-[836px]"
 							/>
+						</div>
+						<div class="flex gap-x-5 items-center bg-primary-green/15 py-6 px-14">
+							<img
+								src="/src/assets/images/list-item-emblem-green.png"
+								alt="List Item Emblem"
+								class="w-[57px] h-[30px]"
+							/>
+							<p class="text-primary-green font-bold">
+								Dalbavancin mean Plasma Concentrations versus time in a typical ABSSSI adult patient (simulation using<br />
+								population pharmacokinetic model) for both the single and the two-dose regimens.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -149,6 +169,8 @@
 <script setup>
 import { ref, watch } from 'vue';
 
+import { gsap } from 'gsap';
+
 import VLazyImage from 'v-lazy-image';
 
 import Background from '@/assets/images/step-2-background.png';
@@ -156,12 +178,6 @@ import Background from '@/assets/images/step-2-background.png';
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-
-const Tabs = Object.freeze({
-	DROP: 1,
-	TIME: 2,
-	LUNGS: 3,
-});
 
 const props = defineProps({
 	sidebarOpen: {
@@ -186,27 +202,6 @@ watch(
 		}
 	}
 );
-
-const tabsInfo = ref([
-	{
-		id: Tabs.DROP,
-		active: true,
-	},
-	{
-		id: Tabs.TIME,
-		active: false,
-	},
-	{
-		id: Tabs.LUNGS,
-		active: false,
-	},
-]);
-
-const onClickTab = (id) => {
-	tabsInfo.value.forEach((tab) => {
-		tab.active = tab.id === id;
-	});
-};
 </script>
 
 <style scoped>
