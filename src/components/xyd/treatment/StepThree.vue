@@ -13,11 +13,6 @@
 				class="w-[140px] h-[50px]"
 			/>
 		</button>
-		<VLazyImage
-			:src="Background"
-			alt="Step 2 Background"
-			class="absolute -z-10 top-0 left-0 min-w-[1920px] min-h-[1080px]"
-		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -38,86 +33,92 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+			class="flex flex-col justify-end font-effra pb-6 transition-all duration-300 relative"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
 		>
-			<div class="relative flex items-center gap-x-4">
-				<span class="text-[220px] text-primary-turqoise">3.</span>
-				<h1 class="font-bold text-[75px] text-primary-turqoise leading-none translate-y-3">
-					30<br />
-					minutes
-				</h1>
-			</div>
+			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ provided effective treatment in a paediatric population<sup>5</sup></h1>
 
-			<section class="-mt-14">
-				<p class="text-primary-turqoise text-2xl font-bold">
-					In one 30-minute infusion Xydalba<sup>™</sup> provides<br />
-					convenience for you and your patients<sup>2,3</sup>
-				</p>
-				<p class="text-xl text-dark-grey mt-5">
-					In the post hoc analysis of the single dose phase 3 study, the<br />
-					majority of adult patients:<sup>10</sup>
-				</p>
-				<ul class="flex flex-col gap-y-7 mt-4">
-					<li class="flex items-center gap-x-5">
-						<img
-							src="/src/assets/images/list-item-emblem-turqoise.png"
-							alt="List Item Emblem"
-							class="w-[58px]"
-						/>
-						<p class="text-primary-turqoise text-2xl font-bold">
-							Preferred a single, 30-minute infusion<br />
-							over other treatment options*
-						</p>
-					</li>
-					<li class="flex items-center gap-x-5">
-						<img
-							src="/src/assets/images/list-item-emblem-turqoise.png"
-							alt="List Item Emblem"
-							class="w-[58px]"
-						/>
-						<p class="text-primary-turqoise text-2xl font-bold">Achieved similar levels of clinical success<sup>†</sup></p>
-					</li>
-				</ul>
-				<p class="text-xl text-dark-grey mt-5">
-					Outpatients treated with one, 30-minute Xydalba<sup>™</sup> IV infusion<br />
-					reported greater satisfaction than inpatients in terms of:<sup>10</sup>
-				</p>
-				<ul class="flex flex-col gap-y-7 mt-4">
-					<li class="flex items-center gap-x-5">
-						<img
-							src="/src/assets/images/list-item-emblem-turqoise.png"
-							alt="List Item Emblem"
-							class="w-[58px]"
-						/>
-						<p class="text-primary-turqoise text-2xl font-bold">Effect of treatment on their infection</p>
-					</li>
-					<li class="flex items-center gap-x-5">
-						<img
-							src="/src/assets/images/list-item-emblem-turqoise.png"
-							alt="List Item Emblem"
-							class="w-[58px]"
-						/>
-						<p class="text-primary-turqoise text-2xl font-bold">The care they received</p>
-					</li>
-					<li class="flex items-center gap-x-5">
-						<img
-							src="/src/assets/images/list-item-emblem-turqoise.png"
-							alt="List Item Emblem"
-							class="w-[58px]"
-						/>
-						<p class="text-primary-turqoise text-2xl font-bold">Lack of interference with daily activities</p>
-					</li>
-				</ul>
-				<div class="flex gap-x-7 mt-8 bg-primary-turqoise/10 rounded-r-[20px] w-[626px] px-6 py-3">
+			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px]">
+				<div>
+					<p class="text-2xl text-primary-green">
+						<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
+					</p>
+					<div class="flex gap-x-16 mt-28">
+						<div class="relative bg-white w-[260px] pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
+							<p class="text-xl font-bold">
+								Less catheter<br />
+								related risks<sup>2,4</sup>
+							</p>
+							<img
+								src="/src/assets/images/iv-bag-green.png"
+								alt="IV Bag"
+								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
+							/>
+						</div>
+						<div class="relative bg-white w-[260px] pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
+							<p class="text-xl font-bold">Less concern about compliance<sup>4,7</sup></p>
+							<img
+								src="/src/assets/images/chart-down-green.png"
+								alt="IV Bag"
+								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
+							/>
+						</div>
+						<div class="relative bg-white w-[260px] px-3 pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
+							<p class="text-xl font-bold">Fewer adverse events than comparators<sup>*†8,9</sup></p>
+							<img
+								src="/src/assets/images/caution-green.png"
+								alt="IV Bag"
+								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
+							/>
+						</div>
+					</div>
+					<div class="h-[112px] mt-[60px]"></div>
+					<div class="absolute bottom-0 left-0 w-[1041px]">
+						<div
+							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
+							@click="animateExpandable"
+						>
+							<p class="text-xl font-bold text-white">Clinical response* in paediatric patients, all cohorts, mITT<sup>†</sup> population</p>
+							<div class="flex items-center gap-x-5">
+								<div
+									v-if="!isExpanded"
+									class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green"
+								>
+									<img
+										src="/src/assets/images/xyd-treatment-chart-3.png"
+										alt="Small Chart"
+										class="w-[120px] h-auto"
+									/>
+								</div>
+								<img
+									src="/src/assets/images/touch-purple.png"
+									alt="Touch Icon"
+									class="w-[70px] h-[70px]"
+								/>
+							</div>
+						</div>
+						<div
+							ref="chart"
+							class="flex flex-col justify-center bg-white px-14 shadow-treatment"
+						>
+							<img
+								src="/src/assets/images/xyd-treatment-chart-3.png"
+								alt="Big Chart"
+								class="w-[836px]"
+							/>
+							<p>Adapted from Giorgobiani M et al. 2022.5</p>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px]">
 					<img
-						src="/src/assets/images/efficacy-turqoise.png"
-						alt="Efficacy"
-						class="w-[46px]"
+						src="/src/assets/images/dosing-bottle-turqoise.png"
+						alt="Clock"
+						class="w-[90px] h-[90px] mx-auto"
 					/>
-					<p class="font-bold text-primary-turqoise">
-						Xydalba<sup>™</sup> is preferred by patients,<sup>10</sup> allowing them to focus on<br />
-						getting better, while improving convenience for you<sup>2,3</sup>
+					<p class="text-[22px] text-primary-purple font-bold text-center">
+						The rapid and long-lasting action of Xydalba™ means you can be confident that your patients are getting the course of treatment they
+						need<sup>1</sup>
 					</p>
 				</div>
 			</section>
@@ -145,7 +146,9 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
+
+import { gsap } from 'gsap';
 
 import VLazyImage from 'v-lazy-image';
 
@@ -170,6 +173,14 @@ const emit = defineEmits(['goToTopTab', 'goToMiddleTab']);
 
 const bottomTab = ref(null);
 
+const chart = ref(null);
+
+const isExpanded = ref(false);
+
+onMounted(() => {
+	gsap.set(chart.value, { autoAlpha: 0, height: 0 });
+});
+
 watch(
 	() => props.scrollIntoView,
 	(value) => {
@@ -178,6 +189,19 @@ watch(
 		}
 	}
 );
+
+const animateExpandable = () => {
+	if (!isExpanded.value) {
+		gsap.to(chart.value, {
+			height: 600,
+			autoAlpha: 1,
+		});
+	} else {
+		gsap.to(chart.value, { autoAlpha: 0, height: 0, duration: 0.7 });
+	}
+
+	isExpanded.value = !isExpanded.value;
+};
 </script>
 
 <style scoped>
