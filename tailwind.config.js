@@ -8,6 +8,7 @@ export default {
 			'electric-blue': '#1F17F6',
 			'dark-blue': '#002470',
 			'cool-grey': '#646469',
+			'dark-grey': '#414042',
 			charcoal: '#2E2E2E',
 			'primary-green': '#009656',
 			'primary-purple': '#982384',

@@ -44,19 +44,67 @@
 				<div class="h-5 bg-primary-green absolute bottom-10 left-0 w-full"></div>
 			</div>
 
-			<section class="pr-[60px]">
+			<section class="grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px]">
 				<div>
 					<p class="text-2xl text-primary-green">
 						<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
 					</p>
-					<div>
-						<div class="bg-white">
-							<p>Less catheter related risks2,4</p>
+					<div class="flex gap-x-16 mt-28">
+						<div class="relative bg-white w-[260px] pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
+							<p class="text-xl font-bold">
+								Less catheter<br />
+								related risks<sup>2,4</sup>
+							</p>
+							<img
+								src="/src/assets/images/iv-bag-green.png"
+								alt="IV Bag"
+								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
+							/>
+						</div>
+						<div class="relative bg-white w-[260px] pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
+							<p class="text-xl font-bold">Less concern about compliance<sup>4,7</sup></p>
+							<img
+								src="/src/assets/images/chart-down-green.png"
+								alt="IV Bag"
+								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
+							/>
+						</div>
+						<div class="relative bg-white w-[260px] px-3 pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
+							<p class="text-xl font-bold">Fewer adverse events than comparators<sup>*†8,9</sup></p>
+							<img
+								src="/src/assets/images/caution-green.png"
+								alt="IV Bag"
+								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
+							/>
 						</div>
 					</div>
-					<div></div>
+					<div class="relative flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11">
+						<p class="text-xl font-bold text-white">
+							Xydalba™ gives you the choice of two dosing regimen that both<br />
+							deliver plasma concentrations above the MIC<sub>90</sub> for over 15 days<sup>‡1</sup>
+						</p>
+						<div class="flex items-center gap-x-5">
+							<div class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
+								<img
+									src="/src/assets/images/step-two-small-chart.png"
+									alt="Small Chart"
+									class="w-[120px] h-auto"
+								/>
+							</div>
+							<img
+								src="/src/assets/images/touch-purple.png"
+								alt="Touch Icon"
+								class="w-[70px] h-[70px]"
+							/>
+						</div>
+					</div>
 				</div>
-				<div></div>
+				<div class="px-3.5">
+					<p>
+						The rapid and long-lasting action of Xydalba™ means you can be confident that your patients are getting the course of treatment they
+						need1
+					</p>
+				</div>
 			</section>
 		</div>
 
