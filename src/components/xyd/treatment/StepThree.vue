@@ -39,40 +39,44 @@
 			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ provided effective treatment in a paediatric population<sup>5</sup></h1>
 
 			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px]">
-				<div>
-					<p class="text-2xl text-primary-green">
-						<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
-					</p>
-					<div class="flex gap-x-16 mt-28">
-						<div class="relative bg-white w-[260px] pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
-							<p class="text-xl font-bold">
-								Less catheter<br />
-								related risks<sup>2,4</sup>
-							</p>
-							<img
-								src="/src/assets/images/iv-bag-green.png"
-								alt="IV Bag"
-								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
-							/>
-						</div>
-						<div class="relative bg-white w-[260px] pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
-							<p class="text-xl font-bold">Less concern about compliance<sup>4,7</sup></p>
-							<img
-								src="/src/assets/images/chart-down-green.png"
-								alt="IV Bag"
-								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
-							/>
-						</div>
-						<div class="relative bg-white w-[260px] px-3 pt-[90px] pb-8 text-dark-grey text-center rounded-[15px] border border-primary-green">
-							<p class="text-xl font-bold">Fewer adverse events than comparators<sup>*†8,9</sup></p>
-							<img
-								src="/src/assets/images/caution-green.png"
-								alt="IV Bag"
-								class="absolute -top-1/2 translate-y-6 left-1/2 -translate-x-1/2 w-[130px] h-[130px]"
-							/>
-						</div>
+				<div class="flex flex-col gap-y-6 mt-12">
+					<div class="flex gap-[30px] items-center">
+						<img
+							src="/src/assets/images/treatment-pie-1.png"
+							alt="Treatment Pie"
+							class="w-[166px] h-auto"
+						/>
+						<p class="text-2xl text-primary-purple">
+							<span class="font-bold">Favourable clinical response</span> at 48-72 hours was documented in<br />
+							<span class="font-bold text-primary-green">97.4%</span> and
+							<span class="font-bold">98.6% in the single and 2-dose study arms,</span> respectively<sup>5</sup>
+						</p>
 					</div>
-					<div class="h-[112px] mt-[60px]"></div>
+					<div class="flex gap-[30px] items-center">
+						<img
+							src="/src/assets/images/treatment-pie-1.png"
+							alt="Treatment Pie"
+							class="w-[166px] h-auto"
+						/>
+						<p class="text-2xl text-primary-purple">
+							<span class="font-bold">Favourable clinical response</span> at 48-72 hours was documented in<br />
+							<span class="font-bold text-primary-green">97.4%</span> and
+							<span class="font-bold">98.6% in the single and 2-dose study arms,</span> respectively<sup>5</sup>
+						</p>
+					</div>
+					<div class="flex gap-[30px] items-center">
+						<img
+							src="/src/assets/images/treatment-pie-1.png"
+							alt="Treatment Pie"
+							class="w-[166px] h-auto"
+						/>
+						<p class="text-2xl text-primary-purple">
+							<span class="font-bold">Favourable clinical response</span> at 48-72 hours was documented in<br />
+							<span class="font-bold text-primary-green">97.4%</span> and
+							<span class="font-bold">98.6% in the single and 2-dose study arms,</span> respectively<sup>5</sup>
+						</p>
+					</div>
+					<div class="h-[112px] mt-1.5"></div>
 					<div class="absolute bottom-0 left-0 w-[1041px]">
 						<div
 							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
@@ -126,14 +130,13 @@
 
 		<footer>
 			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+				class="transition-all duration-300 mb-4 pr-[60px]"
+				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
 			>
-				*One 3-hr infusion, one 30-min infusion once a week for two weeks, two 1-hr infusions a day for a week, few days of two 1-hr infusions a day
-				then one pill 3-4<br />
-				times a day for rest of week.10 †Clinical success included ≥20% reduction of erythema at 48-72 hrs, resolution or improvement of clinical signs
-				and symptoms,<br />
-				≥80% reduction in lesion size on Day 14 and ≥90% on Day 28.10
+				*Sponsor assessment. †mITT: randomised patients who received ≥1 dose of study drug and had a diagnosis of ABSSSI (or, in cohort 5,
+				suspected/confirmed sepsis) not known to be caused exclusively by a Gram-negative organism. <sup>†</sup>Vancomycin IV, oxacillin IV; or
+				flucloxacillin IV ABSSSI: Acute Bacterial Skin and Skin Structure Infections; EOT: End of treatment; mITT: Modified intent-to-treat; TOC: Test
+				of cure; IV: Intravenous.
 			</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
@@ -149,10 +152,6 @@
 import { ref, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
-
-import VLazyImage from 'v-lazy-image';
-
-import Background from '@/assets/images/step-3-background.png';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
