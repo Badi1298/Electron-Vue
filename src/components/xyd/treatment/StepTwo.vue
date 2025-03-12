@@ -46,7 +46,7 @@
 					<div class="bg-primary-green py-7 rounded-t-[20px] pl-10 text-xl font-bold text-white">
 						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup>8</sup>
 					</div>
-					<div class="bg-white px-16 py-3.5 shadow-treatment">
+					<div class="bg-white px-16 py-3.5 shadow-treatment w-[1016px] h-[587px]">
 						<VLazyImage
 							:src="Chart"
 							alt="Chart 1"
