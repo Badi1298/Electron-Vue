@@ -101,7 +101,7 @@ import { ref, watch } from 'vue';
 
 import VLazyImage from 'v-lazy-image';
 
-import Chart from '@/assets/images/xyd-treatment-chart-2.png';
+import Chart from '@/assets/images/xyd-treatment-chart-2.svg';
 
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
