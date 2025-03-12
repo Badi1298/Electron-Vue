@@ -3,6 +3,11 @@
 		ref="bottomTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
+		<VLazyImage
+			:src="Background"
+			alt="Step 2 Background"
+			class="absolute -z-10 top-0 left-0 min-w-[1920px] min-h-[1080px]"
+		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -39,10 +44,19 @@
 				<div class="h-5 bg-primary-green absolute bottom-10 left-0 w-full"></div>
 			</div>
 
-			<section>
-				<p class="text-2xl text-primary-green">
-					<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
-				</p>
+			<section class="pr-[60px]">
+				<div>
+					<p class="text-2xl text-primary-green">
+						<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
+					</p>
+					<div>
+						<div class="bg-white">
+							<p>Less catheter related risks2,4</p>
+						</div>
+					</div>
+					<div></div>
+				</div>
+				<div></div>
 			</section>
 		</div>
 
@@ -71,7 +85,11 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
+
+import VLazyImage from 'v-lazy-image';
+
+import Background from '@/assets/images/step-2-background.png';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
