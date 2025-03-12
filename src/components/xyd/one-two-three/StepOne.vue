@@ -31,14 +31,12 @@
 			class="flex flex-col justify-center font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<div class="flex justify-between mr-12">
-				<div class="flex items-center gap-x-4">
-					<span class="text-[220px] text-primary-purple">1.</span>
-					<h1 class="font-bold text-[75px] text-primary-purple leading-none translate-y-3">
-						One<br />
-						dose
-					</h1>
-				</div>
+			<div class="flex items-center gap-x-4">
+				<span class="text-[220px] text-primary-purple">1.</span>
+				<h1 class="font-bold text-[75px] text-primary-purple leading-none translate-y-3">
+					One<br />
+					dose
+				</h1>
 			</div>
 
 			<section class="-mt-8">

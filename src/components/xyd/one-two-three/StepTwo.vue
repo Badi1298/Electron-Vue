@@ -15,15 +15,35 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 			/>
+			<img
+				src="/src/assets/images/inactive-dot.png"
+				alt="Active Dot"
+				class="h-5 w-5 cursor-pointer"
+				@click="emit('goToTopTab')"
+			/>
 		</div>
 		<div
 			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<div>
-				<span>1.</span>
-				<h1>One Dose</h1>
+			<div class="relative flex items-center gap-x-4">
+				<span class="text-[220px] text-primary-green">2.</span>
+				<h1 class="font-bold text-[75px] text-primary-green leading-none translate-y-3">
+					Two<br />
+					weeks
+				</h1>
+				<div class="absolute bottom-12 pb-9 px-6 pt-6 right-[60px] max-w-[854px] bg-primary-green text-white text-[32px] font-bold rounded-t-[20px]">
+					Xydalba™ delivers two weeks of fast-acting,7 effective treatment in one single dose,1 potentially allowing early discharge for your
+					patients2,3
+				</div>
+				<div class="h-5 bg-primary-green absolute bottom-10 left-0 w-full"></div>
 			</div>
+
+			<section>
+				<p class="text-2xl text-primary-green">
+					<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
+				</p>
+			</section>
 		</div>
 
 		<footer>
