@@ -23,19 +23,46 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300"
+			class="flex flex-col justify-end font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ demonstrated clinical success at Day 14-15<sup>8</sup></h1>
 
-			<section></section>
+			<section class="grid grid-cols-[1fr_0.34fr] items-end gap-x-6 mt-7 pr-[60px]">
+				<div>
+					<div class="bg-primary-green py-7 rounded-t-[20px] pl-10 text-xl font-bold text-white">
+						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup>8</sup>
+					</div>
+					<div class="bg-white px-16 py-6 shadow-treatment">
+						<VLazyImage
+							:src="Chart"
+							alt="Chart 1"
+						/>
+					</div>
+				</div>
+				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px] h-[587px]">
+					<img
+						src="/src/assets/images/efficacy-purple.png"
+						alt="Clock"
+						class="w-[90px] h-[90px] mx-auto"
+					/>
+					<p class="text-[22px] text-primary-purple text-center">
+						Xydalba™ delivers the clinical success your patients need, with
+						<span class="font-bold">91% achieving relief from symptoms at two weeks,</span> in patients infected with S. aureus (including MRSA)*8
+					</p>
+				</div>
+			</section>
 		</div>
 
-		<footer class="relative pb-6">
+		<footer class="relative pb-6 pt-8">
 			<the-footer
 				class="transition-all duration-300 mb-4"
 				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-				>ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer
+				>*EMA primary end-point: Clinical success at End-of-treatment visit (Day 14-15) in the ITT population defined as decreased lesion size (both
+				length and width measurements), a temperature of ≤37.6°C, local signs of fluctuance and localized heat/warmth were absent; local signs of<br />
+				tenderness to palpation and swelling/induration were no worse than mild; and for patients with a wound infection, the severity of purulent
+				drainage was improved and no worse than mild relative to baseline; no need for further systemic antibacterial treatment for the SSTI.<br />
+				ITT: Intent To Treat.</the-footer
 			>
 			<ExploreAnother />
 			<button
@@ -57,7 +84,7 @@ import { ref, watch } from 'vue';
 
 import VLazyImage from 'v-lazy-image';
 
-import Background from '@/assets/images/step-1-background.png';
+import Chart from '@/assets/images/xyd-treatment-chart-1.png';
 
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
