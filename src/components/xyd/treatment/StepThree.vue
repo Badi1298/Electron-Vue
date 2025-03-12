@@ -187,9 +187,10 @@ const animateExpandable = () => {
 	if (!isExpanded.value) {
 		gsap.to(chart.value, {
 			height: 600,
+			duration: 0.6,
 		});
 	} else {
-		gsap.to(chart.value, { height: 0, duration: 0.7 });
+		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}
 
 	isExpanded.value = !isExpanded.value;

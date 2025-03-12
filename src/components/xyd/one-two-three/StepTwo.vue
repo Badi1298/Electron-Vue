@@ -134,9 +134,9 @@
 							<img
 								src="/src/assets/images/step-2-big-chart.png"
 								alt="Big Chart"
-								class="w-[836px]"
+								class="w-[836px] my-5 ml-12"
 							/>
-							<div class="flex gap-x-5 items-center bg-primary-green/15 px-14 overflow-hidden">
+							<div class="flex flex-1 gap-x-5 items-center bg-primary-green/15 px-14 overflow-hidden">
 								<img
 									src="/src/assets/images/list-item-emblem-green.png"
 									alt="List Item Emblem"
@@ -237,10 +237,11 @@ watch(
 const animateExpandable = () => {
 	if (!isExpanded.value) {
 		gsap.to(chart.value, {
-			height: 600,
+			height: 662,
+			duration: 0.6,
 		});
 	} else {
-		gsap.to(chart.value, { height: 0, duration: 0.7 });
+		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}
 
 	isExpanded.value = !isExpanded.value;
