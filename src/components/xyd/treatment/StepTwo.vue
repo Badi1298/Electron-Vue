@@ -46,7 +46,7 @@
 					<div class="bg-primary-green py-7 rounded-t-[20px] pl-10 text-xl font-bold text-white">
 						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup>8</sup>
 					</div>
-					<div class="bg-white px-16 py-6 shadow-treatment">
+					<div class="bg-white px-16 py-3.5 shadow-treatment">
 						<VLazyImage
 							:src="Chart"
 							alt="Chart 1"
@@ -60,13 +60,12 @@
 				</div>
 				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px] h-[587px]">
 					<img
-						src="/src/assets/images/efficacy-purple.png"
+						src="/src/assets/images/clock-purple.png"
 						alt="Clock"
 						class="w-[90px] h-[90px] mx-auto"
 					/>
 					<p class="text-[22px] text-primary-purple text-center">
-						Xydalba™ delivers the clinical success your patients need, with
-						<span class="font-bold">91% achieving relief from symptoms at two weeks,</span> in patients infected with S. aureus (including MRSA)*8
+						81.4% of patients benefited from a ≥20% reduction in lesion size in 48-72 hours<sup>†9</sup>
 					</p>
 				</div>
 			</section>
