@@ -28,9 +28,20 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+			class="flex flex-col justify-end font-effra transition-all duration-300 relative"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
 		>
+			<div
+				class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium font-effra transform transition-all duration-300 absolute top-14"
+				:class="[sidebarOpen ? 'right-[60px]' : 'right-32']"
+			>
+				<img
+					src="/src/assets/images/touch-purple.png"
+					alt="Touch to select tab"
+					class="w-[70px] h-[70px]"
+				/>
+				<span>Tap to expand</span>
+			</div>
 			<div class="relative flex items-center gap-x-4">
 				<span class="text-[220px] text-primary-green">2.</span>
 				<h1 class="font-bold text-[75px] text-primary-green leading-none translate-y-3">
@@ -113,21 +124,19 @@
 			</section>
 		</div>
 
-		<footer>
+		<footer class="pt-6">
 			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+				class="transition-all duration-300"
+				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px] pr-[120px]']"
 			>
-				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
-				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
-				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
-				bronchoalveolar lavage in 20 healthy volunteers. In this study, EXBLIFEP<sup>®</sup> was well tolerated. There were no serious adverse
-				events.<br />
-				None of the treatment-emergent adverse events led to the discontinuation of study drugs. All adverse events spontaneously resolved without
-				sequelae.<sup>6</sup><br />
-				<sup>†</sup>Consideration should be given to official guidance on the appropriate use of antibacterial agents.
+				*Vancomycin/linezolid in Discover studies.<sup>8 †</sup>Pooled analysis of dalbavancin-treated patients in phase 2/3 studies vs. those receiving
+				comparator agents (vancomycin, linezolid, cefazolin, nafcillin, or oxacillin).<sup>9 ‡</sup>MIC90 = minimum inhibitory concentration at which
+				90% of the isolates are inhibited. <sup>§</sup>Determined by EUCAST (European Committee on Antimicrobial Susceptibility Testing):
+				<span class="italic">Staphylococcus</span> spp., Beta-haemolytic <span class="italic">Streptococci </span> of Groups A, B, C, G, Viridans group
+				<span class="italic">Streptococci</span> (<span class="italic">Streptococcus anginosus</span> group only).<br />ABSSSI: Acute Bacterial Skin and
+				Skin Structure Infections.
 			</the-footer>
-			<div class="flex justify-between items-center mt-4 mr-12">
+			<div class="flex justify-between items-center mt-2.5 mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'next-section-button' } }">
 					<next-section class="bg-electric-blue" />
