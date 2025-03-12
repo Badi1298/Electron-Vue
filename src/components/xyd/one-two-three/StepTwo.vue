@@ -159,7 +159,7 @@
 
 		<footer class="pt-6">
 			<the-footer
-				class="transition-all duration-300"
+				class="transition-all duration-300 mb-6"
 				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px] pr-[120px]']"
 			>
 				*Vancomycin/linezolid in Discover studies.<sup>8 †</sup>Pooled analysis of dalbavancin-treated patients in phase 2/3 studies vs. those receiving
@@ -169,12 +169,17 @@
 				<span class="italic">Streptococci</span> (<span class="italic">Streptococcus anginosus</span> group only).<br />ABSSSI: Acute Bacterial Skin and
 				Skin Structure Infections.
 			</the-footer>
-			<div class="flex justify-between items-center mt-2.5 mr-12">
-				<ExploreAnother />
-				<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'next-section-button' } }">
-					<next-section class="bg-electric-blue" />
-				</RouterLink>
-			</div>
+			<ExploreAnother />
+			<button
+				@click="emit('goToBottomTab')"
+				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+			>
+				<img
+					src="/src/assets/images/down-button-blue.png"
+					alt="Down Button"
+					class="w-[140px] h-[50px] cursor-pointer"
+				/>
+			</button>
 		</footer>
 	</div>
 </template>
@@ -189,7 +194,6 @@ import VLazyImage from 'v-lazy-image';
 import Background from '@/assets/images/step-2-background.png';
 
 import TheFooter from '@/components/TheFooter.vue';
-import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
 
 const props = defineProps({
