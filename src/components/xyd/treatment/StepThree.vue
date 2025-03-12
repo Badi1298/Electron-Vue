@@ -98,7 +98,7 @@
 						</div>
 						<div
 							ref="chart"
-							class="flex flex-col justify-center bg-white px-14 shadow-treatment"
+							class="flex flex-col justify-center bg-white px-14 shadow-treatment overflow-hidden"
 						>
 							<img
 								src="/src/assets/images/xyd-treatment-chart-3.svg"
@@ -171,7 +171,7 @@ const chart = ref(null);
 const isExpanded = ref(false);
 
 onMounted(() => {
-	gsap.set(chart.value, { autoAlpha: 0, height: 0 });
+	gsap.set(chart.value, { height: 0 });
 });
 
 watch(
@@ -187,10 +187,9 @@ const animateExpandable = () => {
 	if (!isExpanded.value) {
 		gsap.to(chart.value, {
 			height: 600,
-			autoAlpha: 1,
 		});
 	} else {
-		gsap.to(chart.value, { autoAlpha: 0, height: 0, duration: 0.7 });
+		gsap.to(chart.value, { height: 0, duration: 0.7 });
 	}
 
 	isExpanded.value = !isExpanded.value;

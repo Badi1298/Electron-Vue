@@ -129,27 +129,24 @@
 						</div>
 						<div
 							ref="chart"
-							class="flex items-center bg-white px-14"
+							class="flex flex-col bg-white overflow-hidden"
 						>
 							<img
 								src="/src/assets/images/step-2-big-chart.png"
 								alt="Big Chart"
 								class="w-[836px]"
 							/>
-						</div>
-						<div
-							ref="details"
-							class="flex gap-x-5 items-center bg-primary-green/15 px-14"
-						>
-							<img
-								src="/src/assets/images/list-item-emblem-green.png"
-								alt="List Item Emblem"
-								class="w-[57px] h-[30px]"
-							/>
-							<p class="text-primary-green font-bold">
-								Dalbavancin mean Plasma Concentrations versus time in a typical ABSSSI adult patient (simulation using<br />
-								population pharmacokinetic model) for both the single and the two-dose regimens.
-							</p>
+							<div class="flex gap-x-5 items-center bg-primary-green/15 px-14 overflow-hidden">
+								<img
+									src="/src/assets/images/list-item-emblem-green.png"
+									alt="List Item Emblem"
+									class="w-[57px] h-[30px]"
+								/>
+								<p class="text-primary-green font-bold">
+									Dalbavancin mean Plasma Concentrations versus time in a typical ABSSSI adult patient (simulation using<br />
+									population pharmacokinetic model) for both the single and the two-dose regimens.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -220,13 +217,12 @@ const props = defineProps({
 const emit = defineEmits(['goToTopTab', 'goToBottomTab']);
 
 const chart = ref(null);
-const details = ref(null);
 const middleTab = ref(null);
 
 const isExpanded = ref(false);
 
 onMounted(() => {
-	gsap.set([chart.value, details.value], { autoAlpha: 0, height: 0 });
+	gsap.set(chart.value, { height: 0 });
 });
 
 watch(
@@ -242,14 +238,9 @@ const animateExpandable = () => {
 	if (!isExpanded.value) {
 		gsap.to(chart.value, {
 			height: 600,
-			autoAlpha: 1,
-		});
-		gsap.to(details.value, {
-			height: 88,
-			autoAlpha: 1,
 		});
 	} else {
-		gsap.to([chart.value, details.value], { autoAlpha: 0, height: 0, duration: 0.7 });
+		gsap.to(chart.value, { height: 0, duration: 0.7 });
 	}
 
 	isExpanded.value = !isExpanded.value;
