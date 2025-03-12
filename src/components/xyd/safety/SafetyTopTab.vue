@@ -20,43 +20,67 @@
 			class="flex flex-col justify-end font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
-			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ demonstrated clinical success at Day 14-15<sup>8</sup></h1>
+			<h1 class="text-[40px] font-bold text-primary-purple">
+				Xydalba™ delivers two weeks of fast-acting, effective<br />
+				treatment in one single dose, while remaining well-tolerated<sup>1</sup>
+			</h1>
 
-			<section class="grid grid-cols-[1fr_0.34fr] items-end gap-x-6 mt-7 pr-[60px]">
-				<div>
-					<div class="bg-primary-green py-7 rounded-t-[20px] pl-10 text-xl font-bold text-white">
-						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup>8</sup>
-					</div>
-					<div class="bg-white px-16 py-6 shadow-treatment">
-						<VLazyImage
-							:src="Chart"
-							alt="Chart 1"
-						/>
+			<p class="text-2xl text-primary-purple mt-5">
+				Analysis of 2,473 adult patients enrolled in Phase II/III trials receiving either the single or two-dose regimen of<br />
+				Xydalba™ showed that the most common adverse reactions were generally of mild or moderate severity<sup>1</sup>
+			</p>
+
+			<section class="flex pt-11">
+				<div class="flex flex-col justify-center px-16 h-[550px] max-w-[844px] bg-primary-purple/10">
+					<p class="text-[28px] font-bold text-primary-purple">
+						Most common adverse reactions occurring in >1%<br />
+						of Xydalba™ patients (n=2,473)
+					</p>
+					<div class="flex mt-11 gap-x-24">
+						<div class="flex flex-col gap-y-4 text-center">
+							<img
+								src="/src/assets/images/safety-pie-1.png"
+								alt="Pie Chart"
+								class="w-[156px] h-[156px]"
+							/>
+							<p class="text-[31px] leading-none text-primary-purple font-bold">Nausea</p>
+						</div>
+						<div class="flex flex-col gap-y-4 text-center">
+							<img
+								src="/src/assets/images/safety-pie-2.png"
+								alt="Pie Chart"
+								class="w-[156px] h-[156px]"
+							/>
+							<p class="text-[31px] leading-none text-primary-purple font-bold">Diarrhoea</p>
+						</div>
+						<div class="flex flex-col gap-y-4 text-center">
+							<img
+								src="/src/assets/images/safety-pie-3.png"
+								alt="Pie Chart"
+								class="w-[156px] h-[156px]"
+							/>
+							<p class="text-[31px] leading-none text-primary-purple font-bold">Headache</p>
+						</div>
 					</div>
 				</div>
-				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px] h-[587px]">
+				<div>
 					<img
-						src="/src/assets/images/efficacy-purple.png"
-						alt="Clock"
-						class="w-[90px] h-[90px] mx-auto"
+						src="/src/assets/images/safety-doctor.png"
+						alt="Safety Doctor"
+						class="h-[550px]"
 					/>
-					<p class="text-[22px] text-primary-purple text-center">
-						Xydalba™ delivers the clinical success your patients need, with
-						<span class="font-bold">91% achieving relief from symptoms at two weeks,</span> in patients infected with S. aureus (including MRSA)*8
-					</p>
 				</div>
 			</section>
 		</div>
 
 		<footer class="relative pb-6 pt-8">
 			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-				>*EMA primary end-point: Clinical success at End-of-treatment visit (Day 14-15) in the ITT population defined as decreased lesion size (both
-				length and width measurements), a temperature of ≤37.6°C, local signs of fluctuance and localized heat/warmth were absent; local signs of<br />
-				tenderness to palpation and swelling/induration were no worse than mild; and for patients with a wound infection, the severity of purulent
-				drainage was improved and no worse than mild relative to baseline; no need for further systemic antibacterial treatment for the SSTI.<br />
-				ITT: Intent To Treat.</the-footer
+				class="transition-all duration-300 mb-4 pr-[60px]"
+				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] pr-[120px]']"
+				>*Sponsor assessment. <sup>†</sup>mITT: randomised patients who received ≥1 dose of study drug and had a diagnosis of ABSSSI (or, in cohort 5,
+				suspected/confirmed sepsis) not known to be caused exclusively by a gram-negative organism. <sup>†</sup>Vancomycin IV, oxacillin IV; or
+				flucloxacillin IV ABSSSI: Acute Bacterial Skin and Skin Structure Infections; EOT: End of treatment; mITT: Modified intent-to-treat; TOC: Test
+				of cure; IV: Intravenous.</the-footer
 			>
 			<ExploreAnother />
 			<button
