@@ -92,7 +92,7 @@
 					<div class="h-[112px] mt-[60px]"></div>
 					<div class="absolute bottom-0 left-0 w-[1041px]">
 						<div
-							class="relative flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11"
+							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
 							@click="animateExpandable"
 						>
 							<p class="text-xl font-bold text-white">
@@ -100,7 +100,10 @@
 								deliver plasma concentrations above the MIC<sub>90</sub> for over 15 days<sup>‡1</sup>
 							</p>
 							<div class="flex items-center gap-x-5">
-								<div class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
+								<div
+									v-if="!isExpanded"
+									class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green"
+								>
 									<img
 										src="/src/assets/images/step-two-small-chart.png"
 										alt="Small Chart"
@@ -116,7 +119,7 @@
 						</div>
 						<div
 							ref="chart"
-							class="bg-white px-14"
+							class="flex items-center bg-white px-14"
 						>
 							<img
 								src="/src/assets/images/step-2-big-chart.png"
@@ -126,7 +129,7 @@
 						</div>
 						<div
 							ref="details"
-							class="flex gap-x-5 items-center bg-primary-green/15"
+							class="flex gap-x-5 items-center bg-primary-green/15 px-14"
 						>
 							<img
 								src="/src/assets/images/list-item-emblem-green.png"
@@ -223,9 +226,16 @@ watch(
 
 const animateExpandable = () => {
 	if (!isExpanded.value) {
-		gsap.to([chart.value, details.value], { autoAlpha: 1, height: 'auto', duration: 1 });
+		gsap.to(chart.value, {
+			height: 600,
+			autoAlpha: 1,
+		});
+		gsap.to(details.value, {
+			height: 88,
+			autoAlpha: 1,
+		});
 	} else {
-		gsap.to([chart.value, details.value], { autoAlpha: 0, height: 0, duration: 1 });
+		gsap.to([chart.value, details.value], { autoAlpha: 0, height: 0, duration: 0.7 });
 	}
 
 	isExpanded.value = !isExpanded.value;
