@@ -55,7 +55,7 @@
 				<div class="h-5 bg-primary-green absolute bottom-10 left-0 w-full"></div>
 			</div>
 
-			<section class="grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px]">
+			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px]">
 				<div>
 					<p class="text-2xl text-primary-green">
 						<span class="font-bold">Two weeks</span> of treatment in <span class="font-bold">one dose</span> of Xydalba™ provides:
@@ -89,8 +89,12 @@
 							/>
 						</div>
 					</div>
-					<div>
-						<div class="relative flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11">
+					<div class="h-[112px] mt-[60px]"></div>
+					<div class="absolute bottom-0 left-0 w-[1041px]">
+						<div
+							class="relative flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11"
+							@click="animateExpandable"
+						>
 							<p class="text-xl font-bold text-white">
 								Xydalba™ gives you the choice of two dosing regimen that both<br />
 								deliver plasma concentrations above the MIC<sub>90</sub> for over 15 days<sup>‡1</sup>
@@ -110,14 +114,20 @@
 								/>
 							</div>
 						</div>
-						<div class="bg-white px-14 py-5">
+						<div
+							ref="chart"
+							class="bg-white px-14"
+						>
 							<img
 								src="/src/assets/images/step-2-big-chart.png"
 								alt="Big Chart"
 								class="w-[836px]"
 							/>
 						</div>
-						<div class="flex gap-x-5 items-center bg-primary-green/15 py-6 px-14">
+						<div
+							ref="details"
+							class="flex gap-x-5 items-center bg-primary-green/15"
+						>
 							<img
 								src="/src/assets/images/list-item-emblem-green.png"
 								alt="List Item Emblem"
@@ -167,7 +177,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 import { gsap } from 'gsap';
 
@@ -192,7 +202,15 @@ const props = defineProps({
 
 const emit = defineEmits(['goToTopTab']);
 
+const chart = ref(null);
+const details = ref(null);
 const bottomTab = ref(null);
+
+const isExpanded = ref(false);
+
+onMounted(() => {
+	gsap.set([chart.value, details.value], { autoAlpha: 0, height: 0 });
+});
 
 watch(
 	() => props.scrollIntoView,
@@ -202,6 +220,16 @@ watch(
 		}
 	}
 );
+
+const animateExpandable = () => {
+	if (!isExpanded.value) {
+		gsap.to([chart.value, details.value], { autoAlpha: 1, height: 'auto', duration: 1 });
+	} else {
+		gsap.to([chart.value, details.value], { autoAlpha: 0, height: 0, duration: 1 });
+	}
+
+	isExpanded.value = !isExpanded.value;
+};
 </script>
 
 <style scoped>
