@@ -12,6 +12,7 @@ export default {
 			charcoal: '#2E2E2E',
 			'primary-green': '#009656',
 			'primary-purple': '#982384',
+			'primary-turqoise': '#276B88',
 			'primary-light-orange': '#FFA94D',
 		},
 		extend: {
