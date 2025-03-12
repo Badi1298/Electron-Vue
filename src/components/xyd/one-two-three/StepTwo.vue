@@ -38,8 +38,8 @@
 					weeks
 				</h1>
 				<div class="absolute bottom-12 pb-9 px-6 pt-6 right-[60px] max-w-[854px] bg-primary-green text-white text-[32px] font-bold rounded-t-[20px]">
-					Xydalba™ delivers two weeks of fast-acting,7 effective treatment in one single dose,1 potentially allowing early discharge for your
-					patients2,3
+					Xydalba™ delivers two weeks of fast-acting,<sup>7</sup> effective treatment in one single dose,<sup>1</sup> potentially allowing early
+					discharge for your patients<sup>2,3</sup>
 				</div>
 				<div class="h-5 bg-primary-green absolute bottom-10 left-0 w-full"></div>
 			</div>
@@ -99,10 +99,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="px-3.5">
-					<p>
+				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px]">
+					<img
+						src="/src/assets/images/clock-purple.png"
+						alt="Clock"
+						class="w-[90px] h-[90px] mx-auto"
+					/>
+					<p class="text-[22px] text-primary-purple font-bold text-center">
 						The rapid and long-lasting action of Xydalba™ means you can be confident that your patients are getting the course of treatment they
-						need1
+						need<sup>1</sup>
 					</p>
 				</div>
 			</section>
