@@ -3,16 +3,18 @@
 		<step-one
 			:sidebarOpen="sidebarOpen"
 			:scroll-into-view="scrollToTopTab"
+			@go-to-middle-tab="onScrollToMiddleTab"
 			@go-to-bottom-tab="onScrollToBottomTab"
 		/>
 		<step-two
 			:sidebar-open="sidebarOpen"
-			:scroll-into-view="scrollToBottomTab"
+			:scroll-into-view="scrollToMiddleTab"
 			@go-to-top-tab="onScrollToTopTab"
+			@go-to-bottom-tab="onScrollToBottomTab"
 		/>
 		<step-three
 			:sidebarOpen="sidebarOpen"
-			:scroll-into-view="scrollToTopTab"
+			:scroll-into-view="scrollToBottomTab"
 		/>
 	</div>
 </template>
@@ -32,12 +34,20 @@ defineProps({
 });
 
 const scrollToTopTab = ref(false);
+const scrollToMiddleTab = ref(false);
 const scrollToBottomTab = ref(false);
 
 const onScrollToTopTab = () => {
 	scrollToTopTab.value = true;
 	setTimeout(() => {
 		scrollToTopTab.value = false;
+	}, 1000);
+};
+
+const onScrollToMiddleTab = () => {
+	scrollToMiddleTab.value = true;
+	setTimeout(() => {
+		scrollToMiddleTab.value = false;
 	}, 1000);
 };
 

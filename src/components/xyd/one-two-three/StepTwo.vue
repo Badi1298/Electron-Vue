@@ -1,8 +1,18 @@
 <template>
 	<div
-		ref="bottomTab"
+		ref="middleTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
+		<button
+			@click="emit('goToTopTab')"
+			class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
+		>
+			<img
+				src="/src/assets/images/page-vertical-up-green.png"
+				alt="Down Button"
+				class="w-[140px] h-[50px]"
+			/>
+		</button>
 		<VLazyImage
 			:src="Background"
 			alt="Step 2 Background"
@@ -16,7 +26,7 @@
 				@click="emit('goToTopTab')"
 			/>
 			<img
-				src="/src/assets/images/active-dot.png"
+				src="/src/assets/images/active-dot-purple.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 			/>
@@ -24,7 +34,7 @@
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
-				@click="emit('goToTopTab')"
+				@click="emit('goToBottomTab')"
 			/>
 		</div>
 		<div
@@ -175,7 +185,7 @@
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
 			>
 				<img
-					src="/src/assets/images/down-button-blue.png"
+					src="/src/assets/images/page-vertical-down-green.png"
 					alt="Down Button"
 					class="w-[140px] h-[50px] cursor-pointer"
 				/>
@@ -207,11 +217,11 @@ const props = defineProps({
 	},
 });
 
-const emit = defineEmits(['goToTopTab']);
+const emit = defineEmits(['goToTopTab', 'goToBottomTab']);
 
 const chart = ref(null);
 const details = ref(null);
-const bottomTab = ref(null);
+const middleTab = ref(null);
 
 const isExpanded = ref(false);
 
@@ -223,7 +233,7 @@ watch(
 	() => props.scrollIntoView,
 	(value) => {
 		if (value) {
-			bottomTab.value.scrollIntoView({ behavior: 'smooth' });
+			middleTab.value.scrollIntoView({ behavior: 'smooth' });
 		}
 	}
 );

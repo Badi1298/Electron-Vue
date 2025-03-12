@@ -10,7 +10,7 @@
 		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
-				src="/src/assets/images/active-dot.png"
+				src="/src/assets/images/active-dot-purple.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 			/>
@@ -18,7 +18,7 @@
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
-				@click="emit('goToBottomTab')"
+				@click="emit('goToMiddleTab')"
 			/>
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -96,11 +96,11 @@
 			>
 			<ExploreAnother />
 			<button
-				@click="emit('goToBottomTab')"
+				@click="emit('goToMiddleTab')"
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
 			>
 				<img
-					src="/src/assets/images/down-button-blue.png"
+					src="/src/assets/images/page-vertical-down-green.png"
 					alt="Down Button"
 					class="w-[140px] h-[50px] cursor-pointer"
 				/>
@@ -130,7 +130,7 @@ const props = defineProps({
 	},
 });
 
-const emit = defineEmits(['goToBottomTab']);
+const emit = defineEmits(['goToMiddleTab', 'goToBottomTab']);
 
 const topTab = ref(null);
 
