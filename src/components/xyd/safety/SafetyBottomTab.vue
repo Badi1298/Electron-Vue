@@ -57,7 +57,7 @@
 					</div>
 
 					<div class="h-[112px] mt-3.5"></div>
-					<div class="absolute bottom-0 left-0 w-[1041px]">
+					<div class="absolute bottom-0 left-0 w-[1041px] overflow-hidden">
 						<div
 							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
 							@click="animateExpandable"
@@ -83,7 +83,7 @@
 						</div>
 						<div
 							ref="chart"
-							class="flex flex-col justify-center bg-white px-14 shadow-treatment"
+							class="flex flex-col justify-center bg-white px-14 shadow-treatment overflow-hidden"
 						>
 							<img
 								src="/src/assets/images/safety-table.png"
@@ -155,7 +155,7 @@ const chart = ref(null);
 const isExpanded = ref(false);
 
 onMounted(() => {
-	gsap.set(chart.value, { autoAlpha: 0, height: 0 });
+	gsap.set(chart.value, { height: 0 });
 });
 
 watch(
@@ -171,10 +171,10 @@ const animateExpandable = () => {
 	if (!isExpanded.value) {
 		gsap.to(chart.value, {
 			height: 620,
-			autoAlpha: 1,
+			duration: 0.6,
 		});
 	} else {
-		gsap.to(chart.value, { autoAlpha: 0, height: 0, duration: 0.7 });
+		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}
 
 	isExpanded.value = !isExpanded.value;
