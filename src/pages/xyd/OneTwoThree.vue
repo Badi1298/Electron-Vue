@@ -15,6 +15,8 @@
 		<step-three
 			:sidebarOpen="sidebarOpen"
 			:scroll-into-view="scrollToBottomTab"
+			@goToTopTab="onScrollToTopTab"
+			@goToMiddleTab="onScrollToMiddleTab"
 		/>
 	</div>
 </template>
