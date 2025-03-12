@@ -10,7 +10,10 @@
 			:scroll-into-view="scrollToBottomTab"
 			@go-to-top-tab="onScrollToTopTab"
 		/>
-		<step-three />
+		<step-three
+			:sidebarOpen="sidebarOpen"
+			:scroll-into-view="scrollToTopTab"
+		/>
 	</div>
 </template>
 

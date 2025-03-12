@@ -11,8 +11,8 @@
 						alt="Mabelio Bullet"
 						class="relative z-30 w-[454px] h-auto"
 					/>
-					<img
-						src="/src/assets/images/xyd-background.png"
+					<VLazyImage
+						:src="Background"
 						alt="Background"
 						class="absolute top-0 left-0 -z-10"
 					/>
@@ -95,6 +95,10 @@
 </template>
 
 <script setup>
+import VLazyImage from 'v-lazy-image';
+
+import Background from '@/assets/images/xyd-background.png';
+
 import Card from '@/components/Card.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';

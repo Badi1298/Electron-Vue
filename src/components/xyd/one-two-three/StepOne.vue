@@ -3,8 +3,8 @@
 		ref="topTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
 	>
-		<img
-			src="/src/assets/images/step-1-background.png"
+		<VLazyImage
+			:src="Background"
 			alt="Step 1 Background"
 			class="absolute -z-10 top-0 left-0 min-w-[1920px] min-h-[1080px]"
 		/>
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 
-			<seciton class="-mt-8">
+			<section class="-mt-8">
 				<div class="flex flex-col gap-y-5">
 					<p class="text-[24px] text-primary-purple font-bold max-w-[600px]">
 						A single dose of Xydalba™ provides a simple and full treatment course, freeing your patients from the discomfort of daily infusions and
@@ -87,7 +87,7 @@
 						<p class="text-primary-purple text-2xl font-bold">Less time in hospital for your patients<sup>2,3</sup></p>
 					</li>
 				</ul>
-			</seciton>
+			</section>
 		</div>
 
 		<footer class="relative pb-6">
@@ -116,17 +116,10 @@ import { ref, watch } from 'vue';
 
 import VLazyImage from 'v-lazy-image';
 
-import ChartA from '@/assets/images/chart-a.svg';
-import ChartB from '@/assets/images/chart-b.png';
+import Background from '@/assets/images/step-1-background.png';
 
-import TheTitle from '@/components/zevtera/TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-
-const Tabs = Object.freeze({
-	OVERALL_SUCCESS: 1,
-	CLINICAL_CURE: 2,
-});
 
 const props = defineProps({
 	sidebarOpen: {
@@ -142,7 +135,6 @@ const props = defineProps({
 const emit = defineEmits(['goToBottomTab']);
 
 const topTab = ref(null);
-const activeTab = ref(Tabs.OVERALL_SUCCESS);
 
 watch(
 	() => props.scrollIntoView,
