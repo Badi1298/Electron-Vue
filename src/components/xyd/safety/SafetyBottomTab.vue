@@ -30,55 +30,46 @@
 			class="flex flex-col justify-end font-effra pb-6 transition-all duration-300 relative"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
 		>
-			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ provided effective treatment in a paediatric population<sup>5</sup></h1>
+			<h1 class="text-[40px] font-bold text-primary-purple">
+				The safety profile of Xydalba™ in paediatric patients<br />
+				is consistent with adults<sup>5</sup>
+			</h1>
 
-			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px] mt-12">
-				<div class="flex flex-col gap-y-6">
+			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px] mt-24">
+				<div class="flex flex-col gap-y-10">
 					<div class="flex gap-[30px] items-center">
 						<img
-							src="/src/assets/images/treatment-pie-1.png"
+							src="/src/assets/images/safety-health-purple.png"
 							alt="Treatment Pie"
 							class="w-[166px] h-auto"
 						/>
 						<p class="text-2xl text-primary-purple">
-							<span class="font-bold">Favourable clinical response</span> at 48-72 hours was documented in<br />
-							<span class="font-bold text-primary-green">97.4%</span> and
-							<span class="font-bold">98.6% in the single and 2-dose study arms,</span> respectively<sup>5</sup>
+							TEAEs occurred in 7.2%, 9.0% and 3.3% of patients in Xydalba™ single dose, Xydalba™ 2-dose and comparator arms<sup>5</sup>
 						</p>
 					</div>
 					<div class="flex gap-[30px] items-center">
 						<img
-							src="/src/assets/images/treatment-pie-2.png"
+							src="/src/assets/images/safety-shield-purple.png"
 							alt="Treatment Pie"
 							class="w-[166px] h-auto"
 						/>
-						<p class="text-2xl text-primary-purple">
-							<span class="font-bold">Clinical cure was achieved in >96%</span> of patients treated with<br />
-							Xydalba™ by the TOC visit<sup>5</sup>
-						</p>
+						<p class="text-2xl text-primary-purple">Safety was comparable across the five age cohorts<sup>5</sup></p>
 					</div>
-					<div class="flex gap-[30px] items-center">
-						<img
-							src="/src/assets/images/treatment-pie-3.png"
-							alt="Treatment Pie"
-							class="w-[166px] h-auto"
-						/>
-						<p class="text-2xl text-primary-purple">Efficacy was comparable across the five age cohorts<sup>5</sup></p>
-					</div>
-					<div class="h-[112px] mt-1.5"></div>
+
+					<div class="h-[112px] mt-3.5"></div>
 					<div class="absolute bottom-0 left-0 w-[1041px]">
 						<div
 							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
 							@click="animateExpandable"
 						>
-							<p class="text-xl font-bold text-white">Clinical response* in paediatric patients, all cohorts, mITT<sup>†</sup> population</p>
+							<p class="text-xl font-bold text-white">Summary of treatment-emergent adverse events, safety population*</p>
 							<div class="flex items-center gap-x-5">
 								<div
 									v-if="!isExpanded"
 									class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green"
 								>
 									<img
-										src="/src/assets/images/xyd-treatment-chart-3.svg"
+										src="/src/assets/images/safety-table.png"
 										alt="Small Chart"
 										class="w-[120px] h-auto"
 									/>
@@ -95,15 +86,14 @@
 							class="flex flex-col justify-center bg-white px-14 shadow-treatment"
 						>
 							<img
-								src="/src/assets/images/xyd-treatment-chart-3.svg"
+								src="/src/assets/images/safety-table.png"
 								alt="Big Chart"
-								class="w-full h-auto"
+								class="w-[900px]"
 							/>
-							<p class="text-xs text-dark-grey pt-7">Adapted from Giorgobiani M et al. 2022.5</p>
 						</div>
 					</div>
 				</div>
-				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px]">
+				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px] min-h-[580px]">
 					<img
 						src="/src/assets/images/dosing-bottle-purple.png"
 						alt="Clock"
@@ -180,7 +170,7 @@ watch(
 const animateExpandable = () => {
 	if (!isExpanded.value) {
 		gsap.to(chart.value, {
-			height: 600,
+			height: 620,
 			autoAlpha: 1,
 		});
 	} else {
