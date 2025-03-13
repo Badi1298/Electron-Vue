@@ -4,13 +4,14 @@
 		<div class="flex flex-col items-center justify-center w-full h-full bg-white p-8">
 			<!-- Your original div with the clipping -->
 
-			<div class="flex items-center justify-center">
+			<div class="relative flex items-center justify-center">
 				<!-- Carousel -->
 				<div class="relative justify-center flex w-[1200px] h-[702px]">
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
+						@click="router.push('/exblifep')"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
@@ -27,35 +28,47 @@
 					</div>
 					<div
 						ref="carouselItem2"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
+						@click="router.push('/zevtera')"
 					>
-						<div class="relative w-full h-full bg-textured overflow-hidden clip">
+						<div class="relative w-full h-full bg-gradient-to-b from-white via-white via-70% to-primary-light-orange overflow-hidden clip">
 							<img
-								src="/src/assets/images/hallway-bed.png"
-								alt="Hallway Bed"
-								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
+								src="/src/assets/images/home-zevtera-doctor-bg.png"
+								alt="Xyd Background"
+								class="h-[702px] w-auto"
 							/>
 							<img
-								src="/src/assets/images/resistance-and-recurrence.png"
-								alt="Resistance and Recurrence"
-								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+								src="/src/assets/images/home-mabelio-bullet.png"
+								alt="Bullet"
+								class="absolute bottom-56 left-14 z-10 w-[434px]"
+							/>
+							<img
+								src="/src/assets/images/strike-fast.png"
+								alt="Strike Fast"
+								class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
+							/>
+							<img
+								src="/src/assets/images/zevtera-mabelio-logo.png"
+								alt="Zevtera Mabelio Logo"
+								class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
+							/>
+							<img
+								src="/src/assets/images/home-zevtera-bullet-trail.png"
+								alt="Bullet Trail"
+								class="absolute bottom-0 left-0 w-full"
 							/>
 						</div>
 					</div>
 					<div
 						ref="carouselItem3"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
+						@click="router.push('/xyd')"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
-								src="/src/assets/images/hallway-bed.png"
-								alt="Hallway Bed"
-								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
-							/>
-							<img
-								src="/src/assets/images/resistance-and-recurrence.png"
-								alt="Resistance and Recurrence"
-								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+								src="/src/assets/images/home-xyd-background.png"
+								alt="Xyd Background"
+								class="h-[702px] w-auto"
 							/>
 						</div>
 					</div>
@@ -63,15 +76,23 @@
 
 				<button
 					@click="moveLeft"
-					class="text-xl bg-cool-grey p-2 rounded-full transition absolute bottom-0 left-0"
+					class="text-xl p-2 rounded-full transition absolute -bottom-16 left-24"
 				>
-					←
+					<img
+						src="/src/assets/images/home-arrow-left-green.png"
+						alt="Arrow Left"
+						class="w-[85px]"
+					/>
 				</button>
 				<button
 					@click="moveRight"
-					class="text-xl bg-cool-grey p-2 rounded-full hover:bg-gray-400 transition absolute bottom-0 right-0"
+					class="text-xl p-2 rounded-full hover:bg-gray-400 transition absolute -bottom-16 right-24"
 				>
-					→
+					<img
+						src="/src/assets/images/home-arrow-right-green.png"
+						alt="Arrow Right"
+						class="w-[85px]"
+					/>
 				</button>
 			</div>
 		</div>
@@ -109,22 +130,23 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+const router = useRouter();
+
+// Refs for animation targets
+const eraser = ref(null);
+const overlayScreen = ref(null);
+const eraserContainer = ref(null);
 
 const carouselItem1 = ref(null);
 const carouselItem2 = ref(null);
 const carouselItem3 = ref(null);
 
 const activeCarouselItem = ref(1);
-
-// Function to handle the movement of items
-const moveLeft = () => {};
-
-const moveRight = () => {
-	animateCarousel();
-};
 
 // Function to animate the carousel based on the indices
 // Define position configurations for each state
@@ -146,35 +168,12 @@ const positionConfigs = {
 	],
 };
 
-// Function to animate an item to a specific position
-const animateToPosition = (item, position) => {
-	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 0 },
-		center: { translateX: '0%', scale: 1.3, zIndex: 20 },
-		right: { translateX: '50%', scale: 1, zIndex: 0 },
-	}[position];
-	gsap.to(item, config);
-};
-
 // Map current active value to the next active value
 const nextActive = {
 	1: 3,
 	2: 1,
 	3: 2,
 };
-
-// Rewritten animateCarousel function
-const animateCarousel = () => {
-	const currentActive = activeCarouselItem.value;
-	const config = positionConfigs[currentActive];
-	config.forEach(({ item, position }) => animateToPosition(item.value, position));
-	activeCarouselItem.value = nextActive[currentActive];
-};
-
-// Refs for animation targets
-const eraser = ref(null);
-const overlayScreen = ref(null);
-const eraserContainer = ref(null);
 
 onMounted(() => {
 	// Initialize the overlay screen
@@ -203,10 +202,12 @@ onMounted(() => {
 	gsap.set(carouselItem2.value, {
 		scale: 1,
 		translateX: '50%',
+		pointerEvents: 'none',
 	});
 	gsap.set(carouselItem3.value, {
 		scale: 1,
 		translateX: '-50%',
+		pointerEvents: 'none',
 	});
 });
 
@@ -254,6 +255,28 @@ const startEraserAnimation = () => {
 		},
 		0
 	);
+};
+
+// Function to animate an item to a specific position
+const animateToPosition = (item, position) => {
+	const config = {
+		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', pointerEvents: 'auto', duration: 0.2 },
+		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+	}[position];
+	gsap.to(item, config);
+};
+
+// Rewritten animateCarousel function
+const animateCarousel = () => {
+	const currentActive = activeCarouselItem.value;
+	const config = positionConfigs[currentActive];
+	config.forEach(({ item, position }) => animateToPosition(item.value, position));
+	activeCarouselItem.value = nextActive[currentActive];
+};
+
+const moveRight = () => {
+	animateCarousel();
 };
 </script>
 
