@@ -1,3 +1,45 @@
 <template>
-	<h1>Summary</h1>
+	<div class="flex items-center">
+		<img
+			src="/src/assets/images/xyd-summary-bg.png"
+			alt="Summary BG"
+			class="h-screen w-fit rounded-r-[20px]"
+		/>
+		<div class="ml-9">
+			<div class="flex flex-col">
+				<div class="flex items-center gap-x-10">
+					<div class="relative flex items-center justify-center border-[3px] border-primary-purple rounded-full w-[90px] h-[90px]">
+						<span class="text-[50px] translate-x-1 text-primary-purple font-bold">1.</span>
+						<div class="absolute -bottom-16 w-[3px] h-[50px] bg-gradient-to-b from-primary-purple to-primary-green rounded-full"></div>
+					</div>
+					<div class="relative flex flex-col">
+						<h2 class="text-[40px] text-primary-purple font-bold">1 dose of Xydalba™</h2>
+						<div class="flex gap-x-3 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple">
+							<img
+								src="/src/assets/images/list-item-emblem-purple.png"
+								alt="List Emblem"
+								class="h-[15px] translate-y-2"
+							/>
+							<p>
+								A single dose of Xydalba™ provides a simple and full treatment course, freeing your<br />
+								patients from the discomfort of daily infusions and potentially reduction of length of stay<sup>2,3</sup>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
+
+<script setup>
+import TheFooter from '@/components/TheFooter.vue';
+import ExploreAnother from '@/components/ExploreAnother.vue';
+
+defineProps({
+	sidebarOpen: {
+		type: Boolean,
+		required: true,
+	},
+});
+</script>
