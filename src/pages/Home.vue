@@ -3,7 +3,7 @@
 		<!-- Background screen (will be revealed) -->
 		<div class="flex flex-col items-center justify-center w-full h-full bg-white p-8">
 			<!-- Your original div with the clipping -->
-			<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+			<!-- <div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
 				<img
 					src="/src/assets/images/hallway-bed.png"
 					alt="Hallway Bed"
@@ -14,6 +14,40 @@
 					alt="Resistance and Recurrence"
 					class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
 				/>
+			</div> -->
+
+			<div class="flex items-center justify-center">
+				<!-- Left Arrow -->
+				<button
+					@click="moveLeft"
+					class="text-xl bg-cool-grey p-2 rounded-full transition"
+				>
+					←
+				</button>
+
+				<!-- Carousel -->
+				<div class="relative flex w-80 h-80">
+					<!-- Carousel Items -->
+					<div
+						v-for="(item, index) in items"
+						:key="index"
+						:class="[
+							'absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500',
+							itemClasses(index),
+						]"
+						ref="carouselItems"
+					>
+						<span>{{ item }}</span>
+					</div>
+				</div>
+
+				<!-- Right Arrow -->
+				<button
+					@click="moveRight"
+					class="text-xl bg-cool-grey p-2 rounded-full hover:bg-gray-400 transition"
+				>
+					→
+				</button>
 			</div>
 		</div>
 
@@ -53,6 +87,50 @@
 import { ref, onMounted } from 'vue';
 
 import gsap from 'gsap';
+
+const items = ['Item 1', 'Item 2', 'Item 3'];
+const currentIndex = ref(0);
+
+// Function to handle the movement of items
+const moveLeft = () => {
+	const lastIndex = currentIndex.value;
+	currentIndex.value = (currentIndex.value + 1 + items.length) % items.length;
+	animateCarousel(lastIndex, currentIndex.value);
+};
+
+const moveRight = () => {
+	const lastIndex = currentIndex.value;
+	currentIndex.value = (currentIndex.value - 1) % items.length;
+	animateCarousel(lastIndex, currentIndex.value);
+};
+
+// Function to animate the carousel based on the indices
+const animateCarousel = (lastIndex, newIndex) => {
+	const itemsArray = document.querySelectorAll('[data-carousel-item]');
+
+	const currentItem = itemsArray[lastIndex];
+	const nextItem = itemsArray[newIndex];
+
+	gsap.to(currentItem, {
+		x: lastIndex < newIndex ? '100%' : '-100%',
+		duration: 0.5,
+		scale: 1,
+		ease: 'power2.inOut',
+	});
+	gsap.to(nextItem, {
+		x: '0%',
+		duration: 0.5,
+		ease: 'power2.inOut',
+	});
+};
+
+// Dynamically compute the classes for positioning carousel items in a circle
+const itemClasses = (index) => {
+	const totalItems = items.length;
+	const offset = (index - currentIndex.value + totalItems) % totalItems;
+	const position = offset === 0 ? '-translate-x-1/2 left-1/2 scale-110' : offset === 1 ? 'right-0' : 'left-0';
+	return position;
+};
 
 // Refs for animation targets
 const eraser = ref(null);
