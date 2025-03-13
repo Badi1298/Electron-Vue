@@ -63,6 +63,45 @@
 					</div>
 				</div>
 			</div>
+			<div class="flex flex-col mt-[72px]">
+				<div class="flex items-center gap-x-10">
+					<div class="relative flex items-center justify-center border-[3px] border-primary-turqoise rounded-full w-[90px] h-[90px]">
+						<span class="text-[50px] translate-x-1 text-primary-turqoise font-bold">3.</span>
+						<div class="absolute -bottom-52 w-[3px] h-[190px] bg-gradient-to-b from-primary-turqoise to-primary-purple rounded-full"></div>
+					</div>
+					<div class="relative flex flex-col">
+						<h2 class="text-[40px] text-primary-purple font-bold">30-minute infusion*1</h2>
+						<div class="flex flex-col gap-y-6 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple">
+							<div class="flex gap-x-3">
+								<img
+									src="/src/assets/images/list-item-emblem-purple.png"
+									alt="List Emblem"
+									class="h-[15px] translate-y-2"
+								/>
+								<p>
+									No dose adjustment, except for severe renal impairment<sup>†</sup>, and for infants and children (weight-based)<sup>1</sup>
+								</p>
+							</div>
+							<div class="flex gap-x-3">
+								<img
+									src="/src/assets/images/list-item-emblem-purple.png"
+									alt="List Emblem"
+									class="h-[15px] translate-y-2"
+								/>
+								<p>No required TDM (Therapeutic Drug Monitoring), or blood cell, or CPK (creatinine phosphokinase) monitoring<sup>1</sup></p>
+							</div>
+							<div class="flex gap-x-3">
+								<img
+									src="/src/assets/images/list-item-emblem-purple.png"
+									alt="List Emblem"
+									class="h-[15px] translate-y-2"
+								/>
+								<p>Low potential for drug-drug interactions<sup>‡1</sup></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
