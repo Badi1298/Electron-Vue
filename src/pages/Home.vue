@@ -11,7 +11,7 @@
 					<div
 						ref="carouselItem1"
 						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
-						@click="goToExblifep"
+						@click="router.push('/exblifep')"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
@@ -28,35 +28,26 @@
 					</div>
 					<div
 						ref="carouselItem2"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
-								src="/src/assets/images/hallway-bed.png"
-								alt="Hallway Bed"
-								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
-							/>
-							<img
-								src="/src/assets/images/resistance-and-recurrence.png"
-								alt="Resistance and Recurrence"
-								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+								src="/src/assets/images/home-xyd-background.png"
+								alt="Xyd Background"
+								class="h-[702px] w-auto"
 							/>
 						</div>
 					</div>
 					<div
 						ref="carouselItem3"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
+						@click="router.push('/xyd')"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
-								src="/src/assets/images/hallway-bed.png"
-								alt="Hallway Bed"
-								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
-							/>
-							<img
-								src="/src/assets/images/resistance-and-recurrence.png"
-								alt="Resistance and Recurrence"
-								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+								src="/src/assets/images/home-xyd-background.png"
+								alt="Xyd Background"
+								class="h-[702px] w-auto"
 							/>
 						</div>
 					</div>
@@ -190,10 +181,12 @@ onMounted(() => {
 	gsap.set(carouselItem2.value, {
 		scale: 1,
 		translateX: '50%',
+		pointerEvents: 'none',
 	});
 	gsap.set(carouselItem3.value, {
 		scale: 1,
 		translateX: '-50%',
+		pointerEvents: 'none',
 	});
 });
 
@@ -246,9 +239,9 @@ const startEraserAnimation = () => {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
-		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', duration: 0.2 },
-		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
+		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', pointerEvents: 'auto', duration: 0.2 },
+		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
 	}[position];
 	gsap.to(item, config);
 };
@@ -263,10 +256,6 @@ const animateCarousel = () => {
 
 const moveRight = () => {
 	animateCarousel();
-};
-
-const goToExblifep = () => {
-	router.push('/exblifep');
 };
 </script>
 
