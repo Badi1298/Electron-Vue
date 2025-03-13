@@ -99,6 +99,8 @@ const carouselItem1 = ref(null);
 const carouselItem2 = ref(null);
 const carouselItem3 = ref(null);
 
+const activeCarouselItem = ref(1);
+
 // Function to handle the movement of items
 const moveLeft = () => {};
 
@@ -108,10 +110,52 @@ const moveRight = () => {
 
 // Function to animate the carousel based on the indices
 const animateCarousel = () => {
-	gsap.to(carouselItem1.value, {
-		translateX: '100%',
-		scale: 1,
-	});
+	if (activeCarouselItem.value === 1) {
+		gsap.to(carouselItem1.value, {
+			translateX: '100%',
+			scale: 1,
+		});
+		gsap.to(carouselItem2.value, {
+			translateX: '-100%',
+			scale: 1,
+		});
+		gsap.to(carouselItem3.value, {
+			translateX: 0,
+			scale: 1.2,
+			zIndex: 20,
+		});
+		activeCarouselItem.value = 3;
+	} else if (activeCarouselItem.value === 2) {
+		gsap.to(carouselItem1.value, {
+			translateX: 0,
+			scale: 1.2,
+			zIndex: 20,
+		});
+		gsap.to(carouselItem2.value, {
+			translateX: '100%',
+			scale: 1,
+		});
+		gsap.to(carouselItem3.value, {
+			translateX: '-100%',
+			scale: 1,
+		});
+		activeCarouselItem.value = 1;
+	} else {
+		gsap.to(carouselItem1.value, {
+			translateX: '-100%',
+			scale: 1,
+		});
+		gsap.to(carouselItem2.value, {
+			translateX: 0,
+			scale: 1.2,
+			zIndex: 20,
+		});
+		gsap.to(carouselItem3.value, {
+			translateX: '100%',
+			scale: 1,
+		});
+		activeCarouselItem.value = 2;
+	}
 };
 
 // Refs for animation targets
