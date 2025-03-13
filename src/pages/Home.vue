@@ -5,16 +5,8 @@
 			<!-- Your original div with the clipping -->
 
 			<div class="flex items-center justify-center">
-				<!-- Left Arrow -->
-				<button
-					@click="moveLeft"
-					class="text-xl bg-cool-grey p-2 rounded-full transition"
-				>
-					←
-				</button>
-
 				<!-- Carousel -->
-				<div class="relative justify-center flex w-[1200px] h-[896px] overflow-hidden">
+				<div class="relative justify-center flex w-[1200px] h-[896px]">
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
@@ -69,10 +61,15 @@
 					</div>
 				</div>
 
-				<!-- Right Arrow -->
+				<button
+					@click="moveLeft"
+					class="text-xl bg-cool-grey p-2 rounded-full transition absolute bottom-0 left-0"
+				>
+					←
+				</button>
 				<button
 					@click="moveRight"
-					class="text-xl bg-cool-grey p-2 rounded-full hover:bg-gray-400 transition"
+					class="text-xl bg-cool-grey p-2 rounded-full hover:bg-gray-400 transition absolute bottom-0 right-0"
 				>
 					→
 				</button>
@@ -130,53 +127,48 @@ const moveRight = () => {
 };
 
 // Function to animate the carousel based on the indices
+// Define position configurations for each state
+const positionConfigs = {
+	1: [
+		{ item: carouselItem1, position: 'right' },
+		{ item: carouselItem2, position: 'left' },
+		{ item: carouselItem3, position: 'center' },
+	],
+	2: [
+		{ item: carouselItem1, position: 'center' },
+		{ item: carouselItem2, position: 'right' },
+		{ item: carouselItem3, position: 'left' },
+	],
+	3: [
+		{ item: carouselItem1, position: 'left' },
+		{ item: carouselItem2, position: 'center' },
+		{ item: carouselItem3, position: 'right' },
+	],
+};
+
+// Function to animate an item to a specific position
+const animateToPosition = (item, position) => {
+	const config = {
+		left: { translateX: '-50%', scale: 1, zIndex: 0 },
+		center: { translateX: '0%', scale: 1.2, zIndex: 20 },
+		right: { translateX: '50%', scale: 1, zIndex: 0 },
+	}[position];
+	gsap.to(item, config);
+};
+
+// Map current active value to the next active value
+const nextActive = {
+	1: 3,
+	2: 1,
+	3: 2,
+};
+
+// Rewritten animateCarousel function
 const animateCarousel = () => {
-	if (activeCarouselItem.value === 1) {
-		gsap.to(carouselItem1.value, {
-			translateX: '100%',
-			scale: 1,
-		});
-		gsap.to(carouselItem2.value, {
-			translateX: '-100%',
-			scale: 1,
-		});
-		gsap.to(carouselItem3.value, {
-			translateX: 0,
-			scale: 1.2,
-			zIndex: 20,
-		});
-		activeCarouselItem.value = 3;
-	} else if (activeCarouselItem.value === 2) {
-		gsap.to(carouselItem1.value, {
-			translateX: 0,
-			scale: 1.2,
-			zIndex: 20,
-		});
-		gsap.to(carouselItem2.value, {
-			translateX: '100%',
-			scale: 1,
-		});
-		gsap.to(carouselItem3.value, {
-			translateX: '-100%',
-			scale: 1,
-		});
-		activeCarouselItem.value = 1;
-	} else {
-		gsap.to(carouselItem1.value, {
-			translateX: '-100%',
-			scale: 1,
-		});
-		gsap.to(carouselItem2.value, {
-			translateX: 0,
-			scale: 1.2,
-			zIndex: 20,
-		});
-		gsap.to(carouselItem3.value, {
-			translateX: '100%',
-			scale: 1,
-		});
-		activeCarouselItem.value = 2;
-	}
+	const currentActive = activeCarouselItem.value;
+	const config = positionConfigs[currentActive];
+	config.forEach(({ item, position }) => animateToPosition(item.value, position));
+	activeCarouselItem.value = nextActive[currentActive];
 };
 
 // Refs for animation targets
@@ -206,14 +198,15 @@ onMounted(() => {
 	gsap.set(carouselItem1.value, {
 		scale: 1.2,
 		translateX: 0,
+		zIndex: 20,
 	});
 	gsap.set(carouselItem2.value, {
 		scale: 1,
-		translateX: '100%',
+		translateX: '50%',
 	});
 	gsap.set(carouselItem3.value, {
 		scale: 1,
-		translateX: '-100%',
+		translateX: '-50%',
 	});
 });
 
