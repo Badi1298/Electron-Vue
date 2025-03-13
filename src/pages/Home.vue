@@ -22,26 +22,25 @@
 					Get Started
 				</button>
 			</div>
+		</div>
 
-			<!-- Eraser element using an image -->
-			<div
-				ref="eraserContainer"
-				class="absolute top-0 left-0 h-full pointer-events-none"
-			>
-				<img
-					ref="eraser"
-					class="h-full object-contain block"
-					src="/src/assets/images/A.png"
-					alt="Eraser"
-				/>
-			</div>
+		<!-- Eraser element using an image - moved outside overlay to prevent scaling issues -->
+		<div
+			ref="eraserContainer"
+			class="absolute top-0 left-0 h-screen pointer-events-none z-30"
+		>
+			<img
+				ref="eraser"
+				class="h-full object-contain block"
+				src="/src/assets/images/A.png"
+				alt="Eraser"
+			/>
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-
 import gsap from 'gsap';
 
 // Ref for your eraser image URL
@@ -57,22 +56,26 @@ const startEraserAnimation = () => {
 	// Set initial state of eraser container
 	gsap.set(eraserContainer.value, {
 		left: 0, // Start off-screen (adjust based on image width)
-		height: '100%',
+		height: '100vh', // Explicitly set to viewport height
 		position: 'absolute',
-		zIndex: 20,
+		zIndex: 30,
 	});
 
-	// Set initial state of eraser image
+	// Ensure eraser image maintains full height
 	gsap.set(eraser.value, {
-		height: '100%', // Make image full height of container
+		height: '100%',
+		objectFit: 'contain',
 		display: 'block',
 	});
 
 	// Create a timeline for the animation sequence
 	const tl = gsap.timeline({
 		onComplete: () => {
-			// Hide the overlay completely when animation finishes
+			// Only hide the overlay, keep the eraser visible if needed
 			gsap.set(overlayScreen.value, { display: 'none' });
+
+			// If you want to remove the eraser after animation, uncomment below:
+			// gsap.set(eraserContainer.value, { display: 'none' });
 		},
 	});
 
@@ -81,6 +84,8 @@ const startEraserAnimation = () => {
 		left: '100%', // Move to the right edge
 		duration: 1.2,
 		ease: 'power2.inOut',
+		// Remove any transformations that might affect height
+		clearProps: 'scale',
 	});
 
 	// 2. Use a clip-path on the overlay to create the eraser effect
@@ -105,6 +110,14 @@ onMounted(() => {
 		left: 0,
 		width: '100%',
 		height: '100%',
+	});
+
+	// Pre-initialize the eraser container to ensure consistent height
+	gsap.set(eraserContainer.value, {
+		height: '100vh', // Use viewport height explicitly
+		position: 'absolute',
+		top: 0,
+		left: 0, // Off-screen initially
 	});
 });
 </script>
