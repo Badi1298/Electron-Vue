@@ -1,10 +1,20 @@
 <template>
 	<div class="relative w-full h-screen overflow-hidden">
 		<!-- Background screen (will be revealed) -->
-		<div class="flex flex-col items-center justify-center w-full h-full bg-cool-grey p-8">
-			<h1 class="text-3xl font-bold mb-4">Welcome to the Main Content</h1>
-			<p class="text-lg">This is the content that will be revealed after the animation.</p>
-			<!-- Your main content goes here -->
+		<div class="flex flex-col items-center justify-center w-full h-full bg-white p-8">
+			<!-- Your original div with the clipping -->
+			<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+				<img
+					src="/src/assets/images/hallway-bed.png"
+					alt="Hallway Bed"
+					class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
+				/>
+				<img
+					src="/src/assets/images/resistance-and-recurrence.png"
+					alt="Resistance and Recurrence"
+					class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+				/>
+			</div>
 		</div>
 
 		<!-- Overlay screen with Get Started button -->
@@ -115,3 +125,9 @@ const startEraserAnimation = () => {
 	);
 };
 </script>
+
+<style scoped>
+.clip {
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+</style>
