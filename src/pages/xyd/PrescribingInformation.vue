@@ -8,7 +8,7 @@
 			@click.stop
 		>
 			<div class="flex justify-between items-center">
-				<h1 class="text-[40px] font-bold">Prescribing Information</h1>
+				<h1 class="text-[32px] text-primary-purple font-bold">XYDALBA™ prescribing information & AE Reporting</h1>
 				<img
 					src="/src/assets/images/close-button-purple.png"
 					alt="Close Button"
@@ -17,10 +17,10 @@
 				/>
 			</div>
 
-			<img
+			<VLazyImage
 				:src="PrescribingInformation"
 				alt="Zevtera Prescribing Information"
-				class="w-[1380px] mt-5"
+				class="w-[1284px] h-[864px] mt-5"
 			/>
 		</div>
 	</div>
@@ -31,7 +31,7 @@ import { useRouter } from 'vue-router';
 
 import VLazyImage from 'v-lazy-image';
 
-import PrescribingInformation from '@/assets/images/zevtera-prescribing.png';
+import PrescribingInformation from '@/assets/images/prescribing-information-xyd.png';
 
 const router = useRouter();
 </script>
