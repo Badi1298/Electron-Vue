@@ -4,7 +4,7 @@
 		<div class="flex flex-col items-center justify-center w-full h-full bg-white p-8">
 			<!-- Your original div with the clipping -->
 
-			<div class="flex items-center justify-center">
+			<div class="relative flex items-center justify-center">
 				<!-- Carousel -->
 				<div class="relative justify-center flex w-[1200px] h-[702px]">
 					<!-- Carousel Items -->
@@ -63,15 +63,23 @@
 
 				<button
 					@click="moveLeft"
-					class="text-xl bg-cool-grey p-2 rounded-full transition absolute bottom-0 left-0"
+					class="text-xl p-2 rounded-full transition absolute -bottom-16 left-24"
 				>
-					←
+					<img
+						src="/src/assets/images/home-arrow-left-green.png"
+						alt="Arrow Left"
+						class="w-[85px]"
+					/>
 				</button>
 				<button
 					@click="moveRight"
-					class="text-xl bg-cool-grey p-2 rounded-full hover:bg-gray-400 transition absolute bottom-0 right-0"
+					class="text-xl p-2 rounded-full hover:bg-gray-400 transition absolute -bottom-16 right-24"
 				>
-					→
+					<img
+						src="/src/assets/images/home-arrow-right-green.png"
+						alt="Arrow Right"
+						class="w-[85px]"
+					/>
 				</button>
 			</div>
 		</div>
