@@ -29,18 +29,6 @@
 					<div
 						ref="carouselItem2"
 						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
-					>
-						<div class="relative w-full h-full bg-textured overflow-hidden clip">
-							<img
-								src="/src/assets/images/home-xyd-background.png"
-								alt="Xyd Background"
-								class="h-[702px] w-auto"
-							/>
-						</div>
-					</div>
-					<div
-						ref="carouselItem3"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
 						@click="router.push('/zevtera')"
 					>
 						<div class="relative w-full h-full bg-gradient-to-b from-white via-white via-70% to-primary-light-orange overflow-hidden clip">
@@ -68,6 +56,19 @@
 								src="/src/assets/images/home-zevtera-bullet-trail.png"
 								alt="Bullet Trail"
 								class="absolute bottom-0 left-0 w-full"
+							/>
+						</div>
+					</div>
+					<div
+						ref="carouselItem3"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
+						@click="router.push('/xyd')"
+					>
+						<div class="relative w-full h-full bg-textured overflow-hidden clip">
+							<img
+								src="/src/assets/images/home-xyd-background.png"
+								alt="Xyd Background"
+								class="h-[702px] w-auto"
 							/>
 						</div>
 					</div>
