@@ -41,13 +41,33 @@
 					<div
 						ref="carouselItem3"
 						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
-						@click="router.push('/xyd')"
+						@click="router.push('/zevtera')"
 					>
-						<div class="relative w-full h-full bg-textured overflow-hidden clip">
+						<div class="relative w-full h-full bg-gradient-to-b from-white via-white via-70% to-primary-light-orange overflow-hidden clip">
 							<img
-								src="/src/assets/images/home-xyd-background.png"
+								src="/src/assets/images/home-zevtera-doctor-bg.png"
 								alt="Xyd Background"
 								class="h-[702px] w-auto"
+							/>
+							<img
+								src="/src/assets/images/home-mabelio-bullet.png"
+								alt="Bullet"
+								class="absolute bottom-56 left-14 z-10 w-[434px]"
+							/>
+							<img
+								src="/src/assets/images/strike-fast.png"
+								alt="Strike Fast"
+								class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
+							/>
+							<img
+								src="/src/assets/images/zevtera-mabelio-logo.png"
+								alt="Zevtera Mabelio Logo"
+								class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
+							/>
+							<img
+								src="/src/assets/images/home-zevtera-bullet-trail.png"
+								alt="Bullet Trail"
+								class="absolute bottom-0 left-0 w-full"
 							/>
 						</div>
 					</div>
