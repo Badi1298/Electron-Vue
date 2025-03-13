@@ -55,48 +55,46 @@ const eraser = ref(null);
 const startEraserAnimation = () => {
 	// Set initial state of eraser container
 	gsap.set(eraserContainer.value, {
-		left: 0, // Start off-screen (adjust based on image width)
-		height: '100vh', // Explicitly set to viewport height
+		left: 0,
+		height: '100vh',
 		position: 'absolute',
 		zIndex: 30,
 	});
 
 	// Ensure eraser image maintains full height
 	gsap.set(eraser.value, {
-		height: '100%',
+		height: '100vh',
 		objectFit: 'cover',
 		display: 'block',
+		scale: 1,
 	});
 
 	// Create a timeline for the animation sequence
 	const tl = gsap.timeline({
 		onComplete: () => {
-			// Only hide the overlay, keep the eraser visible if needed
-			gsap.set(overlayScreen.value, { display: 'none' });
-
-			// If you want to remove the eraser after animation, uncomment below:
-			gsap.set(eraserContainer.value, { display: 'none' });
+			// Slight delay before hiding the overlay for smoothness
+			gsap.set(overlayScreen.value, { display: 'none' }, '+=0.1');
 		},
 	});
 
 	// 1. Animate the eraser to sweep across the screen
 	tl.to(eraserContainer.value, {
-		left: '100%', // Move to the right edge
-		duration: 1.2,
-		ease: 'power2.inOut',
+		left: '100%',
+		duration: 1.4, // Slightly longer for a smooth feel
+		ease: 'power4.inOut',
 	});
 
-	// 2. Use a clip-path on the overlay to create the eraser effect
-	// This happens simultaneously with the eraser animation
+	// 2. Apply blur effect during transition (optional)
 	tl.to(
 		overlayScreen.value,
 		{
-			clipPath: 'inset(0 0 0 100%)', // Clip from left to right
-			duration: 1.2,
-			ease: 'power2.inOut',
+			clipPath: 'inset(0 0 0 100%)',
+			duration: 1.4,
+			ease: 'power4.inOut',
+			filter: 'blur(2px)', // Adds a subtle blur effect
 		},
 		0
-	); // Start at the same time as the first animation (position 0)
+	);
 };
 
 onMounted(() => {
