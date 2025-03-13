@@ -28,6 +28,41 @@
 					</div>
 				</div>
 			</div>
+			<div class="flex flex-col mt-[72px]">
+				<div class="flex items-center gap-x-10">
+					<div class="relative flex items-center justify-center border-[3px] border-primary-green rounded-full w-[90px] h-[90px]">
+						<span class="text-[50px] translate-x-1 text-primary-green font-bold">2.</span>
+						<div class="absolute -bottom-16 w-[3px] h-[50px] bg-gradient-to-b from-primary-green to-primary-turqoise rounded-full"></div>
+					</div>
+					<div class="relative flex flex-col">
+						<h2 class="text-[40px] text-primary-purple font-bold">2 weeks of effective treatment</h2>
+						<div class="flex gap-x-3 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple">
+							<div class="flex gap-x-3">
+								<img
+									src="/src/assets/images/list-item-emblem-purple.png"
+									alt="List Emblem"
+									class="h-[15px] translate-y-2"
+								/>
+								<p>
+									Potent activity against key<br />
+									Gram-positive pathogens, including multi-resistant strains<sup>11</sup>
+								</p>
+							</div>
+							<div class="flex gap-x-3">
+								<img
+									src="/src/assets/images/list-item-emblem-purple.png"
+									alt="List Emblem"
+									class="h-[15px] translate-y-2"
+								/>
+								<p>
+									Xydalba™ delivers long-lasting treatment without<br />
+									compromising on early clinical response, and demonstrated effectiveness in paediatric patients<sup>5,8</sup>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
