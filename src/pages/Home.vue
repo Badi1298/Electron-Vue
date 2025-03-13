@@ -264,6 +264,10 @@ const animateCarousel = () => {
 const moveRight = () => {
 	animateCarousel();
 };
+
+const goToExblifep = () => {
+	router.push('/exblifep');
+};
 </script>
 
 <style scoped>
