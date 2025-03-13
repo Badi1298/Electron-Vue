@@ -64,7 +64,7 @@ const startEraserAnimation = () => {
 	// Ensure eraser image maintains full height
 	gsap.set(eraser.value, {
 		height: '100%',
-		objectFit: 'contain',
+		objectFit: 'cover',
 		display: 'block',
 	});
 
@@ -75,7 +75,7 @@ const startEraserAnimation = () => {
 			gsap.set(overlayScreen.value, { display: 'none' });
 
 			// If you want to remove the eraser after animation, uncomment below:
-			// gsap.set(eraserContainer.value, { display: 'none' });
+			gsap.set(eraserContainer.value, { display: 'none' });
 		},
 	});
 
@@ -84,8 +84,6 @@ const startEraserAnimation = () => {
 		left: '100%', // Move to the right edge
 		duration: 1.2,
 		ease: 'power2.inOut',
-		// Remove any transformations that might affect height
-		clearProps: 'scale',
 	});
 
 	// 2. Use a clip-path on the overlay to create the eraser effect
