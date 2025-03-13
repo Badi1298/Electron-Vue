@@ -41,15 +41,33 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+
 import gsap from 'gsap';
 
-// Ref for your eraser image URL
-// Replace this with your actual image path
-
 // Refs for animation targets
+const eraser = ref(null);
 const overlayScreen = ref(null);
 const eraserContainer = ref(null);
-const eraser = ref(null);
+
+onMounted(() => {
+	// Initialize the overlay screen
+	gsap.set(overlayScreen.value, {
+		clipPath: 'inset(0 0 0 100%)', // Initially visible
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%',
+	});
+
+	// Pre-initialize the eraser container to ensure consistent height
+	gsap.set(eraserContainer.value, {
+		height: '100vh', // Use viewport height explicitly
+		position: 'absolute',
+		top: 0,
+		left: '100%', // Off-screen initially
+	});
+});
 
 // Function to trigger the animation
 const startEraserAnimation = () => {
@@ -96,24 +114,4 @@ const startEraserAnimation = () => {
 		0
 	);
 };
-
-onMounted(() => {
-	// Initialize the overlay screen
-	gsap.set(overlayScreen.value, {
-		clipPath: 'inset(0 0 0 0)', // Initially visible
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		width: '100%',
-		height: '100%',
-	});
-
-	// Pre-initialize the eraser container to ensure consistent height
-	gsap.set(eraserContainer.value, {
-		height: '100vh', // Use viewport height explicitly
-		position: 'absolute',
-		top: 0,
-		left: 0, // Off-screen initially
-	});
-});
 </script>
