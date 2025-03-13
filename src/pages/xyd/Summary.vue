@@ -9,13 +9,13 @@
 			<section class="flex-1 content-center ml-9">
 				<div class="flex flex-col">
 					<div class="flex items-center gap-x-10">
-						<div class="relative flex items-center justify-center border-[3px] border-primary-purple rounded-full w-[90px] h-[90px]">
-							<span class="text-[50px] translate-x-1 text-primary-purple font-bold">1.</span>
+						<div class="relative flex items-center justify-center border-[3px] border-primary-purple rounded-full w-[100px] h-[100px]">
+							<span class="text-[52px] translate-x-1 text-primary-purple font-bold">1.</span>
 							<div class="absolute -bottom-16 w-[3px] h-[50px] bg-gradient-to-b from-primary-purple to-primary-green rounded-full"></div>
 						</div>
 						<div class="relative flex flex-col">
 							<h2 class="text-[40px] text-primary-purple font-bold">1 dose of Xydalba™</h2>
-							<div class="flex gap-x-3 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple">
+							<div class="flex gap-x-3 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple leading-tight">
 								<img
 									src="/src/assets/images/list-item-emblem-purple.png"
 									alt="List Emblem"
@@ -31,13 +31,13 @@
 				</div>
 				<div class="flex flex-col mt-[72px]">
 					<div class="flex items-center gap-x-10">
-						<div class="relative flex items-center justify-center border-[3px] border-primary-green rounded-full w-[90px] h-[90px]">
-							<span class="text-[50px] translate-x-1 text-primary-green font-bold">2.</span>
+						<div class="relative flex items-center justify-center border-[3px] border-primary-green rounded-full w-[100px] h-[100px]">
+							<span class="text-[52px] translate-x-1 text-primary-green font-bold">2.</span>
 							<div class="absolute -bottom-16 w-[3px] h-[50px] bg-gradient-to-b from-primary-green to-primary-turqoise rounded-full"></div>
 						</div>
 						<div class="relative flex flex-col">
 							<h2 class="text-[40px] text-primary-purple font-bold">2 weeks of effective treatment</h2>
-							<div class="flex gap-x-3 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple">
+							<div class="flex gap-x-3 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple leading-tight">
 								<div class="flex gap-x-3">
 									<img
 										src="/src/assets/images/list-item-emblem-purple.png"
@@ -66,13 +66,13 @@
 				</div>
 				<div class="flex flex-col mt-[72px]">
 					<div class="flex items-center gap-x-10">
-						<div class="relative flex items-center justify-center border-[3px] border-primary-turqoise rounded-full w-[90px] h-[90px]">
-							<span class="text-[50px] translate-x-1 text-primary-turqoise font-bold">3.</span>
+						<div class="relative flex items-center justify-center border-[3px] border-primary-turqoise rounded-full w-[100px] h-[100px]">
+							<span class="text-[52px] translate-x-1 text-primary-turqoise font-bold">3.</span>
 							<div class="absolute -bottom-52 w-[3px] h-[190px] bg-gradient-to-b from-primary-turqoise to-primary-purple rounded-full"></div>
 						</div>
 						<div class="relative flex flex-col">
 							<h2 class="text-[40px] text-primary-purple font-bold">30-minute infusion*1</h2>
-							<div class="flex flex-col gap-y-6 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple">
+							<div class="flex flex-col gap-y-6 absolute top-16 left-0 w-[900px] text-[20px] text-primary-purple leading-tight">
 								<div class="flex gap-x-3">
 									<img
 										src="/src/assets/images/list-item-emblem-purple.png"
@@ -111,7 +111,7 @@
 					<img
 						src="/src/assets/images/xyd-summary-bed.png"
 						alt="Bed Icon"
-						class="w-[90px] h-[90px]"
+						class="w-[100px] h-[100px]"
 					/>
 					<h2 class="text-[40px] text-primary-purple font-bold">Less days in hospital<sup>2,3</sup></h2>
 				</div>
