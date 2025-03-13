@@ -3,18 +3,6 @@
 		<!-- Background screen (will be revealed) -->
 		<div class="flex flex-col items-center justify-center w-full h-full bg-white p-8">
 			<!-- Your original div with the clipping -->
-			<!-- <div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
-				<img
-					src="/src/assets/images/hallway-bed.png"
-					alt="Hallway Bed"
-					class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
-				/>
-				<img
-					src="/src/assets/images/resistance-and-recurrence.png"
-					alt="Resistance and Recurrence"
-					class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
-				/>
-			</div> -->
 
 			<div class="flex items-center justify-center">
 				<!-- Left Arrow -->
@@ -26,25 +14,58 @@
 				</button>
 
 				<!-- Carousel -->
-				<div class="relative justify-center flex w-[460px] h-80">
+				<div class="relative justify-center flex w-[1200px] h-[896px] overflow-hidden">
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
-						class="absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[730px] h-[896px] rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<span>item 1</span>
+						<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+							<img
+								src="/src/assets/images/hallway-bed.png"
+								alt="Hallway Bed"
+								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
+							/>
+							<img
+								src="/src/assets/images/resistance-and-recurrence.png"
+								alt="Resistance and Recurrence"
+								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+							/>
+						</div>
 					</div>
 					<div
 						ref="carouselItem2"
-						class="absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[730px] h-[896px] rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<span>item 2</span>
+						<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+							<img
+								src="/src/assets/images/hallway-bed.png"
+								alt="Hallway Bed"
+								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
+							/>
+							<img
+								src="/src/assets/images/resistance-and-recurrence.png"
+								alt="Resistance and Recurrence"
+								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+							/>
+						</div>
 					</div>
 					<div
 						ref="carouselItem3"
-						class="absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[730px] h-[896px] rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<span>item 3</span>
+						<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+							<img
+								src="/src/assets/images/hallway-bed.png"
+								alt="Hallway Bed"
+								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
+							/>
+							<img
+								src="/src/assets/images/resistance-and-recurrence.png"
+								alt="Resistance and Recurrence"
+								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+							/>
+						</div>
 					</div>
 				</div>
 
