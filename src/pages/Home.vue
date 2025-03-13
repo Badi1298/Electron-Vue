@@ -157,9 +157,9 @@ const positionConfigs = {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 0 },
-		center: { translateX: '0%', scale: 1.3, zIndex: 20 },
-		right: { translateX: '50%', scale: 1, zIndex: 0 },
+		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
+		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', duration: 0.2 },
+		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
 	}[position];
 	gsap.to(item, config);
 };
