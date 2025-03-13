@@ -6,28 +6,28 @@
 
 			<div class="flex items-center justify-center">
 				<!-- Carousel -->
-				<div class="relative justify-center flex w-[1200px] h-[896px]">
+				<div class="relative justify-center flex w-[1200px] h-[702px]">
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
-						class="absolute rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
 								src="/src/assets/images/hallway-bed.png"
 								alt="Hallway Bed"
-								class="absolute -bottom-14 -left-48 z-10 min-w-[866px] opacity-20"
+								class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
 							/>
 							<img
 								src="/src/assets/images/resistance-and-recurrence.png"
 								alt="Resistance and Recurrence"
-								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[480px] z-20"
+								class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[370px] z-20"
 							/>
 						</div>
 					</div>
 					<div
 						ref="carouselItem2"
-						class="absolute rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
@@ -44,7 +44,7 @@
 					</div>
 					<div
 						ref="carouselItem3"
-						class="absolute rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
@@ -149,9 +149,9 @@ const positionConfigs = {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', width: 566, height: 702, zIndex: 0 },
-		center: { translateX: '0%', width: 730, height: 896, zIndex: 20 },
-		right: { translateX: '50%', width: 566, height: 702, zIndex: 0 },
+		left: { translateX: '-50%', scale: 1, zIndex: 0 },
+		center: { translateX: '0%', scale: 1.3, zIndex: 20 },
+		right: { translateX: '50%', scale: 1, zIndex: 0 },
 	}[position];
 	gsap.to(item, config);
 };
@@ -196,19 +196,16 @@ onMounted(() => {
 	});
 
 	gsap.set(carouselItem1.value, {
-		width: 730,
-		height: 896,
+		scale: 1.3,
 		translateX: 0,
 		zIndex: 20,
 	});
 	gsap.set(carouselItem2.value, {
-		width: 566,
-		height: 702,
+		scale: 1,
 		translateX: '50%',
 	});
 	gsap.set(carouselItem3.value, {
-		width: 566,
-		height: 702,
+		scale: 1,
 		translateX: '-50%',
 	});
 });
