@@ -10,7 +10,8 @@
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
-						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
+						@click="goToExblifep"
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
@@ -117,22 +118,23 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+const router = useRouter();
+
+// Refs for animation targets
+const eraser = ref(null);
+const overlayScreen = ref(null);
+const eraserContainer = ref(null);
 
 const carouselItem1 = ref(null);
 const carouselItem2 = ref(null);
 const carouselItem3 = ref(null);
 
 const activeCarouselItem = ref(1);
-
-// Function to handle the movement of items
-const moveLeft = () => {};
-
-const moveRight = () => {
-	animateCarousel();
-};
 
 // Function to animate the carousel based on the indices
 // Define position configurations for each state
@@ -154,35 +156,12 @@ const positionConfigs = {
 	],
 };
 
-// Function to animate an item to a specific position
-const animateToPosition = (item, position) => {
-	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
-		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', duration: 0.2 },
-		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
-	}[position];
-	gsap.to(item, config);
-};
-
 // Map current active value to the next active value
 const nextActive = {
 	1: 3,
 	2: 1,
 	3: 2,
 };
-
-// Rewritten animateCarousel function
-const animateCarousel = () => {
-	const currentActive = activeCarouselItem.value;
-	const config = positionConfigs[currentActive];
-	config.forEach(({ item, position }) => animateToPosition(item.value, position));
-	activeCarouselItem.value = nextActive[currentActive];
-};
-
-// Refs for animation targets
-const eraser = ref(null);
-const overlayScreen = ref(null);
-const eraserContainer = ref(null);
 
 onMounted(() => {
 	// Initialize the overlay screen
@@ -262,6 +241,28 @@ const startEraserAnimation = () => {
 		},
 		0
 	);
+};
+
+// Function to animate an item to a specific position
+const animateToPosition = (item, position) => {
+	const config = {
+		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
+		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', duration: 0.2 },
+		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', duration: 0.2 },
+	}[position];
+	gsap.to(item, config);
+};
+
+// Rewritten animateCarousel function
+const animateCarousel = () => {
+	const currentActive = activeCarouselItem.value;
+	const config = positionConfigs[currentActive];
+	config.forEach(({ item, position }) => animateToPosition(item.value, position));
+	activeCarouselItem.value = nextActive[currentActive];
+};
+
+const moveRight = () => {
+	animateCarousel();
 };
 </script>
 
