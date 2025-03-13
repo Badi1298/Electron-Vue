@@ -10,9 +10,9 @@
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
-						class="absolute w-[730px] h-[896px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
 								src="/src/assets/images/hallway-bed.png"
 								alt="Hallway Bed"
@@ -27,9 +27,9 @@
 					</div>
 					<div
 						ref="carouselItem2"
-						class="absolute w-[730px] h-[896px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
 								src="/src/assets/images/hallway-bed.png"
 								alt="Hallway Bed"
@@ -44,9 +44,9 @@
 					</div>
 					<div
 						ref="carouselItem3"
-						class="absolute w-[730px] h-[896px] rounded-lg flex items-center justify-center transition-all duration-500"
+						class="absolute rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<div class="relative w-[730px] h-[896px] bg-textured overflow-hidden clip">
+						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
 								src="/src/assets/images/hallway-bed.png"
 								alt="Hallway Bed"
@@ -149,9 +149,9 @@ const positionConfigs = {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 0 },
-		center: { translateX: '0%', scale: 1.2, zIndex: 20 },
-		right: { translateX: '50%', scale: 1, zIndex: 0 },
+		left: { translateX: '-50%', width: 566, height: 702, zIndex: 0 },
+		center: { translateX: '0%', width: 730, height: 896, zIndex: 20 },
+		right: { translateX: '50%', width: 566, height: 702, zIndex: 0 },
 	}[position];
 	gsap.to(item, config);
 };
@@ -196,16 +196,19 @@ onMounted(() => {
 	});
 
 	gsap.set(carouselItem1.value, {
-		scale: 1.2,
+		width: 730,
+		height: 896,
 		translateX: 0,
 		zIndex: 20,
 	});
 	gsap.set(carouselItem2.value, {
-		scale: 1,
+		width: 566,
+		height: 702,
 		translateX: '50%',
 	});
 	gsap.set(carouselItem3.value, {
-		scale: 1,
+		width: 566,
+		height: 702,
 		translateX: '-50%',
 	});
 });
