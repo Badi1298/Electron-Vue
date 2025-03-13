@@ -26,18 +26,25 @@
 				</button>
 
 				<!-- Carousel -->
-				<div class="relative flex w-80 h-80">
+				<div class="relative justify-center flex w-[460px] h-80">
 					<!-- Carousel Items -->
 					<div
-						v-for="(item, index) in items"
-						:key="index"
-						:class="[
-							'absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500',
-							itemClasses(index),
-						]"
-						ref="carouselItems"
+						ref="carouselItem1"
+						class="absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500"
 					>
-						<span>{{ item }}</span>
+						<span>item 1</span>
+					</div>
+					<div
+						ref="carouselItem2"
+						class="absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500"
+					>
+						<span>item 2</span>
+					</div>
+					<div
+						ref="carouselItem3"
+						class="absolute w-32 h-32 bg-primary-turqoise rounded-lg flex items-center justify-center transition-all duration-500"
+					>
+						<span>item 3</span>
 					</div>
 				</div>
 
@@ -86,50 +93,25 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
-const items = ['Item 1', 'Item 2', 'Item 3'];
-const currentIndex = ref(0);
+const carouselItem1 = ref(null);
+const carouselItem2 = ref(null);
+const carouselItem3 = ref(null);
 
 // Function to handle the movement of items
-const moveLeft = () => {
-	const lastIndex = currentIndex.value;
-	currentIndex.value = (currentIndex.value + 1 + items.length) % items.length;
-	animateCarousel(lastIndex, currentIndex.value);
-};
+const moveLeft = () => {};
 
 const moveRight = () => {
-	const lastIndex = currentIndex.value;
-	currentIndex.value = (currentIndex.value - 1) % items.length;
-	animateCarousel(lastIndex, currentIndex.value);
+	animateCarousel();
 };
 
 // Function to animate the carousel based on the indices
-const animateCarousel = (lastIndex, newIndex) => {
-	const itemsArray = document.querySelectorAll('[data-carousel-item]');
-
-	const currentItem = itemsArray[lastIndex];
-	const nextItem = itemsArray[newIndex];
-
-	gsap.to(currentItem, {
-		x: lastIndex < newIndex ? '100%' : '-100%',
-		duration: 0.5,
+const animateCarousel = () => {
+	gsap.to(carouselItem1.value, {
+		translateX: '100%',
 		scale: 1,
-		ease: 'power2.inOut',
 	});
-	gsap.to(nextItem, {
-		x: '0%',
-		duration: 0.5,
-		ease: 'power2.inOut',
-	});
-};
-
-// Dynamically compute the classes for positioning carousel items in a circle
-const itemClasses = (index) => {
-	const totalItems = items.length;
-	const offset = (index - currentIndex.value + totalItems) % totalItems;
-	const position = offset === 0 ? '-translate-x-1/2 left-1/2 scale-110' : offset === 1 ? 'right-0' : 'left-0';
-	return position;
 };
 
 // Refs for animation targets
@@ -154,6 +136,19 @@ onMounted(() => {
 		position: 'absolute',
 		top: 0,
 		left: '100%', // Off-screen initially
+	});
+
+	gsap.set(carouselItem1.value, {
+		scale: 1.2,
+		translateX: 0,
+	});
+	gsap.set(carouselItem2.value, {
+		scale: 1,
+		translateX: '100%',
+	});
+	gsap.set(carouselItem3.value, {
+		scale: 1,
+		translateX: '-100%',
 	});
 });
 
