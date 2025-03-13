@@ -1,23 +1,23 @@
 <template>
-	<div class="home-container">
+	<div class="relative w-full h-screen overflow-hidden">
 		<!-- Background screen (will be revealed) -->
-		<div class="background-screen">
-			<h1>Welcome to the Main Content</h1>
-			<p>This is the content that will be revealed after the animation.</p>
+		<div class="flex flex-col items-center justify-center w-full h-full bg-cool-grey p-8">
+			<h1 class="text-3xl font-bold mb-4">Welcome to the Main Content</h1>
+			<p class="text-lg">This is the content that will be revealed after the animation.</p>
 			<!-- Your main content goes here -->
 		</div>
 
 		<!-- Overlay screen with Get Started button -->
 		<div
 			ref="overlayScreen"
-			class="overlay-screen"
+			class="absolute top-0 left-0 w-full h-full bg-primary-turqoise text-white z-10 flex flex-col items-center justify-center"
 		>
-			<div class="content">
-				<h1>Welcome to Our App</h1>
-				<p>Click the button below to get started</p>
+			<div class="text-center max-w-xl p-8">
+				<h1 class="text-3xl font-bold mb-4">Welcome to Our App</h1>
+				<p class="text-lg mb-6">Click the button below to get started</p>
 				<button
 					@click="startEraserAnimation"
-					class="get-started-btn"
+					class="mt-8 px-6 py-3 text-lg bg-white text-primary-turqoise rounded hover:bg-cool-grey transition-colors"
 				>
 					Get Started
 				</button>
@@ -26,12 +26,12 @@
 			<!-- Eraser element using an image -->
 			<div
 				ref="eraserContainer"
-				class="eraser-container"
+				class="absolute top-0 left-0 h-full pointer-events-none"
 			>
 				<img
 					ref="eraser"
-					class="eraser-image"
-					:src="Eraser"
+					class="h-full object-contain block"
+					src="/src/assets/images/A.png"
 					alt="Eraser"
 				/>
 			</div>
@@ -41,9 +41,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import gsap from 'gsap';
 
-import Eraser from '@/assets/images/A.png';
+import gsap from 'gsap';
 
 // Ref for your eraser image URL
 // Replace this with your actual image path
@@ -60,7 +59,7 @@ const startEraserAnimation = () => {
 		left: 0, // Start off-screen (adjust based on image width)
 		height: '100%',
 		position: 'absolute',
-		zIndex: 10,
+		zIndex: 20,
 	});
 
 	// Set initial state of eraser image
@@ -109,71 +108,3 @@ onMounted(() => {
 	});
 });
 </script>
-
-<style scoped>
-.home-container {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
-}
-
-.background-screen {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	background-color: #f5f5f5;
-	padding: 2rem;
-}
-
-.overlay-screen {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	background-color: #3498db;
-	color: white;
-	z-index: 5;
-}
-
-.content {
-	text-align: center;
-	max-width: 600px;
-	padding: 2rem;
-}
-
-.get-started-btn {
-	margin-top: 2rem;
-	padding: 0.75rem 1.5rem;
-	font-size: 1.1rem;
-	background-color: white;
-	color: #3498db;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: background-color 0.3s;
-}
-
-.get-started-btn:hover {
-	background-color: #f0f0f0;
-}
-
-.eraser-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: auto; /* Will be determined by the image */
-	height: 100%;
-	pointer-events: none; /* Ensure the image doesn't block interaction */
-}
-
-.eraser-image {
-	height: 100%;
-	object-fit: contain; /* Preserve image aspect ratio */
-}
-</style>
