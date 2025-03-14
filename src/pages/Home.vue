@@ -51,7 +51,7 @@
 							<!-- Explicit declaration of each carousel item -->
 							<div
 								ref="item0Ref"
-								class="carousel-item absolute top-[55%] left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 0 }"
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
@@ -80,7 +80,7 @@
 
 							<div
 								ref="item1Ref"
-								class="carousel-item absolute top-[55%] left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 1 }"
 							>
 								<div
@@ -116,7 +116,7 @@
 
 							<div
 								ref="item2Ref"
-								class="carousel-item absolute top-[55%] left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 2 }"
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
@@ -296,8 +296,11 @@ const positionItems = () => {
 		// Adjust z position to keep items partially visible
 		const z = Math.cos(radian) * radius * 0.2;
 
+		// Adjust y position to move back elements down
+		const y = Math.cos(radian) * radius * 0.2;
+
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius * 0.2, radius * 0.2, 0.9, 1.2);
+		const scale = mapRange(z, -radius * 0.2, radius * 0.2, 0.9, 1.15);
 
 		// Calculate offset to create overlapping effect
 		const offsetX = Math.sin(radian) * 180;
@@ -308,6 +311,7 @@ const positionItems = () => {
 		if (itemRefs[index]) {
 			gsap.to(itemRefs[index], {
 				x: x + offsetX,
+				y: -y,
 				z,
 				scale,
 				rotationY: 0, // Always face front
@@ -600,20 +604,13 @@ const moveRight = () => {
 .carousel {
 	perspective: 1000px;
 	transform-style: preserve-3d;
+	margin-top: 30px;
 }
+
 .carousel-item {
 	transform-style: preserve-3d;
 	backface-visibility: hidden;
 	transform: translate(-50%, -50%);
 	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.3s;
-}
-.fade-enter-from,
-.fade-leave-to {
-	opacity: 0;
 }
 </style>
