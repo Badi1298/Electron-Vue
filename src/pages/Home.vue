@@ -1,6 +1,6 @@
 <template>
 	<div class="relative w-full h-screen overflow-hidden">
-		<div class="relative flex flex-col justify-center w-full h-full px-28 py-5">
+		<div class="relative flex flex-col justify-center w-full h-full px-28 py-8">
 			<img
 				src="/src/assets/images/textured-background.png"
 				alt="Textured Background"
@@ -10,6 +10,11 @@
 				src="/src/assets/images/exblifep-logo.svg"
 				alt="Exblifep Logo"
 				class="absolute top-40 left-[100px] h-[179px] -z-10 opacity-5"
+			/>
+			<img
+				src="/src/assets/images/hallway-bed.png"
+				alt="Hallway Bed"
+				class="absolute -right-40 bottom-0 w-[1089px] -z-10 opacity-10"
 			/>
 			<div class="relative flex flex-1 items-center w-fit">
 				<!-- Carousel -->
@@ -252,7 +257,7 @@ onMounted(() => {
 	});
 
 	gsap.set(carouselItem1.value, {
-		scale: 1.3,
+		scale: 1.2,
 		translateX: 0,
 		zIndex: 20,
 	});
@@ -333,7 +338,7 @@ const animateToPosition = (item, position) => {
 		center: {
 			translateX: '0%',
 			translateY: 0,
-			scale: 1.3,
+			scale: 1.2,
 			zIndex: 20,
 			ease: 'power4.inOut',
 			pointerEvents: 'auto',
