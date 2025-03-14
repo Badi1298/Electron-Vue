@@ -11,52 +11,63 @@
 			@mousemove="onDrag"
 			@touchmove="onDrag"
 		>
+			<!-- Explicit declaration of each carousel item -->
 			<div
-				v-for="(item, index) in items"
-				:key="index"
-				:ref="
-					(el) => {
-						if (el) itemRefs[index] = el;
-					}
-				"
+				ref="item0Ref"
 				class="carousel-item absolute top-1/2 left-1/2 w-64 h-48 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-				:class="{ 'shadow-xl': index === activeIndex }"
+				:class="{ 'shadow-xl': activeIndex === 0 }"
 			>
-				<div
-					class="w-full h-full flex items-center justify-center text-xl font-bold"
-					:class="getItemClass(index)"
-				>
-					{{ item.title }}
-				</div>
+				<div class="w-full h-full flex items-center justify-center text-xl font-bold bg-primary-purple text-white">Slide 1</div>
+			</div>
+
+			<div
+				ref="item1Ref"
+				class="carousel-item absolute top-1/2 left-1/2 w-64 h-48 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+				:class="{ 'shadow-xl': activeIndex === 1 }"
+			>
+				<div class="w-full h-full flex items-center justify-center text-xl font-bold bg-primary-green text-black">Slide 2</div>
+			</div>
+
+			<div
+				ref="item2Ref"
+				class="carousel-item absolute top-1/2 left-1/2 w-64 h-48 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+				:class="{ 'shadow-xl': activeIndex === 2 }"
+			>
+				<div class="w-full h-full flex items-center justify-center text-xl font-bold bg-primary-purple text-white">Slide 3</div>
 			</div>
 		</div>
 
 		<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
 			<button
-				v-for="(item, index) in items"
-				:key="`dot-${index}`"
-				@click="goToSlide(index)"
+				@click="goToSlide(0)"
 				class="w-3 h-3 rounded-full"
-				:class="index === activeIndex ? 'bg-primary-purple' : 'bg-gray-400'"
+				:class="activeIndex === 0 ? 'bg-primary-purple' : 'bg-gray-400'"
+			></button>
+			<button
+				@click="goToSlide(1)"
+				class="w-3 h-3 rounded-full"
+				:class="activeIndex === 1 ? 'bg-primary-purple' : 'bg-gray-400'"
+			></button>
+			<button
+				@click="goToSlide(2)"
+				class="w-3 h-3 rounded-full"
+				:class="activeIndex === 2 ? 'bg-primary-purple' : 'bg-gray-400'"
 			></button>
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import gsap from 'gsap';
 
-// Carousel items
-const items = [
-	{ title: 'Slide 1', color: 'primary-purple' },
-	{ title: 'Slide 2', color: 'primary-green' },
-	{ title: 'Slide 3', color: 'primary-purple' },
-];
+// Individual item refs
+const item0Ref = ref(null);
+const item1Ref = ref(null);
+const item2Ref = ref(null);
 
 // State variables
 const carouselRef = ref(null);
-const itemRefs = ref([]);
 const activeIndex = ref(0);
 const isDragging = ref(false);
 const startX = ref(0);
@@ -64,45 +75,47 @@ const currentX = ref(0);
 const rotationAmount = ref(0);
 const rotationStep = 120; // Degrees between each item (360 / 3 = 120)
 
-// Get class based on item index
-const getItemClass = (index) => {
-	const color = items[index].color;
-	return {
-		[`bg-${color}`]: true,
-		'text-white': color === 'primary-purple' || color === 'black',
-		'text-black': color === 'primary-green',
-	};
-};
-
 // Position and scale items in 3D space
 const positionItems = () => {
-	items.forEach((_, index) => {
+	const itemRefs = [item0Ref.value, item1Ref.value, item2Ref.value];
+	const totalItems = 3;
+
+	for (let index = 0; index < totalItems; index++) {
 		const angle = ((index - activeIndex.value) * rotationStep + rotationAmount.value) % 360;
 		const radian = (angle * Math.PI) / 180;
 
-		// Calculate position (circular arrangement)
-		const radius = 200; // Radius of the circle
+		// Calculate position (circular arrangement but with less radius to keep items closer)
+		const radius = 150;
 		const x = Math.sin(radian) * radius;
-		const z = Math.cos(radian) * radius;
+
+		// Adjust z position to keep items partially visible
+		const z = Math.cos(radian) * radius * 0.6;
 
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius, radius, 0.8, 1.2);
+		const scale = mapRange(z, -radius * 0.6, radius * 0.6, 0.85, 1.15);
+
+		// Calculate opacity - slightly reduce opacity for back items
+		const opacity = mapRange(z, -radius * 0.6, radius * 0.6, 0.8, 1);
+
+		// Calculate offset to create overlapping effect
+		const offsetX = Math.sin(radian) * 40;
 
 		// Calculate z-index (items in front have higher z-index)
-		const zIndex = Math.round(mapRange(z, -radius, radius, 1, 10));
+		const zIndex = Math.round(mapRange(z, -radius * 0.6, radius * 0.6, 1, 10));
 
-		if (itemRefs.value[index]) {
-			gsap.to(itemRefs.value[index], {
-				x,
+		if (itemRefs[index]) {
+			gsap.to(itemRefs[index], {
+				x: x + offsetX,
 				z,
 				scale,
 				rotationY: 0, // Always face front
+				opacity,
 				duration: isDragging.value ? 0.1 : 0.5,
 				ease: 'power2.out',
 				zIndex,
 			});
 		}
-	});
+	}
 };
 
 // Map a value from one range to another
@@ -142,8 +155,8 @@ const endDrag = () => {
 	const snapAngle = Math.round(normalizedRotation / rotationStep) * rotationStep;
 
 	// Calculate new active index
-	const newIndex = (activeIndex.value - Math.round((snapAngle - normalizedRotation) / rotationStep)) % items.length;
-	activeIndex.value = (newIndex + items.length) % items.length; // Ensure positive index
+	const newIndex = (activeIndex.value - Math.round((snapAngle - normalizedRotation) / rotationStep)) % 3;
+	activeIndex.value = (newIndex + 3) % 3; // Ensure positive index
 
 	// Snap to the nearest item position
 	rotationAmount.value = snapAngle;
