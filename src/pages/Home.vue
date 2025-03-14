@@ -1,21 +1,23 @@
 <template>
 	<div class="relative w-full h-screen overflow-hidden">
 		<div class="relative flex flex-col justify-center w-full h-full px-28 py-8">
-			<img
-				src="/src/assets/images/textured-background.png"
-				alt="Textured Background"
-				class="absolute top-0 left-0 w-full h-full -z-10"
-			/>
-			<img
-				src="/src/assets/images/exblifep-logo.svg"
-				alt="Exblifep Logo"
-				class="absolute top-40 left-[100px] h-[179px] -z-10 opacity-5"
-			/>
-			<img
-				src="/src/assets/images/hallway-bed.png"
-				alt="Hallway Bed"
-				class="absolute -right-40 bottom-0 w-[1089px] -z-10 opacity-10"
-			/>
+			<div ref="exblifepBackground">
+				<img
+					src="/src/assets/images/textured-background.png"
+					alt="Textured Background"
+					class="absolute top-0 left-0 w-full h-full -z-10"
+				/>
+				<img
+					src="/src/assets/images/exblifep-logo.svg"
+					alt="Exblifep Logo"
+					class="absolute top-[150px] left-[100px] h-[179px] -z-10 opacity-5"
+				/>
+				<img
+					src="/src/assets/images/hallway-bed.png"
+					alt="Hallway Bed"
+					class="absolute -right-36 bottom-0 h-[874px] -z-10 opacity-10"
+				/>
+			</div>
 			<div class="relative flex flex-1 items-center w-fit">
 				<!-- Carousel -->
 				<div class="relative justify-center flex w-[1070px] h-[702px]">
@@ -207,6 +209,8 @@ const eraserContainer = ref(null);
 const carouselItem1 = ref(null);
 const carouselItem2 = ref(null);
 const carouselItem3 = ref(null);
+
+const exblifepBackground = ref(null);
 
 const activeCarouselItem = ref(1);
 
