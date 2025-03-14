@@ -1,14 +1,19 @@
 <template>
 	<div class="relative w-full h-screen overflow-hidden">
-		<div class="relative flex flex-col justify-center w-full h-full px-20 py-4">
+		<div class="relative flex flex-col justify-center w-full h-full px-28 py-5">
 			<img
 				src="/src/assets/images/textured-background.png"
 				alt="Textured Background"
 				class="absolute top-0 left-0 w-full h-full -z-10"
 			/>
+			<img
+				src="/src/assets/images/exblifep-logo.svg"
+				alt="Exblifep Logo"
+				class="absolute top-40 left-[100px] h-[179px] -z-10 opacity-5"
+			/>
 			<div class="relative flex flex-1 items-center w-fit">
 				<!-- Carousel -->
-				<div class="relative justify-center flex w-[1130px] h-[702px]">
+				<div class="relative justify-center flex w-[1070px] h-[702px]">
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
@@ -119,21 +124,24 @@
 				alt="Home Advanz Logo"
 				class="w-[392px] absolute bottom-0 right-0"
 			/>
-			<footer class="grid grid-cols-[1fr_0.4fr] items-center gap-x-4 max-w-[1470px]">
+			<footer class="grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]">
 				<div>
 					<the-footer
 						>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL
 						in urine.<sup>1</sup><br />
-						EXBLIFEP® is indicated for the treatment of the following infections in adults: Complicated urinary tract infections (cUTI), including
-						pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
+						EXBLIFEP<sup>®</sup> is indicated for the treatment of the following infections in adults: Complicated urinary tract infections (cUTI),
+						including pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
 						Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the infections
-						listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.5</the-footer
+						listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.<sup>5</sup></the-footer
 					>
 					<the-footer class="mt-1"
-						>1. Kaye KS et al. JAMA 2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother 2013;45(3):283-291. 3. Kadry N et al. Clin
-						Infect Dis 2023;76(10):1768-1775. 4. Albin OR et al. Clin Infect Dis 2020;71(12):3033-3041.<br />
-						5. EXBLIFEP® Summary of Product Characteristics (March 2024). Available at:
-						https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</the-footer
+						>1. Kaye KS <span class="italic">et al. JAMA</span>2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother 2013;45(3):283-291.
+						3. Kadry N <span class="italic">et al. Clin Infect Dis</span>2023;76(10):1768-1775. 4. Albin OR
+						<span class="italic">et al. Clin Infect Dis</span>2020;71(12):3033-3041.<br />
+						5. EXBLIFEP<sup>®</sup> Summary of Product Characteristics (March 2024). Available at:
+						<span class="underline"
+							>https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</span
+						></the-footer
 					>
 				</div>
 				<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey max-w-fit">
@@ -249,14 +257,16 @@ onMounted(() => {
 		zIndex: 20,
 	});
 	gsap.set(carouselItem2.value, {
-		scale: 1,
+		scale: 0.9,
 		translateX: '50%',
+		translateY: 40,
 		pointerEvents: 'none',
 		zIndex: 10,
 	});
 	gsap.set(carouselItem3.value, {
-		scale: 1,
+		scale: 0.9,
 		translateX: '-50%',
+		translateY: 40,
 		pointerEvents: 'none',
 		zIndex: 10,
 	});
@@ -311,9 +321,9 @@ const startEraserAnimation = () => {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		left: { translateX: '-50%', scale: 0.9, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
 		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', pointerEvents: 'auto', duration: 0.2 },
-		right: { translateX: '50%', scale: 1, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		right: { translateX: '50%', scale: 0.9, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
 	}[position];
 	gsap.to(item, config);
 };
