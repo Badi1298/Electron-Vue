@@ -20,12 +20,39 @@
 						class="absolute -right-36 bottom-0 h-[874px] -z-10 opacity-10"
 					/>
 				</div>
-				<div ref="zevteraBackground">
+				<div ref="zevteraDetails">
 					<img
 						src="/src/assets/images/home-zevtera-bg.png"
 						alt="Zevtera Background"
 						class="absolute top-0 left-0 w-full h-full -z-10"
 					/>
+					<img
+						src="/src/assets/images/mabelio-bullet.png"
+						alt="Mabelio Bullet"
+						class="absolute top-[20%] right-0 w-[1325px] -z-10 opacity-15"
+					/>
+					<div class="absolute top-[40%] right-10 font-effra">
+						<img
+							src="/src/assets/images/exblifep-logo.svg"
+							alt="Exblifep Logo"
+							class="w-[307px]"
+						/>
+						<p class="mt-6 text-2xl text-cool-grey">
+							EXBLIFEP<sup>®</sup> is where microbiological<br />
+							eradication* meets efficacy<sup>1</sup>
+						</p>
+						<button
+							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+							@click="router.push('/exblifep')"
+						>
+							<span>Get started</span>
+							<img
+								src="/src/assets/images/chevron-right-white.png"
+								alt="Chevron Right"
+								class="w-[50px]"
+							/>
+						</button>
+					</div>
 				</div>
 				<div ref="xydBackground">
 					<img
@@ -160,32 +187,33 @@
 							/>
 						</button>
 					</div>
-					<div
-						ref="exblifepContent"
-						class="pl-36 pt-36 font-effra"
-					>
-						<img
-							src="/src/assets/images/exblifep-logo.svg"
-							alt="Exblifep Logo"
-							class="w-[307px]"
-						/>
-						<p class="mt-6 text-2xl text-cool-grey">
-							EXBLIFEP<sup>®</sup> is where microbiological<br />
-							eradication* meets efficacy<sup>1</sup>
-						</p>
-						<button
-							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
-							@click="router.push('/exblifep')"
-						>
-							<span>Get started</span>
-							<img
-								src="/src/assets/images/chevron-right-white.png"
-								alt="Chevron Right"
-								class="w-[50px]"
-							/>
-						</button>
-					</div>
 				</div>
+				<div
+					ref="exblifepContent"
+					class="absolute right-60 top-[38%] font-effra"
+				>
+					<img
+						src="/src/assets/images/exblifep-logo.svg"
+						alt="Exblifep Logo"
+						class="w-[307px]"
+					/>
+					<p class="mt-6 text-2xl text-cool-grey">
+						EXBLIFEP<sup>®</sup> is where microbiological<br />
+						eradication* meets efficacy<sup>1</sup>
+					</p>
+					<button
+						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+						@click="router.push('/exblifep')"
+					>
+						<span>Get started</span>
+						<img
+							src="/src/assets/images/chevron-right-white.png"
+							alt="Chevron Right"
+							class="w-[50px]"
+						/>
+					</button>
+				</div>
+
 				<div class="flex flex-col gap-y-2.5 absolute bottom-0 right-0 items-end">
 					<div
 						class="flex gap-x-6 items-center bg-white rounded-l-[20px] border-2 border-[#195C68] border-r-0 px-2.5 py-[3px] cursor-pointer"
@@ -313,28 +341,28 @@ const exblifepContent = ref(null);
 const exblifepBackground = ref(null);
 
 const xydBackground = ref(null);
-const zevteraBackground = ref(null);
+const zevteraDetails = ref(null);
 
 const backgroundConfigs = {
 	0: {
 		exblifepBackground: 1,
 		exblifepContent: 1,
 		exblifepFooter: 1,
-		zevteraBackground: 0,
+		zevteraDetails: 0,
 		xydBackground: 0,
 	},
 	1: {
 		exblifepBackground: 0,
 		exblifepContent: 0,
 		exblifepFooter: 0,
-		zevteraBackground: 1,
+		zevteraDetails: 1,
 		xydBackground: 0,
 	},
 	2: {
 		exblifepBackground: 0,
 		exblifepContent: 0,
 		exblifepFooter: 0,
-		zevteraBackground: 0,
+		zevteraDetails: 0,
 		xydBackground: 1,
 	},
 };
@@ -368,7 +396,7 @@ onMounted(() => {
 	// Add resize handler
 	window.addEventListener('resize', positionItems);
 
-	gsap.set([zevteraBackground.value, xydBackground.value], {
+	gsap.set([zevteraDetails.value, xydBackground.value], {
 		opacity: 0,
 	});
 });
@@ -509,11 +537,11 @@ const endDrag = () => {
 };
 
 const goToTheLeft = () => {
-	goToSlide((activeIndex.value - 1 + 3) % 3);
+	goToSlide((activeIndex.value + 1) % 3);
 };
 
 const goToTheRight = () => {
-	goToSlide((activeIndex.value + 1) % 3);
+	goToSlide((activeIndex.value - 1 + 3) % 3);
 };
 
 // Go to a specific slide
@@ -530,7 +558,7 @@ const animateBackground = (config) => {
 			exblifepBackground,
 			exblifepContent,
 			exblifepFooter,
-			zevteraBackground,
+			zevteraDetails,
 			xydBackground,
 		}[key];
 
