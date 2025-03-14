@@ -80,6 +80,14 @@
 								alt="Xyd Background"
 								class="h-[702px] w-auto"
 							/>
+							<p class="absolute bottom-28 left-1/2 -translate-x-1/2 text-white text-[48px] leading-[54px] font-bold w-[466px] text-center">
+								One dose does it.
+							</p>
+							<img
+								src="/src/assets/images/xyd-logo-white.png"
+								alt="Xyd Logo"
+								class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[250px]"
+							/>
 						</div>
 					</div>
 				</div>
