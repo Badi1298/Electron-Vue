@@ -131,7 +131,10 @@
 				alt="Home Advanz Logo"
 				class="w-[392px] absolute bottom-0 right-0"
 			/>
-			<footer class="grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]">
+			<footer
+				ref="exblifepFooter"
+				class="grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]"
+			>
 				<div>
 					<the-footer
 						>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL
@@ -210,6 +213,7 @@ const carouselItem1 = ref(null);
 const carouselItem2 = ref(null);
 const carouselItem3 = ref(null);
 
+const exblifepFooter = ref(null);
 const exblifepBackground = ref(null);
 
 const activeCarouselItem = ref(1);
@@ -367,6 +371,26 @@ const animateCarousel = () => {
 	const config = positionConfigs[currentActive];
 	config.forEach(({ item, position }) => animateToPosition(item.value, position));
 	activeCarouselItem.value = nextActive[currentActive];
+
+	if (activeCarouselItem.value === 1) {
+		gsap.to(exblifepBackground.value, {
+			opacity: 1,
+			duration: 0.5,
+		});
+		gsap.to(exblifepFooter.value, {
+			opacity: 1,
+			duration: 0.5,
+		});
+	} else {
+		gsap.to(exblifepBackground.value, {
+			opacity: 0,
+			duration: 0.5,
+		});
+		gsap.to(exblifepFooter.value, {
+			opacity: 0,
+			duration: 0.5,
+		});
+	}
 };
 
 const moveRight = () => {
