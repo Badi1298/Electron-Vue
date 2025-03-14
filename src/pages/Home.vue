@@ -255,6 +255,27 @@ const positionConfigs = {
 	],
 };
 
+const backgroundConfigs = {
+	1: {
+		exblifepBackground: 1,
+		exblifepFooter: 1,
+		zevteraBackground: 0,
+		xydBackground: 0,
+	},
+	2: {
+		exblifepBackground: 0,
+		exblifepFooter: 0,
+		zevteraBackground: 1,
+		xydBackground: 0,
+	},
+	3: {
+		exblifepBackground: 0,
+		exblifepFooter: 0,
+		zevteraBackground: 0,
+		xydBackground: 1,
+	},
+};
+
 // Map current active value to the next active value
 const nextActive = {
 	1: 3,
@@ -392,51 +413,23 @@ const animateCarousel = () => {
 	const config = positionConfigs[currentActive];
 	config.forEach(({ item, position }) => animateToPosition(item.value, position));
 	activeCarouselItem.value = nextActive[currentActive];
+	const backgroundConfig = backgroundConfigs[activeCarouselItem.value];
+	animateBackground(backgroundConfig);
+};
 
-	if (activeCarouselItem.value === 1) {
-		gsap.to(exblifepBackground.value, {
-			opacity: 1,
-			duration: 0.5,
+const animateBackground = (config) => {
+	Object.entries(config).forEach(([key, opacity]) => {
+		const element = {
+			exblifepBackground,
+			exblifepFooter,
+			zevteraBackground,
+			xydBackground,
+		}[key];
+
+		gsap.to(element.value, {
+			opacity,
 		});
-		gsap.to(exblifepFooter.value, {
-			opacity: 1,
-			duration: 0.5,
-		});
-		gsap.to(zevteraBackground.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(xydBackground.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-	} else if (activeCarouselItem.value === 2) {
-		gsap.to(zevteraBackground.value, {
-			opacity: 1,
-			duration: 0.5,
-		});
-		gsap.to(exblifepBackground.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(xydBackground.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-	} else {
-		gsap.to(xydBackground.value, {
-			opacity: 1,
-			duration: 0.5,
-		});
-		gsap.to(exblifepBackground.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(exblifepFooter.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-	}
+	});
 };
 
 const moveRight = () => {
