@@ -59,6 +59,19 @@
 							/>
 						</button>
 					</div>
+					<footer class="absolute bottom-8 left-28 max-w-[1150px]">
+						<the-footer
+							>Zevtera<sup>®</sup> is indicated for the treatment of the following infections in adults, term neonates, infants, children and
+							adolescents: Hospital-acquired pneumonia (HAP),<br />
+							excluding ventilator-associated pneumonia (VAP); Community-acquired pneumonia (CAP). Consideration should be given to official
+							guidance on the appropriate use of antibacterial agents.<sup>4</sup><br />
+							1. Awad SS <span class="italic">et al. Clin Infect Dis</span>2014;59(1):51-61. 2. Crapis M
+							<span class="italic">et al. J Chemother</span>2020:Sep EO. 3. Giacobbe D
+							<span class="italic">et al. Expert Rev Anti-infect Ther</span>2019;17(9):689-698.<br />
+							4. ZEVTERA® Summary of Product Characteristics (March 2024). Available at:
+							<span class="underline">https://www.medicines.org.uk/emc/product/9164/smpc.</span></the-footer
+						>
+					</footer>
 				</div>
 				<div ref="xydBackground">
 					<img
