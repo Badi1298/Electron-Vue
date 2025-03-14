@@ -153,7 +153,10 @@
 						EXBLIFEP<sup>®</sup> is where microbiological<br />
 						eradication* meets efficacy<sup>1</sup>
 					</p>
-					<button class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl">
+					<button
+						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+						@click="router.push('/exblifep')"
+					>
 						<span>Get started</span>
 						<img
 							src="/src/assets/images/chevron-right-white.png"
@@ -163,11 +166,32 @@
 					</button>
 				</div>
 			</div>
-			<img
-				src="/src/assets/images/home-advanz-logo.png"
-				alt="Home Advanz Logo"
-				class="w-[392px] absolute bottom-0 right-0"
-			/>
+			<div class="flex flex-col gap-y-2.5 absolute bottom-0 right-0 items-end">
+				<div
+					class="flex gap-x-6 items-center bg-white rounded-l-[20px] border-2 border-[#195C68] border-r-0 px-2.5 py-[3px] cursor-pointer"
+					@click="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
+				>
+					<img
+						src="/src/assets/images/prescribing-information-turqoise.png"
+						alt="Prescribing Information"
+						class="w-10 h-10"
+					/>
+					<span class="text-xl leading-tight text-[#195C68]"
+						>Prescribing<br />
+						information</span
+					>
+					<img
+						src="/src/assets/images/chevron-right-turqoise-bg.png"
+						alt="Prescribing Information"
+						class="w-10 h-10 mr-10 ml-1"
+					/>
+				</div>
+				<img
+					src="/src/assets/images/home-advanz-logo.png"
+					alt="Home Advanz Logo"
+					class="w-[392px]"
+				/>
+			</div>
 			<footer
 				ref="exblifepFooter"
 				class="grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]"
