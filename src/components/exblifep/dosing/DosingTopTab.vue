@@ -313,27 +313,27 @@ watch(
 
 watch(tabs.value, (newValue) => {
 	if (newValue[0].active) {
-		gsap.to(fullDosingButton.value, { opacity: 1, display: 'block' });
-		gsap.to(emptyDosingButton.value, { opacity: 0, display: 'none' });
+		gsap.to(fullDosingButton.value, { opacity: 1, display: 'block', duration: 0.3 });
+		gsap.to(emptyDosingButton.value, { opacity: 0, display: 'none', duration: 0.3 });
 	} else {
-		gsap.to(fullDosingButton.value, { opacity: 0, display: 'none' });
-		gsap.to(emptyDosingButton.value, { opacity: 1, display: 'block' });
+		gsap.to(fullDosingButton.value, { opacity: 0, display: 'none', duration: 0.3 });
+		gsap.to(emptyDosingButton.value, { opacity: 1, display: 'block', duration: 0.3 });
 	}
 
 	if (newValue[1].active) {
-		gsap.to(fullAdministrationButton.value, { opacity: 1, display: 'block' });
-		gsap.to(emptyAdministrationButton.value, { opacity: 0, display: 'none' });
+		gsap.to(fullAdministrationButton.value, { opacity: 1, display: 'block', duration: 0.3 });
+		gsap.to(emptyAdministrationButton.value, { opacity: 0, display: 'none', duration: 0.3 });
 	} else {
-		gsap.to(fullAdministrationButton.value, { opacity: 0, display: 'none' });
-		gsap.to(emptyAdministrationButton.value, { opacity: 1, display: 'block' });
+		gsap.to(fullAdministrationButton.value, { opacity: 0, display: 'none', duration: 0.3 });
+		gsap.to(emptyAdministrationButton.value, { opacity: 1, display: 'block', duration: 0.3 });
 	}
 
 	if (newValue[2].active) {
-		gsap.to(fullStorageButton.value, { opacity: 1, display: 'block' });
-		gsap.to(emptyStorageButton.value, { opacity: 0, display: 'none' });
+		gsap.to(fullStorageButton.value, { opacity: 1, display: 'block', duration: 0.3 });
+		gsap.to(emptyStorageButton.value, { opacity: 0, display: 'none', duration: 0.3 });
 	} else {
-		gsap.to(fullStorageButton.value, { opacity: 0, display: 'none' });
-		gsap.to(emptyStorageButton.value, { opacity: 1, display: 'block' });
+		gsap.to(fullStorageButton.value, { opacity: 0, display: 'none', duration: 0.3 });
+		gsap.to(emptyStorageButton.value, { opacity: 1, display: 'block', duration: 0.3 });
 	}
 });
 
@@ -355,13 +355,13 @@ const activateTab = async (newTab) => {
 
 	tl.to(`.${previousTab.class}-content`, {
 		opacity: 0,
-		duration: 0.2,
+		duration: 0.4,
 	})
 		.to(`.${previousTab.class}`, {
 			opacity: 0,
 			width: 0,
 			border: 0,
-			duration: 0.4,
+			duration: 0.6,
 		})
 		.to(
 			`.${nextTab.class}`,
@@ -371,13 +371,13 @@ const activateTab = async (newTab) => {
 				borderRight: '1px solid #1F17F6',
 				borderTop: '1px solid #1F17F6',
 				borderBottom: '1px solid #1F17F6',
-				duration: 0.4,
+				duration: 0.6,
 			},
-			'-=0.2'
+			'-=0.3'
 		)
 		.to(`.${nextTab.class}-content`, {
 			opacity: 1,
-			duration: 0.2,
+			duration: 0.3,
 			onComplete: () => {
 				activeTab.value = newTab.id;
 				nextTab.active = true;
