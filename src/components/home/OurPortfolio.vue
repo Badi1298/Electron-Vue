@@ -1,0 +1,19 @@
+<template>
+	<RouterLink
+		:to="{ name: 'home', query: { navigatedAwayBy: 'explore-another-button' } }"
+		class="absolute left-0 top-16"
+	>
+		<button class="flex items-center shadow-explore rounded-r-[20px]">
+			<div class="w-28 bg-white px-4 flex justify-end -mr-3 shadow-explore rounded-r-[20px] py-2.5 relative z-20 min-w-[118px]">
+				<img
+					src="/src/assets/images/chevron-left-green.png"
+					alt="Chevron Left Green"
+					class="w-[50px] h-[50px]"
+				/>
+			</div>
+			<div class="flex items-center pr-[18px] pl-7 rounded-r-[20px] bg-[#195C68] h-[70px] relative z-10 text-white text-base shadow-explore">
+				Our portfolio
+			</div>
+		</button>
+	</RouterLink>
+</template>
