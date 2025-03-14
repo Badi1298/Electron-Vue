@@ -196,7 +196,7 @@
 		<!-- Eraser element using an image - moved outside overlay to prevent scaling issues -->
 		<div
 			ref="eraserContainer"
-			class="absolute top-0 left-0 h-screen pointer-events-none z-30"
+			class="absolute top-0 left-0 h-screen pointer-events-none z-50"
 		>
 			<img
 				ref="eraser"
@@ -265,20 +265,20 @@ const nextActive = {
 onMounted(() => {
 	// Initialize the overlay screen
 	gsap.set(overlayScreen.value, {
-		clipPath: 'inset(0 0 0 100%)', // Initially visible
+		clipPath: 'inset(0 0 0 0%)', // Initially visible
 		position: 'absolute',
 		top: 0,
 		left: 0,
+		zIndex: 40,
 		width: '100%',
 		height: '100%',
 	});
 
-	// Pre-initialize the eraser container to ensure consistent height
 	gsap.set(eraserContainer.value, {
-		height: '100vh', // Use viewport height explicitly
+		height: '100vh',
 		position: 'absolute',
 		top: 0,
-		left: '100%', // Off-screen initially
+		left: 0,
 	});
 
 	gsap.set(carouselItem1.value, {
@@ -313,7 +313,6 @@ const startEraserAnimation = () => {
 		left: 0,
 		height: '100vh',
 		position: 'absolute',
-		zIndex: 30,
 	});
 
 	// Ensure eraser image maintains full height
