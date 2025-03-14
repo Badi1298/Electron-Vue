@@ -1,5 +1,5 @@
 <template>
-	<div class="relative w-full h-96 flex items-center justify-center bg-black overflow-hidden">
+	<div class="relative w-[1070px] h-[702px] flex justify-center">
 		<div
 			ref="carouselRef"
 			class="carousel relative w-full h-full"
@@ -14,26 +14,87 @@
 			<!-- Explicit declaration of each carousel item -->
 			<div
 				ref="item0Ref"
-				class="carousel-item absolute top-1/2 left-1/2 w-64 h-48 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+				class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 				:class="{ 'shadow-xl': activeIndex === 0 }"
 			>
-				<div class="w-full h-full flex items-center justify-center text-xl font-bold bg-primary-purple text-white">Slide 1</div>
+				<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
+					<img
+						src="/src/assets/images/exblifep-logo.svg"
+						alt="Exblifep Life"
+						class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
+					/>
+					<img
+						src="/src/assets/images/lime-green-border.png"
+						alt="Lime Green"
+						class="absolute bottom-[24rem] left-40 w-full h-1"
+					/>
+					<img
+						src="/src/assets/images/hallway-bed.png"
+						alt="Hallway Bed"
+						class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
+					/>
+					<img
+						src="/src/assets/images/resistance-and-recurrence.png"
+						alt="Resistance and Recurrence"
+						class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[370px] z-20"
+					/>
+				</div>
 			</div>
 
 			<div
 				ref="item1Ref"
-				class="carousel-item absolute top-1/2 left-1/2 w-64 h-48 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+				class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 				:class="{ 'shadow-xl': activeIndex === 1 }"
 			>
-				<div class="w-full h-full flex items-center justify-center text-xl font-bold bg-primary-green text-black">Slide 2</div>
+				<div class="relative w-full h-full bg-gradient-to-b from-white via-white via-70% to-primary-light-orange overflow-hidden pointer-events-none">
+					<img
+						src="/src/assets/images/home-zevtera-doctor-bg.png"
+						alt="Xyd Background"
+						class="h-[702px] w-auto"
+					/>
+					<img
+						src="/src/assets/images/home-mabelio-bullet.png"
+						alt="Bullet"
+						class="absolute bottom-56 left-14 z-10 w-[434px]"
+					/>
+					<img
+						src="/src/assets/images/strike-fast.png"
+						alt="Strike Fast"
+						class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
+					/>
+					<img
+						src="/src/assets/images/zevtera-mabelio-logo.png"
+						alt="Zevtera Mabelio Logo"
+						class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
+					/>
+					<img
+						src="/src/assets/images/home-zevtera-bullet-trail.png"
+						alt="Bullet Trail"
+						class="absolute bottom-0 left-0 w-full"
+					/>
+				</div>
 			</div>
 
 			<div
 				ref="item2Ref"
-				class="carousel-item absolute top-1/2 left-1/2 w-64 h-48 rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+				class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 				:class="{ 'shadow-xl': activeIndex === 2 }"
 			>
-				<div class="w-full h-full flex items-center justify-center text-xl font-bold bg-primary-purple text-white">Slide 3</div>
+				<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
+					<img
+						src="/src/assets/images/home-xyd-background.png"
+						alt="Xyd Background"
+						class="h-[702px] w-auto"
+					/>
+					<p class="absolute bottom-28 left-1/2 -translate-x-1/2 text-white text-[48px] leading-[54px] font-bold w-[466px] text-center">
+						One dose does it.
+					</p>
+					<img
+						src="/src/assets/images/xyd-logo-white.png"
+						alt="Xyd Logo"
+						class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[250px]"
+					/>
+				</div>
 			</div>
 		</div>
 
@@ -41,17 +102,17 @@
 			<button
 				@click="goToSlide(0)"
 				class="w-3 h-3 rounded-full"
-				:class="activeIndex === 0 ? 'bg-primary-purple' : 'bg-gray-400'"
+				:class="activeIndex === 0 ? 'bg-primary-purple' : 'bg-cool-grey'"
 			></button>
 			<button
 				@click="goToSlide(1)"
 				class="w-3 h-3 rounded-full"
-				:class="activeIndex === 1 ? 'bg-primary-purple' : 'bg-gray-400'"
+				:class="activeIndex === 1 ? 'bg-primary-purple' : 'bg-cool-grey'"
 			></button>
 			<button
 				@click="goToSlide(2)"
 				class="w-3 h-3 rounded-full"
-				:class="activeIndex === 2 ? 'bg-primary-purple' : 'bg-gray-400'"
+				:class="activeIndex === 2 ? 'bg-primary-purple' : 'bg-cool-grey'"
 			></button>
 		</div>
 	</div>
@@ -59,7 +120,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 // Individual item refs
 const item0Ref = ref(null);
@@ -89,16 +150,16 @@ const positionItems = () => {
 		const x = Math.sin(radian) * radius;
 
 		// Adjust z position to keep items partially visible
-		const z = Math.cos(radian) * radius * 0.6;
+		const z = Math.cos(radian) * radius * 0.4;
 
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius * 0.6, radius * 0.6, 0.85, 1.15);
+		const scale = mapRange(z, -radius * 0.6, radius * 0.6, 0.85, 0.9);
 
 		// Calculate opacity - slightly reduce opacity for back items
 		const opacity = mapRange(z, -radius * 0.6, radius * 0.6, 0.8, 1);
 
 		// Calculate offset to create overlapping effect
-		const offsetX = Math.sin(radian) * 40;
+		const offsetX = Math.sin(radian) * 60;
 
 		// Calculate z-index (items in front have higher z-index)
 		const zIndex = Math.round(mapRange(z, -radius * 0.6, radius * 0.6, 1, 10));
@@ -199,5 +260,6 @@ onBeforeUnmount(() => {
 	transform-style: preserve-3d;
 	backface-visibility: hidden;
 	transform: translate(-50%, -50%);
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 </style>
