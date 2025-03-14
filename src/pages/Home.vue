@@ -1,10 +1,7 @@
 <template>
 	<div class="relative w-full h-screen overflow-hidden">
-		<!-- Background screen (will be revealed) -->
-		<div class="flex flex-col items-center justify-center w-full h-full bg-white p-8">
-			<!-- Your original div with the clipping -->
-
-			<div class="relative flex items-center justify-center">
+		<div class="flex flex-col justify-center w-full h-full bg-white p-8">
+			<div class="relative flex flex-1 items-center w-fit">
 				<!-- Carousel -->
 				<div class="relative justify-center flex w-[1200px] h-[702px]">
 					<!-- Carousel Items -->
@@ -90,29 +87,31 @@
 							/>
 						</div>
 					</div>
+					<button
+						@click="moveLeft"
+						class="text-xl p-2 rounded-full transition absolute -bottom-16 left-24 z-0"
+					>
+						<img
+							src="/src/assets/images/home-arrow-left-green.png"
+							alt="Arrow Left"
+							class="w-[85px]"
+						/>
+					</button>
+					<button
+						@click="moveRight"
+						class="text-xl p-2 rounded-full hover:bg-gray-400 transition absolute -bottom-16 right-24 z-0"
+					>
+						<img
+							src="/src/assets/images/home-arrow-right-green.png"
+							alt="Arrow Right"
+							class="w-[85px]"
+						/>
+					</button>
 				</div>
-
-				<button
-					@click="moveLeft"
-					class="text-xl p-2 rounded-full transition absolute -bottom-16 left-24"
-				>
-					<img
-						src="/src/assets/images/home-arrow-left-green.png"
-						alt="Arrow Left"
-						class="w-[85px]"
-					/>
-				</button>
-				<button
-					@click="moveRight"
-					class="text-xl p-2 rounded-full hover:bg-gray-400 transition absolute -bottom-16 right-24"
-				>
-					<img
-						src="/src/assets/images/home-arrow-right-green.png"
-						alt="Arrow Right"
-						class="w-[85px]"
-					/>
-				</button>
 			</div>
+			<footer>
+				<p>dasdasdasds</p>
+			</footer>
 		</div>
 
 		<!-- Overlay screen with Get Started button -->
@@ -221,11 +220,13 @@ onMounted(() => {
 		scale: 1,
 		translateX: '50%',
 		pointerEvents: 'none',
+		zIndex: 10,
 	});
 	gsap.set(carouselItem3.value, {
 		scale: 1,
 		translateX: '-50%',
 		pointerEvents: 'none',
+		zIndex: 10,
 	});
 });
 
@@ -278,9 +279,9 @@ const startEraserAnimation = () => {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', scale: 1, zIndex: 0, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		left: { translateX: '-50%', scale: 1, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
 		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', pointerEvents: 'auto', duration: 0.2 },
-		right: { translateX: '50%', scale: 1, zIndex: 0, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		right: { translateX: '50%', scale: 1, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
 	}[position];
 	gsap.to(item, config);
 };
