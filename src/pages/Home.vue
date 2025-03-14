@@ -140,6 +140,28 @@
 						/>
 					</button>
 				</div>
+				<div
+					ref="exblifepContent"
+					class="pl-36 pt-36 font-effra"
+				>
+					<img
+						src="/src/assets/images/exblifep-logo.svg"
+						alt="Exblifep Logo"
+						class="w-[307px]"
+					/>
+					<p class="mt-6 text-2xl text-cool-grey">
+						EXBLIFEP<sup>®</sup> is where microbiological<br />
+						eradication* meets efficacy<sup>1</sup>
+					</p>
+					<button class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl">
+						<span>Get started</span>
+						<img
+							src="/src/assets/images/chevron-right-white.png"
+							alt="Chevron Right"
+							class="w-[50px]"
+						/>
+					</button>
+				</div>
 			</div>
 			<img
 				src="/src/assets/images/home-advanz-logo.png"
@@ -230,6 +252,7 @@ const carouselItem2 = ref(null);
 const carouselItem3 = ref(null);
 
 const exblifepFooter = ref(null);
+const exblifepContent = ref(null);
 const exblifepBackground = ref(null);
 
 const xydBackground = ref(null);
@@ -260,18 +283,21 @@ const positionConfigs = {
 const backgroundConfigs = {
 	1: {
 		exblifepBackground: 1,
+		exblifepContent: 1,
 		exblifepFooter: 1,
 		zevteraBackground: 0,
 		xydBackground: 0,
 	},
 	2: {
 		exblifepBackground: 0,
+		exblifepContent: 0,
 		exblifepFooter: 0,
 		zevteraBackground: 1,
 		xydBackground: 0,
 	},
 	3: {
 		exblifepBackground: 0,
+		exblifepContent: 0,
 		exblifepFooter: 0,
 		zevteraBackground: 0,
 		xydBackground: 1,
@@ -423,6 +449,7 @@ const animateBackground = (config) => {
 	Object.entries(config).forEach(([key, opacity]) => {
 		const element = {
 			exblifepBackground,
+			exblifepContent,
 			exblifepFooter,
 			zevteraBackground,
 			xydBackground,
