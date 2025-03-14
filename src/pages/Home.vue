@@ -498,18 +498,12 @@ const endDrag = () => {
 
 	isDragging.value = false;
 
-	// Calculate the closest item to the front
 	const normalizedRotation = rotationAmount.value % 360;
-	const snapAngle = Math.round(normalizedRotation / rotationStep) * rotationStep;
-
-	// Calculate new active index
-	const newIndex = (activeIndex.value - Math.round((snapAngle - normalizedRotation) / rotationStep)) % 3;
+	const steps = Math.round(normalizedRotation / rotationStep);
+	const newIndex = (activeIndex.value - steps) % 3;
 	activeIndex.value = (newIndex + 3) % 3; // Ensure positive index
+	rotationAmount.value = 0;
 
-	// Snap to the nearest item position
-	rotationAmount.value = snapAngle;
-
-	// Update positions
 	positionItems();
 	animateBackground(backgroundConfigs[activeIndex.value]);
 };
