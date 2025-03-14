@@ -297,7 +297,7 @@ const positionItems = () => {
 		const z = Math.cos(radian) * radius * 0.2;
 
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius * 0.6, radius * 0.9, 0.7, 1.4);
+		const scale = mapRange(z, -radius * 0.2, radius * 0.2, 0.9, 1.2);
 
 		// Calculate offset to create overlapping effect
 		const offsetX = Math.sin(radian) * 180;
