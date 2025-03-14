@@ -39,7 +39,7 @@
 					<div class="relative w-[1070px] h-[702px] flex justify-center">
 						<div
 							ref="carouselRef"
-							class="carousel relative w-full h-full"
+							class="carousel relative w-full h-full select-none"
 							@mousedown="startDrag"
 							@touchstart="startDrag"
 							@mouseup="endDrag"
@@ -294,16 +294,13 @@ const positionItems = () => {
 		const x = Math.sin(radian) * radius;
 
 		// Adjust z position to keep items partially visible
-		const z = Math.cos(radian) * radius * 0.4;
+		const z = Math.cos(radian) * radius * 0.2;
 
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius * 0.6, radius * 0.6, 0.85, 0.9);
-
-		// Calculate opacity - slightly reduce opacity for back items
-		const opacity = mapRange(z, -radius * 0.6, radius * 0.6, 0.8, 1);
+		const scale = mapRange(z, -radius * 0.6, radius * 0.7, 0.85, 1.4);
 
 		// Calculate offset to create overlapping effect
-		const offsetX = Math.sin(radian) * 60;
+		const offsetX = Math.sin(radian) * 180;
 
 		// Calculate z-index (items in front have higher z-index)
 		const zIndex = Math.round(mapRange(z, -radius * 0.6, radius * 0.6, 1, 10));
@@ -314,7 +311,6 @@ const positionItems = () => {
 				z,
 				scale,
 				rotationY: 0, // Always face front
-				opacity,
 				duration: isDragging.value ? 0.1 : 0.5,
 				ease: 'power2.out',
 				zIndex,
