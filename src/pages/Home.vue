@@ -265,7 +265,7 @@ const nextActive = {
 onMounted(() => {
 	// Initialize the overlay screen
 	gsap.set(overlayScreen.value, {
-		clipPath: 'inset(0 0 0 0%)', // Initially visible
+		clipPath: 'inset(0 0 0 100%)', // Initially visible (0% instead of 100% to see the overlay)
 		position: 'absolute',
 		top: 0,
 		left: 0,
@@ -279,6 +279,7 @@ onMounted(() => {
 		position: 'absolute',
 		top: 0,
 		left: 0,
+		display: 'none', // Remove this to see the eraser
 	});
 
 	gsap.set(carouselItem1.value, {
