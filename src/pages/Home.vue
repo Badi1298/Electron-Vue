@@ -29,20 +29,21 @@
 					<img
 						src="/src/assets/images/mabelio-bullet.png"
 						alt="Mabelio Bullet"
-						class="absolute top-[20%] right-0 w-[1325px] -z-10 opacity-15"
+						class="absolute top-[19%] right-0 w-[1325px] -z-10 opacity-10"
 					/>
-					<div class="absolute top-[40%] right-10 font-effra">
+					<div class="absolute top-[38%] right-[182px] font-effra">
 						<img
-							src="/src/assets/images/exblifep-logo.svg"
+							src="/src/assets/images/zevtera-mabelio-logo.png"
 							alt="Exblifep Logo"
-							class="w-[307px]"
+							class="w-[426px]"
 						/>
-						<p class="mt-6 text-2xl text-cool-grey">
-							EXBLIFEP<sup>®</sup> is where microbiological<br />
-							eradication* meets efficacy<sup>1</sup>
+						<p class="mt-7 text-2xl font-uni-grotesk">
+							Allows the reduction of the number of<br />
+							agents<sup>2</sup>, thanks to its expanded spectrum<br />
+							of antimicrobial activity<sup>3</sup>
 						</p>
 						<button
-							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-16 bg-primary-purple text-white text-2xl"
 							@click="router.push('/exblifep')"
 						>
 							<span>Get started</span>
