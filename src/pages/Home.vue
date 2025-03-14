@@ -51,7 +51,7 @@
 							<!-- Explicit declaration of each carousel item -->
 							<div
 								ref="item0Ref"
-								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								class="carousel-item absolute top-[55%] left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 0 }"
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
@@ -80,7 +80,7 @@
 
 							<div
 								ref="item1Ref"
-								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								class="carousel-item absolute top-[55%] left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 1 }"
 							>
 								<div
@@ -116,7 +116,7 @@
 
 							<div
 								ref="item2Ref"
-								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								class="carousel-item absolute top-[55%] left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 2 }"
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
@@ -297,7 +297,7 @@ const positionItems = () => {
 		const z = Math.cos(radian) * radius * 0.2;
 
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius * 0.6, radius * 0.7, 0.85, 1.4);
+		const scale = mapRange(z, -radius * 0.6, radius * 0.9, 0.7, 1.4);
 
 		// Calculate offset to create overlapping effect
 		const offsetX = Math.sin(radian) * 180;
