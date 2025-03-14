@@ -99,7 +99,7 @@
 					</div>
 					<button
 						@click="moveLeft"
-						class="text-xl p-2 rounded-full transition absolute -bottom-16 left-24 z-0"
+						class="text-xl p-2 rounded-full transition absolute -bottom-16 left-10 z-0"
 					>
 						<img
 							src="/src/assets/images/home-arrow-left-green.png"
@@ -109,7 +109,7 @@
 					</button>
 					<button
 						@click="moveRight"
-						class="text-xl p-2 rounded-full hover:bg-gray-400 transition absolute -bottom-16 right-24 z-0"
+						class="text-xl p-2 rounded-full hover:bg-gray-400 transition absolute -bottom-16 right-10 z-0"
 					>
 						<img
 							src="/src/assets/images/home-arrow-right-green.png"
@@ -321,9 +321,33 @@ const startEraserAnimation = () => {
 // Function to animate an item to a specific position
 const animateToPosition = (item, position) => {
 	const config = {
-		left: { translateX: '-50%', scale: 0.9, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
-		center: { translateX: '0%', scale: 1.3, zIndex: 20, ease: 'power4.inOut', pointerEvents: 'auto', duration: 0.2 },
-		right: { translateX: '50%', scale: 0.9, zIndex: 10, ease: 'power4.inOut', pointerEvents: 'none', duration: 0.2 },
+		left: {
+			translateX: '-50%',
+			translateY: 40,
+			scale: 0.9,
+			zIndex: 10,
+			ease: 'power4.inOut',
+			pointerEvents: 'none',
+			duration: 0.2,
+		},
+		center: {
+			translateX: '0%',
+			translateY: 0,
+			scale: 1.3,
+			zIndex: 20,
+			ease: 'power4.inOut',
+			pointerEvents: 'auto',
+			duration: 0.2,
+		},
+		right: {
+			translateX: '50%',
+			translateY: 40,
+			scale: 0.9,
+			zIndex: 10,
+			ease: 'power4.inOut',
+			pointerEvents: 'none',
+			duration: 0.2,
+		},
 	}[position];
 	gsap.to(item, config);
 };
