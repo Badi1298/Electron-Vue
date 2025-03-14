@@ -97,24 +97,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-			<button
-				@click="goToSlide(0)"
-				class="w-3 h-3 rounded-full"
-				:class="activeIndex === 0 ? 'bg-primary-purple' : 'bg-cool-grey'"
-			></button>
-			<button
-				@click="goToSlide(1)"
-				class="w-3 h-3 rounded-full"
-				:class="activeIndex === 1 ? 'bg-primary-purple' : 'bg-cool-grey'"
-			></button>
-			<button
-				@click="goToSlide(2)"
-				class="w-3 h-3 rounded-full"
-				:class="activeIndex === 2 ? 'bg-primary-purple' : 'bg-cool-grey'"
-			></button>
-		</div>
 	</div>
 </template>
 
