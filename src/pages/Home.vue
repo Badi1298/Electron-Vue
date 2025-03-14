@@ -27,6 +27,11 @@
 						class="absolute top-0 left-0 w-full h-full -z-10"
 					/>
 					<img
+						src="/src/assets/images/zevtera-mabelio-logo.png"
+						alt="Zevtera Mabelio Logo"
+						class="w-[1076px] absolute top-[116px] -z-10 opacity-5"
+					/>
+					<img
 						src="/src/assets/images/mabelio-bullet.png"
 						alt="Mabelio Bullet"
 						class="absolute top-[19%] right-0 w-[1325px] -z-10 opacity-10"
@@ -81,6 +86,7 @@
 								ref="item0Ref"
 								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 0 }"
+								@click="router.push('/exblifep')"
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
 									<img
