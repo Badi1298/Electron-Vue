@@ -15,6 +15,16 @@
 					>
 						<div class="relative w-full h-full bg-textured overflow-hidden clip">
 							<img
+								src="/src/assets/images/exblifep-logo.svg"
+								alt="Exblifep Life"
+								class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
+							/>
+							<img
+								src="/src/assets/images/lime-green-border.png"
+								alt="Lime Green"
+								class="absolute bottom-[24rem] left-40 w-full h-1"
+							/>
+							<img
 								src="/src/assets/images/hallway-bed.png"
 								alt="Hallway Bed"
 								class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
