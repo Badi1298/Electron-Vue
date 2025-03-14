@@ -1,16 +1,21 @@
 <template>
 	<div class="relative w-full h-screen overflow-hidden">
-		<div class="flex flex-col justify-center w-full h-full bg-white p-8">
+		<div class="relative flex flex-col justify-center w-full h-full px-20 py-4">
+			<img
+				src="/src/assets/images/textured-background.png"
+				alt="Textured Background"
+				class="absolute top-0 left-0 w-full h-full -z-10"
+			/>
 			<div class="relative flex flex-1 items-center w-fit">
 				<!-- Carousel -->
-				<div class="relative justify-center flex w-[1200px] h-[702px]">
+				<div class="relative justify-center flex w-[1130px] h-[702px]">
 					<!-- Carousel Items -->
 					<div
 						ref="carouselItem1"
 						class="absolute w-[566px] h-[702px] rounded-lg flex items-center justify-center transition-all duration-500 cursor-pointer"
 						@click="router.push('/exblifep')"
 					>
-						<div class="relative w-full h-full bg-textured overflow-hidden clip">
+						<div class="relative w-full h-full bg-textured overflow-hidden bg-white clip">
 							<img
 								src="/src/assets/images/exblifep-logo.svg"
 								alt="Exblifep Life"
@@ -114,7 +119,7 @@
 				alt="Home Advanz Logo"
 				class="w-[392px] absolute bottom-0 right-0"
 			/>
-			<footer class="grid grid-cols-[1fr_0.33fr] items-center gap-x-4 max-w-[1470px]">
+			<footer class="grid grid-cols-[1fr_0.4fr] items-center gap-x-4 max-w-[1470px]">
 				<div>
 					<the-footer
 						>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL
@@ -131,9 +136,10 @@
 						https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</the-footer
 					>
 				</div>
-				<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey">
-					▼ This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare
-					professionals are asked to report any suspected adverse reactions.
+				<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey max-w-fit">
+					▼ This medicinal product is subject to additional monitoring. This will allow<br />
+					quick identification of new safety information. Healthcare professionals<br />
+					are asked to report any suspected adverse reactions.
 				</div>
 			</footer>
 		</div>
