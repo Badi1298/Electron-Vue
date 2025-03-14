@@ -138,6 +138,27 @@
 								</div>
 							</div>
 						</div>
+
+						<button
+							class="absolute -bottom-[70px] left-16"
+							@click="goToTheLeft"
+						>
+							<img
+								src="/src/assets/images/home-arrow-left-green.png"
+								alt="Arrow Left"
+								class="w-[84px]"
+							/>
+						</button>
+						<button
+							class="absolute -bottom-[70px] right-16"
+							@click="goToTheRight"
+						>
+							<img
+								src="/src/assets/images/home-arrow-right-green.png"
+								alt="Arrow Left"
+								class="w-[84px]"
+							/>
+						</button>
 					</div>
 					<div
 						ref="exblifepContent"
@@ -294,37 +315,28 @@ const exblifepBackground = ref(null);
 const xydBackground = ref(null);
 const zevteraBackground = ref(null);
 
-const activeCarouselItem = ref(1);
-
 const backgroundConfigs = {
-	1: {
+	0: {
 		exblifepBackground: 1,
 		exblifepContent: 1,
 		exblifepFooter: 1,
 		zevteraBackground: 0,
 		xydBackground: 0,
 	},
-	2: {
+	1: {
 		exblifepBackground: 0,
 		exblifepContent: 0,
 		exblifepFooter: 0,
 		zevteraBackground: 1,
 		xydBackground: 0,
 	},
-	3: {
+	2: {
 		exblifepBackground: 0,
 		exblifepContent: 0,
 		exblifepFooter: 0,
 		zevteraBackground: 0,
 		xydBackground: 1,
 	},
-};
-
-// Map current active value to the next active value
-const nextActive = {
-	1: 3,
-	2: 1,
-	3: 2,
 };
 
 onMounted(() => {
@@ -446,8 +458,8 @@ const positionItems = () => {
 				z,
 				scale,
 				rotationY: 0, // Always face front
-				duration: isDragging.value ? 0.1 : 0.5,
-				ease: 'power2.out',
+				duration: isDragging.value ? 0.1 : 1,
+				ease: 'power4.out',
 				zIndex,
 			});
 		}
@@ -499,6 +511,15 @@ const endDrag = () => {
 
 	// Update positions
 	positionItems();
+	animateBackground(backgroundConfigs[activeIndex.value]);
+};
+
+const goToTheLeft = () => {
+	goToSlide((activeIndex.value - 1 + 3) % 3);
+};
+
+const goToTheRight = () => {
+	goToSlide((activeIndex.value + 1) % 3);
 };
 
 // Go to a specific slide
@@ -506,6 +527,7 @@ const goToSlide = (index) => {
 	activeIndex.value = index;
 	rotationAmount.value = 0;
 	positionItems();
+	animateBackground(backgroundConfigs[index]);
 };
 
 const animateBackground = (config) => {
