@@ -31,13 +31,14 @@
 					</div>
 					<div
 						ref="dosingTable"
-						class="bg-white absolute top-24 left-0 z-40 p-10 shadow-zevtera-efficacy-pathogens-card rounded-b-[30px]"
+						class="bg-white absolute top-24 left-0 z-40 shadow-zevtera-efficacy-pathogens-card rounded-b-[30px] overflow-hidden"
 					>
 						<img
 							src="/src/assets/images/zevtera-dosing-table.png"
 							alt="Zevtera Dosing Table"
+							class="p-10"
 						/>
-						<p class="pt-10 pb-6 text-xs font-uni-grotesk">
+						<p class="p-10 pb-6 text-xs font-uni-grotesk">
 							*Special precautions for disposal and other handling (See section Reconsitution and dilution)
 						</p>
 					</div>
@@ -137,14 +138,14 @@ const dosingTable = ref(null);
 const dosingTableActive = ref(false);
 
 onMounted(() => {
-	gsap.set(dosingTable.value, { height: 0, autoAlpha: 0 });
+	gsap.set(dosingTable.value, { height: 0 });
 });
 
 const showDosingTable = () => {
 	if (dosingTableActive.value) {
-		gsap.to(dosingTable.value, { height: 0, autoAlpha: 0, duration: 0.5 });
+		gsap.to(dosingTable.value, { height: 0, duration: 0.5 });
 	} else {
-		gsap.to(dosingTable.value, { height: 480, autoAlpha: 1, duration: 0.5 });
+		gsap.to(dosingTable.value, { height: 480, duration: 0.5 });
 	}
 
 	dosingTableActive.value = !dosingTableActive.value;
