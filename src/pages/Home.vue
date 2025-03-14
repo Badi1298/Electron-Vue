@@ -109,8 +109,32 @@
 					</button>
 				</div>
 			</div>
-			<footer>
-				<p>dasdasdasds</p>
+			<img
+				src="/src/assets/images/home-advanz-logo.png"
+				alt="Home Advanz Logo"
+				class="w-[392px] absolute bottom-0 right-0"
+			/>
+			<footer class="grid grid-cols-[1fr_0.33fr] items-center gap-x-4 max-w-[1470px]">
+				<div>
+					<the-footer
+						>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL
+						in urine.<sup>1</sup><br />
+						EXBLIFEP® is indicated for the treatment of the following infections in adults: Complicated urinary tract infections (cUTI), including
+						pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
+						Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the infections
+						listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.5</the-footer
+					>
+					<the-footer class="mt-1"
+						>1. Kaye KS et al. JAMA 2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother 2013;45(3):283-291. 3. Kadry N et al. Clin
+						Infect Dis 2023;76(10):1768-1775. 4. Albin OR et al. Clin Infect Dis 2020;71(12):3033-3041.<br />
+						5. EXBLIFEP® Summary of Product Characteristics (March 2024). Available at:
+						https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</the-footer
+					>
+				</div>
+				<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey">
+					▼ This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare
+					professionals are asked to report any suspected adverse reactions.
+				</div>
 			</footer>
 		</div>
 
@@ -151,6 +175,8 @@ import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+import TheFooter from '@/components/TheFooter.vue';
 
 const router = useRouter();
 
