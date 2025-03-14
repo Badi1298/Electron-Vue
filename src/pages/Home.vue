@@ -266,6 +266,8 @@ import { gsap } from 'gsap';
 import TheFooter from '@/components/TheFooter.vue';
 import OurPortfolio from '@/components/home/OurPortfolio.vue';
 
+const router = useRouter();
+
 // Individual item refs
 const item0Ref = ref(null);
 const item1Ref = ref(null);
@@ -279,6 +281,135 @@ const startX = ref(0);
 const currentX = ref(0);
 const rotationAmount = ref(0);
 const rotationStep = 120; // Degrees between each item (360 / 3 = 120)
+
+// Refs for animation targets
+const eraser = ref(null);
+const overlayScreen = ref(null);
+const eraserContainer = ref(null);
+
+const exblifepFooter = ref(null);
+const exblifepContent = ref(null);
+const exblifepBackground = ref(null);
+
+const xydBackground = ref(null);
+const zevteraBackground = ref(null);
+
+const activeCarouselItem = ref(1);
+
+const backgroundConfigs = {
+	1: {
+		exblifepBackground: 1,
+		exblifepContent: 1,
+		exblifepFooter: 1,
+		zevteraBackground: 0,
+		xydBackground: 0,
+	},
+	2: {
+		exblifepBackground: 0,
+		exblifepContent: 0,
+		exblifepFooter: 0,
+		zevteraBackground: 1,
+		xydBackground: 0,
+	},
+	3: {
+		exblifepBackground: 0,
+		exblifepContent: 0,
+		exblifepFooter: 0,
+		zevteraBackground: 0,
+		xydBackground: 1,
+	},
+};
+
+// Map current active value to the next active value
+const nextActive = {
+	1: 3,
+	2: 1,
+	3: 2,
+};
+
+onMounted(() => {
+	// Initialize the overlay screen
+	gsap.set(overlayScreen.value, {
+		clipPath: 'inset(0 0 0 100%)', // Initially visible (0% instead of 100% to see the overlay)
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		zIndex: 40,
+		width: '100%',
+		height: '100%',
+	});
+
+	gsap.set(eraserContainer.value, {
+		height: '100vh',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		display: 'none', // Remove this to see the eraser
+	});
+
+	// Set initial 3D transform origin
+	gsap.set(carouselRef.value, { transformPerspective: 1000 });
+
+	// Initialize items with their positions
+	positionItems();
+
+	// Add resize handler
+	window.addEventListener('resize', positionItems);
+
+	gsap.set([zevteraBackground.value, xydBackground.value], {
+		opacity: 0,
+	});
+});
+
+// Clean up on unmount
+onBeforeUnmount(() => {
+	window.removeEventListener('resize', positionItems);
+});
+
+// Function to trigger the animation
+const startEraserAnimation = () => {
+	// Set initial state of eraser container
+	gsap.set(eraserContainer.value, {
+		left: 0,
+		height: '100vh',
+		position: 'absolute',
+	});
+
+	// Ensure eraser image maintains full height
+	gsap.set(eraser.value, {
+		height: '100vh',
+		objectFit: 'cover',
+		display: 'block',
+		scale: 1,
+	});
+
+	// Create a timeline for the animation sequence
+	const tl = gsap.timeline({
+		onComplete: () => {
+			// Slight delay before hiding the overlay for smoothness
+			gsap.set(overlayScreen.value, { display: 'none' }, '+=0.1');
+		},
+	});
+
+	// 1. Animate the eraser to sweep across the screen
+	tl.to(eraserContainer.value, {
+		left: '100%',
+		duration: 1.4, // Slightly longer for a smooth feel
+		ease: 'power4.inOut',
+	});
+
+	// 2. Apply blur effect during transition (optional)
+	tl.to(
+		overlayScreen.value,
+		{
+			clipPath: 'inset(0 0 0 100%)',
+			duration: 1.4,
+			ease: 'power4.inOut',
+			filter: 'blur(2px)', // Adds a subtle blur effect
+		},
+		0
+	);
+};
 
 // Position and scale items in 3D space
 const positionItems = () => {
@@ -377,208 +508,6 @@ const goToSlide = (index) => {
 	positionItems();
 };
 
-// Initialize carousel on mount
-onMounted(() => {});
-
-// Clean up on unmount
-onBeforeUnmount(() => {
-	window.removeEventListener('resize', positionItems);
-});
-
-const router = useRouter();
-
-// Refs for animation targets
-const eraser = ref(null);
-const overlayScreen = ref(null);
-const eraserContainer = ref(null);
-
-const carouselItem1 = ref(null);
-const carouselItem2 = ref(null);
-const carouselItem3 = ref(null);
-
-const exblifepFooter = ref(null);
-const exblifepContent = ref(null);
-const exblifepBackground = ref(null);
-
-const xydBackground = ref(null);
-const zevteraBackground = ref(null);
-
-const activeCarouselItem = ref(1);
-
-// Function to animate the carousel based on the indices
-// Define position configurations for each state
-const positionConfigs = {
-	1: [
-		{ item: carouselItem1, position: 'right' },
-		{ item: carouselItem2, position: 'left' },
-		{ item: carouselItem3, position: 'center' },
-	],
-	2: [
-		{ item: carouselItem1, position: 'center' },
-		{ item: carouselItem2, position: 'right' },
-		{ item: carouselItem3, position: 'left' },
-	],
-	3: [
-		{ item: carouselItem1, position: 'left' },
-		{ item: carouselItem2, position: 'center' },
-		{ item: carouselItem3, position: 'right' },
-	],
-};
-
-const backgroundConfigs = {
-	1: {
-		exblifepBackground: 1,
-		exblifepContent: 1,
-		exblifepFooter: 1,
-		zevteraBackground: 0,
-		xydBackground: 0,
-	},
-	2: {
-		exblifepBackground: 0,
-		exblifepContent: 0,
-		exblifepFooter: 0,
-		zevteraBackground: 1,
-		xydBackground: 0,
-	},
-	3: {
-		exblifepBackground: 0,
-		exblifepContent: 0,
-		exblifepFooter: 0,
-		zevteraBackground: 0,
-		xydBackground: 1,
-	},
-};
-
-// Map current active value to the next active value
-const nextActive = {
-	1: 3,
-	2: 1,
-	3: 2,
-};
-
-onMounted(() => {
-	// Initialize the overlay screen
-	gsap.set(overlayScreen.value, {
-		clipPath: 'inset(0 0 0 100%)', // Initially visible (0% instead of 100% to see the overlay)
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		zIndex: 40,
-		width: '100%',
-		height: '100%',
-	});
-
-	gsap.set(eraserContainer.value, {
-		height: '100vh',
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		display: 'none', // Remove this to see the eraser
-	});
-
-	// Set initial 3D transform origin
-	gsap.set(carouselRef.value, { transformPerspective: 1000 });
-
-	// Initialize items with their positions
-	positionItems();
-
-	// Add resize handler
-	window.addEventListener('resize', positionItems);
-
-	gsap.set([zevteraBackground.value, xydBackground.value], {
-		opacity: 0,
-	});
-});
-
-// Function to trigger the animation
-const startEraserAnimation = () => {
-	// Set initial state of eraser container
-	gsap.set(eraserContainer.value, {
-		left: 0,
-		height: '100vh',
-		position: 'absolute',
-	});
-
-	// Ensure eraser image maintains full height
-	gsap.set(eraser.value, {
-		height: '100vh',
-		objectFit: 'cover',
-		display: 'block',
-		scale: 1,
-	});
-
-	// Create a timeline for the animation sequence
-	const tl = gsap.timeline({
-		onComplete: () => {
-			// Slight delay before hiding the overlay for smoothness
-			gsap.set(overlayScreen.value, { display: 'none' }, '+=0.1');
-		},
-	});
-
-	// 1. Animate the eraser to sweep across the screen
-	tl.to(eraserContainer.value, {
-		left: '100%',
-		duration: 1.4, // Slightly longer for a smooth feel
-		ease: 'power4.inOut',
-	});
-
-	// 2. Apply blur effect during transition (optional)
-	tl.to(
-		overlayScreen.value,
-		{
-			clipPath: 'inset(0 0 0 100%)',
-			duration: 1.4,
-			ease: 'power4.inOut',
-			filter: 'blur(2px)', // Adds a subtle blur effect
-		},
-		0
-	);
-};
-
-// Function to animate an item to a specific position
-const animateToPosition = (item, position) => {
-	const config = {
-		left: {
-			translateX: '-50%',
-			translateY: 40,
-			scale: 0.9,
-			zIndex: 10,
-			ease: 'power4.inOut',
-			pointerEvents: 'none',
-			duration: 0.2,
-		},
-		center: {
-			translateX: '0%',
-			translateY: 0,
-			scale: 1.2,
-			zIndex: 20,
-			ease: 'power4.inOut',
-			pointerEvents: 'auto',
-			duration: 0.2,
-		},
-		right: {
-			translateX: '50%',
-			translateY: 40,
-			scale: 0.9,
-			zIndex: 10,
-			ease: 'power4.inOut',
-			pointerEvents: 'none',
-			duration: 0.2,
-		},
-	}[position];
-	gsap.to(item, config);
-};
-
-// Rewritten animateCarousel function
-const animateCarousel = () => {
-	const currentActive = activeCarouselItem.value;
-	const config = positionConfigs[currentActive];
-	config.forEach(({ item, position }) => animateToPosition(item.value, position));
-	activeCarouselItem.value = nextActive[currentActive];
-	const backgroundConfig = backgroundConfigs[activeCarouselItem.value];
-	animateBackground(backgroundConfig);
-};
-
 const animateBackground = (config) => {
 	Object.entries(config).forEach(([key, opacity]) => {
 		const element = {
@@ -593,10 +522,6 @@ const animateBackground = (config) => {
 			opacity,
 		});
 	});
-};
-
-const moveRight = () => {
-	animateCarousel();
 };
 </script>
 
