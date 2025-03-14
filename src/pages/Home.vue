@@ -12,7 +12,7 @@
 					<img
 						src="/src/assets/images/exblifep-logo.svg"
 						alt="Exblifep Logo"
-						class="absolute top-[150px] left-[100px] h-[179px] -z-10 opacity-5"
+						class="absolute top-[150px] left-[130px] h-[179px] -z-10 opacity-5"
 					/>
 					<img
 						src="/src/assets/images/hallway-bed.png"
@@ -36,7 +36,7 @@
 				</div>
 				<div class="relative flex flex-1 items-center w-fit">
 					<!-- Carousel -->
-					<div class="relative w-[1070px] h-[702px] flex justify-center">
+					<div class="relative w-[1120px] h-[702px] flex justify-center">
 						<div
 							ref="carouselRef"
 							class="carousel relative w-full h-full select-none"
@@ -290,7 +290,7 @@ const positionItems = () => {
 		const radian = (angle * Math.PI) / 180;
 
 		// Calculate position (circular arrangement but with less radius to keep items closer)
-		const radius = 150;
+		const radius = 155;
 		const x = Math.sin(radian) * radius;
 
 		// Adjust z position to keep items partially visible
@@ -300,7 +300,7 @@ const positionItems = () => {
 		const y = Math.cos(radian) * radius * 0.2;
 
 		// Calculate scale based on z position (front is larger)
-		const scale = mapRange(z, -radius * 0.2, radius * 0.2, 0.9, 1.15);
+		const scale = mapRange(z, -radius * 0.2, radius * 0.2, 0.9, 1.17);
 
 		// Calculate offset to create overlapping effect
 		const offsetX = Math.sin(radian) * 180;
