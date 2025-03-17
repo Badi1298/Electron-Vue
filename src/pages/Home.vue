@@ -65,9 +65,9 @@
 							adolescents: Hospital-acquired pneumonia (HAP),<br />
 							excluding ventilator-associated pneumonia (VAP); Community-acquired pneumonia (CAP). Consideration should be given to official
 							guidance on the appropriate use of antibacterial agents.<sup>4</sup><br />
-							1. Awad SS <span class="italic">et al. Clin Infect Dis</span>2014;59(1):51-61. 2. Crapis M
-							<span class="italic">et al. J Chemother</span>2020:Sep EO. 3. Giacobbe D
-							<span class="italic">et al. Expert Rev Anti-infect Ther</span>2019;17(9):689-698.<br />
+							1. Awad SS <span class="italic">et al. Clin Infect Dis</span> 2014;59(1):51-61. 2. Crapis M
+							<span class="italic">et al. J Chemother</span> 2020:Sep EO. 3. Giacobbe D
+							<span class="italic">et al. Expert Rev Anti-infect Ther</span> 2019;17(9):689-698.<br />
 							4. ZEVTERA® Summary of Product Characteristics (March 2024). Available at:
 							<span class="underline">https://www.medicines.org.uk/emc/product/9164/smpc.</span></the-footer
 						>
@@ -108,6 +108,21 @@
 							/>
 						</button>
 					</div>
+					<footer class="absolute bottom-8 left-28 max-w-[1400px]">
+						<the-footer class="text-white"
+							>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen
+							of dalbavancin in ABSSSI.<sup>4</sup> Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen
+							(97.3%).<sup>5</sup><br />
+							Xydalba™ is indicated for the treatment of Acute Bacterial Skin and Skin Structure Infections (ABSSSI) in adults. Consideration
+							should be given to official guidance on the appropriate use of antibacterial agents.<sup>1</sup><br />
+							1. XYDALBA™ Summary of Product Characteristics (September 2024). Available at:
+							<span class="underline">https://www.ema.europa.eu/en/documents/product-information/xydalba-epar-product-information_en.pdf.</span>
+							2. Marcellusi A <span class="italic">et al. Expert Rev Pharmacoecon Outcomes Res</span> 2019;4:1-19.<br />
+							3. McCarthy MW <span class="italic">et al. Infect Dis Ther</span> 2020;9:53-67. 4. Dunne MW
+							<span class="italic">et al. Clin Infect Dis</span> 2016;62:545-551. 5. Giorgobiani M
+							<span class="italic">et al. Pediatr Infect Dis J</span> 2023;42(3):199-205.</the-footer
+						>
+					</footer>
 				</div>
 				<div class="relative flex flex-1 items-center w-fit">
 					<!-- Carousel -->
