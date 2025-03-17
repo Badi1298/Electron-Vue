@@ -79,10 +79,17 @@
 					/>
 					<p class="text-[10px] text-[#555] text-center mt-4">Adapted from Scheeren T et al. 2019.6</p>
 					<img
-						ref="details"
+						ref="expandIcon"
 						src="/src/assets/images/expand-icon-purple.png"
 						alt="Expand Icon"
-						class="absolute bottom-5 right-7 w-[60px] h-[60px] cursor-pointer"
+						class="absolute right-7 w-[60px] h-[60px] cursor-pointer"
+						@click="expandDetails"
+					/>
+					<img
+						ref="closeIcon"
+						src="/src/assets/images/close-icon-purple.png"
+						alt="Expand Icon"
+						class="absolute right-7 w-[60px] h-[60px] cursor-pointer"
 						@click="expandDetails"
 					/>
 					<p
@@ -144,6 +151,9 @@ const detailsTitle = ref(null);
 const detailsFooter = ref(null);
 const pathogensChart = ref(null);
 
+const closeIcon = ref(null);
+const expandIcon = ref(null);
+
 const detailsExpanded = ref(false);
 
 watch(
@@ -168,6 +178,15 @@ onMounted(() => {
 		opacity: 0,
 		display: 'none',
 	});
+	gsap.set(closeIcon.value, {
+		opacity: 0,
+		display: 'none',
+	});
+	gsap.set(expandIcon.value, {
+		opacity: 1,
+		display: 'block',
+		bottom: 20,
+	});
 });
 
 const expandDetails = () => {
@@ -189,6 +208,15 @@ const expandDetails = () => {
 		gsap.to(detailsTitle.value, {
 			scale: 1,
 		});
+		gsap.to(expandIcon.value, {
+			bottom: 20,
+			opacity: 1,
+		});
+		gsap.to(closeIcon.value, {
+			opacity: 0,
+			display: 'none',
+			bottom: 20,
+		});
 	} else {
 		gsap.to(details.value, {
 			width: 1205,
@@ -202,6 +230,15 @@ const expandDetails = () => {
 		});
 		gsap.to(detailsTitle.value, {
 			scale: 1.3,
+		});
+		gsap.to(expandIcon.value, {
+			bottom: 130,
+			opacity: 0,
+		});
+		gsap.to(closeIcon.value, {
+			opacity: 1,
+			display: 'block',
+			bottom: 130,
 		});
 		gsap.to(detailsFooter.value, {
 			opacity: 1,
