@@ -115,7 +115,7 @@
 						>
 							<div class="flex items-end">
 								<img
-									src="/src/assets/images/dosing-bottle.png"
+									src="/src/assets/images/iv-bag-blue.png"
 									alt="Dosing Bottle"
 									class="w-[150px] h-[150px]"
 								/>
@@ -124,9 +124,24 @@
 								</h3>
 							</div>
 							<div
-								class="flex flex-col pl-10 text-2xl text-cool-grey"
+								class="relative flex flex-col pl-10 text-2xl text-cool-grey"
 								v-html="tabs[1].details"
 							></div>
+							<div
+								class="max-w-fit bg-[#00EAFF] shadow-dark py-4 ml-10 flex items-center mt-10 z-10 border-[3px] border-white pr-20 translate-y-14"
+							>
+								<div class="pl-7 pr-3 py-2 border-r-2 border-[#002470]">
+									<img
+										src="/src/assets/images/chevron-right-bleu.png"
+										alt="Chevron Right Bleu"
+										class="w-[40px] h-[33px]"
+									/>
+								</div>
+								<h2 class="pl-3 text-base font-bold text-[#002470] max-w-[1200px]">
+									For more information on the reconstitution/dilution of EXBLIFEP®,<br />
+									speak to a member of the Advanz team.
+								</h2>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -187,7 +202,7 @@ const tabs = ref([
 		name: 'Dosing',
 		details: `
 			<p class="pr-20">
-				The recommended dose for patients with normal renal function is
+				The recommended dose for patients with normal renal<br /> function is
 				<span class="text-dark-blue font-bold">2.0 g/0.5 g cefepime/enmetazobactam.<sup>5</sup></span>
 			</p>
 			<p class="pr-20 mt-5">
@@ -195,6 +210,18 @@ const tabs = ref([
 					>5</sup
 				>
 			</p>
+			<div class="max-w-fit bg-[#00EAFF] shadow-dark py-4 flex items-center mt-10 relative z-10 border-[3px] border-white pr-20 translate-y-5">
+				<div class="pl-7 pr-3 py-2 border-r-2 border-[#002470]">
+					<img
+						src="/src/assets/images/chevron-right-bleu.png"
+						alt="Chevron Right Bleu"
+						class="w-[40px] h-[33px]"
+					/>
+				</div>
+				<h2 class="pl-3 text-base font-bold text-[#002470] max-w-[1200px]">
+					For more information on the reconstitution/dilution of EXBLIFEP®,<br /> speak to a member of the Advanz team.
+				</h2>
+			</div>
 		`,
 		activeImageSrc: '/src/assets/images/dosing-button-full.png',
 		inactiveImageSrc: '/src/assets/images/dosing-button-empty.png',
