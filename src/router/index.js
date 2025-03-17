@@ -119,6 +119,18 @@ const routes = [
 		],
 	},
 	{
+		path: '/exblifep-references',
+		component: () => import('@/pages/exblifep/References.vue'),
+		name: 'exblifep-references',
+		meta: { brand: 'EXBLIFEP' },
+	},
+	{
+		path: '/exblifep-prescribing-information',
+		component: () => import('@/pages/exblifep/PrescribingInformation.vue'),
+		name: 'exblifep-prescribing-information',
+		meta: { brand: 'EXBLIFEP' },
+	},
+	{
 		path: '/zevtera-references',
 		component: () => import('@/pages/zevtera/References.vue'),
 		name: 'zevtera-references',
