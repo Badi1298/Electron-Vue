@@ -32,7 +32,6 @@
 					<li
 						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
-							'justify-center': !open,
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'),
 							'text-[#969696]': !isActive('/exblifep'),
 						}"
@@ -49,14 +48,13 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">Home</p>
+						<p class="sidebar-text">Home</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
 						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
-							'justify-center': !open,
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/efficacy'),
 							'text-[#969696]': !isActive('/exblifep/efficacy'),
 						}"
@@ -73,14 +71,13 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">Efficacy</p>
+						<p class="sidebar-text">Efficacy</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
 						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
-							'justify-center': !open,
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/safety'),
 							'text-[#969696]': !isActive('/exblifep/safety'),
 						}"
@@ -97,14 +94,13 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">Safety</p>
+						<p class="sidebar-text">Safety</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
 						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
-							'justify-center': !open,
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/dosing'),
 							'text-[#969696]': !isActive('/exblifep/dosing'),
 						}"
@@ -121,14 +117,16 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
+						<p class="sidebar-text">
+							Dosing and<br />
+							administration
+						</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
 						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
-							'justify-center': !open,
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/summary'),
 							'text-[#969696]': !isActive('/exblifep/summary'),
 						}"
@@ -145,7 +143,7 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">Summary</p>
+						<p class="sidebar-text">Summary</p>
 					</li>
 				</RouterLink>
 			</ul>
@@ -153,7 +151,7 @@
 		<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[250px]">
 			<div
 				ref="bottomIcons"
-				class="grid items-center"
+				class="grid grid-cols-2 items-center"
 			>
 				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 					<img
@@ -254,9 +252,6 @@ onMounted(() => {
 		opacity: 0,
 		display: 'none',
 	});
-	gsap.set(bottomIcons.value, {
-		gridTemplateColumns: '1fr 1fr',
-	});
 });
 
 const isActive = (currentRoute) => {
@@ -265,75 +260,89 @@ const isActive = (currentRoute) => {
 
 const toggleSidebar = async () => {
 	if (props.open) {
-		gsap.to('.sidebar-text', {
+		const tl = gsap.timeline();
+
+		tl.to(['.sidebar-text', bottomText.value, bottomIcons.value], {
 			opacity: 0,
-			display: 'none',
-			duration: 0.4,
-		});
-		gsap.to(bottomText.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.4,
-		});
-		gsap.to(bottomIcons.value, {
-			gridTemplateColumns: '1fr',
-			duration: 0.4,
-		});
-		gsap.to(advanzLargeLogo.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.4,
-		});
-		gsap.to(advanzSmallLogo.value, {
-			opacity: 1,
-			display: 'block',
-			duration: 0.4,
-		});
-		gsap.to(logoContainer.value, {
-			height: 0,
-			duration: 0.4,
-		});
-		gsap.to(sidebar.value, {
-			width: 120,
-			duration: 0.4,
-			marginTop: 176,
-		});
+		})
+			.to(
+				advanzLargeLogo.value,
+				{
+					opacity: 0,
+					display: 'none',
+				},
+				'-=0.5'
+			)
+			.to(advanzSmallLogo.value, {
+				opacity: 1,
+				display: 'block',
+			})
+			.to(
+				bottomIcons.value,
+				{
+					opacity: 1,
+					gridTemplateColumns: '1fr',
+				},
+				'-=0.5'
+			)
+			.to(
+				sidebar.value,
+				{
+					width: 118,
+					marginTop: 176,
+					ease: 'power4.inOut',
+				},
+				'-=1'
+			);
+
 		emit('update:open', false);
 	} else {
 		emit('update:open', true);
-		gsap.to(sidebar.value, {
-			width: 350,
-			marginTop: 32,
-			duration: 0.4,
-		});
-		gsap.to(logoContainer.value, {
-			height: 155,
-			duration: 0.4,
-		});
-		gsap.to('.sidebar-text', {
-			opacity: 1,
-			display: 'block',
-			duration: 0.4,
-		}).delay(1);
-		gsap.to(bottomText.value, {
-			opacity: 1,
-			display: 'grid',
-			duration: 0.4,
-		}).delay(1);
-		gsap.to(bottomIcons.value, {
-			gridTemplateColumns: '1fr 1fr',
-			duration: 0.4,
-		}).delay(1);
-		gsap.to(advanzLargeLogo.value, {
-			opacity: 1,
-			display: 'block',
-			duration: 0.4,
-		}).delay(1);
-		gsap.to(advanzSmallLogo.value, {
+
+		const tl = gsap.timeline();
+
+		tl.to(bottomIcons.value, {
 			opacity: 0,
-			display: 'none',
-			duration: 0.4,
-		}).delay(1);
+		})
+			.to(
+				sidebar.value,
+				{
+					width: 350,
+					marginTop: 32,
+				},
+				'-=0.5'
+			)
+			.to(
+				['.sidebar-text', bottomText.value, advanzLargeLogo.value],
+				{
+					opacity: 1,
+				},
+				'+=0.25'
+			)
+			.to(
+				bottomIcons.value,
+				{
+					opacity: 1,
+					gridTemplateColumns: '1fr 1fr',
+				},
+				'-=0.5'
+			)
+			.to(
+				advanzSmallLogo.value,
+				{
+					opacity: 0,
+					display: 'none',
+				},
+				'-=1.5'
+			)
+			.to(
+				advanzLargeLogo.value,
+				{
+					opacity: 1,
+					display: 'block',
+				},
+				'-=0.5'
+			);
 	}
 };
 </script>
