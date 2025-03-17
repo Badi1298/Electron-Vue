@@ -150,10 +150,10 @@
 				</RouterLink>
 			</ul>
 		</div>
-		<div class="flex flex-col mx-4 py-2.5 border-t-[1px] border-[#CDCDCD]">
+		<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD]">
 			<div
 				class="grid items-center"
-				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10']"
+				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10', { 'pb-2.5 border-b border-[#CDCDCD]': !open }]"
 			>
 				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 					<img
