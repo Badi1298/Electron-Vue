@@ -3,7 +3,10 @@
 		ref="sidebar"
 		class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
 	>
-		<div ref="logoContainer"></div>
+		<div
+			ref="logoContainer"
+			class="inset-0"
+		></div>
 		<div class="relative flex flex-col flex-1 justify-center">
 			<div class="flex items-center absolute top-0 w-full">
 				<div
@@ -30,94 +33,102 @@
 			<ul class="flex flex-col gap-y-4 px-4">
 				<RouterLink :to="{ name: 'exblifep-home', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+						class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'),
 							'text-[#969696]': !isActive('/exblifep'),
 						}"
 					>
-						<img
-							v-if="isActive('/exblifep')"
-							src="/src/assets/images/home-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/home-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="sidebar-text">Home</p>
+						<div class="list-image absolute top-1/2 -translate-y-1/2">
+							<img
+								v-if="isActive('/exblifep')"
+								src="/src/assets/images/home-sidebar-full.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+							<img
+								v-else
+								src="/src/assets/images/home-sidebar.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+						</div>
+						<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Home</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+						class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/efficacy'),
 							'text-[#969696]': !isActive('/exblifep/efficacy'),
 						}"
 					>
-						<img
-							v-if="isActive('/exblifep/efficacy')"
-							src="/src/assets/images/chart-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/chart-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="sidebar-text">Efficacy</p>
+						<div class="list-image absolute top-1/2 -translate-y-1/2">
+							<img
+								v-if="isActive('/exblifep/efficacy')"
+								src="/src/assets/images/chart-sidebar-full.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+							<img
+								v-else
+								src="/src/assets/images/chart-sidebar.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+						</div>
+						<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Efficacy</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+						class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/safety'),
 							'text-[#969696]': !isActive('/exblifep/safety'),
 						}"
 					>
-						<img
-							v-if="isActive('/exblifep/safety')"
-							src="/src/assets/images/shield-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/shield-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="sidebar-text">Safety</p>
+						<div class="list-image absolute top-1/2 -translate-y-1/2">
+							<img
+								v-if="isActive('/exblifep/safety')"
+								src="/src/assets/images/shield-sidebar-full.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+							<img
+								v-else
+								src="/src/assets/images/shield-sidebar.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+						</div>
+						<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Safety</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+						class="list__item relative px-3 py-5 min-h-[100px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/dosing'),
 							'text-[#969696]': !isActive('/exblifep/dosing'),
 						}"
 					>
-						<img
-							v-if="isActive('/exblifep/dosing')"
-							src="/src/assets/images/bottle-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/bottle-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="sidebar-text">
+						<div class="list-image absolute top-1/2 -translate-y-1/2">
+							<img
+								v-if="isActive('/exblifep/dosing')"
+								src="/src/assets/images/bottle-sidebar-full.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+							<img
+								v-else
+								src="/src/assets/images/bottle-sidebar.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+						</div>
+						<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">
 							Dosing and<br />
 							administration
 						</p>
@@ -125,25 +136,27 @@
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
 					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+						class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 						:class="{
 							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/summary'),
 							'text-[#969696]': !isActive('/exblifep/summary'),
 						}"
 					>
-						<img
-							v-if="isActive('/exblifep/summary')"
-							src="/src/assets/images/summary-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/summary-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="sidebar-text">Summary</p>
+						<div class="list-image absolute top-1/2 -translate-y-1/2">
+							<img
+								v-if="isActive('/exblifep/summary')"
+								src="/src/assets/images/summary-sidebar-full.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+							<img
+								v-else
+								src="/src/assets/images/summary-sidebar.png"
+								alt="Home Icon"
+								class="w-[30px] h-[30px]"
+							/>
+						</div>
+						<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Summary</p>
 					</li>
 				</RouterLink>
 			</ul>
@@ -252,6 +265,9 @@ onMounted(() => {
 		opacity: 0,
 		display: 'none',
 	});
+	gsap.set('.list-image', {
+		left: 12,
+	});
 });
 
 const isActive = (currentRoute) => {
@@ -260,89 +276,46 @@ const isActive = (currentRoute) => {
 
 const toggleSidebar = async () => {
 	if (props.open) {
-		const tl = gsap.timeline();
-
-		tl.to(['.sidebar-text', bottomText.value, bottomIcons.value], {
+		gsap.to('.sidebar-text', {
 			opacity: 0,
-		})
-			.to(
-				advanzLargeLogo.value,
-				{
-					opacity: 0,
-					display: 'none',
-				},
-				'-=0.5'
-			)
-			.to(advanzSmallLogo.value, {
-				opacity: 1,
-				display: 'block',
-			})
-			.to(
-				bottomIcons.value,
-				{
-					opacity: 1,
-					gridTemplateColumns: '1fr',
-				},
-				'-=0.5'
-			)
-			.to(
-				sidebar.value,
-				{
-					width: 118,
-					marginTop: 176,
-					ease: 'power4.inOut',
-				},
-				'-=1'
-			);
+			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(sidebar.value, {
+			width: 118,
+			marginTop: 176,
+			duration: 0.3,
+		});
+		gsap.to('.list-image', {
+			left: '50%',
+			translateX: '-50%',
+		}).delay(0.35);
+		gsap.to(logoContainer.value, {
+			height: 0,
+		});
 
 		emit('update:open', false);
 	} else {
 		emit('update:open', true);
 
-		const tl = gsap.timeline();
-
-		tl.to(bottomIcons.value, {
-			opacity: 0,
-		})
-			.to(
-				sidebar.value,
-				{
-					width: 350,
-					marginTop: 32,
-				},
-				'-=0.5'
-			)
-			.to(
-				['.sidebar-text', bottomText.value, advanzLargeLogo.value],
-				{
-					opacity: 1,
-				},
-				'+=0.25'
-			)
-			.to(
-				bottomIcons.value,
-				{
-					opacity: 1,
-					gridTemplateColumns: '1fr 1fr',
-				},
-				'-=0.5'
-			)
-			.to(
-				advanzSmallLogo.value,
-				{
-					opacity: 0,
-					display: 'none',
-				},
-				'-=1.5'
-			)
-			.to(
-				advanzLargeLogo.value,
-				{
-					opacity: 1,
-					display: 'block',
-				},
-				'-=0.5'
-			);
+		gsap.to(sidebar.value, {
+			width: 350,
+			marginTop: 32,
+			duration: 0.3,
+		});
+		gsap.to(logoContainer.value, {
+			height: 155,
+			duration: 0.3,
+		});
+		gsap.to('.sidebar-text', {
+			opacity: 1,
+			display: 'block',
+			duration: 0.3,
+		}).delay(0.5);
+		gsap.to('.list-image', {
+			left: 12,
+			translateX: 0,
+		}).delay(0.3);
 	}
 };
 </script>
