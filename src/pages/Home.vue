@@ -19,6 +19,56 @@
 						alt="Hallway Bed"
 						class="absolute -right-36 bottom-0 h-[874px] -z-30 opacity-10"
 					/>
+					<div class="absolute right-60 top-[38%] font-effra">
+						<img
+							src="/src/assets/images/exblifep-logo.svg"
+							alt="Exblifep Logo"
+							class="w-[307px]"
+						/>
+						<p class="mt-6 text-2xl text-cool-grey">
+							EXBLIFEP<sup>®</sup> is where microbiological<br />
+							eradication* meets efficacy<sup>1</sup>
+						</p>
+						<button
+							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+							@click="router.push('/exblifep')"
+						>
+							<span>Get started</span>
+							<img
+								src="/src/assets/images/chevron-right-white.png"
+								alt="Chevron Right"
+								class="w-[50px]"
+							/>
+						</button>
+					</div>
+					<footer class="absolute bottom-8 left-28 grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]">
+						<div>
+							<the-footer
+								>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103
+								CFU/mL in urine.<sup>1</sup><br />
+								EXBLIFEP<sup>®</sup> is indicated for the treatment of the following infections in adults: Complicated urinary tract infections
+								(cUTI), including pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
+								Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the
+								infections listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.<sup
+									>5</sup
+								></the-footer
+							>
+							<the-footer class="mt-1"
+								>1. Kaye KS <span class="italic">et al. JAMA</span>2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother
+								2013;45(3):283-291. 3. Kadry N <span class="italic">et al. Clin Infect Dis</span>2023;76(10):1768-1775. 4. Albin OR
+								<span class="italic">et al. Clin Infect Dis</span>2020;71(12):3033-3041.<br />
+								5. EXBLIFEP<sup>®</sup> Summary of Product Characteristics (March 2024). Available at:
+								<span class="underline"
+									>https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</span
+								></the-footer
+							>
+						</div>
+						<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey max-w-fit">
+							▼ This medicinal product is subject to additional monitoring. This will allow<br />
+							quick identification of new safety information. Healthcare professionals<br />
+							are asked to report any suspected adverse reactions.
+						</div>
+					</footer>
 				</div>
 				<div ref="zevteraDetails">
 					<img
@@ -49,7 +99,7 @@
 						</p>
 						<button
 							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-16 bg-primary-purple text-white text-2xl"
-							@click="router.push('/exblifep')"
+							@click="router.push('/zevtera')"
 						>
 							<span>Get started</span>
 							<img
@@ -97,8 +147,9 @@
 							days in hospital<sup>2,3</sup>
 						</p>
 						<button
+							ref="xydButton"
 							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-9 bg-primary-green text-white text-2xl"
-							@click="router.push('/exblifep')"
+							@click="router.push('/xyd')"
 						>
 							<span>Get started</span>
 							<img
@@ -297,31 +348,6 @@
 						</button>
 					</div>
 				</div>
-				<div
-					ref="exblifepContent"
-					class="absolute right-60 top-[38%] font-effra"
-				>
-					<img
-						src="/src/assets/images/exblifep-logo.svg"
-						alt="Exblifep Logo"
-						class="w-[307px]"
-					/>
-					<p class="mt-6 text-2xl text-cool-grey">
-						EXBLIFEP<sup>®</sup> is where microbiological<br />
-						eradication* meets efficacy<sup>1</sup>
-					</p>
-					<button
-						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
-						@click="router.push('/exblifep')"
-					>
-						<span>Get started</span>
-						<img
-							src="/src/assets/images/chevron-right-white.png"
-							alt="Chevron Right"
-							class="w-[50px]"
-						/>
-					</button>
-				</div>
 
 				<div class="flex flex-col gap-y-2.5 absolute bottom-0 right-0 items-end">
 					<div
@@ -349,37 +375,6 @@
 						class="w-[392px]"
 					/>
 				</div>
-				<footer
-					ref="exblifepFooter"
-					class="grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]"
-				>
-					<div>
-						<the-footer
-							>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103
-							CFU/mL in urine.<sup>1</sup><br />
-							EXBLIFEP<sup>®</sup> is indicated for the treatment of the following infections in adults: Complicated urinary tract infections
-							(cUTI), including pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
-							Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the infections
-							listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.<sup
-								>5</sup
-							></the-footer
-						>
-						<the-footer class="mt-1"
-							>1. Kaye KS <span class="italic">et al. JAMA</span>2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother
-							2013;45(3):283-291. 3. Kadry N <span class="italic">et al. Clin Infect Dis</span>2023;76(10):1768-1775. 4. Albin OR
-							<span class="italic">et al. Clin Infect Dis</span>2020;71(12):3033-3041.<br />
-							5. EXBLIFEP<sup>®</sup> Summary of Product Characteristics (March 2024). Available at:
-							<span class="underline"
-								>https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</span
-							></the-footer
-						>
-					</div>
-					<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey max-w-fit">
-						▼ This medicinal product is subject to additional monitoring. This will allow<br />
-						quick identification of new safety information. Healthcare professionals<br />
-						are asked to report any suspected adverse reactions.
-					</div>
-				</footer>
 			</div>
 
 			<!-- Overlay screen with Get Started button -->
@@ -445,32 +440,25 @@ const eraser = ref(null);
 const overlayScreen = ref(null);
 const eraserContainer = ref(null);
 
-const exblifepFooter = ref(null);
-const exblifepContent = ref(null);
-const exblifepBackground = ref(null);
-
 const xydBackground = ref(null);
 const zevteraDetails = ref(null);
+const exblifepBackground = ref(null);
+
+const xydButton = ref(null);
 
 const backgroundConfigs = {
 	0: {
 		exblifepBackground: 1,
-		exblifepContent: 1,
-		exblifepFooter: 1,
 		zevteraDetails: 0,
 		xydBackground: 0,
 	},
 	1: {
 		exblifepBackground: 0,
-		exblifepContent: 0,
-		exblifepFooter: 0,
 		zevteraDetails: 1,
 		xydBackground: 0,
 	},
 	2: {
 		exblifepBackground: 0,
-		exblifepContent: 0,
-		exblifepFooter: 0,
 		zevteraDetails: 0,
 		xydBackground: 1,
 	},
@@ -665,8 +653,6 @@ const animateBackground = (config) => {
 	Object.entries(config).forEach(([key, opacity]) => {
 		const element = {
 			exblifepBackground,
-			exblifepContent,
-			exblifepFooter,
 			zevteraDetails,
 			xydBackground,
 		}[key];
@@ -682,7 +668,7 @@ const animateBackground = (config) => {
 .carousel {
 	perspective: 1000px;
 	transform-style: preserve-3d;
-	margin-top: 30px;
+	margin-top: -24px;
 }
 
 .carousel-item {
