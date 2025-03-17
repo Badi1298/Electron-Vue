@@ -3,7 +3,7 @@
 		ref="topTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
 	>
-		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+		<!-- <div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/active-dot.png"
 				alt="Active Dot"
@@ -15,9 +15,9 @@
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToBottomTab')"
 			/>
-		</div>
+		</div> -->
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative pb-6"
+			class="flex flex-col justify-end font-effra transition-all duration-300 relative pb-12"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="flex justify-between mr-12">
@@ -41,7 +41,7 @@
 					<span class="text-cool-grey text-2xl">Touch a step to continue</span>
 				</div>
 			</div>
-			<div class="flex pt-5 gap-x-10">
+			<div class="flex pt-10 gap-x-10">
 				<div
 					class="flex"
 					@click="activateTab(tabs[0])"
@@ -154,8 +154,13 @@
 				>EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data are
 				available.5
 			</the-footer>
-			<ExploreAnother />
-			<button
+			<div class="flex justify-between items-center mr-12">
+				<ExploreAnother />
+				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'next-section-button' } }">
+					<next-section class="bg-electric-blue" />
+				</RouterLink>
+			</div>
+			<!-- <button
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
 				@click="emit('goToBottomTab')"
 			>
@@ -164,7 +169,7 @@
 					alt="Down Button"
 					class="w-[140px] h-[50px] cursor-pointer"
 				/>
-			</button>
+			</button> -->
 		</footer>
 	</div>
 </template>
@@ -175,6 +180,7 @@ import { ref, onMounted, watch } from 'vue';
 import { gsap } from 'gsap';
 
 import TheFooter from '@/components/TheFooter.vue';
+import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
 
 const props = defineProps({

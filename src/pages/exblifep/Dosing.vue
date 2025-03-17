@@ -5,11 +5,6 @@
 			:scroll-into-view="scrollToTopTab"
 			@go-to-bottom-tab="onScrollToBottomTab"
 		/>
-		<dosing-bottom-tab
-			:sidebar-open="sidebarOpen"
-			:scroll-into-view="scrollToBottomTab"
-			@go-to-top-tab="onScrollToTopTab"
-		/>
 	</div>
 </template>
 

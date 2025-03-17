@@ -19,6 +19,11 @@
 			</router-view>
 		</div>
 		<Sidebar v-model:open="sidebarOpen" />
+		<img
+			src="/src/assets/images/background-circle-blue.png"
+			alt=" Background Circle Blue"
+			class="absolute w-[776px] bottom-0 right-0 -z-10"
+		/>
 	</main>
 </template>
 
