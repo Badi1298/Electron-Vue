@@ -10,13 +10,18 @@
 				class="w-[593px]"
 			/>
 			<div class="relative bg-transparent overflow-hidden mt-10 pr-[60px]">
-				<img
+				<!-- <img
 					src="/src/assets/images/mabelio-bullet.png"
 					alt="Mabelio Bullet"
 					class="absolute top-0 left-0 z-10 -rotate-12 w-[1624px] opacity-15"
-				/>
+				/> -->
 				<div class="grid grid-cols-3 z-20 gap-x-3">
-					<div class="bg-white rounded-[20px] px-7 py-12">
+					<img
+						src="/src/assets/images/zevtera-summar-cards.png"
+						alt="Summary Cards"
+						class="absolute w-[1400px] h-[634px] -z-10"
+					/>
+					<div class="rounded-[20px] px-7 py-12">
 						<h3 class="text-[40px] font-bold leading-tight">
 							More for your<br />
 							difficult to treat patients*
@@ -54,7 +59,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="bg-white rounded-[20px] px-7 py-12">
+					<div class="rounded-[20px] px-7 py-12">
 						<h3 class="text-[40px] font-bold leading-tight min-h-[150px]">
 							More<br />
 							pathogens covered
@@ -105,7 +110,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="bg-white rounded-[20px] px-7 py-12">
+					<div class="rounded-[20px] px-7 py-12">
 						<h3 class="text-[40px] font-bold leading-tight min-h-[150px]">Less burden to treat your patients</h3>
 						<div class="flex flex-col gap-y-6">
 							<div

@@ -16,7 +16,7 @@
 			<section class="pr-[60px] mt-6">
 				<div class="relative">
 					<div
-						class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50"
+						class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50 cursor-pointer"
 						@click="showDosingTable"
 					>
 						<p class="text-2xl font-medium font-uni-grotesk text-charcoal">
@@ -26,7 +26,8 @@
 						<img
 							src="/src/assets/images/chevron-right-charcoal.png"
 							alt="Chevron Right"
-							class="w-11 h-11 cursor-pointer"
+							:class="[dosingTableActive ? 'transform rotate-180' : '']"
+							class="w-11 h-11 transition-all duration-500"
 						/>
 					</div>
 					<div
