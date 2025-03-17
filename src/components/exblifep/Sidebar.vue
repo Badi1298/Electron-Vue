@@ -1,217 +1,220 @@
 <template>
-	<aside
-		:class="[open ? 'w-[350px] grid-rows-[0.55fr_3fr_1fr] pt-12' : 'w-[118px] mt-48']"
-		class="z-10 grid my-8 bg-white rounded-l-[20px] transition-all duration-500 relative shadow-sidebar"
-	>
-		<div v-if="open"></div>
-		<div class="relative flex flex-col justify-center">
-			<div class="flex items-center absolute top-0 w-full">
-				<div
-					class="relative transform w-full"
-					@click="toggleSidebar"
-				>
-					<button class="absolute top-1/2 -translate-y-1/2 -left-5 bg-[#ECECEC] text-white p-2.5 rounded-md">
-						<SimpleChevronRightIcon
-							v-if="open"
-							class="w-6 h-6"
-						/>
-						<SimpleChevronLeftIcon
-							v-else
-							class="w-6 h-6"
-						/>
-					</button>
-					<div
+	<div class="flex">
+		<div class="flex items-center absolute z-20 top-[17%] w-full">
+			<div
+				class="relative transform w-full"
+				@click="toggleSidebar"
+			>
+				<button class="absolute top-1/2 -translate-y-1/2 -left-5 bg-[#ECECEC] text-white p-2.5 rounded-md">
+					<SimpleChevronRightIcon
 						v-if="open"
-						class="bg-[#CDCDCD] absolute top-1/2 -translate-y-1/2 left-6 h-px w-full -z-10"
-					></div>
-				</div>
+						class="w-6 h-6"
+					/>
+					<SimpleChevronLeftIcon
+						v-else
+						class="w-6 h-6"
+					/>
+				</button>
+				<div
+					ref="sidebarLine"
+					class="bg-[#CDCDCD] absolute top-1/2 -translate-y-1/2 left-6 h-px w-full -z-10"
+				></div>
 			</div>
-
-			<ul class="flex flex-col gap-y-4 px-4">
-				<RouterLink :to="{ name: 'exblifep-home', query: { navigatedAwayBy: 'sidebar' } }">
-					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-						:class="{
-							'justify-center': !open,
-							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'),
-							'text-[#969696]': !isActive('/exblifep'),
-						}"
-					>
-						<img
-							v-if="isActive('/exblifep')"
-							src="/src/assets/images/home-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/home-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="opacity-0 hidden sidebar-text">Home</p>
-					</li>
-				</RouterLink>
-				<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
-					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-						:class="{
-							'justify-center': !open,
-							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/efficacy'),
-							'text-[#969696]': !isActive('/exblifep/efficacy'),
-						}"
-					>
-						<img
-							v-if="isActive('/exblifep/efficacy')"
-							src="/src/assets/images/chart-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/chart-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="opacity-0 hidden sidebar-text">Efficacy</p>
-					</li>
-				</RouterLink>
-				<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
-					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-						:class="{
-							'justify-center': !open,
-							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/safety'),
-							'text-[#969696]': !isActive('/exblifep/safety'),
-						}"
-					>
-						<img
-							v-if="isActive('/exblifep/safety')"
-							src="/src/assets/images/shield-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/shield-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="opacity-0 hidden sidebar-text">Safety</p>
-					</li>
-				</RouterLink>
-				<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
-					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-						:class="{
-							'justify-center': !open,
-							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/dosing'),
-							'text-[#969696]': !isActive('/exblifep/dosing'),
-						}"
-					>
-						<img
-							v-if="isActive('/exblifep/dosing')"
-							src="/src/assets/images/bottle-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/bottle-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
-					</li>
-				</RouterLink>
-				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
-					<li
-						class="px-3 py-5 font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
-						:class="{
-							'justify-center': !open,
-							'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/summary'),
-							'text-[#969696]': !isActive('/exblifep/summary'),
-						}"
-					>
-						<img
-							v-if="isActive('/exblifep/summary')"
-							src="/src/assets/images/summary-sidebar-full.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/summary-sidebar.png"
-							alt="Home Icon"
-							class="w-[30px] h-[30px]"
-						/>
-						<p class="opacity-0 hidden sidebar-text">Summary</p>
-					</li>
-				</RouterLink>
-			</ul>
 		</div>
-		<div
-			class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD]"
-			:class="{ 'pt-10 mx-0': !open }"
+		<aside
+			ref="sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
 		>
-			<div
-				class="grid items-center"
-				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10', { 'pb-10 border-b border-[#CDCDCD]': !open }]"
-			>
-				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
-					<img
-						src="/src/assets/images/book.png"
-						alt="Book Icon"
-						class="w-8 h-8 justify-self-center"
-						@click="referencesPopupOpen = true"
-					/>
-				</RouterLink>
-				<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
-					<img
-						src="/src/assets/images/pi.png"
-						alt="PI Icon"
-						class="w-[30px] h-auto justify-self-center"
-						@click="prescribingPopupOpen = true"
-					/>
-				</RouterLink>
+			<div class="relative flex flex-col flex-1 justify-end mb-20">
+				<ul class="flex flex-col gap-y-4 px-4">
+					<RouterLink :to="{ name: 'exblifep-home', query: { navigatedAwayBy: 'sidebar' } }">
+						<li
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							:class="{
+								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'),
+								'text-[#969696]': !isActive('/exblifep'),
+							}"
+						>
+							<div class="list-image absolute top-1/2 -translate-y-1/2">
+								<img
+									v-if="isActive('/exblifep')"
+									src="/src/assets/images/home-sidebar-full.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+								<img
+									v-else
+									src="/src/assets/images/home-sidebar.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+							</div>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Home</p>
+						</li>
+					</RouterLink>
+					<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
+						<li
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							:class="{
+								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/efficacy'),
+								'text-[#969696]': !isActive('/exblifep/efficacy'),
+							}"
+						>
+							<div class="list-image absolute top-1/2 -translate-y-1/2">
+								<img
+									v-if="isActive('/exblifep/efficacy')"
+									src="/src/assets/images/chart-sidebar-full.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+								<img
+									v-else
+									src="/src/assets/images/chart-sidebar.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+							</div>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Efficacy</p>
+						</li>
+					</RouterLink>
+					<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
+						<li
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							:class="{
+								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/safety'),
+								'text-[#969696]': !isActive('/exblifep/safety'),
+							}"
+						>
+							<div class="list-image absolute top-1/2 -translate-y-1/2">
+								<img
+									v-if="isActive('/exblifep/safety')"
+									src="/src/assets/images/shield-sidebar-full.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+								<img
+									v-else
+									src="/src/assets/images/shield-sidebar.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+							</div>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Safety</p>
+						</li>
+					</RouterLink>
+					<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
+						<li
+							class="list__item relative px-3 py-5 min-h-[100px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							:class="{
+								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/dosing'),
+								'text-[#969696]': !isActive('/exblifep/dosing'),
+							}"
+						>
+							<div class="list-image absolute top-1/2 -translate-y-1/2">
+								<img
+									v-if="isActive('/exblifep/dosing')"
+									src="/src/assets/images/bottle-sidebar-full.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+								<img
+									v-else
+									src="/src/assets/images/bottle-sidebar.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+							</div>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">
+								Dosing and<br />
+								administration
+							</p>
+						</li>
+					</RouterLink>
+					<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
+						<li
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							:class="{
+								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/summary'),
+								'text-[#969696]': !isActive('/exblifep/summary'),
+							}"
+						>
+							<div class="list-image absolute top-1/2 -translate-y-1/2">
+								<img
+									v-if="isActive('/exblifep/summary')"
+									src="/src/assets/images/summary-sidebar-full.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+								<img
+									v-else
+									src="/src/assets/images/summary-sidebar.png"
+									alt="Home Icon"
+									class="w-[30px] h-[30px]"
+								/>
+							</div>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Summary</p>
+						</li>
+					</RouterLink>
+				</ul>
 			</div>
-			<div
-				v-if="open"
-				class="grid grid-cols-2 text-center"
-			>
-				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
-					<p
-						class="text-xl font-uni-grotesk text-[#969696]"
-						@click="referencesPopupOpen = true"
-					>
-						References
-					</p>
-				</RouterLink>
-				<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
-					<p
-						class="text-xl font-uni-grotesk text-[#969696]"
-						@click="prescribingPopupOpen = true"
-					>
-						Prescribing information
-					</p>
-				</RouterLink>
+			<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[240px]">
+				<div
+					ref="bottomIcons"
+					class="grid grid-cols-2 gap-y-9 items-center"
+				>
+					<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
+						<img
+							src="/src/assets/images/book.png"
+							alt="Book Icon"
+							class="w-8 h-8 justify-self-center"
+							@click="referencesPopupOpen = true"
+						/>
+					</RouterLink>
+					<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+						<img
+							src="/src/assets/images/pi.png"
+							alt="PI Icon"
+							class="w-[30px] h-auto justify-self-center"
+							@click="prescribingPopupOpen = true"
+						/>
+					</RouterLink>
+				</div>
+				<div
+					ref="bottomText"
+					class="grid grid-cols-2 text-center"
+				>
+					<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
+						<p
+							class="text-xl font-uni-grotesk text-[#969696]"
+							@click="referencesPopupOpen = true"
+						>
+							References
+						</p>
+					</RouterLink>
+					<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+						<p
+							class="text-xl font-uni-grotesk text-[#969696]"
+							@click="prescribingPopupOpen = true"
+						>
+							Prescribing information
+						</p>
+					</RouterLink>
+				</div>
+				<img
+					ref="advanzLargeLogo"
+					src="/src/assets/images/advanz-logo.png"
+					alt="Advanz Logo"
+					class="w-44 h-auto m-auto"
+				/>
+				<img
+					ref="advanzSmallLogo"
+					src="/src/assets/images/advanz-logo-small.png"
+					alt="Advanz Logo"
+					class="w-12 h-auto m-auto"
+				/>
 			</div>
-			<img
-				v-if="open"
-				src="/src/assets/images/advanz-logo.png"
-				alt="Advanz Logo"
-				:class="[open ? 'w-44' : 'w-12']"
-				class="h-auto m-auto"
-			/>
-			<img
-				v-else
-				src="/src/assets/images/advanz-logo-small.png"
-				alt="Advanz Logo"
-				:class="[open ? 'w-44' : 'w-12']"
-				class="h-auto m-auto"
-			/>
-		</div>
-	</aside>
+		</aside>
+	</div>
 </template>
 
 <script setup>
@@ -236,10 +239,28 @@ const route = useRoute();
 const referencesPopupOpen = ref(false);
 const prescribingPopupOpen = ref(false);
 
+const sidebar = ref(null);
+const bottomText = ref(null);
+const sidebarLine = ref(null);
+const bottomIcons = ref(null);
+const advanzLargeLogo = ref(null);
+const advanzSmallLogo = ref(null);
+
 onMounted(() => {
 	gsap.set('.sidebar-text', {
 		opacity: 1,
 		display: 'block',
+	});
+	gsap.set(sidebar.value, {
+		width: 350,
+		marginTop: 32,
+	});
+	gsap.set(advanzSmallLogo.value, {
+		opacity: 0,
+		display: 'none',
+	});
+	gsap.set('.list-image', {
+		left: 12,
 	});
 });
 
@@ -249,18 +270,99 @@ const isActive = (currentRoute) => {
 
 const toggleSidebar = async () => {
 	if (props.open) {
-		gsap.set('.sidebar-text', {
+		gsap.to('.sidebar-text', {
 			opacity: 0,
 			display: 'none',
+			duration: 0.3,
 		});
+		gsap.to(sidebarLine.value, {
+			opacity: 0,
+			duration: 0.3,
+		});
+		gsap.to(bottomText.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(bottomIcons.value, {
+			opacity: 0,
+			duration: 0.3,
+		});
+		gsap.to(bottomIcons.value, {
+			opacity: 1,
+			gridTemplateColumns: '1fr',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(advanzLargeLogo.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(advanzSmallLogo.value, {
+			opacity: 1,
+			display: 'block',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(sidebar.value, {
+			width: 118,
+			clipPath: 'inset(15% 0 0 0)',
+			duration: 0.3,
+		});
+		gsap.to('.list-image', {
+			left: '50%',
+			translateX: '-50%',
+		}).delay(0.35);
+
 		emit('update:open', false);
 	} else {
 		emit('update:open', true);
+
+		gsap.to(sidebar.value, {
+			width: 350,
+			marginTop: 32,
+			clipPath: 'inset(0px)',
+			duration: 0.3,
+		});
+		gsap.to(sidebar.value, {
+			clipPath: 'none',
+		}).delay(0.6);
 		gsap.to('.sidebar-text', {
 			opacity: 1,
 			display: 'block',
-			duration: 0.4,
-		}).delay(0.3);
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(bottomText.value, {
+			opacity: 1,
+			display: 'grid',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(bottomIcons.value, {
+			opacity: 0,
+			duration: 0.3,
+		});
+		gsap.to(bottomIcons.value, {
+			opacity: 1,
+			gridTemplateColumns: '1fr 1fr',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(advanzSmallLogo.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(advanzLargeLogo.value, {
+			opacity: 1,
+			display: 'block',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to('.list-image', {
+			left: 12,
+			translateX: 0,
+		});
+		gsap.to(sidebarLine.value, {
+			opacity: 1,
+			duration: 0.3,
+		}).delay(0.6);
 	}
 };
 </script>
