@@ -281,7 +281,7 @@ const toggleSidebar = async () => {
 		});
 		gsap.to(sidebar.value, {
 			width: 118,
-			clipPath: 'inset(12% 0 0 0)',
+			clipPath: 'inset(15% 0 0 0)',
 			duration: 0.3,
 		});
 		gsap.to('.list-image', {
@@ -296,9 +296,12 @@ const toggleSidebar = async () => {
 		gsap.to(sidebar.value, {
 			width: 350,
 			marginTop: 32,
-			clipPath: 'inset(0 0 0 0)',
+			clipPath: 'inset(0px)',
 			duration: 0.3,
 		});
+		gsap.to(sidebar.value, {
+			clipPath: 'none',
+		}).delay(0.6);
 		gsap.to('.sidebar-text', {
 			opacity: 1,
 			display: 'block',
