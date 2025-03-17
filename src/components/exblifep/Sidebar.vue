@@ -306,6 +306,7 @@ const toggleSidebar = async () => {
 		gsap.to(sidebar.value, {
 			width: 118,
 			clipPath: 'inset(15% 0 0 0)',
+			ease: 'power4.inOut',
 			duration: 0.3,
 		});
 		gsap.to('.list-image', {
