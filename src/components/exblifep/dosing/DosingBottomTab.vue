@@ -3,6 +3,12 @@
 		ref="bottomTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
 	>
+		<img
+			src="/src/assets/images/page-vertical-up-blue.png"
+			alt="Page Vertical Up"
+			class="absolute top-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px] cursor-pointer z-50"
+			@click="emit('goToTopTab')"
+		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
