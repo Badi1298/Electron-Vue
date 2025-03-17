@@ -1,10 +1,10 @@
 <template>
 	<aside
-		:class="[open ? 'w-[350px] grid-rows-[0.55fr_3fr_1fr] pt-12' : 'w-[118px] mt-48']"
-		class="z-10 grid my-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
+		ref="sidebar"
+		class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
 	>
-		<div v-if="open"></div>
-		<div class="relative flex flex-col justify-center">
+		<div ref="logoContainer"></div>
+		<div class="relative flex flex-col flex-1 justify-center">
 			<div class="flex items-center absolute top-0 w-full">
 				<div
 					class="relative transform w-full"
@@ -151,7 +151,7 @@
 			</ul>
 		</div>
 		<div
-			class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD]"
+			class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[250px]"
 			:class="{ 'pt-10 mx-0': !open }"
 		>
 			<div
@@ -176,7 +176,7 @@
 				</RouterLink>
 			</div>
 			<div
-				v-if="open"
+				ref="bottomText"
 				class="grid grid-cols-2 text-center"
 			>
 				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
@@ -197,18 +197,16 @@
 				</RouterLink>
 			</div>
 			<img
-				v-if="open"
+				ref="advanzLargeLogo"
 				src="/src/assets/images/advanz-logo.png"
 				alt="Advanz Logo"
-				:class="[open ? 'w-44' : 'w-12']"
-				class="h-auto m-auto"
+				class="w-44 h-auto m-auto"
 			/>
 			<img
-				v-else
+				ref="advanzSmallLogo"
 				src="/src/assets/images/advanz-logo-small.png"
 				alt="Advanz Logo"
-				:class="[open ? 'w-44' : 'w-12']"
-				class="h-auto m-auto"
+				class="w-12 h-auto m-auto"
 			/>
 		</div>
 	</aside>
@@ -236,10 +234,27 @@ const route = useRoute();
 const referencesPopupOpen = ref(false);
 const prescribingPopupOpen = ref(false);
 
+const sidebar = ref(null);
+const bottomText = ref(null);
+const logoContainer = ref(null);
+const advanzLargeLogo = ref(null);
+const advanzSmallLogo = ref(null);
+
 onMounted(() => {
 	gsap.set('.sidebar-text', {
 		opacity: 1,
 		display: 'block',
+	});
+	gsap.set(sidebar.value, {
+		width: 350,
+		marginTop: 32,
+	});
+	gsap.set(logoContainer.value, {
+		height: 155,
+	});
+	gsap.set(advanzSmallLogo.value, {
+		opacity: 0,
+		display: 'none',
 	});
 });
 
@@ -249,18 +264,57 @@ const isActive = (currentRoute) => {
 
 const toggleSidebar = async () => {
 	if (props.open) {
-		gsap.set('.sidebar-text', {
+		gsap.to('.sidebar-text', {
 			opacity: 0,
 			display: 'none',
+			duration: 0.4,
+		});
+		gsap.to(bottomText.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.4,
+		});
+		gsap.to(advanzLargeLogo.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.4,
+		});
+		gsap.to(advanzSmallLogo.value, {
+			opacity: 1,
+			display: 'block',
+			duration: 0.4,
+		});
+		gsap.to(logoContainer.value, {
+			height: 0,
+			duration: 0.4,
+		});
+		gsap.to(sidebar.value, {
+			width: 120,
+			duration: 0.4,
+			marginTop: 176,
 		});
 		emit('update:open', false);
 	} else {
 		emit('update:open', true);
+		gsap.to(sidebar.value, {
+			width: 350,
+			marginTop: 32,
+			duration: 0.4,
+		});
+		gsap.to(logoContainer.value, {
+			height: 155,
+			duration: 0.4,
+		});
 		gsap.to('.sidebar-text', {
 			opacity: 1,
 			display: 'block',
 			duration: 0.4,
-		}).delay(0.3);
+		}).delay(1);
+		gsap.to(bottomText.value, {
+			opacity: 1,
+			display: 'grid',
+			duration: 0.4,
+		});
 	}
 };
 </script>
