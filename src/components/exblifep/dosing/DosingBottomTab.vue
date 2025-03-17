@@ -129,87 +129,100 @@
 					</div>
 				</div>
 				<div class="border-t-[3px] border-[#97D700] w-[1412px]">
-					<p
-						v-if="steps[0].active"
-						class="text-2xl text-cool-grey pr-20 pt-12"
+					<transition
+						name="fade"
+						mode="out-in"
 					>
-						EXBLIFEP® is supplied as a dry powder in a single-dose vial that must be reconstituted and further diluted prior to IV infusion. Inspect
-						the vial before use. Cefepime-enmetazobactam is compatible with sodium chloride 9 mg/ml (0.9%) solution for injection, 5% glucose
-						injection solution and a combination of glucose injection solution and sodium chloride injection solution (containing 2.5% glucose and
-						0.45% sodium chloride).
-					</p>
-					<div v-if="steps[1].active">
-						<p class="text-2xl text-cool-grey pt-12">
-							Withdraw 10 mL from an infusion bag of 250 mL (compatible injection solution) and reconstitute the EXBLIFEP<sup>®</sup> vial.
+						<p
+							v-if="steps[0].active"
+							class="text-2xl text-cool-grey pr-20 pt-12"
+						>
+							EXBLIFEP® is supplied as a dry powder in a single-dose vial that must be reconstituted and further diluted prior to IV infusion.
+							Inspect the vial before use. Cefepime-enmetazobactam is compatible with sodium chloride 9 mg/ml (0.9%) solution for injection, 5%
+							glucose injection solution and a combination of glucose injection solution and sodium chloride injection solution (containing 2.5%
+							glucose and 0.45% sodium chloride).
 						</p>
-						<ul class="flex flex-col gap-y-2.5 text-2xl list-disc pl-5 mt-8 ml-3 max-w-[450px]">
-							<li class="text-dark-blue"><span class="text-cool-grey">0.9% sodium chloride 5% glucose</span></li>
-							<li class="text-dark-blue"><span class="text-cool-grey">5% glucose</span></li>
-							<li class="text-dark-blue"><span class="text-cool-grey">Combination containing 2.5% glucose and 0.45% sodium chloride</span></li>
-						</ul>
-					</div>
-					<div
-						v-if="steps[2].active"
-						class="text-2xl text-cool-grey flex flex-col gap-y-5 pt-12"
-					>
-						<p>Mix gently to dissolve.</p>
-						<p><span class="text-dark-blue font-bold">CAUTION:</span> the reconstituted solution is not for direct injection.</p>
-						<p>The reconstituted vial should be further diluted immediately.</p>
-						<p>The final volume of the reconstituted solution is approximately 10mL.</p>
-					</div>
-					<div
-						v-if="steps[3].active"
-						class="text-base text-cool-grey grid grid-cols-2 pt-5"
-					>
-						<div class="max-w-[610px]">
-							<ul class="flex flex-col gap-y-1 list-disc pl-4 ml-3">
-								<li class="text-dark-blue font-bold">Dilute further, immediately</li>
-								<li class="text-cool-grey">
-									Dilute the reconstituted solution <span class="text-dark-blue font-bold">in an infusion bag of 250 mL</span> (compatible
-									injection solution) before IV infusion.
+
+						<div v-else-if="steps[1].active">
+							<p class="text-2xl text-cool-grey pt-12">
+								Withdraw 10 mL from an infusion bag of 250 mL (compatible injection solution) and reconstitute the EXBLIFEP<sup>®</sup> vial.
+							</p>
+							<ul class="flex flex-col gap-y-2.5 text-2xl list-disc pl-5 mt-8 ml-3 max-w-[450px]">
+								<li class="text-dark-blue"><span class="text-cool-grey">0.9% sodium chloride 5% glucose</span></li>
+								<li class="text-dark-blue"><span class="text-cool-grey">5% glucose</span></li>
+								<li class="text-dark-blue">
+									<span class="text-cool-grey">Combination containing 2.5% glucose and 0.45% sodium chloride</span>
 								</li>
 							</ul>
-							<p class="mt-2.5">
-								To dilute the reconstituted solution,
-								<span class="text-dark-blue font-bold">withdraw the full or partial reconstituted vial</span> content and add it back into the
-								infusion bag according to the table.
-							</p>
-							<p class="mt-5">
-								<span class="text-dark-blue font-bold">IV infusion of the diluted solution must be completed within 8 hours</span> if stored
-								under refrigerated conditions (i.e., at 2°C to 8 °C; where it has been refrigerated for less than 6 hours, prior to being
-								allowed to reach room temperature and then administered at room temperature over a period of 2 or 4 hours).
-							</p>
-							<p class="mt-5">It must only be used if the solution is free from particles. Use only clear solutions.</p>
-							<p class="mt-5">
-								Like other cephalosporins, cefepime-enmetazobactam solutions can develop a yellow to amber color, depending on storage
-								conditions. However, this has no negative influence on the effect of the product.
-							</p>
 						</div>
-						<img
-							src="/src/assets/images/dosing-table.png"
-							alt="Dosing Table"
-							class="w-[706px] h-[329px]"
-						/>
-					</div>
+						<div
+							v-else-if="steps[2].active"
+							class="text-2xl text-cool-grey flex flex-col gap-y-5 pt-12"
+						>
+							<p>Mix gently to dissolve.</p>
+							<p><span class="text-dark-blue font-bold">CAUTION:</span> the reconstituted solution is not for direct injection.</p>
+							<p>The reconstituted vial should be further diluted immediately.</p>
+							<p>The final volume of the reconstituted solution is approximately 10mL.</p>
+						</div>
+						<div
+							v-else-if="steps[3].active"
+							class="text-base text-cool-grey grid grid-cols-2 pt-5"
+						>
+							<div class="max-w-[610px]">
+								<ul class="flex flex-col gap-y-1 list-disc pl-4 ml-3">
+									<li class="text-dark-blue font-bold">Dilute further, immediately</li>
+									<li class="text-cool-grey">
+										Dilute the reconstituted solution <span class="text-dark-blue font-bold">in an infusion bag of 250 mL</span> (compatible
+										injection solution) before IV infusion.
+									</li>
+								</ul>
+								<p class="mt-2.5">
+									To dilute the reconstituted solution,
+									<span class="text-dark-blue font-bold">withdraw the full or partial reconstituted vial</span> content and add it back into
+									the infusion bag according to the table.
+								</p>
+								<p class="mt-5">
+									<span class="text-dark-blue font-bold">IV infusion of the diluted solution must be completed within 8 hours</span> if stored
+									under refrigerated conditions (i.e., at 2°C to 8 °C; where it has been refrigerated for less than 6 hours, prior to being
+									allowed to reach room temperature and then administered at room temperature over a period of 2 or 4 hours).
+								</p>
+								<p class="mt-5">It must only be used if the solution is free from particles. Use only clear solutions.</p>
+								<p class="mt-5">
+									Like other cephalosporins, cefepime-enmetazobactam solutions can develop a yellow to amber color, depending on storage
+									conditions. However, this has no negative influence on the effect of the product.
+								</p>
+							</div>
+							<img
+								src="/src/assets/images/dosing-table.png"
+								alt="Dosing Table"
+								class="w-[706px] h-[329px]"
+							/>
+						</div>
+					</transition>
 				</div>
 			</section>
 		</div>
 		<footer class="relative pb-6">
-			<p
-				v-if="steps[3].active"
-				class="transition-all duration-300 mb-4 text-dark-blue font-bold text-xl"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			<transition
+				name="fade"
+				mode="out-in"
 			>
-				Any unused medicinal product or waste material should be disposed of in accordance with local requirements.
-			</p>
-			<the-footer
-				v-else
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-			>
-				EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data are
-				available.1
-			</the-footer>
+				<p
+					v-if="steps[3].active"
+					class="transition-all duration-300 mb-4 text-dark-blue font-bold text-xl"
+					:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+				>
+					Any unused medicinal product or waste material should be disposed of in accordance with local requirements.
+				</p>
+				<the-footer
+					v-else
+					class="transition-all duration-300 mb-4"
+					:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+				>
+					EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data
+					are available.1
+				</the-footer>
+			</transition>
 
 			<div class="flex justify-between items-center mr-12">
 				<ExploreAnother />

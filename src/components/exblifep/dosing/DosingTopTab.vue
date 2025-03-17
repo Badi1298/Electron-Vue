@@ -62,8 +62,8 @@
 
 					<!-- Expanding Content Section -->
 					<div
-						:class="[tabs[0].class, tabs[0].active ? 'w-[806px]' : 'w-0 opacity-0']"
-						class="flex justify-center flex-col bg-white border-1 border-electric-blue border-l-0 pl-28 rounded-r-[30px] ml-20 z-10 overflow-hidden max-h-[704px]"
+						:class="[tabs[0].class, tabs[0].active ? 'w-[1000px]' : 'w-0 opacity-0']"
+						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
 						<div
 							class="opacity-0"
@@ -106,7 +106,7 @@
 
 					<!-- Expanding Content Section -->
 					<div
-						:class="[tabs[1].class, tabs[1].active ? 'w-[806px]' : 'w-0 opacity-0']"
+						:class="[tabs[1].class, tabs[1].active ? 'w-[1000px]' : 'w-0 opacity-0']"
 						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] ml-20 z-10 overflow-hidden max-h-[704px]"
 					>
 						<div
@@ -126,50 +126,6 @@
 							<div
 								class="flex flex-col pl-10 text-2xl text-cool-grey"
 								v-html="tabs[1].details"
-							></div>
-						</div>
-					</div>
-				</div>
-				<div
-					class="flex"
-					@click="activateTab(tabs[2])"
-				>
-					<!-- Image Section -->
-					<img
-						ref="fullStorageButton"
-						src="/src/assets/images/storage-button-full.png"
-						alt="Dosing Full"
-						class="absolute h-[704px] w-auto z-20 cursor-pointer hidden opacity-0"
-					/>
-					<img
-						ref="emptyStorageButton"
-						src="/src/assets/images/storage-button-empty.png"
-						alt="Dosing Empty"
-						class="absolute h-[704px] w-auto z-20 cursor-pointer"
-					/>
-
-					<!-- Expanding Content Section -->
-					<div
-						:class="[tabs[2].class, tabs[2].active ? 'w-[806px]' : 'w-0 opacity-0']"
-						class="flex justify-center flex-col bg-white pl-28 rounded-r-[30px] ml-20 z-10 overflow-hidden max-h-[704px]"
-					>
-						<div
-							class="opacity-0"
-							:class="`${tabs[2].class}-content`"
-						>
-							<div class="flex items-end">
-								<img
-									src="/src/assets/images/dosing-bottle.png"
-									alt="Dosing Bottle"
-									class="w-[150px] h-[150px]"
-								/>
-								<h3 class="text-[40px] font-semibold text-electric-blue -translate-y-4 -translate-x-3">
-									{{ tabs[2].name }}
-								</h3>
-							</div>
-							<div
-								class="flex flex-col pl-10 text-2xl text-cool-grey"
-								v-html="tabs[2].details"
 							></div>
 						</div>
 					</div>
@@ -223,8 +179,6 @@ const fullDosingButton = ref(null);
 const emptyDosingButton = ref(null);
 const fullAdministrationButton = ref(null);
 const emptyAdministrationButton = ref(null);
-const fullStorageButton = ref(null);
-const emptyStorageButton = ref(null);
 
 const tabs = ref([
 	{
@@ -271,32 +225,6 @@ const tabs = ref([
 		inactiveImageSrc: '/src/assets/images/administration-button-empty.png',
 		active: false,
 	},
-	{
-		id: 3,
-		class: 'storage',
-		name: 'Storage',
-		details: `
-			<p class="text-dark-blue font-bold">Powder vial:</p>
-			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3 pr-12">
-				<li class="text-dark-blue"><span class="text-cool-grey">Store in a refrigerator (2 °C - 8 °C)</span></li>
-				<li class="text-dark-blue">
-					<span class="text-cool-grey">Keep the vial in the outer carton in order to protect from light</span>
-				</li>
-				<li class="text-dark-blue"><span class="text-cool-grey">2-year shelf life</span></li>
-			</ul>
-			<p class="text-dark-blue font-bold mt-4">Reconstituted solution:</p>
-			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3 pr-5">
-				<li class="text-dark-blue"><span class="text-cool-grey">The reconstituted vial should be further diluted immediately</span></li>
-			</ul>
-			<p class="text-dark-blue font-bold mt-4">Diluted solution:</p>
-			<ul class="flex flex-col gap-y-2 list-disc pl-5 ml-3">
-				<li class="text-dark-blue"><span class="text-cool-grey">Up to 6 hours in a refrigerator (2 °C - 8 °C)</span></li>
-			</ul>
-		`,
-		activeImageSrc: '/src/assets/images/storage-button-full.png',
-		inactiveImageSrc: '/src/assets/images/storage-button-empty.png',
-		active: false,
-	},
 ]);
 
 const topTab = ref(null);
@@ -327,18 +255,11 @@ watch(tabs.value, (newValue) => {
 		gsap.to(fullAdministrationButton.value, { opacity: 0, display: 'none', duration: 0.3 });
 		gsap.to(emptyAdministrationButton.value, { opacity: 1, display: 'block', duration: 0.3 });
 	}
-
-	if (newValue[2].active) {
-		gsap.to(fullStorageButton.value, { opacity: 1, display: 'block', duration: 0.3 });
-		gsap.to(emptyStorageButton.value, { opacity: 0, display: 'none', duration: 0.3 });
-	} else {
-		gsap.to(fullStorageButton.value, { opacity: 0, display: 'none', duration: 0.3 });
-		gsap.to(emptyStorageButton.value, { opacity: 1, display: 'block', duration: 0.3 });
-	}
 });
 
 onMounted(() => {
-	gsap.set('.dosing', { width: '806px', opacity: 1, borderRight: '1px solid #1F17F6', borderTop: '1px solid #1F17F6', borderBottom: '1px solid #1F17F6' });
+	gsap.set('.dosing', { width: '1000px', opacity: 1, borderRight: '2px solid #1F17F6', borderTop: '2px solid #1F17F6', borderBottom: '2px solid #1F17F6' });
+	gsap.set('.administration', { width: 20, opacity: 0, borderRight: '2px solid #1F17F6', borderTop: '2px solid #1F17F6', borderBottom: '2px solid #1F17F6' });
 	gsap.set('.dosing-content', { opacity: 1 });
 	gsap.set(fullDosingButton.value, { opacity: 1, display: 'block' });
 });
@@ -359,18 +280,17 @@ const activateTab = async (newTab) => {
 	})
 		.to(`.${previousTab.class}`, {
 			opacity: 0,
-			width: 0,
-			border: 0,
-			duration: 0.6,
+			width: 20,
+			duration: 0.7,
 		})
 		.to(
 			`.${nextTab.class}`,
 			{
 				opacity: 1,
-				width: '806px',
-				borderRight: '1px solid #1F17F6',
-				borderTop: '1px solid #1F17F6',
-				borderBottom: '1px solid #1F17F6',
+				width: '1000px',
+				borderRight: '2px solid #1F17F6',
+				borderTop: '2px solid #1F17F6',
+				borderBottom: '2px solid #1F17F6',
 				duration: 0.6,
 			},
 			'-=0.3'
