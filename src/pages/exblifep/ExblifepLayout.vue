@@ -3,7 +3,7 @@
 		<img
 			src="/src/assets/images/exblifep-logo.svg"
 			alt="Exblifep Logo"
-			class="absolute top-14 right-10 z-50 mt-4 ml-4"
+			class="absolute top-20 right-10 z-50"
 		/>
 		<div class="flex flex-1 flex-col h-screen">
 			<router-view v-slot="{ Component }">

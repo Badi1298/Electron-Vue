@@ -1,6 +1,6 @@
 <template>
 	<aside
-		:class="[open ? 'w-[350px] grid-rows-[0.5fr_3fr_1fr]' : 'w-[118px] mt-48']"
+		:class="[open ? 'w-[350px] grid-rows-[0.55fr_3fr_1fr]' : 'w-[118px] mt-48']"
 		class="z-10 grid my-8 bg-white rounded-l-[20px] pt-12 transition-all duration-300 relative shadow-sidebar"
 	>
 		<div v-if="open"></div>
