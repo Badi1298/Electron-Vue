@@ -136,8 +136,8 @@
 			</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
-				<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'next-section-button' } }">
-					<next-section class="bg-electric-blue" />
+				<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'next-section-button' } }">
+					<next-section class="bg-primary-green" />
 				</RouterLink>
 			</div>
 		</footer>
