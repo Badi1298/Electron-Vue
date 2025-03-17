@@ -51,26 +51,26 @@
 			</p>
 
 			<section class="flex pt-5 gap-x-[22px] z-10 relative">
-				<div class="flex flex-col w-[1034px]">
+				<div class="flex flex-col w-[1280px]">
 					<div class="grid grid-cols-[1fr_2fr] gap-x-2">
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
 							@click="activeTab = Tabs.OVERALL_SUCCESS"
 						>
-							Overall success*: Day 14
+							Overall success*: Day 14 in PAS
 						</button>
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
 							@click="activeTab = Tabs.CLINICAL_CURE"
 						>
-							Clinical cure & Microbiological eradication: Day 14
+							Clinical cure & Microbiological eradication: Day 14 in PAS
 						</button>
 					</div>
 					<div
 						v-if="activeTab === Tabs.OVERALL_SUCCESS"
-						class="w-[1034px] h-[583px]"
+						class="w-[1280px] h-[583px]"
 					>
 						<VLazyImage
 							:src="ChartA"
@@ -80,25 +80,29 @@
 					</div>
 					<div
 						v-if="activeTab === Tabs.CLINICAL_CURE"
-						class="w-[1034px] h-[583px]"
+						class="relative w-[1280px] h-[583px]"
 					>
 						<VLazyImage
 							:src="ChartB"
 							alt="Chart B"
 							class="w-full h-full"
 						/>
+						<div
+							class="absolute bottom-6 left-1/2 -translate-x-1/2 min-w-[1212px] bg-[#00EAFF] shadow-dark py-4 flex items-center mt-9 z-10 border-[5px] border-white"
+						>
+							<div class="pl-9 pr-7 py-3 border-r-[3px] border-[#002470]">
+								<img
+									src="/src/assets/images/chevron-right-bleu.png"
+									alt="Chevron Right Bleu"
+									class="w-[62px] h-[64px] mr-7"
+								/>
+							</div>
+							<h2 class="pl-10 text-2xl font-bold text-[#002470] max-w-[1200px]">
+								EXBLIFEP® demonstrated statistical superiority in microbiological eradication, and no significant difference in the other
+								secondary outcome of clinical cure<sup>1</sup>
+							</h2>
+						</div>
 					</div>
-				</div>
-				<div class="bg-[#00EAFF] px-[22px] border-[6px] border-white">
-					<img
-						src="/src/assets/images/chart-up.png"
-						alt="Chart Up"
-						class="w-[130px] h-[130px]"
-					/>
-					<h3 class="text-[32px] max-w-[280px] mt-14 font-bold leading-normal">EXBLIFEP<sup>®</sup> demonstrated superiority</h3>
-					<p class="max-w-[280px] mt-3.5 text-xl leading-normal">
-						to piperacillin/tazobactam, representing a new appropriate option to treat cUTIs<sup>1</sup>
-					</p>
 				</div>
 			</section>
 		</div>
@@ -135,7 +139,7 @@ import { ref, watch } from 'vue';
 
 import VLazyImage from 'v-lazy-image';
 
-import ChartA from '@/assets/images/chart-a.svg';
+import ChartA from '@/assets/images/chart-a.png';
 import ChartB from '@/assets/images/chart-b.png';
 
 import TheTitle from './TheTitle.vue';
