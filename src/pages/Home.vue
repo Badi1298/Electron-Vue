@@ -230,6 +230,7 @@
 						</div>
 
 						<button
+							v-if="activeIndex === 0"
 							class="absolute -bottom-[70px] left-16 z-10"
 							@click="goToTheLeft"
 						>
@@ -240,11 +241,56 @@
 							/>
 						</button>
 						<button
+							v-else-if="activeIndex === 1"
+							class="absolute -bottom-[70px] left-16 z-10"
+							@click="goToTheLeft"
+						>
+							<img
+								src="/src/assets/images/home-arrow-left-purple.png"
+								alt="Arrow Left"
+								class="w-[84px]"
+							/>
+						</button>
+						<button
+							v-else
+							class="absolute -bottom-[70px] left-16 z-10"
+							@click="goToTheLeft"
+						>
+							<img
+								src="/src/assets/images/home-arrow-left-white.png"
+								alt="Arrow Left"
+								class="w-[84px]"
+							/>
+						</button>
+						<button
+							v-if="activeIndex === 0"
 							class="absolute -bottom-[70px] right-16 z-10"
 							@click="goToTheRight"
 						>
 							<img
 								src="/src/assets/images/home-arrow-right-green.png"
+								alt="Arrow Left"
+								class="w-[84px]"
+							/>
+						</button>
+						<button
+							v-else-if="activeIndex === 1"
+							class="absolute -bottom-[70px] right-16 z-10"
+							@click="goToTheRight"
+						>
+							<img
+								src="/src/assets/images/home-arrow-right-purple.png"
+								alt="Arrow Left"
+								class="w-[84px]"
+							/>
+						</button>
+						<button
+							v-else
+							class="absolute -bottom-[70px] right-16 z-10"
+							@click="goToTheRight"
+						>
+							<img
+								src="/src/assets/images/home-arrow-right-white.png"
 								alt="Arrow Left"
 								class="w-[84px]"
 							/>
