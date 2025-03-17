@@ -150,13 +150,10 @@
 				</RouterLink>
 			</ul>
 		</div>
-		<div
-			class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[250px]"
-			:class="{ 'pt-10 mx-0': !open }"
-		>
+		<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[250px]">
 			<div
+				ref="bottomIcons"
 				class="grid items-center"
-				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10', { 'pb-10 border-b border-[#CDCDCD]': !open }]"
 			>
 				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 					<img
@@ -236,6 +233,7 @@ const prescribingPopupOpen = ref(false);
 
 const sidebar = ref(null);
 const bottomText = ref(null);
+const bottomIcons = ref(null);
 const logoContainer = ref(null);
 const advanzLargeLogo = ref(null);
 const advanzSmallLogo = ref(null);
@@ -256,6 +254,9 @@ onMounted(() => {
 		opacity: 0,
 		display: 'none',
 	});
+	gsap.set(bottomIcons.value, {
+		gridTemplateColumns: '1fr 1fr',
+	});
 });
 
 const isActive = (currentRoute) => {
@@ -272,6 +273,10 @@ const toggleSidebar = async () => {
 		gsap.to(bottomText.value, {
 			opacity: 0,
 			display: 'none',
+			duration: 0.4,
+		});
+		gsap.to(bottomIcons.value, {
+			gridTemplateColumns: '1fr',
 			duration: 0.4,
 		});
 		gsap.to(advanzLargeLogo.value, {
@@ -314,7 +319,21 @@ const toggleSidebar = async () => {
 			opacity: 1,
 			display: 'grid',
 			duration: 0.4,
-		});
+		}).delay(1);
+		gsap.to(bottomIcons.value, {
+			gridTemplateColumns: '1fr 1fr',
+			duration: 0.4,
+		}).delay(1);
+		gsap.to(advanzLargeLogo.value, {
+			opacity: 1,
+			display: 'block',
+			duration: 0.4,
+		}).delay(1);
+		gsap.to(advanzSmallLogo.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.4,
+		}).delay(1);
 	}
 };
 </script>
