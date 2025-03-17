@@ -79,6 +79,35 @@
 						alt="Xyd Background"
 						class="absolute top-0 left-0 w-full h-full -z-30"
 					/>
+					<img
+						src="/src/assets/images/xyd-logo-white.png"
+						alt="Xyd Logo White"
+						class="absolute top-[120px] left-[110px] h-[200px] -z-30 opacity-5"
+					/>
+					<div class="absolute top-[38%] right-[212px] font-effra">
+						<img
+							src="/src/assets/images/xyd-logo-white.png"
+							alt="Exblifep Logo"
+							class="w-[338px]"
+						/>
+						<p class="mt-7 text-2xl text-white">
+							Xydalba™ delivers two weeks of<br />
+							effective treatment in a single dose,<sup>1</sup><br />
+							meaning your patients can spend less<br />
+							days in hospital<sup>2,3</sup>
+						</p>
+						<button
+							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-9 bg-primary-green text-white text-2xl"
+							@click="router.push('/exblifep')"
+						>
+							<span>Get started</span>
+							<img
+								src="/src/assets/images/chevron-right-white.png"
+								alt="Chevron Right"
+								class="w-[50px]"
+							/>
+						</button>
+					</div>
 				</div>
 				<div class="relative flex flex-1 items-center w-fit">
 					<!-- Carousel -->
