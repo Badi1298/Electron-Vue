@@ -448,19 +448,46 @@ const xydButton = ref(null);
 
 const backgroundConfigs = {
 	0: {
-		exblifepBackground: 1,
-		zevteraDetails: 0,
-		xydBackground: 0,
+		exblifepBackground: {
+			opacity: 1,
+			display: 'block',
+		},
+		zevteraDetails: {
+			opacity: 0,
+			display: 'none',
+		},
+		xydBackground: {
+			opacity: 0,
+			display: 'none',
+		},
 	},
 	1: {
-		exblifepBackground: 0,
-		zevteraDetails: 1,
-		xydBackground: 0,
+		exblifepBackground: {
+			opacity: 0,
+			display: 'none',
+		},
+		zevteraDetails: {
+			opacity: 1,
+			display: 'block',
+		},
+		xydBackground: {
+			opacity: 0,
+			display: 'none',
+		},
 	},
 	2: {
-		exblifepBackground: 0,
-		zevteraDetails: 0,
-		xydBackground: 1,
+		exblifepBackground: {
+			opacity: 0,
+			display: 'none',
+		},
+		zevteraDetails: {
+			opacity: 0,
+			display: 'none',
+		},
+		xydBackground: {
+			opacity: 1,
+			display: 'block',
+		},
 	},
 };
 
@@ -650,7 +677,7 @@ const goToSlide = (index) => {
 };
 
 const animateBackground = (config) => {
-	Object.entries(config).forEach(([key, opacity]) => {
+	Object.entries(config).forEach(([key, { opacity, display }]) => {
 		const element = {
 			exblifepBackground,
 			zevteraDetails,
@@ -659,6 +686,7 @@ const animateBackground = (config) => {
 
 		gsap.to(element.value, {
 			opacity,
+			display,
 		});
 	});
 };
