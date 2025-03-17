@@ -282,7 +282,7 @@
 
 						<button
 							v-if="activeIndex === 0"
-							class="absolute -bottom-[70px] left-16 z-10"
+							class="absolute -bottom-[20px] left-16 z-10"
 							@click="goToTheLeft"
 						>
 							<img
@@ -293,7 +293,7 @@
 						</button>
 						<button
 							v-else-if="activeIndex === 1"
-							class="absolute -bottom-[70px] left-16 z-10"
+							class="absolute -bottom-[20px] left-16 z-10"
 							@click="goToTheLeft"
 						>
 							<img
@@ -304,7 +304,7 @@
 						</button>
 						<button
 							v-else
-							class="absolute -bottom-[70px] left-16 z-10"
+							class="absolute -bottom-[20px] left-16 z-10"
 							@click="goToTheLeft"
 						>
 							<img
@@ -315,7 +315,7 @@
 						</button>
 						<button
 							v-if="activeIndex === 0"
-							class="absolute -bottom-[70px] right-16 z-10"
+							class="absolute -bottom-[20px] right-16 z-10"
 							@click="goToTheRight"
 						>
 							<img
@@ -326,7 +326,7 @@
 						</button>
 						<button
 							v-else-if="activeIndex === 1"
-							class="absolute -bottom-[70px] right-16 z-10"
+							class="absolute -bottom-[20px] right-16 z-10"
 							@click="goToTheRight"
 						>
 							<img
@@ -337,7 +337,7 @@
 						</button>
 						<button
 							v-else
-							class="absolute -bottom-[70px] right-16 z-10"
+							class="absolute -bottom-[20px] right-16 z-10"
 							@click="goToTheRight"
 						>
 							<img
