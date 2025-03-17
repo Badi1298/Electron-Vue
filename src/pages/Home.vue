@@ -522,6 +522,7 @@ onMounted(() => {
 
 	gsap.set([zevteraDetails.value, xydBackground.value], {
 		opacity: 0,
+		display: 'none',
 	});
 });
 

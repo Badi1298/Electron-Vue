@@ -204,8 +204,6 @@ import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
-import ReferencesPopup from './popups/ReferencesPopup.vue';
-import PrescribingPopup from './popups/PrescribingPopup.vue';
 import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
 import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
 
