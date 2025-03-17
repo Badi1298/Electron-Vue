@@ -1,7 +1,7 @@
 <template>
 	<aside
-		:class="[open ? 'w-[350px] grid-rows-[0.55fr_3fr_1fr]' : 'w-[118px] mt-48']"
-		class="z-10 grid my-8 bg-white rounded-l-[20px] pt-12 transition-all duration-300 relative shadow-sidebar"
+		:class="[open ? 'w-[350px] grid-rows-[0.55fr_3fr_1fr] pt-12' : 'w-[118px] mt-48']"
+		class="z-10 grid my-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
 	>
 		<div v-if="open"></div>
 		<div class="relative flex flex-col justify-center">
@@ -20,7 +20,10 @@
 							class="w-6 h-6"
 						/>
 					</button>
-					<div class="bg-[#CDCDCD] absolute top-1/2 -translate-y-1/2 left-6 h-px w-full -z-10"></div>
+					<div
+						v-if="open"
+						class="bg-[#CDCDCD] absolute top-1/2 -translate-y-1/2 left-6 h-px w-full -z-10"
+					></div>
 				</div>
 			</div>
 
@@ -118,10 +121,7 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">
-							Dosing and<br />
-							administration
-						</p>
+						<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
@@ -150,10 +150,13 @@
 				</RouterLink>
 			</ul>
 		</div>
-		<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD]">
+		<div
+			class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD]"
+			:class="{ 'pt-10 mx-0': !open }"
+		>
 			<div
 				class="grid items-center"
-				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10', { 'pb-2.5 border-b border-[#CDCDCD]': !open }]"
+				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10', { 'pb-10 border-b border-[#CDCDCD]': !open }]"
 			>
 				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 					<img
