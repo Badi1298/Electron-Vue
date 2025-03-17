@@ -279,6 +279,25 @@ const toggleSidebar = async () => {
 			display: 'none',
 			duration: 0.3,
 		});
+		gsap.to(bottomIcons.value, {
+			opacity: 0,
+			duration: 0.3,
+		});
+		gsap.to(bottomIcons.value, {
+			opacity: 1,
+			gridTemplateColumns: '1fr',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(advanzLargeLogo.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(advanzSmallLogo.value, {
+			opacity: 1,
+			display: 'block',
+			duration: 0.3,
+		}).delay(0.6);
 		gsap.to(sidebar.value, {
 			width: 118,
 			clipPath: 'inset(15% 0 0 0)',
@@ -306,12 +325,31 @@ const toggleSidebar = async () => {
 			opacity: 1,
 			display: 'block',
 			duration: 0.3,
-		}).delay(0.5);
+		}).delay(0.6);
 		gsap.to(bottomText.value, {
 			opacity: 1,
 			display: 'grid',
 			duration: 0.3,
-		}).delay(0.5);
+		}).delay(0.6);
+		gsap.to(bottomIcons.value, {
+			opacity: 0,
+			duration: 0.3,
+		});
+		gsap.to(bottomIcons.value, {
+			opacity: 1,
+			gridTemplateColumns: '1fr 1fr',
+			duration: 0.3,
+		}).delay(0.6);
+		gsap.to(advanzSmallLogo.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(advanzLargeLogo.value, {
+			opacity: 1,
+			display: 'block',
+			duration: 0.3,
+		}).delay(0.6);
 		gsap.to('.list-image', {
 			left: 12,
 			translateX: 0,
