@@ -118,7 +118,10 @@
 							alt="Home Icon"
 							class="w-[30px] h-[30px]"
 						/>
-						<p class="opacity-0 hidden sidebar-text">Dosing and administration</p>
+						<p class="opacity-0 hidden sidebar-text">
+							Dosing and<br />
+							administration
+						</p>
 					</li>
 				</RouterLink>
 				<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
@@ -147,7 +150,7 @@
 				</RouterLink>
 			</ul>
 		</div>
-		<div class="flex flex-col">
+		<div class="flex flex-col mx-4 py-2.5 border-t-[1px] border-[#CDCDCD]">
 			<div
 				class="grid items-center"
 				:class="[open ? 'grid-cols-2' : 'grid-cols-1 gap-y-10']"
@@ -164,7 +167,7 @@
 					<img
 						src="/src/assets/images/pi.png"
 						alt="PI Icon"
-						class="w-4 h-auto justify-self-center"
+						class="w-[30px] h-auto justify-self-center"
 						@click="prescribingPopupOpen = true"
 					/>
 				</RouterLink>
