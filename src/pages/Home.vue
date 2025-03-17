@@ -7,34 +7,34 @@
 					<img
 						src="/src/assets/images/textured-background.png"
 						alt="Textured Background"
-						class="absolute top-0 left-0 w-full h-full -z-10"
+						class="absolute top-0 left-0 w-full h-full -z-30"
 					/>
 					<img
 						src="/src/assets/images/exblifep-logo.svg"
 						alt="Exblifep Logo"
-						class="absolute top-[150px] left-[130px] h-[179px] -z-10 opacity-5"
+						class="absolute top-[150px] left-[130px] h-[179px] -z-30 opacity-5"
 					/>
 					<img
 						src="/src/assets/images/hallway-bed.png"
 						alt="Hallway Bed"
-						class="absolute -right-36 bottom-0 h-[874px] -z-10 opacity-10"
+						class="absolute -right-36 bottom-0 h-[874px] -z-30 opacity-10"
 					/>
 				</div>
 				<div ref="zevteraDetails">
 					<img
 						src="/src/assets/images/home-zevtera-bg.png"
 						alt="Zevtera Background"
-						class="absolute top-0 left-0 w-full h-full -z-10"
+						class="absolute top-0 left-0 w-full h-full -z-30"
 					/>
 					<img
 						src="/src/assets/images/zevtera-mabelio-logo.png"
 						alt="Zevtera Mabelio Logo"
-						class="w-[1076px] absolute top-[116px] -z-10 opacity-5"
+						class="w-[1076px] absolute top-[116px] -z-30 opacity-5"
 					/>
 					<img
 						src="/src/assets/images/mabelio-bullet.png"
 						alt="Mabelio Bullet"
-						class="absolute top-[19%] right-0 w-[1325px] -z-10 opacity-10"
+						class="absolute top-[19%] right-0 w-[1325px] -z-30 opacity-10"
 					/>
 					<div class="absolute top-[38%] right-[182px] font-effra">
 						<img
@@ -77,7 +77,7 @@
 					<img
 						src="/src/assets/images/home-xyd-large-bg.png"
 						alt="Xyd Background"
-						class="absolute top-0 left-0 w-full h-full -z-10"
+						class="absolute top-0 left-0 w-full h-full -z-30"
 					/>
 				</div>
 				<div class="relative flex flex-1 items-center w-fit">
@@ -99,7 +99,6 @@
 								ref="item0Ref"
 								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 0 }"
-								@click="router.push('/exblifep')"
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
 									<img
@@ -187,7 +186,7 @@
 						</div>
 
 						<button
-							class="absolute -bottom-[70px] left-16"
+							class="absolute -bottom-[70px] left-16 z-10"
 							@click="goToTheLeft"
 						>
 							<img
@@ -197,7 +196,7 @@
 							/>
 						</button>
 						<button
-							class="absolute -bottom-[70px] right-16"
+							class="absolute -bottom-[70px] right-16 z-10"
 							@click="goToTheRight"
 						>
 							<img
@@ -497,7 +496,7 @@ const positionItems = () => {
 		const offsetX = Math.sin(radian) * 180;
 
 		// Calculate z-index (items in front have higher z-index)
-		const zIndex = Math.round(mapRange(z, -radius * 0.6, radius * 0.6, 1, 10));
+		const zIndex = Math.round(mapRange(z, -radius * 0.6, radius * 0.6, 10, 20));
 
 		if (itemRefs[index]) {
 			gsap.to(itemRefs[index], {
