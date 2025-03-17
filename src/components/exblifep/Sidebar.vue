@@ -151,7 +151,7 @@
 		<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[250px]">
 			<div
 				ref="bottomIcons"
-				class="grid grid-cols-2 items-center"
+				class="grid grid-cols-2 gap-y-9 items-center"
 			>
 				<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 					<img
