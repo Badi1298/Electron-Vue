@@ -281,6 +281,11 @@ const toggleSidebar = async () => {
 			display: 'none',
 			duration: 0.3,
 		});
+		gsap.to(bottomText.value, {
+			opacity: 0,
+			display: 'none',
+			duration: 0.3,
+		});
 		gsap.to(sidebar.value, {
 			width: 118,
 			marginTop: 176,
@@ -310,6 +315,11 @@ const toggleSidebar = async () => {
 		gsap.to('.sidebar-text', {
 			opacity: 1,
 			display: 'block',
+			duration: 0.3,
+		}).delay(0.5);
+		gsap.to(bottomText.value, {
+			opacity: 1,
+			display: 'grid',
 			duration: 0.3,
 		}).delay(0.5);
 		gsap.to('.list-image', {
