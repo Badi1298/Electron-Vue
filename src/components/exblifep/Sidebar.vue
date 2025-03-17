@@ -1,7 +1,7 @@
 <template>
 	<aside
 		:class="[open ? 'w-[350px] grid-rows-[0.55fr_3fr_1fr] pt-12' : 'w-[118px] mt-48']"
-		class="z-10 grid my-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
+		class="z-10 grid my-8 bg-white rounded-l-[20px] transition-all duration-500 relative shadow-sidebar"
 	>
 		<div v-if="open"></div>
 		<div class="relative flex flex-col justify-center">
