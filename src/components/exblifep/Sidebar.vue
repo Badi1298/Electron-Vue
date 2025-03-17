@@ -16,7 +16,7 @@
 					/>
 				</button>
 				<div
-					v-if="open"
+					ref="sidebarLine"
 					class="bg-[#CDCDCD] absolute top-1/2 -translate-y-1/2 left-6 h-px w-full -z-10"
 				></div>
 			</div>
@@ -241,6 +241,7 @@ const prescribingPopupOpen = ref(false);
 
 const sidebar = ref(null);
 const bottomText = ref(null);
+const sidebarLine = ref(null);
 const bottomIcons = ref(null);
 const advanzLargeLogo = ref(null);
 const advanzSmallLogo = ref(null);
@@ -272,6 +273,10 @@ const toggleSidebar = async () => {
 		gsap.to('.sidebar-text', {
 			opacity: 0,
 			display: 'none',
+			duration: 0.3,
+		});
+		gsap.to(sidebarLine.value, {
+			opacity: 0,
 			duration: 0.3,
 		});
 		gsap.to(bottomText.value, {
@@ -354,6 +359,10 @@ const toggleSidebar = async () => {
 			left: 12,
 			translateX: 0,
 		});
+		gsap.to(sidebarLine.value, {
+			opacity: 1,
+			duration: 0.3,
+		}).delay(0.6);
 	}
 };
 </script>
