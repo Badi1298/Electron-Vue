@@ -1,5 +1,11 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
+		<img
+			src="/src/assets/images/back-button-white.png"
+			alt="Back Button"
+			class="absolute top-1/2 -translate-y-1/2 h-[150px] cursor-pointer"
+			@click="router.push({ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'back-button' } })"
+		/>
 		<div
 			class="flex flex-col justify-center font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
@@ -65,6 +71,8 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
@@ -75,4 +83,6 @@ defineProps({
 		required: true,
 	},
 });
+
+const router = useRouter();
 </script>
