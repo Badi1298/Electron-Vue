@@ -16,10 +16,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative pr-[60px]"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content ml-[124px] flex flex-col justify-center font-effra transition-all duration-300 relative pr-[60px]">
 			<div class="flex justify-between mr-12 items-center">
 				<div>
 					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
@@ -116,10 +113,7 @@
 		</div>
 
 		<footer>
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-			>
+			<the-footer class="footer ml-[124px] transition-all duration-300 mb-4">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
 				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
@@ -140,10 +134,8 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 
-import InfoIcon from './efficacy/InfoIcon.vue';
-import InfoCard from './efficacy/InfoCard.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
@@ -178,6 +170,37 @@ watch(
 	}
 );
 
+watch(
+	() => props.sidebarOpen,
+	(value) => {
+		if (value) {
+			gsap.to(['.page-content', '.footer'], {
+				marginLeft: 124,
+				duration: 0.2,
+				ease: 'power4.inOut',
+			});
+			gsap.to('.select-tab', {
+				right: 0,
+				duration: 0.2,
+				ease: 'power4.inOut',
+			});
+		} else {
+			setTimeout(() => {
+				gsap.to(['.page-content', '.footer'], {
+					marginLeft: 224,
+					duration: 0.2,
+					ease: 'power4.inOut',
+				});
+			}, 100);
+			gsap.to('.select-tab', {
+				right: 250,
+				duration: 0.3,
+				ease: 'power3.out',
+			});
+		}
+	}
+);
+
 const tabsInfo = ref([
 	{
 		id: Tabs.DROP,
@@ -192,12 +215,6 @@ const tabsInfo = ref([
 		active: false,
 	},
 ]);
-
-const onClickTab = (id) => {
-	tabsInfo.value.forEach((tab) => {
-		tab.active = tab.id === id;
-	});
-};
 </script>
 
 <style scoped>

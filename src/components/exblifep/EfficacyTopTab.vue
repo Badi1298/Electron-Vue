@@ -177,12 +177,7 @@ watch(
 	() => props.sidebarOpen,
 	(value) => {
 		if (value) {
-			gsap.to('.page-content', {
-				marginLeft: 124,
-				duration: 0.2,
-				ease: 'power4.inOut',
-			});
-			gsap.to('.footer', {
+			gsap.to(['.page-content', '.footer'], {
 				marginLeft: 124,
 				duration: 0.2,
 				ease: 'power4.inOut',
@@ -194,12 +189,7 @@ watch(
 			});
 		} else {
 			setTimeout(() => {
-				gsap.to('.page-content', {
-					marginLeft: 224,
-					duration: 0.2,
-					ease: 'power4.inOut',
-				});
-				gsap.to('.footer', {
+				gsap.to(['.page-content', '.footer'], {
 					marginLeft: 224,
 					duration: 0.2,
 					ease: 'power4.inOut',
