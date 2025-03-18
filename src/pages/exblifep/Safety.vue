@@ -6,10 +6,7 @@
 			class="absolute top-1/2 -translate-y-1/2 h-[150px] cursor-pointer"
 			@click="router.push({ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'back-button' } })"
 		/>
-		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="flex flex-col justify-center font-effra">
 			<div>
 				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
 					EXBLIFEP<sup>®</sup> demonstrated a favourable overall safety profile, comparable to piperacillin/tazobactam<sup>1,10</sup>
@@ -55,8 +52,6 @@
 		</div>
 		<footer>
 			<the-footer
-				class="transition-all duration-300"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
 				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
 			>

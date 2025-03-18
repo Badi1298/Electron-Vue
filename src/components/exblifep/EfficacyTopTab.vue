@@ -16,7 +16,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col ml-[124px] justify-center font-effra">
+		<div class="page-content flex flex-col justify-center font-effra">
 			<div class="relative flex justify-between mr-12">
 				<div>
 					<the-title class="max-w-[920px]">

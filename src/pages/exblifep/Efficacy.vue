@@ -14,9 +14,9 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+import { ref, toRef } from 'vue';
 
-import { gsap } from 'gsap';
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import EfficacyTopTab from '../../components/exblifep/EfficacyTopTab.vue';
 import EfficacyBottomTab from '../../components/exblifep/EfficacyBottomTab.vue';
@@ -31,34 +31,8 @@ const props = defineProps({
 const scrollToTopTab = ref(false);
 const scrollToBottomTab = ref(false);
 
-watch(
-	() => props.sidebarOpen,
-	(value) => {
-		if (value) {
-			gsap.to(['.page-content', '.footer'], {
-				marginLeft: 124,
-				duration: 0.6,
-				ease: 'power4.inOut',
-			});
-		} else {
-			gsap.to(['.page-content', '.footer'], {
-				marginLeft: 224,
-				duration: 0.7,
-				ease: 'power4.inOut',
-			});
-		}
-	}
-);
-
-onMounted(() => {
-	if (props.sidebarOpen) {
-		gsap.set('.page-content', { marginLeft: 124 });
-		gsap.set('.footer', { marginLeft: 124 });
-	} else {
-		gsap.set('.page-content', { marginLeft: 224 });
-		gsap.set('.footer', { marginLeft: 224 });
-	}
-});
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 
 const onScrollToTopTab = () => {
 	scrollToTopTab.value = true;
