@@ -224,9 +224,7 @@
 								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
 								:class="{ 'shadow-xl': activeIndex === 1 }"
 							>
-								<div
-									class="relative w-full h-full bg-gradient-to-b from-white via-white via-70% to-primary-light-orange overflow-hidden pointer-events-none"
-								>
+								<div class="relative w-full h-full bg-white overflow-hidden pointer-events-none">
 									<img
 										src="/src/assets/images/home-zevtera-doctor-bg.png"
 										alt="Xyd Background"
