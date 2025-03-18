@@ -344,7 +344,7 @@ const toggleSidebar = async () => {
 			{
 				width: 350,
 				marginTop: 32,
-				clipPath: 'inset(0 0 0 0)',
+				clipPath: 'none',
 				ease: 'power4.inOut',
 				duration: 0.4,
 			},
@@ -373,7 +373,7 @@ const toggleSidebar = async () => {
 					opacity: 1,
 					duration: 0.3,
 				},
-				0.4
+				0.2
 			);
 
 		emit('update:open', true);
