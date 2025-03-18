@@ -32,10 +32,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
-		>
+		<div class="page-content flex flex-col justify-end font-effra relative max-w-[1446px]">
 			<h1 class="text-[40px] font-bold text-primary-purple">
 				Xydalba™ delivers long-lasting treatment without compromising<br />
 				on early clinical response<sup>8</sup>
@@ -72,10 +69,7 @@
 		</div>
 
 		<footer class="pt-6">
-			<the-footer
-				class="transition-all duration-300 mb-6"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px] pr-[120px]']"
-			>
+			<the-footer class="footer mb-6">
 				*FDA primary endpoint, EMA secondary endpoint: Early clinical response at 48 and 72 hours of therapy was defined as both cessation of spread of
 				the erythema associated with the infection (i.e. no increase in the surface area as compared with baseline) and a temperature of 37.6°C<br />
 				or lower at three consecutive readings performed 6 hours apart.<sup>8 †</sup>Without needing rescue antibacterial therapy<sup>9</sup>

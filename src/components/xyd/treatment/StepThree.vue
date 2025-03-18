@@ -32,10 +32,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-end font-effra pb-6 transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
-		>
+		<div class="page-content flex flex-col justify-end font-effra pb-6 relative max-w-[1446px]">
 			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ provided effective treatment in a paediatric population<sup>5</sup></h1>
 
 			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px] mt-12">
@@ -123,10 +120,7 @@
 		</div>
 
 		<footer>
-			<the-footer
-				class="transition-all duration-300 mb-4 pr-[60px]"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
-			>
+			<the-footer class="footer mb-4 pr-[60px]">
 				*Sponsor assessment. †mITT: randomised patients who received ≥1 dose of study drug and had a diagnosis of ABSSSI (or, in cohort 5,
 				suspected/confirmed sepsis) not known to be caused exclusively by a Gram-negative organism. <sup>†</sup>Vancomycin IV, oxacillin IV; or
 				flucloxacillin IV ABSSSI: Acute Bacterial Skin and Skin Structure Infections; EOT: End of treatment; mITT: Modified intent-to-treat; TOC: Test

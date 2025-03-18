@@ -22,10 +22,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col justify-end font-effra max-w-[1446px]">
 			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ demonstrated clinical success at Day 14-15<sup>8</sup></h1>
 
 			<section class="grid grid-cols-[1fr_0.34fr] items-end gap-x-6 mt-7 pr-[60px]">
@@ -55,9 +52,7 @@
 		</div>
 
 		<footer class="relative pb-6 pt-8">
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			<the-footer class="footer mb-4"
 				>*EMA primary end-point: Clinical success at End-of-treatment visit (Day 14-15) in the ITT population defined as decreased lesion size (both
 				length and width measurements), a temperature of ≤37.6°C, local signs of fluctuance and localized heat/warmth were absent; local signs of<br />
 				tenderness to palpation and swelling/induration were no worse than mild; and for patients with a wound infection, the severity of purulent

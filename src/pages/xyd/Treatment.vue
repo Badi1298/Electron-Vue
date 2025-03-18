@@ -22,18 +22,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import StepOne from '@/components/xyd/treatment/StepOne.vue';
 import StepTwo from '@/components/xyd/treatment/StepTwo.vue';
 import StepThree from '@/components/xyd/treatment/StepThree.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
 });
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 
 const scrollToTopTab = ref(false);
 const scrollToMiddleTab = ref(false);
