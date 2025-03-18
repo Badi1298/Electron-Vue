@@ -16,7 +16,10 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div class="page-content ml-[124px] flex flex-col justify-center font-effra transition-all duration-300 relative pr-[60px]">
+		<div
+			class="page-content flex flex-col justify-center font-effra transition-all relative pr-[60px]"
+			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+		>
 			<div class="flex justify-between mr-12 items-center">
 				<div>
 					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
@@ -55,7 +58,7 @@
 					<div class="flex items-center">
 						<div class="relative w-fit cursor-pointer">
 							<img
-								src="/src/assets/images/water-drop.png"
+								src="/src/assets/images/24-hours.png"
 								alt="Water Drop"
 								class="min-w-[130px] max-w-[130px] z-10 relative"
 							/>
@@ -67,14 +70,14 @@
 						</div>
 						<div class="relative bg-white border-2 border-electric-blue max-w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
 							<h4 class="text-2xl font-medium text-cool-grey">
-								Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>
+								Concentrations of both agents are detectable in plasma for 24 hours after last administration.<sup>6</sup>
 							</h4>
 						</div>
 					</div>
 					<div class="flex items-center">
 						<div class="relative w-fit cursor-pointer">
 							<img
-								src="/src/assets/images/water-drop.png"
+								src="/src/assets/images/lungs.png"
 								alt="Water Drop"
 								class="min-w-[130px] max-w-[130px] z-10 relative"
 							/>
@@ -86,19 +89,25 @@
 						</div>
 						<div class="relative bg-white border-2 border-electric-blue max-w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
 							<h4 class="text-2xl font-medium text-cool-grey">
-								Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>
+								Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines
+								for the management of HAP/VAP.<sup>7,8</sup>
 							</h4>
 						</div>
 					</div>
 				</div>
 
 				<div class="max-w-[416px]">
-					<h4 class="text-2xl font-bold leading-normal text-[#002470]">In an intrapulmonary PK study of 20 healthy volunteers:<sup>*6</sup></h4>
+					<h4 class="text-2xl font-bold leading-normal text-[#002470]">
+						In an intrapulmonary PK study<br />
+						of 20 healthy volunteers:<sup>*6</sup>
+					</h4>
 					<p class="text-xl leading-normal font-medium text-cool-grey mt-4">
 						Concentration-time of cefepime and enmetazobactam in plasma and epithelial lining fluid were similar
 					</p>
 					<p class="text-xl text-cool-grey mt-3">
-						Percentage of partitioning of total drug concentrations between plasma and epithelial lining fluid:
+						Percentage of partitioning of total<br />
+						drug concentrations between plasma<br />
+						and epithelial lining fluid:
 					</p>
 					<ul class="list-disc pl-5 mt-2 ml-3">
 						<li class="text-xl text-cool-grey">Cefepime (mean [SD]): 60.59% (±28.62%)</li>
@@ -106,7 +115,7 @@
 					</ul>
 					<p class="text-xl text-cool-grey mt-3">
 						Using the ratio of the ELF-to-plasma fAUCs over the entire 8 hour dosing interval, biodistribution coefficients of 46% for
-						enmetazobactam and 46.8% for cefepime were obtained.<sup>5</sup>
+						enmetazobactam and 46.8% for cefepime were obtained.<sup>9</sup>
 					</p>
 				</div>
 			</section>
@@ -179,11 +188,6 @@ watch(
 				duration: 0.2,
 				ease: 'power4.inOut',
 			});
-			gsap.to('.select-tab', {
-				right: 0,
-				duration: 0.2,
-				ease: 'power4.inOut',
-			});
 		} else {
 			setTimeout(() => {
 				gsap.to(['.page-content', '.footer'], {
@@ -192,29 +196,9 @@ watch(
 					ease: 'power4.inOut',
 				});
 			}, 100);
-			gsap.to('.select-tab', {
-				right: 250,
-				duration: 0.3,
-				ease: 'power3.out',
-			});
 		}
 	}
 );
-
-const tabsInfo = ref([
-	{
-		id: Tabs.DROP,
-		active: true,
-	},
-	{
-		id: Tabs.TIME,
-		active: false,
-	},
-	{
-		id: Tabs.LUNGS,
-		active: false,
-	},
-]);
 </script>
 
 <style scoped>
