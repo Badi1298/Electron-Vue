@@ -82,6 +82,10 @@ const resetInactivityTimer = () => {
 </script>
 
 <style>
+body {
+	overflow-x: hidden;
+}
+
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.3s;
