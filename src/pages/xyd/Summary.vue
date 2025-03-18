@@ -117,10 +117,9 @@
 				</div>
 			</section>
 			<footer class="flex justify-between absolute bottom-10 left-9 w-[1000px]">
-				<the-footer
-					>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose<br />
-					vs 2-dose regimen of dalbavacin in ABSSSI.<sup>4</sup> In paediatric patients, clinical cure rate similar across dalbavancin Single-Dose
-					(97.4%)<br />
+				<the-footer class="flex-1"
+					>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose<br />
+					regimen of dalbavacin in ABSSSI.<sup>4</sup> In paediatric patients, clinical cure rate similar across dalbavancin Single-Dose (97.4%)<br />
 					and 2-dose regimen (97.3%).<sup>1 †</sup>Caution should be exercised when prescribing Xydalba™ to patients with moderate or severe<br />
 					hepatic impairment (Child-Pugh Class B or C) as no data are available to determine the appropriate dosing in these<br />
 					patients.<sup>1 ‡</sup>Clinical drug-drug interaction studies with dalbavancin have not been conducted.<sup>1</sup></the-footer
