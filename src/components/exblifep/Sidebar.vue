@@ -303,10 +303,8 @@ const toggleSidebar = async () => {
 		tl.to(
 			'.sidebar-text',
 			{
-				opacity: 0,
-				scale: 0,
-				transformOrigin: 'center center',
-				duration: 0.5,
+				autoAlpha: 0,
+				duration: 0.3,
 			},
 			0
 		)
@@ -364,9 +362,7 @@ const toggleSidebar = async () => {
 			.to(
 				'.sidebar-text',
 				{
-					opacity: 1,
-					scale: 1,
-					transformOrigin: 'center center',
+					autoAlpha: 1,
 					duration: 0.3,
 				},
 				0.2
