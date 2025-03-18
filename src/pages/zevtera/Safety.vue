@@ -1,19 +1,13 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
-		<div
-			class="flex flex-col font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
-			<div class="relative flex justify-end mr-12 mt-14">
+		<div class="page-content flex flex-col font-effra">
+			<div class="relative flex justify-end mr-12 mt-14 min-h-[80px]">
 				<img
 					src="/src/assets/images/bullet-long.png"
 					alt="Bullet Long"
-					class="absolute top-1/2 -translate-y-1/2 -left-20"
+					class="absolute top-1/2 -translate-y-1/2 -left-20 w-[1400px] h-[162px]"
 				/>
-				<div
-					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
-					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-52']"
-				>
+				<div class="select-tab absolute top-1/2 -translate-y-1/2 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -42,7 +36,7 @@
 			<section class="relative grid grid-cols-3 flex-1 mt-8 mr-[60px] gap-x-16 pb-10">
 				<div
 					ref="wellTolarated"
-					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+					class="relative flex flex-col w-[419px] justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateWellTolarated"
 				>
 					<div>
@@ -72,7 +66,7 @@
 				</div>
 				<div
 					ref="gutFlora"
-					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+					class="relative flex flex-col w-[419px] justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateGutFlora"
 				>
 					<img
@@ -100,7 +94,7 @@
 				</div>
 				<div
 					ref="easeOfUse"
-					class="relative flex flex-col justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
+					class="relative flex flex-col w-[419px] justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 				>
 					<RouterLink :to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'ease-of-use-card' } }">
 						<img
@@ -211,9 +205,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			<the-footer class="footer mb-4"
 				>*Among patients who had requirements for de-escalation therapy from linezolid, piperacillin/tazobactam or meropenem combinations<sup>2</sup
 				><br /><sup>†</sup>I.e., ceftazidime, cefotoxitin, ceftroaxone or retapenem<sup>10</sup><br /><sup>‡</sup>No dose adjustment except for renally
 				impaired patients<sup>4</sup></the-footer
@@ -229,9 +221,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, toRef, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
@@ -245,6 +239,9 @@ const props = defineProps({
 	},
 });
 
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
+
 const content = ref(null);
 const easeOfUse = ref(null);
 
@@ -256,11 +253,58 @@ const gutFlora = ref(null);
 const gutFloraDetails = ref(null);
 const gutFloraActive = ref(false);
 
+watch(
+	() => props.sidebarOpen,
+	(value) => {
+		if (value) {
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '0px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
+		} else {
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '250px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
+		}
+	}
+);
+
 onMounted(() => {
 	gsap.set(wellTolaratedDetails.value, { opacity: 0, display: 'none' });
 	gsap.set(gutFloraDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
+
+	if (props.sidebarOpen) {
+		gsap.set('.select-tab', { right: '0' });
+	} else {
+		gsap.set('.select-tab', { right: '250px' });
+	}
 });
 
 const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fadeElements, slideDivisor }) => {
