@@ -335,7 +335,7 @@ const animateBacterialActivity = () => {
 		mainRef: bacterialActivity,
 		swapCardSelector: '.bacterial-swap-card',
 		fadeElements: [clinicalEfficacy.value, content.value],
-		slideDivisor: 3.6,
+		slideDivisor: props.sidebarOpen ? 3.6 : 2.9,
 	});
 };
 
@@ -346,7 +346,7 @@ const animateClinicalEfficacy = () => {
 		mainRef: clinicalEfficacy,
 		swapCardSelector: '.clinical-swap-card',
 		fadeElements: [bacterialActivity.value, content.value],
-		slideDivisor: 1.97,
+		slideDivisor: props.sidebarOpen ? 1.97 : 1.67,
 	});
 };
 </script>
