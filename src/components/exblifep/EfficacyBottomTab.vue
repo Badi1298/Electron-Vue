@@ -22,7 +22,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div class="flex flex-col justify-center font-effra transition-all duration-300 relative pr-[60px]">
+		<div class="page-content flex flex-col justify-center font-effra relative pr-[60px] transition-all">
 			<div class="flex justify-between mr-12 items-center">
 				<div>
 					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
@@ -125,7 +125,7 @@
 		</div>
 
 		<footer>
-			<the-footer class="transition-all mb-4">
+			<the-footer class="footer mb-4">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
 				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
@@ -177,27 +177,6 @@ watch(
 		}
 	}
 );
-
-// watch(
-// 	() => props.sidebarOpen,
-// 	(value) => {
-// 		if (value) {
-// 			gsap.to(['.page-content', '.footer'], {
-// 				marginLeft: 124,
-// 				duration: 0.3,
-// 				ease: 'power4.inOut',
-// 			});
-// 		} else {
-// 			setTimeout(() => {
-// 				gsap.to(['.page-content', '.footer'], {
-// 					marginLeft: 224,
-// 					duration: 0.2,
-// 					ease: 'power4.inOut',
-// 				});
-// 			}, 100);
-// 		}
-// 	}
-// );
 </script>
 
 <style scoped>

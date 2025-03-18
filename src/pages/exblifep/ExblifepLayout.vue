@@ -57,6 +57,7 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 import Sidebar from '@/components/exblifep/Sidebar.vue';
+import { onMounted } from 'vue';
 
 const route = useRoute();
 

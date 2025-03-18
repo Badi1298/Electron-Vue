@@ -14,12 +14,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue';
+
+import { gsap } from 'gsap';
 
 import EfficacyTopTab from '../../components/exblifep/EfficacyTopTab.vue';
 import EfficacyBottomTab from '../../components/exblifep/EfficacyBottomTab.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
@@ -28,6 +30,35 @@ defineProps({
 
 const scrollToTopTab = ref(false);
 const scrollToBottomTab = ref(false);
+
+watch(
+	() => props.sidebarOpen,
+	(value) => {
+		if (value) {
+			gsap.to(['.page-content', '.footer'], {
+				marginLeft: 124,
+				duration: 0.3,
+				ease: 'power4.inOut',
+			});
+		} else {
+			setTimeout(() => {
+				gsap.to(['.page-content', '.footer'], {
+					marginLeft: 224,
+					duration: 0.2,
+					ease: 'power4.inOut',
+				});
+			}, 100);
+		}
+	}
+);
+
+onMounted(() => {
+	if (props.sidebarOpen) {
+		gsap.set('.page-content', { marginLeft: 124 });
+	} else {
+		gsap.set('.page-content', { marginLeft: 224 });
+	}
+});
 
 const onScrollToTopTab = () => {
 	scrollToTopTab.value = true;

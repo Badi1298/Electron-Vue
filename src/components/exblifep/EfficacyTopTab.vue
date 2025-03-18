@@ -16,10 +16,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all">
 			<div class="relative flex justify-between mr-12">
 				<div>
 					<the-title class="max-w-[920px]">
@@ -108,10 +105,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer
-				class="footer transition-all mb-4"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-			>
+			<the-footer class="footer transition-all mb-4">
 				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set.<br />
 				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the
@@ -186,24 +180,12 @@ watch(
 	() => props.sidebarOpen,
 	(value) => {
 		if (value) {
-			gsap.to(['.page-content', '.footer'], {
-				marginLeft: 124,
-				duration: 0.2,
-				ease: 'power4.inOut',
-			});
 			gsap.to('.select-tab', {
 				right: 0,
 				duration: 0.2,
 				ease: 'power4.inOut',
 			});
 		} else {
-			setTimeout(() => {
-				gsap.to(['.page-content', '.footer'], {
-					marginLeft: 224,
-					duration: 0.2,
-					ease: 'power4.inOut',
-				});
-			}, 100);
 			gsap.to('.select-tab', {
 				right: 250,
 				duration: 0.3,
