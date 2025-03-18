@@ -1,9 +1,6 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10 h-full">
-		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col justify-center font-effra">
 			<div>
 				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
 					Exblifep<sup>®</sup> is where microbiological eradication* meets efficacy<sup>1</sup>
@@ -96,10 +93,7 @@
 			</section>
 		</div>
 		<footer class="flex flex-col">
-			<the-footer
-				class="transition-all duration-300 max-w-[1380px]"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-			>
+			<the-footer class="footer max-w-[1380px]">
 				AMR, antimicrobial resistance; AP, acute pyelonephritis; CFU, colony-forming unit; cUTI, complicated urinary tract infection; ELF, epithelial
 				lining fluid; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia; MIC, minimum inhibitory concentration.<br />
 				*In the ALLIUM study, microbiological eradication is defined as &lt; 103 CFU/mL of qualifying baseline pathogen in urine.<sup>1</sup><br />
@@ -117,13 +111,20 @@
 </template>
 
 <script setup>
+import { toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
+
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnotherShort from '@/components/ExploreAnotherShort.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
 });
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 </script>
