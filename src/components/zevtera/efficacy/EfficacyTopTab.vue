@@ -17,13 +17,13 @@
 			/>
 		</div>
 		<div class="page-content flex flex-col font-effra">
-			<div class="relative flex justify-end mr-12 mt-16">
+			<div class="relative flex justify-end mr-12 mt-16 min-h-[80px]">
 				<img
 					src="/src/assets/images/bullet-long.png"
 					alt="Bullet Long"
-					class="absolute top-1/2 -translate-y-1/2 -left-20"
+					class="absolute top-1/2 -translate-y-1/2 -left-20 w-[1400px] h-[162px]"
 				/>
-				<div class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform">
+				<div class="select-tab absolute top-1/2 -translate-y-1/2 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -269,11 +269,58 @@ watch(
 	}
 );
 
+watch(
+	() => props.sidebarOpen,
+	(value) => {
+		if (value) {
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '0px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
+		} else {
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '250px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
+		}
+	}
+);
+
 onMounted(() => {
 	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
 	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
+
+	if (props.sidebarOpen) {
+		gsap.set('.select-tab', { right: '0' });
+	} else {
+		gsap.set('.select-tab', { right: '250px' });
+	}
 });
 
 const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fadeElements, slideDivisor }) => {
