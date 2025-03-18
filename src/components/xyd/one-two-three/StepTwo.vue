@@ -37,10 +37,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px] mr-[120px]']"
-		>
+		<div class="page-content flex flex-col justify-end font-effra relative max-w-[1446px]">
 			<div
 				class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium font-effra transform transition-all duration-300 absolute top-14"
 				:class="[sidebarOpen ? 'right-[60px]' : 'right-32']"
@@ -165,13 +162,11 @@
 		</div>
 
 		<footer class="pt-6">
-			<the-footer
-				class="transition-all duration-300 mb-6"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px] pr-[120px]']"
-			>
+			<the-footer class="footer mb-6">
 				*Vancomycin/linezolid in Discover studies.<sup>8 †</sup>Pooled analysis of dalbavancin-treated patients in phase 2/3 studies vs. those receiving
 				comparator agents (vancomycin, linezolid, cefazolin, nafcillin, or oxacillin).<sup>9 ‡</sup>MIC90 = minimum inhibitory concentration at which
-				90% of the isolates are inhibited. <sup>§</sup>Determined by EUCAST (European Committee on Antimicrobial Susceptibility Testing):
+				90% of the isolates<br />
+				are inhibited. <sup>§</sup>Determined by EUCAST (European Committee on Antimicrobial Susceptibility Testing):
 				<span class="italic">Staphylococcus</span> spp., Beta-haemolytic <span class="italic">Streptococci </span> of Groups A, B, C, G, Viridans group
 				<span class="italic">Streptococci</span> (<span class="italic">Streptococcus anginosus</span> group only).<br />ABSSSI: Acute Bacterial Skin and
 				Skin Structure Infections.

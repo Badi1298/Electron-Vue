@@ -27,10 +27,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col justify-center font-effra">
 			<div class="flex items-center gap-x-4">
 				<span class="text-[220px] text-primary-purple">1.</span>
 				<h1 class="font-bold text-[75px] text-primary-purple leading-none translate-y-3">
@@ -89,11 +86,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-				>ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer
-			>
+			<the-footer class="footer mb-4">ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer>
 			<ExploreAnother />
 			<button
 				@click="emit('goToMiddleTab')"

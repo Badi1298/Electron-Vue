@@ -37,10 +37,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col justify-center font-effra relative">
 			<div class="relative flex items-center gap-x-4">
 				<span class="text-[220px] text-primary-turqoise">3.</span>
 				<h1 class="font-bold text-[75px] text-primary-turqoise leading-none translate-y-3">
@@ -124,10 +121,7 @@
 		</div>
 
 		<footer>
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
-			>
+			<the-footer class="footer mb-4">
 				*One 3-hr infusion, one 30-min infusion once a week for two weeks, two 1-hr infusions a day for a week, few days of two 1-hr infusions a day
 				then one pill 3-4<br />
 				times a day for rest of week.10 †Clinical success included ≥20% reduction of erythema at 48-72 hrs, resolution or improvement of clinical signs
