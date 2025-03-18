@@ -161,8 +161,8 @@
 			>
 				*Patients' groups who are severely ill or at high risk of poor outcomes
 			</the-footer>
-			<div class="flex justify-between items-center mt-4 mr-12">
-				<ExploreAnother />
+			<div class="flex justify-end items-center mt-4 mr-12">
+				<explore-another-short />
 			</div>
 		</footer>
 	</div>
@@ -170,7 +170,7 @@
 
 <script setup>
 import TheFooter from '@/components/TheFooter.vue';
-import ExploreAnother from '@/components/ExploreAnother.vue';
+import ExploreAnotherShort from '@/components/ExploreAnotherShort.vue';
 
 defineProps({
 	sidebarOpen: {

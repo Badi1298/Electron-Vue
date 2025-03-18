@@ -125,7 +125,7 @@
 					hepatic impairment (Child-Pugh Class B or C) as no data are available to determine the appropriate dosing in these<br />
 					patients.<sup>1 ‡</sup>Clinical drug-drug interaction studies with dalbavancin have not been conducted.<sup>1</sup></the-footer
 				>
-				<explore-another />
+				<explore-another-short />
 			</footer>
 		</div>
 	</div>
@@ -133,7 +133,7 @@
 
 <script setup>
 import TheFooter from '@/components/TheFooter.vue';
-import ExploreAnother from '@/components/ExploreAnother.vue';
+import ExploreAnotherShort from '@/components/ExploreAnotherShort.vue';
 
 defineProps({
 	sidebarOpen: {
