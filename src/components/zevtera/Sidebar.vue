@@ -1,6 +1,6 @@
 <template>
 	<div class="flex">
-		<div class="flex items-center absolute z-20 top-[17%] w-full">
+		<div class="flex items-center absolute z-20 top-[17%] w-[324px]">
 			<div
 				class="relative transform w-full"
 				@click="toggleSidebar"
@@ -23,9 +23,12 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all relative shadow-sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar sidebar"
 		>
-			<div class="relative flex flex-col flex-1 justify-end mb-20">
+			<div
+				ref="sidebarContent"
+				class="relative flex flex-col flex-1 justify-end mb-20"
+			>
 				<ul class="flex flex-col gap-y-4 px-4">
 					<RouterLink :to="{ name: 'zevtera-home', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
@@ -154,62 +157,85 @@
 					</RouterLink>
 				</ul>
 			</div>
-			<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[240px]">
+			<transition
+				name="fade"
+				mode="out-in"
+			>
 				<div
-					ref="bottomIcons"
-					class="grid grid-cols-2 gap-y-9 items-center"
+					v-if="open"
+					class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[240px]"
 				>
-					<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
-						<img
-							src="/src/assets/images/book.png"
-							alt="Book Icon"
-							class="w-8 h-8 justify-self-center"
-							@click="referencesPopupOpen = true"
-						/>
-					</RouterLink>
-					<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
-						<img
-							src="/src/assets/images/pi.png"
-							alt="PI Icon"
-							class="w-[30px] h-auto justify-self-center"
-							@click="prescribingPopupOpen = true"
-						/>
-					</RouterLink>
+					<div class="grid grid-cols-2 gap-y-9 items-center">
+						<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/book.png"
+								alt="Book Icon"
+								class="w-8 h-8 justify-self-center"
+								@click="referencesPopupOpen = true"
+							/>
+						</RouterLink>
+						<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/pi.png"
+								alt="PI Icon"
+								class="w-[30px] h-auto justify-self-center"
+								@click="prescribingPopupOpen = true"
+							/>
+						</RouterLink>
+					</div>
+					<div class="grid grid-cols-2 text-center">
+						<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
+							<p
+								class="text-xl font-uni-grotesk text-[#969696]"
+								@click="referencesPopupOpen = true"
+							>
+								References
+							</p>
+						</RouterLink>
+						<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+							<p
+								class="text-xl font-uni-grotesk text-[#969696]"
+								@click="prescribingPopupOpen = true"
+							>
+								Prescribing information
+							</p>
+						</RouterLink>
+					</div>
+					<img
+						src="/src/assets/images/advanz-logo.png"
+						alt="Advanz Logo"
+						class="w-44 h-auto m-auto"
+					/>
 				</div>
 				<div
-					ref="bottomText"
-					class="grid grid-cols-2 text-center"
+					v-else
+					class="flex flex-col pt-9 border-t border-[#CDCDCD] min-h-[300px] -mt-[60px]"
 				>
-					<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
-						<p
-							class="text-xl font-uni-grotesk text-[#969696]"
-							@click="referencesPopupOpen = true"
-						>
-							References
-						</p>
-					</RouterLink>
-					<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
-						<p
-							class="text-xl font-uni-grotesk text-[#969696]"
-							@click="prescribingPopupOpen = true"
-						>
-							Prescribing information
-						</p>
-					</RouterLink>
+					<div class="grid grid-cols-1 gap-y-9 items-center border-b border-[#CDCDCD] pb-9">
+						<RouterLink :to="{ name: 'zevtera-references', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/book.png"
+								alt="Book Icon"
+								class="w-8 h-8 justify-self-center"
+								@click="referencesPopupOpen = true"
+							/>
+						</RouterLink>
+						<RouterLink :to="{ name: 'zevtera-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/pi.png"
+								alt="PI Icon"
+								class="w-[30px] h-auto justify-self-center"
+								@click="prescribingPopupOpen = true"
+							/>
+						</RouterLink>
+					</div>
+					<img
+						src="/src/assets/images/advanz-logo-small.png"
+						alt="Advanz Logo"
+						class="w-12 h-auto m-auto"
+					/>
 				</div>
-				<img
-					ref="advanzLargeLogo"
-					src="/src/assets/images/advanz-logo.png"
-					alt="Advanz Logo"
-					class="w-44 h-auto m-auto"
-				/>
-				<img
-					ref="advanzSmallLogo"
-					src="/src/assets/images/advanz-logo-small.png"
-					alt="Advanz Logo"
-					class="w-12 h-auto m-auto"
-				/>
-			</div>
+			</transition>
 		</aside>
 	</div>
 </template>
@@ -237,11 +263,7 @@ const referencesPopupOpen = ref(false);
 const prescribingPopupOpen = ref(false);
 
 const sidebar = ref(null);
-const bottomText = ref(null);
 const sidebarLine = ref(null);
-const bottomIcons = ref(null);
-const advanzLargeLogo = ref(null);
-const advanzSmallLogo = ref(null);
 
 onMounted(() => {
 	gsap.set('.sidebar-text', {
@@ -252,13 +274,6 @@ onMounted(() => {
 		width: 350,
 		marginTop: 32,
 	});
-	gsap.set(advanzSmallLogo.value, {
-		opacity: 0,
-		display: 'none',
-	});
-	gsap.set('.list-image', {
-		left: 12,
-	});
 });
 
 const isActive = (currentRoute) => {
@@ -266,104 +281,93 @@ const isActive = (currentRoute) => {
 };
 
 const toggleSidebar = async () => {
+	const tl = gsap.timeline();
+
 	if (props.open) {
-		gsap.to('.sidebar-text', {
-			opacity: 0,
-			display: 'none',
-			duration: 0.5,
-		});
-		gsap.to(sidebarLine.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(bottomText.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.5,
-		});
-		gsap.to(bottomIcons.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(bottomIcons.value, {
-			opacity: 1,
-			gridTemplateColumns: '1fr',
-			duration: 0.5,
-		}).delay(0.6);
-		gsap.to(advanzLargeLogo.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.5,
-		});
-		gsap.to(advanzSmallLogo.value, {
-			opacity: 1,
-			display: 'block',
-			duration: 0.5,
-		}).delay(0.6);
-		gsap.to(sidebar.value, {
-			width: 118,
-			clipPath: 'inset(15% 0 0 0)',
-			ease: 'power4.inOut',
-			duration: 0.5,
-		});
-		gsap.to('.list-image', {
-			left: '50%',
-			translateX: '-50%',
-			duration: 0.1,
-		}).delay(0.55);
+		// Collapse sidebar timeline
+		tl.to(
+			'.sidebar-text',
+			{
+				autoAlpha: 0,
+				duration: 0.3,
+			},
+			0
+		)
+			.to(
+				'.list-image',
+				{
+					left: '50%',
+					xPercent: -50,
+					duration: 0.5,
+				},
+				0.2
+			)
+			.to(
+				sidebarLine.value,
+				{
+					opacity: 0,
+					duration: 0.5,
+				},
+				0
+			)
+			.to(
+				sidebar.value,
+				{
+					width: 118,
+					clipPath: 'inset(15% 0 0 0)',
+					ease: 'power4.inOut',
+					duration: 0.5,
+				},
+				0
+			);
 
 		emit('update:open', false);
 	} else {
-		emit('update:open', true);
+		// Expand sidebar timeline
+		tl.to(
+			sidebar.value,
+			{
+				width: 350,
+				marginTop: 32,
+				clipPath: 'none',
+				ease: 'power4.inOut',
+				duration: 0.4,
+			},
+			0
+		)
+			.to(
+				'.list-image',
+				{
+					left: 12,
+					xPercent: 0,
+					duration: 0.4,
+				},
+				0.1
+			)
+			.to(
+				'.sidebar-text',
+				{
+					autoAlpha: 1,
+					duration: 0.3,
+				},
+				0.2
+			)
+			.to(
+				sidebarLine.value,
+				{
+					opacity: 1,
+					duration: 0.3,
+				},
+				0.2
+			);
 
-		gsap.to(sidebar.value, {
-			width: 350,
-			marginTop: 32,
-			clipPath: 'inset(0 0 0 0)',
-			ease: 'power4.inOut',
-			duration: 0.4,
-		});
-		gsap.to(sidebar.value, {
-			clipPath: 'none',
-		}).delay(0.5);
-		gsap.to('.sidebar-text', {
-			opacity: 1,
-			display: 'block',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to(bottomText.value, {
-			opacity: 1,
-			display: 'grid',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to(bottomIcons.value, {
-			opacity: 0,
-			duration: 0.3,
-		});
-		gsap.to(bottomIcons.value, {
-			opacity: 1,
-			gridTemplateColumns: '1fr 1fr',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to(advanzSmallLogo.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.3,
-		});
-		gsap.to(advanzLargeLogo.value, {
-			opacity: 1,
-			display: 'block',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to('.list-image', {
-			left: 12,
-			translateX: 0,
-			duration: 0.1,
-		}).delay(0.1);
-		gsap.to(sidebarLine.value, {
-			opacity: 1,
-			duration: 0.3,
-		}).delay(0.6);
+		emit('update:open', true);
 	}
 };
 </script>
+
+<style scoped>
+.sidebar {
+	will-change: width, clip-path;
+}
+</style>

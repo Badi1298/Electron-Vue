@@ -1,6 +1,6 @@
 <template>
 	<div class="flex">
-		<div class="flex items-center absolute z-20 top-[17%] w-full">
+		<div class="flex items-center absolute z-20 top-[17%] w-[324px]">
 			<div
 				class="relative transform w-full"
 				@click="toggleSidebar"
@@ -232,23 +232,11 @@
 							/>
 						</RouterLink>
 					</div>
-					<transition
-						name="fade"
-						mode="out-in"
-					>
-						<img
-							v-if="open"
-							src="/src/assets/images/advanz-logo.png"
-							alt="Advanz Logo"
-							class="w-44 h-auto m-auto"
-						/>
-						<img
-							v-else
-							src="/src/assets/images/advanz-logo-small.png"
-							alt="Advanz Logo"
-							class="w-12 h-auto m-auto"
-						/>
-					</transition>
+					<img
+						src="/src/assets/images/advanz-logo-small.png"
+						alt="Advanz Logo"
+						class="w-12 h-auto m-auto"
+					/>
 				</div>
 			</transition>
 		</aside>
