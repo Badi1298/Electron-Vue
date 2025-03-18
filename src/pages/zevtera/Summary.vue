@@ -7,13 +7,13 @@
 				class="w-[593px]"
 			/>
 			<div class="relative bg-transparent overflow-hidden mt-10 pr-[60px]">
-				<div class="grid grid-cols-3 z-20 gap-x-[80px]">
+				<div class="flex z-20 gap-x-[80px]">
 					<img
 						src="/src/assets/images/zevtera-summar-cards.png"
 						alt="Summary Cards"
 						class="absolute w-[1400px] h-[634px] object-cover -z-10 rounded-[20px]"
 					/>
-					<div class="rounded-[20px] pl-7 py-12">
+					<div class="rounded-[20px] py-12 pl-7 pr-3.5 w-[408px]">
 						<h3 class="text-[40px] font-bold leading-tight">
 							More for your<br />
 							difficult to treat patients*
@@ -51,7 +51,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="rounded-[20px] py-12">
+					<div class="rounded-[20px] py-12 pl-1 w-[408px]">
 						<h3 class="text-[40px] font-bold leading-tight min-h-[150px]">
 							More<br />
 							pathogens covered
@@ -102,7 +102,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="rounded-[20px] py-12 pr-8 pl-2">
+					<div class="rounded-[20px] py-12 pl-2 pr-7 w-[408px]">
 						<h3 class="text-[40px] font-bold leading-tight min-h-[150px]">Less burden to treat your patients</h3>
 						<div class="flex flex-col gap-y-6">
 							<div
