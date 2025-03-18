@@ -1,9 +1,6 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10 h-full">
-		<div
-			class="flex flex-col justify-end pb-8 font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col justify-end pb-8 font-effra">
 			<img
 				src="/src/assets/images/zevtera-mabelio-logo.png"
 				alt="Zevtera Mabelio Logo"
@@ -155,12 +152,7 @@
 		</div>
 
 		<footer class="flex flex-col gap-y-6">
-			<the-footer
-				class="transition-all duration-300 max-w-[1380px]"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-			>
-				*Patients' groups who are severely ill or at high risk of poor outcomes
-			</the-footer>
+			<the-footer class="footer max-w-[1380px]">*Patients' groups who are severely ill or at high risk of poor outcomes </the-footer>
 			<div class="flex justify-end items-center mt-4 mr-12">
 				<explore-another-short />
 			</div>
@@ -169,13 +161,20 @@
 </template>
 
 <script setup>
+import { toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
+
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnotherShort from '@/components/ExploreAnotherShort.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
 });
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 </script>
