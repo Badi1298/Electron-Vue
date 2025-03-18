@@ -302,7 +302,7 @@ const toggleSidebar = async () => {
 			opacity: 1,
 			display: 'block',
 			duration: 0.5,
-		}).delay(1);
+		}).delay(0.6);
 		gsap.to(sidebar.value, {
 			width: 118,
 			clipPath: 'inset(15% 0 0 0)',
@@ -322,23 +322,23 @@ const toggleSidebar = async () => {
 		gsap.to(sidebar.value, {
 			width: 350,
 			marginTop: 32,
-			clipPath: 'inset(0px)',
+			clipPath: 'inset(0 0 0 0)',
 			ease: 'power4.inOut',
-			duration: 0.2,
+			duration: 0.4,
 		});
 		gsap.to(sidebar.value, {
 			clipPath: 'none',
-		}).delay(0.4);
+		}).delay(0.5);
 		gsap.to('.sidebar-text', {
 			opacity: 1,
 			display: 'block',
 			duration: 0.3,
-		}).delay(0.4);
+		}).delay(0.6);
 		gsap.to(bottomText.value, {
 			opacity: 1,
 			display: 'grid',
 			duration: 0.3,
-		}).delay(0.4);
+		}).delay(0.6);
 		gsap.to(bottomIcons.value, {
 			opacity: 0,
 			duration: 0.3,
@@ -347,7 +347,7 @@ const toggleSidebar = async () => {
 			opacity: 1,
 			gridTemplateColumns: '1fr 1fr',
 			duration: 0.3,
-		}).delay(0.4);
+		}).delay(0.6);
 		gsap.to(advanzSmallLogo.value, {
 			opacity: 0,
 			display: 'none',
@@ -357,7 +357,7 @@ const toggleSidebar = async () => {
 			opacity: 1,
 			display: 'block',
 			duration: 0.3,
-		}).delay(0.4);
+		}).delay(0.6);
 		gsap.to('.list-image', {
 			left: 12,
 			translateX: 0,
@@ -366,7 +366,7 @@ const toggleSidebar = async () => {
 		gsap.to(sidebarLine.value, {
 			opacity: 1,
 			duration: 0.3,
-		}).delay(0.4);
+		}).delay(0.6);
 	}
 };
 </script>
