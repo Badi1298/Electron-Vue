@@ -16,20 +16,14 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="flex flex-col font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col font-effra">
 			<div class="relative flex justify-end mr-12 mt-16">
 				<img
 					src="/src/assets/images/bullet-long.png"
 					alt="Bullet Long"
 					class="absolute top-1/2 -translate-y-1/2 -left-20"
 				/>
-				<div
-					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
-					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-52']"
-				>
+				<div class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform">
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"
@@ -214,7 +208,7 @@
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
 			>
 				<img
-					src="/src/assets/images/down-button-blue.png"
+					src="/src/assets/images/page-vertical-down-purple.png"
 					alt="Down Button"
 					class="w-[140px] h-[50px] cursor-pointer"
 				/>

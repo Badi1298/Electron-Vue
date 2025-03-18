@@ -14,12 +14,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import EfficacyTopTab from '@/components/zevtera/efficacy/EfficacyTopTab.vue';
 import EfficacyBottomTab from '@/components/zevtera/efficacy/EfficacyBottomTab.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
@@ -28,6 +30,9 @@ defineProps({
 
 const scrollToTopTab = ref(false);
 const scrollToBottomTab = ref(false);
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 
 const onScrollToTopTab = () => {
 	scrollToTopTab.value = true;

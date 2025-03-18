@@ -3,6 +3,16 @@
 		ref="bottomTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
+		<button
+			@click="emit('goToTopTab')"
+			class="absolute left-1/2 -translate-x-1/2 top-0 z-50"
+		>
+			<img
+				src="/src/assets/images/page-vertical-up-purple.png"
+				alt="Down Button"
+				class="w-[140px] h-[50px] cursor-pointer"
+			/>
+		</button>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -16,10 +26,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div
-			class="flex flex-col font-effra transition-all duration-300 relative"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col font-effra relative">
 			<img
 				src="/src/assets/images/bullet-long.png"
 				alt="Bullet Long"
