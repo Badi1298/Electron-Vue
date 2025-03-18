@@ -168,10 +168,7 @@
 					v-if="open"
 					class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[240px]"
 				>
-					<div
-						ref="bottomIcons"
-						class="grid grid-cols-2 gap-y-9 items-center"
-					>
+					<div class="grid grid-cols-2 gap-y-9 items-center">
 						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 							<img
 								src="/src/assets/images/book.png"
@@ -189,10 +186,7 @@
 							/>
 						</RouterLink>
 					</div>
-					<div
-						ref="bottomText"
-						class="grid grid-cols-2 text-center"
-					>
+					<div class="grid grid-cols-2 text-center">
 						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 							<p
 								class="text-xl font-uni-grotesk text-[#969696]"
@@ -210,26 +204,17 @@
 							</p>
 						</RouterLink>
 					</div>
-					<transition
-						name="fade"
-						mode="out-in"
-					>
-						<img
-							ref="advanzLargeLogo"
-							src="/src/assets/images/advanz-logo.png"
-							alt="Advanz Logo"
-							class="w-44 h-auto m-auto"
-						/>
-					</transition>
+					<img
+						src="/src/assets/images/advanz-logo.png"
+						alt="Advanz Logo"
+						class="w-44 h-auto m-auto"
+					/>
 				</div>
 				<div
 					v-else
 					class="flex flex-col pt-9 border-t border-[#CDCDCD] min-h-[300px] -mt-[60px]"
 				>
-					<div
-						ref="bottomIcons"
-						class="grid grid-cols-1 gap-y-9 items-center border-b border-[#CDCDCD] pb-9"
-					>
+					<div class="grid grid-cols-1 gap-y-9 items-center border-b border-[#CDCDCD] pb-9">
 						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 							<img
 								src="/src/assets/images/book.png"
@@ -253,14 +238,12 @@
 					>
 						<img
 							v-if="open"
-							ref="advanzLargeLogo"
 							src="/src/assets/images/advanz-logo.png"
 							alt="Advanz Logo"
 							class="w-44 h-auto m-auto"
 						/>
 						<img
 							v-else
-							ref="advanzSmallLogo"
 							src="/src/assets/images/advanz-logo-small.png"
 							alt="Advanz Logo"
 							class="w-12 h-auto m-auto"
@@ -295,11 +278,7 @@ const referencesPopupOpen = ref(false);
 const prescribingPopupOpen = ref(false);
 
 const sidebar = ref(null);
-const bottomText = ref(null);
 const sidebarLine = ref(null);
-const bottomIcons = ref(null);
-const advanzLargeLogo = ref(null);
-const advanzSmallLogo = ref(null);
 
 onMounted(() => {
 	gsap.set('.sidebar-text', {
@@ -309,10 +288,6 @@ onMounted(() => {
 	gsap.set(sidebar.value, {
 		width: 350,
 		marginTop: 32,
-	});
-	gsap.set(advanzSmallLogo.value, {
-		opacity: 0,
-		display: 'none',
 	});
 });
 
@@ -326,7 +301,7 @@ const toggleSidebar = async () => {
 	if (props.open) {
 		// Collapse sidebar timeline
 		tl.to(
-			['.sidebar-text'],
+			'.sidebar-text',
 			{
 				opacity: 0,
 				scale: 0,
@@ -385,7 +360,7 @@ const toggleSidebar = async () => {
 				0.1
 			)
 			.to(
-				['.sidebar-text', bottomText.value],
+				'.sidebar-text',
 				{
 					opacity: 1,
 					scale: 1,
@@ -395,17 +370,10 @@ const toggleSidebar = async () => {
 				0.2
 			)
 			.to(
-				[sidebarLine.value, bottomIcons.value],
+				sidebarLine.value,
 				{
 					opacity: 1,
 					duration: 0.3,
-				},
-				0.4
-			)
-			.to(
-				bottomIcons.value,
-				{
-					gridTemplateColumns: '1fr 1fr',
 				},
 				0.4
 			);
