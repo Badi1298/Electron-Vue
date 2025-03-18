@@ -267,10 +267,6 @@ const isActive = (currentRoute) => {
 
 const toggleSidebar = async () => {
 	if (props.open) {
-		gsap.to(sidebar.value, {
-			clipPath: 'inset(15% 0 0 0)',
-			duration: 0.3,
-		});
 		gsap.to('.sidebar-text', {
 			opacity: 0,
 			display: 'none',
@@ -306,15 +302,15 @@ const toggleSidebar = async () => {
 		}).delay(0.6);
 		gsap.to(sidebar.value, {
 			width: 118,
-			// clipPath: 'inset(15% 0 0 0)',
-			ease: 'none',
+			clipPath: 'inset(15% 0 0 0)',
+			ease: 'power4.inOut',
 			duration: 0.5,
-		}).delay(0.4);
+		});
 		gsap.to('.list-image', {
 			left: '50%',
 			translateX: '-50%',
 			duration: 0.1,
-		}).delay(0.9);
+		}).delay(0.55);
 
 		emit('update:open', false);
 	} else {
