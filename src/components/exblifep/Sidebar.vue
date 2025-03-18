@@ -23,7 +23,7 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar sidebar"
 		>
 			<div
 				ref="sidebarContent"
@@ -331,6 +331,7 @@ const toggleSidebar = async () => {
 				sidebar.value,
 				{
 					width: 118,
+					clipPath: 'inset(15% 0 0 0)',
 					ease: 'power4.inOut',
 					duration: 0.5,
 				},
@@ -345,6 +346,7 @@ const toggleSidebar = async () => {
 			{
 				width: 350,
 				marginTop: 32,
+				clipPath: 'inset(0 0 0 0)',
 				ease: 'power4.inOut',
 				duration: 0.4,
 			},
@@ -382,3 +384,9 @@ const toggleSidebar = async () => {
 	}
 };
 </script>
+
+<style scoped>
+.sidebar {
+	will-change: width, clip-path;
+}
+</style>
