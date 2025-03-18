@@ -25,7 +25,10 @@
 			ref="sidebar"
 			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar"
 		>
-			<div class="relative flex flex-col flex-1 justify-end mb-20">
+			<div
+				ref="sidebarContent"
+				class="relative flex flex-col flex-1 justify-end mb-20"
+			>
 				<ul class="flex flex-col gap-y-4 px-4">
 					<RouterLink :to="{ name: 'exblifep-home', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
@@ -157,62 +160,114 @@
 					</RouterLink>
 				</ul>
 			</div>
-			<div class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[240px]">
+			<transition
+				name="fade"
+				mode="out-in"
+			>
 				<div
-					ref="bottomIcons"
-					class="grid grid-cols-2 gap-y-9 items-center"
+					v-if="open"
+					class="flex flex-col mx-4 py-2.5 border-t border-[#CDCDCD] min-h-[240px]"
 				>
-					<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
+					<div
+						ref="bottomIcons"
+						class="grid grid-cols-2 gap-y-9 items-center"
+					>
+						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/book.png"
+								alt="Book Icon"
+								class="w-8 h-8 justify-self-center"
+								@click="referencesPopupOpen = true"
+							/>
+						</RouterLink>
+						<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/pi.png"
+								alt="PI Icon"
+								class="w-[30px] h-auto justify-self-center"
+								@click="prescribingPopupOpen = true"
+							/>
+						</RouterLink>
+					</div>
+					<div
+						ref="bottomText"
+						class="grid grid-cols-2 text-center"
+					>
+						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
+							<p
+								class="text-xl font-uni-grotesk text-[#969696]"
+								@click="referencesPopupOpen = true"
+							>
+								References
+							</p>
+						</RouterLink>
+						<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+							<p
+								class="text-xl font-uni-grotesk text-[#969696]"
+								@click="prescribingPopupOpen = true"
+							>
+								Prescribing information
+							</p>
+						</RouterLink>
+					</div>
+					<transition
+						name="fade"
+						mode="out-in"
+					>
 						<img
-							src="/src/assets/images/book.png"
-							alt="Book Icon"
-							class="w-8 h-8 justify-self-center"
-							@click="referencesPopupOpen = true"
+							ref="advanzLargeLogo"
+							src="/src/assets/images/advanz-logo.png"
+							alt="Advanz Logo"
+							class="w-44 h-auto m-auto"
 						/>
-					</RouterLink>
-					<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
-						<img
-							src="/src/assets/images/pi.png"
-							alt="PI Icon"
-							class="w-[30px] h-auto justify-self-center"
-							@click="prescribingPopupOpen = true"
-						/>
-					</RouterLink>
+					</transition>
 				</div>
 				<div
-					ref="bottomText"
-					class="grid grid-cols-2 text-center"
+					v-else
+					class="flex flex-col pt-9 border-t border-[#CDCDCD] min-h-[300px] -mt-[60px]"
 				>
-					<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
-						<p
-							class="text-xl font-uni-grotesk text-[#969696]"
-							@click="referencesPopupOpen = true"
-						>
-							References
-						</p>
-					</RouterLink>
-					<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
-						<p
-							class="text-xl font-uni-grotesk text-[#969696]"
-							@click="prescribingPopupOpen = true"
-						>
-							Prescribing information
-						</p>
-					</RouterLink>
+					<div
+						ref="bottomIcons"
+						class="grid grid-cols-1 gap-y-9 items-center border-b border-[#CDCDCD] pb-9"
+					>
+						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/book.png"
+								alt="Book Icon"
+								class="w-8 h-8 justify-self-center"
+								@click="referencesPopupOpen = true"
+							/>
+						</RouterLink>
+						<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
+							<img
+								src="/src/assets/images/pi.png"
+								alt="PI Icon"
+								class="w-[30px] h-auto justify-self-center"
+								@click="prescribingPopupOpen = true"
+							/>
+						</RouterLink>
+					</div>
+					<transition
+						name="fade"
+						mode="out-in"
+					>
+						<img
+							v-if="open"
+							ref="advanzLargeLogo"
+							src="/src/assets/images/advanz-logo.png"
+							alt="Advanz Logo"
+							class="w-44 h-auto m-auto"
+						/>
+						<img
+							v-else
+							ref="advanzSmallLogo"
+							src="/src/assets/images/advanz-logo-small.png"
+							alt="Advanz Logo"
+							class="w-12 h-auto m-auto"
+						/>
+					</transition>
 				</div>
-				<img
-					ref="advanzLargeLogo"
-					src="/src/assets/images/advanz-logo.png"
-					alt="Advanz Logo"
-					class="w-44 h-auto m-auto"
-				/>
-				<img
-					ref="advanzSmallLogo"
-					src="/src/assets/images/advanz-logo-small.png"
-					alt="Advanz Logo"
-					class="w-12 h-auto m-auto"
-				/>
-			</div>
+			</transition>
 		</aside>
 	</div>
 </template>
@@ -271,7 +326,7 @@ const toggleSidebar = async () => {
 	if (props.open) {
 		// Collapse sidebar timeline
 		tl.to(
-			['.sidebar-text', bottomText.value],
+			['.sidebar-text'],
 			{
 				opacity: 0,
 				scale: 0,
@@ -297,12 +352,6 @@ const toggleSidebar = async () => {
 				},
 				0
 			)
-			.to(bottomIcons.value, {
-				opacity: 0,
-				scale: 0,
-				transformOrigin: 'center center',
-				duration: 0.5,
-			})
 			.to(
 				sidebar.value,
 				{
@@ -311,15 +360,6 @@ const toggleSidebar = async () => {
 					duration: 0.5,
 				},
 				0
-			)
-			.to(
-				bottomIcons.value,
-				{
-					opacity: 1,
-					gridTemplateColumns: '1fr',
-					duration: 0.5,
-				},
-				0.6
 			);
 
 		emit('update:open', false);
