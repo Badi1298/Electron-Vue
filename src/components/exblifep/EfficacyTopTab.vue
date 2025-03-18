@@ -112,12 +112,15 @@
 				class="transition-all duration-300 mb-4"
 				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
 				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
-				primary analysis set. *Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of
-				complete resolution of the baseline signs and symptoms present at screening (clinical cure) and reduction of qualifying baseline pathogen to
-				less than 103 CFU/mL in urine (microbiological eradication) at Day 14. The PAS included all patients who received at least 1 dose of study drug
-				and had a gram-negative baseline pathogen in urine at 105 CFU/mL or more or the same pathogen present in both blood and urine cultures that was
-				not resistant to either cefepime/enmetazobactam (MIC ≤8 μg/mL) or piperacillin/tazobactam (MIC ≤64 μg/mL).1†Treatment difference is the
-				difference in the overall success rate between the two treatment arms (95% CIs, 2-sided, stratified Newcombe method).1</the-footer
+				primary analysis set.<br />
+				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the
+				baseline signs and symptoms present at screening (clinical cure) and reduction of qualifying baseline pathogen to less than 10<sup>3</sup>
+				CFU/mL in urine (microbiological eradication) at<br />
+				Day 14. The PAS included all patients who received at least 1 dose of study drug and had a gram-negative baseline pathogen in urine at 105
+				CFU/mL or more or the same pathogen present in both blood and urine cultures that was not resistant to either cefepime/enmetazobactam (MIC ≤8
+				μg/mL) or piperacillin/tazobactam<br />
+				(MIC ≤64 μg/mL).<sup>1†</sup>Treatment difference is the difference in the overall success rate between the two treatment arms (95% CIs,
+				2-sided, stratified Newcombe method).<sup>1</sup></the-footer
 			>
 			<ExploreAnother />
 			<button
