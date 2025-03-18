@@ -23,7 +23,7 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all relative shadow-sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar"
 		>
 			<div class="relative flex flex-col flex-1 justify-end mb-20">
 				<ul class="flex flex-col gap-y-4 px-4">
@@ -269,104 +269,119 @@ const isActive = (currentRoute) => {
 };
 
 const toggleSidebar = async () => {
+	const tl = gsap.timeline();
+
 	if (props.open) {
-		gsap.to('.sidebar-text', {
-			opacity: 0,
-			display: 'none',
-			duration: 0.5,
-		});
-		gsap.to(sidebarLine.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(bottomText.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.5,
-		});
-		gsap.to(bottomIcons.value, {
-			opacity: 0,
-			duration: 0.5,
-		});
-		gsap.to(bottomIcons.value, {
-			opacity: 1,
-			gridTemplateColumns: '1fr',
-			duration: 0.5,
-		}).delay(0.6);
-		gsap.to(advanzLargeLogo.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.5,
-		});
-		gsap.to(advanzSmallLogo.value, {
-			opacity: 1,
-			display: 'block',
-			duration: 0.5,
-		}).delay(0.6);
-		gsap.to(sidebar.value, {
-			width: 118,
-			clipPath: 'inset(15% 0 0 0)',
-			ease: 'power4.inOut',
-			duration: 0.5,
-		});
-		gsap.to('.list-image', {
-			left: '50%',
-			translateX: '-50%',
-			duration: 0.1,
-		}).delay(0.55);
+		// Collapse sidebar timeline
+		tl.to(
+			['.sidebar-text', bottomText.value, advanzLargeLogo.value],
+			{
+				opacity: 0,
+				scale: 0,
+				transformOrigin: 'center center',
+				duration: 0.5,
+				onComplete: () => {
+					gsap.set(advanzLargeLogo.value, {
+						display: 'none',
+					});
+				},
+			},
+			0
+		)
+			.to(
+				sidebarLine.value,
+				{
+					opacity: 0,
+					duration: 0.5,
+				},
+				0
+			)
+			.to(bottomIcons.value, {
+				opacity: 0,
+				scale: 0,
+				transformOrigin: 'center center',
+				duration: 0.5,
+			})
+			.to(
+				sidebar.value,
+				{
+					width: 118,
+					ease: 'power4.inOut',
+					duration: 0.5,
+				},
+				0
+			)
+			.to(
+				bottomIcons.value,
+				{
+					opacity: 1,
+					gridTemplateColumns: '1fr',
+					duration: 0.5,
+				},
+				0.6
+			)
+			.to(
+				advanzSmallLogo.value,
+				{
+					opacity: 1,
+					display: 'block',
+					duration: 0.5,
+				},
+				0.6
+			);
 
 		emit('update:open', false);
 	} else {
-		emit('update:open', true);
+		// Expand sidebar timeline
+		tl.to(
+			sidebar.value,
+			{
+				width: 350,
+				marginTop: 32,
+				ease: 'power4.inOut',
+				duration: 0.4,
+			},
+			0
+		)
+			.to(
+				'.list-image',
+				{
+					left: 12,
+					translateX: 0,
+					duration: 0.1,
+				},
+				0.1
+			)
+			.to(
+				['.sidebar-text', bottomText.value, advanzLargeLogo.value],
+				{
+					opacity: 1,
+					scale: 1,
+					transformOrigin: 'center center',
+					duration: 0.3,
+				},
+				0.6
+			)
+			.to(
+				[sidebarLine.value, bottomIcons.value],
+				{
+					opacity: 1,
+					duration: 0.3,
+				},
+				0.6
+			)
+			.to(
+				bottomIcons.value,
+				{
+					gridTemplateColumns: '1fr 1fr',
+				},
+				0.6
+			);
 
-		gsap.to(sidebar.value, {
-			width: 350,
-			marginTop: 32,
-			clipPath: 'inset(0 0 0 0)',
-			ease: 'power4.inOut',
-			duration: 0.4,
-		});
-		gsap.to(sidebar.value, {
-			clipPath: 'none',
-		}).delay(0.5);
-		gsap.to('.sidebar-text', {
-			opacity: 1,
-			display: 'block',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to(bottomText.value, {
-			opacity: 1,
-			display: 'grid',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to(bottomIcons.value, {
-			opacity: 0,
-			duration: 0.3,
-		});
-		gsap.to(bottomIcons.value, {
-			opacity: 1,
-			gridTemplateColumns: '1fr 1fr',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to(advanzSmallLogo.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.3,
-		});
-		gsap.to(advanzLargeLogo.value, {
-			opacity: 1,
-			display: 'block',
-			duration: 0.3,
-		}).delay(0.6);
-		gsap.to('.list-image', {
-			left: 12,
-			translateX: 0,
-			duration: 0.1,
-		}).delay(0.1);
-		gsap.to(sidebarLine.value, {
-			opacity: 1,
-			duration: 0.3,
-		}).delay(0.6);
+		// Fix bottomText display property
+		tl.set(bottomText.value, { display: 'grid' }, 0.6);
+
+		emit('update:open', true);
 	}
 };
 </script>
