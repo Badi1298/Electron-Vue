@@ -28,10 +28,7 @@
 						class="h-1.5 w-auto my-5"
 					/>
 				</div>
-				<div
-					class="select-tab absolute right-0 top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium"
-					:class="[sidebarOpen ? 'right-0' : 'right-[250px]']"
-				>
+				<div class="select-tab absolute top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -145,6 +142,7 @@ import ChartB from '@/assets/images/chart-b.png';
 import TheTitle from './TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
+import { onMounted } from 'vue';
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,
@@ -180,10 +178,48 @@ watch(
 	() => props.sidebarOpen,
 	(value) => {
 		if (value) {
-			gsap.fromTo('.select-tab', { right: '250px' }, { right: '0' });
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '0px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
 		} else {
-			gsap.fromTo('.select-tab', { right: '0' }, { right: '250px' });
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '250px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
 		}
 	}
 );
+
+onMounted(() => {
+	if (props.sidebarOpen) {
+		gsap.set('.select-tab', { right: '0' });
+	} else {
+		gsap.set('.select-tab', { right: '250px' });
+	}
+});
 </script>
