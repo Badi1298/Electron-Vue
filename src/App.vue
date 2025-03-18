@@ -84,7 +84,7 @@ const resetInactivityTimer = () => {
 <style>
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 0.4s;
+	transition: opacity 0.3s;
 }
 .fade-enter-from,
 .fade-leave-to {
