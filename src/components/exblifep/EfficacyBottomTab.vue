@@ -22,7 +22,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-center font-effra relative pr-[60px] transition-all">
+		<div class="page-content flex flex-col justify-center font-effra relative pr-[60px]">
 			<div class="flex justify-between mr-12 items-center">
 				<div>
 					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
@@ -124,7 +124,7 @@
 			</section>
 		</div>
 
-		<footer>
+		<footer class="relative">
 			<the-footer class="footer mb-4">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
@@ -146,9 +146,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
-
-import { gsap } from 'gsap';
+import { ref, watch } from 'vue';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';

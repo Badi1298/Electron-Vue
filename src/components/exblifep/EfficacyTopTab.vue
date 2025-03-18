@@ -16,7 +16,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all">
+		<div class="page-content flex flex-col ml-[124px] justify-center font-effra">
 			<div class="relative flex justify-between mr-12">
 				<div>
 					<the-title class="max-w-[920px]">
@@ -29,7 +29,7 @@
 					/>
 				</div>
 				<div
-					class="select-tab absolute right-0 top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transition-all duration-300"
+					class="select-tab absolute right-0 top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium"
 					:class="[sidebarOpen ? 'right-0' : 'right-[250px]']"
 				>
 					<img
@@ -105,7 +105,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer class="footer transition-all mb-4">
+			<the-footer class="footer mb-4">
 				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set.<br />
 				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the

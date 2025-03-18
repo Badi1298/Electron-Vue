@@ -37,14 +37,14 @@ watch(
 		if (value) {
 			gsap.to(['.page-content', '.footer'], {
 				marginLeft: 124,
-				duration: 0.3,
+				duration: 0.4,
 				ease: 'power4.inOut',
 			});
 		} else {
 			setTimeout(() => {
 				gsap.to(['.page-content', '.footer'], {
 					marginLeft: 224,
-					duration: 0.2,
+					duration: 0.7,
 					ease: 'power4.inOut',
 				});
 			}, 100);
@@ -55,8 +55,10 @@ watch(
 onMounted(() => {
 	if (props.sidebarOpen) {
 		gsap.set('.page-content', { marginLeft: 124 });
+		gsap.set('.footer', { marginLeft: 124 });
 	} else {
 		gsap.set('.page-content', { marginLeft: 224 });
+		gsap.set('.footer', { marginLeft: 224 });
 	}
 });
 
