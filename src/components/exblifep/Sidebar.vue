@@ -259,9 +259,6 @@ onMounted(() => {
 		opacity: 0,
 		display: 'none',
 	});
-	gsap.set('.list-image', {
-		left: 12,
-	});
 });
 
 const isActive = (currentRoute) => {
@@ -274,20 +271,24 @@ const toggleSidebar = async () => {
 	if (props.open) {
 		// Collapse sidebar timeline
 		tl.to(
-			['.sidebar-text', bottomText.value, advanzLargeLogo.value],
+			['.sidebar-text', bottomText.value],
 			{
 				opacity: 0,
 				scale: 0,
 				transformOrigin: 'center center',
 				duration: 0.5,
-				onComplete: () => {
-					gsap.set(advanzLargeLogo.value, {
-						display: 'none',
-					});
-				},
 			},
 			0
 		)
+			.to(
+				'.list-image',
+				{
+					left: '50%',
+					xPercent: -50,
+					duration: 0.5,
+				},
+				0.2
+			)
 			.to(
 				sidebarLine.value,
 				{
@@ -319,15 +320,6 @@ const toggleSidebar = async () => {
 					duration: 0.5,
 				},
 				0.6
-			)
-			.to(
-				advanzSmallLogo.value,
-				{
-					opacity: 1,
-					display: 'block',
-					duration: 0.5,
-				},
-				0.6
 			);
 
 		emit('update:open', false);
@@ -347,20 +339,20 @@ const toggleSidebar = async () => {
 				'.list-image',
 				{
 					left: 12,
-					translateX: 0,
-					duration: 0.1,
+					xPercent: 0,
+					duration: 0.4,
 				},
 				0.1
 			)
 			.to(
-				['.sidebar-text', bottomText.value, advanzLargeLogo.value],
+				['.sidebar-text', bottomText.value],
 				{
 					opacity: 1,
 					scale: 1,
 					transformOrigin: 'center center',
 					duration: 0.3,
 				},
-				0.6
+				0.2
 			)
 			.to(
 				[sidebarLine.value, bottomIcons.value],
@@ -368,18 +360,15 @@ const toggleSidebar = async () => {
 					opacity: 1,
 					duration: 0.3,
 				},
-				0.6
+				0.4
 			)
 			.to(
 				bottomIcons.value,
 				{
 					gridTemplateColumns: '1fr 1fr',
 				},
-				0.6
+				0.4
 			);
-
-		// Fix bottomText display property
-		tl.set(bottomText.value, { display: 'grid' }, 0.6);
 
 		emit('update:open', true);
 	}
