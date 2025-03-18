@@ -218,11 +218,13 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+import { ref, toRef, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
 import VLazyImage from 'v-lazy-image';
+
+import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
 import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
 import ChartB from '@/assets/images/clinical-efficacy-chart-2.png';
@@ -242,6 +244,9 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['goToBottomTab']);
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+useAnimateSelectTab(sidebarOpenRef);
 
 const topTab = ref(null);
 const content = ref(null);
@@ -269,58 +274,11 @@ watch(
 	}
 );
 
-watch(
-	() => props.sidebarOpen,
-	(value) => {
-		if (value) {
-			const tl = gsap.timeline();
-
-			tl.to('.select-tab', {
-				opacity: 0,
-				duration: 0.3,
-			})
-				.set(
-					'.select-tab',
-					{
-						right: '0px',
-					},
-					'+=0.2'
-				)
-				.to('.select-tab', {
-					opacity: 1,
-				});
-		} else {
-			const tl = gsap.timeline();
-
-			tl.to('.select-tab', {
-				opacity: 0,
-				duration: 0.3,
-			})
-				.set(
-					'.select-tab',
-					{
-						right: '250px',
-					},
-					'+=0.2'
-				)
-				.to('.select-tab', {
-					opacity: 1,
-				});
-		}
-	}
-);
-
 onMounted(() => {
 	gsap.set(bacterialActivityDetails.value, { opacity: 0 });
 	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
-
-	if (props.sidebarOpen) {
-		gsap.set('.select-tab', { right: '0' });
-	} else {
-		gsap.set('.select-tab', { right: '250px' });
-	}
 });
 
 const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fadeElements, slideDivisor }) => {

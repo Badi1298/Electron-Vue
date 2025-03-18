@@ -221,11 +221,12 @@
 </template>
 
 <script setup>
-import { ref, toRef, watch, onMounted } from 'vue';
+import { ref, toRef, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
 import { usePageAnimation } from '@/composables/usePageAnimation.js';
+import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
@@ -241,6 +242,7 @@ const props = defineProps({
 
 const sidebarOpenRef = toRef(props, 'sidebarOpen');
 usePageAnimation(sidebarOpenRef);
+useAnimateSelectTab(sidebarOpenRef);
 
 const content = ref(null);
 const easeOfUse = ref(null);
@@ -253,58 +255,11 @@ const gutFlora = ref(null);
 const gutFloraDetails = ref(null);
 const gutFloraActive = ref(false);
 
-watch(
-	() => props.sidebarOpen,
-	(value) => {
-		if (value) {
-			const tl = gsap.timeline();
-
-			tl.to('.select-tab', {
-				opacity: 0,
-				duration: 0.3,
-			})
-				.set(
-					'.select-tab',
-					{
-						right: '0px',
-					},
-					'+=0.2'
-				)
-				.to('.select-tab', {
-					opacity: 1,
-				});
-		} else {
-			const tl = gsap.timeline();
-
-			tl.to('.select-tab', {
-				opacity: 0,
-				duration: 0.3,
-			})
-				.set(
-					'.select-tab',
-					{
-						right: '250px',
-					},
-					'+=0.2'
-				)
-				.to('.select-tab', {
-					opacity: 1,
-				});
-		}
-	}
-);
-
 onMounted(() => {
 	gsap.set(wellTolaratedDetails.value, { opacity: 0, display: 'none' });
 	gsap.set(gutFloraDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
-
-	if (props.sidebarOpen) {
-		gsap.set('.select-tab', { right: '0' });
-	} else {
-		gsap.set('.select-tab', { right: '250px' });
-	}
 });
 
 const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fadeElements, slideDivisor }) => {
