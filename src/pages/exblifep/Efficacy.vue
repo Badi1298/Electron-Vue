@@ -37,17 +37,15 @@ watch(
 		if (value) {
 			gsap.to(['.page-content', '.footer'], {
 				marginLeft: 124,
-				duration: 0.4,
+				duration: 0.6,
 				ease: 'power4.inOut',
 			});
 		} else {
-			setTimeout(() => {
-				gsap.to(['.page-content', '.footer'], {
-					marginLeft: 224,
-					duration: 0.7,
-					ease: 'power4.inOut',
-				});
-			}, 100);
+			gsap.to(['.page-content', '.footer'], {
+				marginLeft: 224,
+				duration: 0.7,
+				ease: 'power4.inOut',
+			});
 		}
 	}
 );

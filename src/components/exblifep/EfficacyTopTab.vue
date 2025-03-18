@@ -180,17 +180,9 @@ watch(
 	() => props.sidebarOpen,
 	(value) => {
 		if (value) {
-			gsap.to('.select-tab', {
-				right: 0,
-				duration: 0.2,
-				ease: 'power4.inOut',
-			});
+			gsap.fromTo('.select-tab', { right: '250px' }, { right: '0' });
 		} else {
-			gsap.to('.select-tab', {
-				right: 250,
-				duration: 0.3,
-				ease: 'power3.out',
-			});
+			gsap.fromTo('.select-tab', { right: '0' }, { right: '250px' });
 		}
 	}
 );
