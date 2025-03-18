@@ -16,11 +16,8 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			ref="pageContent"
-			class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all duration-300"
-		>
-			<div class="flex justify-between mr-12">
+		<div class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all duration-300">
+			<div class="relative flex justify-between mr-12">
 				<div>
 					<the-title class="max-w-[920px]">
 						EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
@@ -31,7 +28,7 @@
 						class="h-1.5 w-auto my-5"
 					/>
 				</div>
-				<div class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300">
+				<div class="select-tab absolute right-0 top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transition-all duration-300">
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -44,7 +41,7 @@
 			<p class="max-w-[1300px] text-xl leading-normal">
 				In ALLIUM, EXBLIFEP® demonstrated both non-inferiority and statistical superiority in overall treatment success (a composite endpoint of
 				clinical cure and microbiological eradication) at Day 14 vs piperacillin/tazobactam in patients in the PAS with cUTIs caused by gram-negative
-				pathogens1
+				pathogens<sup>1</sup>
 			</p>
 
 			<section class="flex pt-5 gap-x-[22px] z-10 relative">
@@ -145,8 +142,6 @@ import ChartB from '@/assets/images/chart-b.png';
 import TheTitle from './TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-import { onMounted } from 'vue';
-import { onBeforeMount } from 'vue';
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,
@@ -168,9 +163,6 @@ const emit = defineEmits(['goToBottomTab']);
 
 const topTab = ref(null);
 const activeTab = ref(Tabs.OVERALL_SUCCESS);
-
-const footer = ref(null);
-const pageContent = ref(null);
 
 watch(
 	() => props.scrollIntoView,
@@ -195,6 +187,11 @@ watch(
 				duration: 0.2,
 				ease: 'power4.inOut',
 			});
+			gsap.to('.select-tab', {
+				right: 0,
+				duration: 0.2,
+				ease: 'power4.inOut',
+			});
 		} else {
 			setTimeout(() => {
 				gsap.to('.page-content', {
@@ -208,6 +205,11 @@ watch(
 					ease: 'power4.inOut',
 				});
 			}, 100);
+			gsap.to('.select-tab', {
+				right: 250,
+				duration: 0.3,
+				ease: 'power3.out',
+			});
 		}
 	}
 );
