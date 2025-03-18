@@ -14,17 +14,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import SafetyTopTab from '@/components/xyd/safety/SafetyTopTab.vue';
 import SafetyBottomTab from '@/components/xyd/safety/SafetyBottomTab.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
 });
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 
 const scrollToTopTab = ref(false);
 const scrollToBottomTab = ref(false);

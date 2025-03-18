@@ -16,10 +16,7 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div>
-		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[300px]']"
-		>
+		<div class="page-content flex flex-col justify-end font-effra">
 			<h1 class="text-[40px] font-bold text-primary-purple">
 				Xydalba™ delivers two weeks of fast-acting, effective<br />
 				treatment in one single dose, while remaining well-tolerated<sup>1</sup>
@@ -74,9 +71,7 @@
 		</div>
 
 		<footer class="relative pb-6 pt-8">
-			<the-footer
-				class="transition-all duration-300 mb-4 pr-[60px]"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[300px] pr-[120px]']"
+			<the-footer class="footer mb-4 pr-[60px]"
 				>*Sponsor assessment. <sup>†</sup>mITT: randomised patients who received ≥1 dose of study drug and had a diagnosis of ABSSSI (or, in cohort 5,
 				suspected/confirmed sepsis) not known to be caused exclusively by a gram-negative organism. <sup>†</sup>Vancomycin IV, oxacillin IV; or
 				flucloxacillin IV<br />
@@ -100,10 +95,6 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-
-import VLazyImage from 'v-lazy-image';
-
-import Chart from '@/assets/images/xyd-treatment-chart-1.svg';
 
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
