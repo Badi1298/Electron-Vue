@@ -273,47 +273,47 @@ const toggleSidebar = async () => {
 		gsap.to('.sidebar-text', {
 			opacity: 0,
 			display: 'none',
-			duration: 0.3,
+			duration: 0.5,
 		});
 		gsap.to(sidebarLine.value, {
 			opacity: 0,
-			duration: 0.3,
+			duration: 0.5,
 		});
 		gsap.to(bottomText.value, {
 			opacity: 0,
 			display: 'none',
-			duration: 0.3,
+			duration: 0.5,
 		});
 		gsap.to(bottomIcons.value, {
 			opacity: 0,
-			duration: 0.3,
+			duration: 0.5,
 		});
 		gsap.to(bottomIcons.value, {
 			opacity: 1,
 			gridTemplateColumns: '1fr',
-			duration: 0.3,
+			duration: 0.5,
 		}).delay(0.6);
 		gsap.to(advanzLargeLogo.value, {
 			opacity: 0,
 			display: 'none',
-			duration: 0.3,
+			duration: 0.5,
 		});
 		gsap.to(advanzSmallLogo.value, {
 			opacity: 1,
 			display: 'block',
-			duration: 0.3,
-		}).delay(0.6);
+			duration: 0.5,
+		}).delay(1);
 		gsap.to(sidebar.value, {
 			width: 118,
 			clipPath: 'inset(15% 0 0 0)',
 			ease: 'power4.inOut',
-			duration: 0.3,
+			duration: 0.5,
 		});
 		gsap.to('.list-image', {
 			left: '50%',
 			translateX: '-50%',
 			duration: 0.1,
-		}).delay(0.35);
+		}).delay(0.55);
 
 		emit('update:open', false);
 	} else {
