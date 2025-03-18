@@ -31,7 +31,10 @@
 						class="h-1.5 w-auto my-5"
 					/>
 				</div>
-				<div class="select-tab absolute right-0 top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transition-all duration-300">
+				<div
+					class="select-tab absolute right-0 top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transition-all duration-300"
+					:class="[sidebarOpen ? 'right-0' : 'right-[250px]']"
+				>
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -105,7 +108,10 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer class="footer transition-all mb-4 ml-[124px]">
+			<the-footer
+				class="footer transition-all mb-4"
+				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+			>
 				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set.<br />
 				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the

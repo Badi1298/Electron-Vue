@@ -122,7 +122,10 @@
 		</div>
 
 		<footer>
-			<the-footer class="footer ml-[124px] transition-all duration-300 mb-4">
+			<the-footer
+				class="footer transition-all mb-4"
+				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+			>
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
 				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
