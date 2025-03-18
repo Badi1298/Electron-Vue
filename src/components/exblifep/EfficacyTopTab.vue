@@ -132,11 +132,13 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, toRef, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
 import VLazyImage from 'v-lazy-image';
+
+import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
 import ChartA from '@/assets/images/chart-a.png';
 import ChartB from '@/assets/images/chart-b.png';
@@ -144,7 +146,6 @@ import ChartB from '@/assets/images/chart-b.png';
 import TheTitle from './TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-import { onMounted } from 'vue';
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,
@@ -163,6 +164,9 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['goToBottomTab']);
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+useAnimateSelectTab(sidebarOpenRef);
 
 const topTab = ref(null);
 const activeTab = ref(Tabs.OVERALL_SUCCESS);

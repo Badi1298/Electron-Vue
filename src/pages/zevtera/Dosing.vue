@@ -1,19 +1,16 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
-		<div
-			class="flex flex-col font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="page-content flex flex-col font-effra">
 			<img
 				src="/src/assets/images/bullet-long.png"
 				alt="Bullet Long"
-				class="-ml-20 mt-3"
+				class="-ml-20 mt-3 w-[1440px]"
 			/>
 			<the-title>Dosing<sup>4</sup></the-title>
 			<p class="text-2xl font-medium font-uni-grotesk mt-4">
 				The recommended regimen for adult and paediatric patients with normal renal function is shown in the table.
 			</p>
-			<section class="pr-[60px] mt-6">
+			<section class="pr-[60px] mt-6 max-w-[1386px]">
 				<div class="relative">
 					<div
 						class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50 cursor-pointer"
@@ -120,9 +117,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, toRef, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import NextSection from '@/components/NextSection.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
@@ -137,6 +136,9 @@ const props = defineProps({
 
 const dosingTable = ref(null);
 const dosingTableActive = ref(false);
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 
 onMounted(() => {
 	gsap.set(dosingTable.value, { height: 0 });
