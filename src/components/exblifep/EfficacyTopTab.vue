@@ -17,8 +17,8 @@
 			/>
 		</div>
 		<div
-			class="flex flex-col justify-center font-effra transition-all duration-300"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+			ref="pageContent"
+			class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all duration-300"
 		>
 			<div class="flex justify-between mr-12">
 				<div>
@@ -31,10 +31,7 @@
 						class="h-1.5 w-auto my-5"
 					/>
 				</div>
-				<div
-					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
-					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-full']"
-				>
+				<div class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300">
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -108,9 +105,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			<the-footer class="footer transition-all duration-300 mb-4 ml-[124px]">
 				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set.<br />
 				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the
@@ -140,6 +135,8 @@
 <script setup>
 import { ref, watch } from 'vue';
 
+import { gsap } from 'gsap';
+
 import VLazyImage from 'v-lazy-image';
 
 import ChartA from '@/assets/images/chart-a.png';
@@ -148,6 +145,8 @@ import ChartB from '@/assets/images/chart-b.png';
 import TheTitle from './TheTitle.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
+import { onMounted } from 'vue';
+import { onBeforeMount } from 'vue';
 
 const Tabs = Object.freeze({
 	OVERALL_SUCCESS: 1,
@@ -170,11 +169,45 @@ const emit = defineEmits(['goToBottomTab']);
 const topTab = ref(null);
 const activeTab = ref(Tabs.OVERALL_SUCCESS);
 
+const footer = ref(null);
+const pageContent = ref(null);
+
 watch(
 	() => props.scrollIntoView,
 	(value) => {
 		if (value) {
 			topTab.value.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+);
+
+watch(
+	() => props.sidebarOpen,
+	(value) => {
+		if (value) {
+			gsap.to('.page-content', {
+				marginLeft: 124,
+				duration: 0.2,
+				ease: 'power4.inOut',
+			});
+			gsap.to('.footer', {
+				marginLeft: 124,
+				duration: 0.2,
+				ease: 'power4.inOut',
+			});
+		} else {
+			setTimeout(() => {
+				gsap.to('.page-content', {
+					marginLeft: 224,
+					duration: 0.2,
+					ease: 'power4.inOut',
+				});
+				gsap.to('.footer', {
+					marginLeft: 224,
+					duration: 0.2,
+					ease: 'power4.inOut',
+				});
+			}, 100);
 		}
 	}
 );
