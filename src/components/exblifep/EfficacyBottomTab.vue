@@ -3,6 +3,12 @@
 		ref="bottomTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
+		<img
+			src="/src/assets/images/page-vertical-up-blue.png"
+			alt="Vertical Up Blue"
+			class="absolute top-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px] cursor-pointer z-50"
+			@click="emit('goToTopTab')"
+		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
@@ -16,10 +22,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div
-			class="page-content flex flex-col justify-center font-effra transition-all relative pr-[60px]"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
+		<div class="flex flex-col justify-center font-effra transition-all duration-300 relative pr-[60px]">
 			<div class="flex justify-between mr-12 items-center">
 				<div>
 					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
@@ -37,7 +40,7 @@
 			<section class="flex gap-x-12 mt-14 items-center">
 				<div class="flex flex-col gap-y-9">
 					<div class="flex items-center">
-						<div class="relative w-fit cursor-pointer">
+						<div class="relative min-w-fit cursor-pointer">
 							<img
 								src="/src/assets/images/water-drop.png"
 								alt="Water Drop"
@@ -49,7 +52,7 @@
 								class="w-[70px] h-[70px] absolute top-1/2 -right-[52px] transform -translate-y-1/2 z-0"
 							/>
 						</div>
-						<div class="relative bg-white border-2 border-electric-blue max-w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
+						<div class="relative bg-white border-2 border-electric-blue w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
 							<h4 class="text-2xl font-medium text-cool-grey">
 								Cefepime and enmetazobactam have demonstrated similar concentration-time profiles in plasma and ELF.<sup>6</sup>
 							</h4>
@@ -68,7 +71,7 @@
 								class="w-[70px] h-[70px] absolute top-1/2 -right-[52px] transform -translate-y-1/2 z-0"
 							/>
 						</div>
-						<div class="relative bg-white border-2 border-electric-blue max-w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
+						<div class="relative bg-white border-2 border-electric-blue w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
 							<h4 class="text-2xl font-medium text-cool-grey">
 								Concentrations of both agents are detectable in plasma for 24 hours after last administration.<sup>6</sup>
 							</h4>
@@ -87,7 +90,7 @@
 								class="w-[70px] h-[70px] absolute top-1/2 -right-[52px] transform -translate-y-1/2 z-0"
 							/>
 						</div>
-						<div class="relative bg-white border-2 border-electric-blue max-w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
+						<div class="relative bg-white border-2 border-electric-blue w-[680px] ml-16 rounded-[20px] px-10 py-10 overflow-hidden">
 							<h4 class="text-2xl font-medium text-cool-grey">
 								Cefepime has high lung tissue penetration compared with other cephalosporins, and is recommended in European clinical guidelines
 								for the management of HAP/VAP.<sup>7,8</sup>
@@ -96,7 +99,7 @@
 					</div>
 				</div>
 
-				<div class="max-w-[416px]">
+				<div class="min-w-[416px] max-w-[416px]">
 					<h4 class="text-2xl font-bold leading-normal text-[#002470]">
 						In an intrapulmonary PK study<br />
 						of 20 healthy volunteers:<sup>*6</sup>
@@ -122,10 +125,7 @@
 		</div>
 
 		<footer>
-			<the-footer
-				class="footer transition-all mb-4"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-			>
+			<the-footer class="transition-all mb-4">
 				ELF, epithelial lining fluid; fAUC, area under the curve for unbound drug; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia;
 				IV, intravenous; MIC, minimum inhibitory concentration; PK, pharmacokinetics; q8h: every 8 hours; SD, standard deviation.<br />
 				*The intrapulmonary PK of 2.0 g-1.0 g of EXBLIFEP<sup>®</sup> IV q8h was assessed in the plasma and epithelial lining fluid obtained by
@@ -146,17 +146,13 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
+
+import { gsap } from 'gsap';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
-
-const Tabs = Object.freeze({
-	DROP: 1,
-	TIME: 2,
-	LUNGS: 3,
-});
 
 const props = defineProps({
 	sidebarOpen: {
@@ -182,26 +178,26 @@ watch(
 	}
 );
 
-watch(
-	() => props.sidebarOpen,
-	(value) => {
-		if (value) {
-			gsap.to(['.page-content', '.footer'], {
-				marginLeft: 124,
-				duration: 0.2,
-				ease: 'power4.inOut',
-			});
-		} else {
-			setTimeout(() => {
-				gsap.to(['.page-content', '.footer'], {
-					marginLeft: 224,
-					duration: 0.2,
-					ease: 'power4.inOut',
-				});
-			}, 100);
-		}
-	}
-);
+// watch(
+// 	() => props.sidebarOpen,
+// 	(value) => {
+// 		if (value) {
+// 			gsap.to(['.page-content', '.footer'], {
+// 				marginLeft: 124,
+// 				duration: 0.3,
+// 				ease: 'power4.inOut',
+// 			});
+// 		} else {
+// 			setTimeout(() => {
+// 				gsap.to(['.page-content', '.footer'], {
+// 					marginLeft: 224,
+// 					duration: 0.2,
+// 					ease: 'power4.inOut',
+// 				});
+// 			}, 100);
+// 		}
+// 	}
+// );
 </script>
 
 <style scoped>

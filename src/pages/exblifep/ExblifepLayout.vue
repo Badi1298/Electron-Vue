@@ -1,5 +1,5 @@
 <template>
-	<main class="flex justify-between bg-textured">
+	<main class="flex bg-textured">
 		<img
 			src="/src/assets/images/exblifep-logo.svg"
 			alt="Exblifep Logo"

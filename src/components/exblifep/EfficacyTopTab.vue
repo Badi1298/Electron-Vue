@@ -17,7 +17,7 @@
 			/>
 		</div>
 		<div
-			class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all"
+			class="page-content flex flex-col ml-[124px] justify-center font-effra transition-all duration-300"
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="relative flex justify-between mr-12">

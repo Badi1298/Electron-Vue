@@ -23,7 +23,7 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all duration-300 relative shadow-sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] transition-all relative shadow-sidebar"
 		>
 			<div class="relative flex flex-col flex-1 justify-end mb-20">
 				<ul class="flex flex-col gap-y-4 px-4">
