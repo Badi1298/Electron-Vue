@@ -1,14 +1,11 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
 		<div class="flex flex-col justify-center">
-			<div
-				class="flex justify-between items-center transition-all duration-300"
-				:class="[sidebarOpen ? 'mr-[60px] ml-[124px]' : 'mr-[120px] ml-[224px]']"
-			>
+			<div class="page-content flex justify-between items-center max-w-[1386px]">
 				<section class="flex flex-col pt-24">
 					<img
 						src="/src/assets/images/xyd-logo-white.png"
-						alt="Mabelio Bullet"
+						alt="Xyd Logo"
 						class="relative z-30 w-[454px] h-auto"
 					/>
 					<VLazyImage
@@ -71,9 +68,7 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer
-				class="transition-all duration-300 text-white"
-				:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
+			<the-footer class="footer text-white"
 				>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen of
 				dalbavancin in ABSSSI.<sup>4</sup><br />
 				Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen (97.3%).<sup>5</sup><br />
@@ -95,6 +90,10 @@
 </template>
 
 <script setup>
+import { toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
+
 import VLazyImage from 'v-lazy-image';
 
 import Background from '@/assets/images/xyd-background.png';
@@ -103,10 +102,13 @@ import Card from '@/components/Card.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
 });
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 </script>
