@@ -16,11 +16,8 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div> -->
-		<div
-			class="flex flex-col justify-end font-effra transition-all duration-300 relative pb-12"
-			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
-		>
-			<div class="flex justify-between mr-12">
+		<div class="page-content flex flex-col justify-end font-effra relative pb-12">
+			<div class="relative flex justify-between mr-12">
 				<div>
 					<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Dosing and administration of EXBLIFEP<sup>®5</sup></h1>
 					<img
@@ -29,10 +26,7 @@
 						class="h-1.5 w-[300px] my-5"
 					/>
 				</div>
-				<div
-					class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium transform transition-all duration-300"
-					:class="[sidebarOpen ? 'translate-x-0' : '-translate-x-52']"
-				>
+				<div class="select-tab absolute top-1/2 -translate-y-1/2 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -148,9 +142,7 @@
 			</div>
 		</div>
 		<footer class="relative pb-6">
-			<the-footer
-				class="transition-all duration-300 mb-4"
-				:class="[sidebarOpen ? 'pl-[124px]' : 'pl-[224px]']"
+			<the-footer class="footer mb-4"
 				>EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data are
 				available.5
 			</the-footer>
@@ -290,11 +282,58 @@ watch(tabs.value, (newValue) => {
 	}
 });
 
+watch(
+	() => props.sidebarOpen,
+	(value) => {
+		if (value) {
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '0px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
+		} else {
+			const tl = gsap.timeline();
+
+			tl.to('.select-tab', {
+				opacity: 0,
+				duration: 0.3,
+			})
+				.set(
+					'.select-tab',
+					{
+						right: '250px',
+					},
+					'+=0.2'
+				)
+				.to('.select-tab', {
+					opacity: 1,
+				});
+		}
+	}
+);
+
 onMounted(() => {
 	gsap.set('.dosing', { width: '1000px', opacity: 1, borderRight: '2px solid #1F17F6', borderTop: '2px solid #1F17F6', borderBottom: '2px solid #1F17F6' });
 	gsap.set('.administration', { width: 20, opacity: 0, borderRight: '2px solid #1F17F6', borderTop: '2px solid #1F17F6', borderBottom: '2px solid #1F17F6' });
 	gsap.set('.dosing-content', { opacity: 1 });
 	gsap.set(fullDosingButton.value, { opacity: 1, display: 'block' });
+
+	if (props.sidebarOpen) {
+		gsap.set('.select-tab', { right: '0' });
+	} else {
+		gsap.set('.select-tab', { right: '250px' });
+	}
 });
 
 const activateTab = async (newTab) => {

@@ -9,27 +9,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, toRef } from 'vue';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import DosingTopTab from '../../components/exblifep/dosing/DosingTopTab.vue';
-import DosingBottomTab from '../../components/exblifep/dosing/DosingBottomTab.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
 	},
 });
 
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
+
 const scrollToTopTab = ref(false);
 const scrollToBottomTab = ref(false);
-
-const onScrollToTopTab = () => {
-	scrollToTopTab.value = true;
-	setTimeout(() => {
-		scrollToTopTab.value = false;
-	}, 1000);
-};
 
 const onScrollToBottomTab = () => {
 	scrollToBottomTab.value = true;

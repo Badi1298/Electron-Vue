@@ -6,7 +6,7 @@
 			class="absolute top-1/2 -translate-y-1/2 h-[150px] cursor-pointer"
 			@click="router.push({ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'back-button' } })"
 		/>
-		<div class="flex flex-col justify-center font-effra">
+		<div class="page-content flex flex-col justify-center font-effra">
 			<div>
 				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
 					EXBLIFEP<sup>®</sup> demonstrated a favourable overall safety profile, comparable to piperacillin/tazobactam<sup>1,10</sup>
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer
+			<the-footer class="footer"
 				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
 				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
 			>
@@ -66,13 +66,16 @@
 </template>
 
 <script setup>
+import { toRef } from 'vue';
 import { useRouter } from 'vue-router';
+
+import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
 
-defineProps({
+const props = defineProps({
 	sidebarOpen: {
 		type: Boolean,
 		required: true,
@@ -80,4 +83,7 @@ defineProps({
 });
 
 const router = useRouter();
+
+const sidebarOpenRef = toRef(props, 'sidebarOpen');
+usePageAnimation(sidebarOpenRef);
 </script>
