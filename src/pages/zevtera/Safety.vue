@@ -17,13 +17,13 @@
 				</div>
 			</div>
 
-			<div class="grid grid-cols-2 mr-[60px] items-center mt-3">
+			<div class="grid grid-cols-2 mr-[60px] items-center mt-3 max-w-[1474px]">
 				<the-title
 					>Less burden to<br />
 					treat your patients</the-title
 				>
 				<div
-					class="flex items-center gap-x-5 bg-primary-light-orange px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-8 min-w-[582px] justify-self-end"
+					class="flex items-center gap-x-5w-[582px] bg-primary-light-orange px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-8 min-w-[582px] justify-self-end"
 				>
 					<img
 						src="/src/assets/images/tick-icon-black.png"
@@ -328,7 +328,7 @@ const animateGutFlora = () => {
 		mainRef: gutFlora,
 		swapCardSelector: '.clinical-swap-card',
 		fadeElements: [wellTolarated.value, easeOfUse.value, content.value],
-		slideDivisor: 3.95,
+		slideDivisor: props.sidebarOpen ? 3.95 : 3.6,
 	});
 };
 </script>
