@@ -114,7 +114,9 @@
 				(MIC ≤64 μg/mL).<sup>1†</sup>Treatment difference is the difference in the overall success rate between the two treatment arms (95% CIs,
 				2-sided, stratified Newcombe method).<sup>1</sup></the-footer
 			>
-			<ExploreAnother />
+			<div class="flex items-start">
+				<explore-another />
+			</div>
 			<button
 				@click="emit('goToBottomTab')"
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
