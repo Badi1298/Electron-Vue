@@ -7,7 +7,10 @@
 		>
 			<div class="text-white">
 				<section class="absolute top-[18%] left-[26.4%] flex flex-col gap-y-[100px]">
-					<div>
+					<div
+						ref="text1"
+						class="opacity-0"
+					>
 						<h2 class="text-[32px] font-extrabold leading-[1.2]">
 							We offer a complimentary range of treatments extending<br />
 							across the antimicrobial landscape<sup>1-3</sup>
@@ -15,7 +18,10 @@
 						</h2>
 						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
 					</div>
-					<div class="ml-[100px]">
+					<div
+						ref="text2"
+						class="ml-[100px] opacity-0"
+					>
 						<h2 class="text-[32px] font-extrabold leading-[1.2]">
 							Putting humanity first - we strive to remove treatment<br />
 							barriers and reduce the burden of care
@@ -23,7 +29,10 @@
 						</h2>
 						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
 					</div>
-					<div class="ml-[200px]">
+					<div
+						ref="text3"
+						class="ml-[200px] opacity-0"
+					>
 						<h2 class="text-[32px] font-extrabold leading-[1.2]">
 							Forging a different path by providing effective<br />
 							treatments with predictable outcomes<sup>5-7</sup>
@@ -32,7 +41,8 @@
 						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
 					</div>
 					<button
-						class="flex items-center justify-end w-[264px] gap-x-7 py-2.5 px-[22px] bg-primary-green text-white text-2xl ml-72"
+						ref="button"
+						class="flex items-center justify-end w-[264px] gap-x-7 py-2.5 px-[22px] bg-primary-green text-white text-2xl ml-72 opacity-0"
 						@click="startEraserAnimation"
 						@touchstart.prevent="startEraserAnimation"
 					>
@@ -70,12 +80,18 @@
 			ref="eraserContainer"
 			class="absolute top-0 left-0 h-screen pointer-events-none z-50"
 		>
-			<img
-				ref="eraser"
-				class="h-full object-contain block"
-				src="/src/assets/images/A.png"
-				alt="Eraser"
-			/>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="721"
+				height="1080"
+				viewBox="0 0 721 1080"
+				fill="none"
+			>
+				<path
+					d="M305.2 1079.6L216.1 872.55H394.3L260.65 547.193L-170 1612V1109.17L275.5 0L721 1079.6H305.2Z"
+					fill="#94C11F"
+				/>
+			</svg>
 		</div>
 	</div>
 </template>
@@ -87,6 +103,11 @@ import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 const router = useRouter();
+
+const text1 = ref(null);
+const text2 = ref(null);
+const text3 = ref(null);
+const button = ref(null);
 
 // Refs for animation targets
 const eraser = ref(null);
@@ -112,6 +133,8 @@ onMounted(() => {
 		left: 0,
 		// display: 'none', // Remove this to see the eraser
 	});
+
+	gsap.fromTo([text1.value, text2.value, text3.value, button.value], { opacity: 0 }, { opacity: 1, stagger: 0.5 });
 });
 
 // Function to trigger the animation
