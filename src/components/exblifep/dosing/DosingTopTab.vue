@@ -39,6 +39,7 @@
 				<div
 					class="flex"
 					@click="activateTab(tabs[0])"
+					@touchstart.prevent="activateTab(tabs[0])"
 				>
 					<!-- Image Section -->
 					<img
@@ -83,6 +84,7 @@
 				<div
 					class="flex"
 					@click="activateTab(tabs[1])"
+					@touchstart.prevent="activateTab(tabs[1])"
 				>
 					<!-- Image Section -->
 					<img

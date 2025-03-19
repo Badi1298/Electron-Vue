@@ -4,6 +4,7 @@
 			<div
 				class="relative transform w-full"
 				@click="toggleSidebar"
+				@touchstart.prevent="toggleSidebar"
 			>
 				<button class="absolute top-1/2 -translate-y-1/2 -left-5 bg-[#ECECEC] text-white p-2.5 rounded-md">
 					<SimpleChevronRightIcon
@@ -175,6 +176,7 @@
 								alt="Book Icon"
 								class="w-8 h-8 justify-self-center"
 								@click="referencesPopupOpen = true"
+								@touchstart.prevent="referencesPopupOpen = true"
 							/>
 						</RouterLink>
 						<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
@@ -183,6 +185,7 @@
 								alt="PI Icon"
 								class="w-[30px] h-auto justify-self-center"
 								@click="prescribingPopupOpen = true"
+								@touchstart.prevent="prescribingPopupOpen = true"
 							/>
 						</RouterLink>
 					</div>
@@ -191,6 +194,7 @@
 							<p
 								class="text-xl font-uni-grotesk text-[#969696]"
 								@click="referencesPopupOpen = true"
+								@touchstart.prevent="referencesPopupOpen = true"
 							>
 								References
 							</p>
@@ -199,6 +203,7 @@
 							<p
 								class="text-xl font-uni-grotesk text-[#969696]"
 								@click="prescribingPopupOpen = true"
+								@touchstart.prevent="prescribingPopupOpen = true"
 							>
 								Prescribing information
 							</p>
@@ -221,6 +226,7 @@
 								alt="Book Icon"
 								class="w-8 h-8 justify-self-center"
 								@click="referencesPopupOpen = true"
+								@touchstart.prevent="referencesPopupOpen = true"
 							/>
 						</RouterLink>
 						<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
@@ -229,6 +235,7 @@
 								alt="PI Icon"
 								class="w-[30px] h-auto justify-self-center"
 								@click="prescribingPopupOpen = true"
+								@touchstart.prevent="prescribingPopupOpen = true"
 							/>
 						</RouterLink>
 					</div>

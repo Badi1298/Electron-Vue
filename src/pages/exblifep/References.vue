@@ -2,10 +2,12 @@
 	<div
 		class="relative z-[9999] w-screen h-screen flex justify-center items-center bg-black/40"
 		@click="router.go(-1)"
+		@touchstart.prevent="router.go(-1)"
 	>
 		<div
 			class="bg-white min-w-[1470px] min-h-[900px] px-16 py-12"
 			@click.stop
+			@touchstart.stop
 		>
 			<div class="flex justify-between items-center">
 				<div>
@@ -21,6 +23,7 @@
 					alt="Close Button"
 					class="w-[60px] h-[60px] cursor-pointer -mx-4 -mt-10"
 					@click="router.go(-1)"
+					@touchstart.prevent="router.go(-1)"
 				/>
 			</div>
 			<ol class="text-xl list-decimal text-cool-grey list-inside mt-8 pb-40 font-effra">

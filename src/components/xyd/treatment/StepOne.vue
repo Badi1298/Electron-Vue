@@ -14,12 +14,14 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToMiddleTab')"
+				@touchstart.prevent="emit('goToMiddleTab')"
 			/>
 			<img
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
 		<div class="page-content flex flex-col justify-end font-effra max-w-[1446px]">
@@ -61,8 +63,9 @@
 			>
 			<ExploreAnother />
 			<button
-				@click="emit('goToMiddleTab')"
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				@click="emit('goToMiddleTab')"
+				@touchstart.prevent="emit('goToMiddleTab')"
 			>
 				<img
 					src="/src/assets/images/page-vertical-down-green.png"

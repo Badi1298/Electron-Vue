@@ -5,6 +5,7 @@
 			alt="Back Button"
 			class="absolute top-1/2 -translate-y-1/2 h-[150px] cursor-pointer"
 			@click="router.push({ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'back-button' } })"
+			@touchstart.prevent="router.push({ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'back-button' } })"
 		/>
 		<div class="page-content flex flex-col justify-center font-effra">
 			<div>

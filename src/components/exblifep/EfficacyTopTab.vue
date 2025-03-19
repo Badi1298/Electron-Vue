@@ -14,6 +14,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
 		<div class="page-content flex flex-col justify-center font-effra">
@@ -51,6 +52,7 @@
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
 							@click="activeTab = Tabs.OVERALL_SUCCESS"
+							@touchstart.prevent="activeTab = Tabs.OVERALL_SUCCESS"
 						>
 							Overall success*: Day 14 in PAS
 						</button>
@@ -58,6 +60,7 @@
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
 							@click="activeTab = Tabs.CLINICAL_CURE"
+							@touchstart.prevent="activeTab = Tabs.CLINICAL_CURE"
 						>
 							Clinical cure & Microbiological eradication: Day 14 in PAS
 						</button>
@@ -118,8 +121,9 @@
 				<explore-another />
 			</div>
 			<button
-				@click="emit('goToBottomTab')"
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			>
 				<img
 					src="/src/assets/images/down-button-blue.png"

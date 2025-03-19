@@ -8,6 +8,7 @@
 			alt="Page Vertical Up"
 			class="absolute top-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px] cursor-pointer z-50"
 			@click="emit('goToTopTab')"
+			@touchstart.prevent="emit('goToTopTab')"
 		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
@@ -15,6 +16,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToTopTab')"
+				@touchstart.prevent="emit('goToTopTab')"
 			/>
 			<img
 				src="/src/assets/images/active-dot.png"
@@ -43,6 +45,7 @@
 							:alt="`Dosing Step 1`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(0)"
+							@touchstart.prevent="onStepClick(0)"
 						/>
 						<img
 							v-show="!steps[0].active"
@@ -50,6 +53,7 @@
 							:alt="`Dosing Step 1`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(0)"
+							@touchstart.prevent="onStepClick(0)"
 						/>
 						<img
 							v-if="steps[0].active"
@@ -66,6 +70,7 @@
 							:alt="`Dosing Step 2`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(1)"
+							@touchstart.prevent="onStepClick(1)"
 						/>
 						<img
 							v-show="!steps[1].active"
@@ -73,6 +78,7 @@
 							:alt="`Dosing Step 2`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(1)"
+							@touchstart.prevent="onStepClick(1)"
 						/>
 						<img
 							v-if="steps[1].active"
@@ -89,6 +95,7 @@
 							:alt="`Dosing Step 3`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(2)"
+							@touchstart.prevent="onStepClick(2)"
 						/>
 						<img
 							v-show="!steps[2].active"
@@ -96,6 +103,7 @@
 							:alt="`Dosing Step 3`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(2)"
+							@touchstart.prevent="onStepClick(2)"
 						/>
 						<img
 							v-if="steps[2].active"
@@ -112,6 +120,7 @@
 							:alt="`Dosing Step 4`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(3)"
+							@touchstart.prevent="onStepClick(3)"
 						/>
 						<img
 							v-show="!steps[3].active"
@@ -119,6 +128,7 @@
 							:alt="`Dosing Step 4`"
 							class="w-[216px] h-auto relative cursor-pointer z-10"
 							@click="onStepClick(3)"
+							@touchstart.prevent="onStepClick(3)"
 						/>
 						<img
 							v-show="steps[3].active"

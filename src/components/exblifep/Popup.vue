@@ -3,14 +3,17 @@
 		v-show="popupOpen"
 		class="fixed top-0 left-0 h-screen w-screen bg-black/40 z-50 backdrop-blur-sm"
 		@click="emit('update:popupOpen', false)"
+		@touchstart.prevent="emit('update:popupOpen', false)"
 	>
 		<div
 			@click.stop
+			@touchstart.prevent
 			class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-16 w-4/5 h-5/6 font-effra"
 		>
 			<button
 				class="absolute top-10 right-10"
 				@click="emit('update:popupOpen', false)"
+				@touchstart.prevent="emit('update:popupOpen', false)"
 			>
 				<img
 					src="/src/assets/images/close-button.png"

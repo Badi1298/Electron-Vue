@@ -15,6 +15,7 @@
 					<div
 						class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50 cursor-pointer"
 						@click="showDosingTable"
+						@touchstart.prevent="showDosingTable"
 					>
 						<p class="text-2xl font-medium font-uni-grotesk text-charcoal">
 							Dosage in adult and paediatric patients with normal renal function or mild renal impairment<br />

@@ -2,6 +2,7 @@
 	<div
 		class="relative w-fit cursor-pointer"
 		@click="emit('click', id)"
+		@touchstart.prevent="emit('click', id)"
 	>
 		<img
 			:src="imageSrc"

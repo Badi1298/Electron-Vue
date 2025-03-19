@@ -14,6 +14,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
 		<div class="page-content flex flex-col justify-end font-effra">
@@ -80,8 +81,9 @@
 			>
 			<ExploreAnother />
 			<button
-				@click="emit('goToBottomTab')"
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			>
 				<img
 					src="/src/assets/images/page-vertical-down-green.png"

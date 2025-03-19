@@ -3,6 +3,7 @@
 		id="screensaver"
 		@click="hideScreensaver"
 		@mousemove="hideScreensaver"
+		@touchstart.prevent="hideScreensaver"
 		class="fixed top-0 left-0 w-full h-full z-50 bg-black/100 cursor-pointer flex justify-center items-center"
 	>
 		<div class="bg-lightblue-500 w-full h-full flex justify-center items-center">

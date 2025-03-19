@@ -38,6 +38,7 @@
 					ref="wellTolarated"
 					class="relative flex flex-col w-[419px] justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateWellTolarated"
+					@touchstart.prevent="animateWellTolarated"
 				>
 					<div>
 						<img
@@ -68,6 +69,7 @@
 					ref="gutFlora"
 					class="relative flex flex-col w-[419px] justify-between bg-primary-light-orange rounded-[20px] cursor-pointer z-50 shadow-zevtera-efficacy-pathogens-card"
 					@click="animateGutFlora"
+					@touchstart.prevent="animateGutFlora"
 				>
 					<img
 						src="/src/assets/images/touch-purple.png"

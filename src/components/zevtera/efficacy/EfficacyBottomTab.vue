@@ -4,8 +4,9 @@
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
 		<button
-			@click="emit('goToTopTab')"
 			class="absolute left-1/2 -translate-x-1/2 top-0 z-50"
+			@click="emit('goToTopTab')"
+			@touchstart.prevent="emit('goToTopTab')"
 		>
 			<img
 				src="/src/assets/images/page-vertical-up-purple.png"
@@ -19,6 +20,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToTopTab')"
+				@touchstart.prevent="emit('goToTopTab')"
 			/>
 			<img
 				src="/src/assets/images/active-dot-purple.png"
@@ -91,6 +93,7 @@
 						alt="Expand Icon"
 						class="absolute right-7 w-[60px] h-[60px] cursor-pointer"
 						@click="expandDetails"
+						@touchstart.prevent="expandDetails"
 					/>
 					<img
 						ref="closeIcon"
@@ -98,6 +101,7 @@
 						alt="Expand Icon"
 						class="absolute right-7 w-[60px] h-[60px] cursor-pointer"
 						@click="expandDetails"
+						@touchstart.prevent="expandDetails"
 					/>
 					<p
 						ref="detailsFooter"

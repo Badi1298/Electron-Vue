@@ -14,6 +14,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
 		<div class="page-content flex flex-col font-effra">
@@ -55,6 +56,7 @@
 					ref="bacterialActivity"
 					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer z-50"
 					@click="animateBacterialActivity"
+					@touchstart.prevent="animateBacterialActivity"
 				>
 					<img
 						src="/src/assets/images/touch-purple.png"
@@ -83,6 +85,7 @@
 					ref="clinicalEfficacy"
 					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer z-50"
 					@click="animateClinicalEfficacy"
+					@touchstart.prevent="animateClinicalEfficacy"
 				>
 					<img
 						src="/src/assets/images/touch-purple.png"
@@ -153,6 +156,7 @@
 								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
 								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
 								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
+								@touchstart.prevent="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
 							>
 								Day 3
 							</button>
@@ -160,6 +164,7 @@
 								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
 								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
 								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
+								@touchstart.prevent="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
 							>
 								Day 4
 							</button>
@@ -204,8 +209,9 @@
 		<footer class="relative pb-6">
 			<ExploreAnother />
 			<button
-				@click="emit('goToBottomTab')"
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				@click="emit('goToBottomTab')"
+				@touchstart.prevent="emit('goToBottomTab')"
 			>
 				<img
 					src="/src/assets/images/page-vertical-down-purple.png"

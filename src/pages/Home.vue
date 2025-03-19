@@ -32,6 +32,7 @@
 						<button
 							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
 							@click="router.push('/exblifep')"
+							@touchstart.prevent="router.push('/exblifep')"
 						>
 							<span>Get started</span>
 							<img
@@ -100,6 +101,7 @@
 						<button
 							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-16 bg-primary-purple text-white text-2xl"
 							@click="router.push('/zevtera')"
+							@touchstart.prevent="router.push('/zevtera')"
 						>
 							<span>Get started</span>
 							<img
@@ -150,6 +152,7 @@
 							ref="xydButton"
 							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-9 bg-primary-green text-white text-2xl"
 							@click="router.push('/xyd')"
+							@touchstart.prevent="router.push('/xyd')"
 						>
 							<span>Get started</span>
 							<img
@@ -297,6 +300,7 @@
 							v-if="activeIndex === 0"
 							class="absolute -bottom-[20px] left-16 z-10"
 							@click="goToTheLeft"
+							@touchstart.prevent="goToTheLeft"
 						>
 							<img
 								src="/src/assets/images/home-arrow-left-green.png"
@@ -308,6 +312,7 @@
 							v-else-if="activeIndex === 1"
 							class="absolute -bottom-[20px] left-16 z-10"
 							@click="goToTheLeft"
+							@touchstart.prevent="goToTheLeft"
 						>
 							<img
 								src="/src/assets/images/home-arrow-left-purple.png"
@@ -319,6 +324,7 @@
 							v-else
 							class="absolute -bottom-[20px] left-16 z-10"
 							@click="goToTheLeft"
+							@touchstart.prevent="goToTheLeft"
 						>
 							<img
 								src="/src/assets/images/home-arrow-left-white.png"
@@ -330,6 +336,7 @@
 							v-if="activeIndex === 0"
 							class="absolute -bottom-[20px] right-16 z-10"
 							@click="goToTheRight"
+							@touchstart.prevent="goToTheRight"
 						>
 							<img
 								src="/src/assets/images/home-arrow-right-green.png"
@@ -341,6 +348,7 @@
 							v-else-if="activeIndex === 1"
 							class="absolute -bottom-[20px] right-16 z-10"
 							@click="goToTheRight"
+							@touchstart.prevent="goToTheRight"
 						>
 							<img
 								src="/src/assets/images/home-arrow-right-purple.png"
@@ -352,6 +360,7 @@
 							v-else
 							class="absolute -bottom-[20px] right-16 z-10"
 							@click="goToTheRight"
+							@touchstart.prevent="goToTheRight"
 						>
 							<img
 								src="/src/assets/images/home-arrow-right-white.png"
@@ -366,6 +375,7 @@
 					<div
 						class="flex gap-x-6 items-center bg-white rounded-l-[20px] border-2 border-[#195C68] border-r-0 px-2.5 py-[3px] cursor-pointer"
 						@click="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
+						@touchstart.prevent="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
 					>
 						<img
 							src="/src/assets/images/prescribing-information-turqoise.png"
@@ -425,6 +435,7 @@
 							ref="xydButton"
 							class="flex items-center justify-end w-[264px] gap-x-7 py-2.5 px-[22px] bg-primary-green text-white text-2xl ml-72"
 							@click="startEraserAnimation"
+							@touchstart.prevent="startEraserAnimation"
 						>
 							<span>Get started</span>
 							<img
@@ -770,6 +781,5 @@ const animateBackground = (config) => {
 	backface-visibility: hidden;
 	transform: translate(-50%, -50%);
 	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-	/* filter: drop-shadow(0px 3.811px 95.268px #1f17f6); */
 }
 </style>

@@ -8,6 +8,7 @@
 			alt="Vertical Up Blue"
 			class="absolute top-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px] cursor-pointer z-50"
 			@click="emit('goToTopTab')"
+			@touchstart.prevent="emit('goToTopTab')"
 		/>
 		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
 			<img
@@ -15,6 +16,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToTopTab')"
+				@touchstart.prevent="emit('goToTopTab')"
 			/>
 			<img
 				src="/src/assets/images/active-dot.png"

@@ -4,8 +4,9 @@
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
 		<button
-			@click="emit('goToTopTab')"
 			class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
+			@click="emit('goToTopTab')"
+			@touchstart.prevent="emit('goToTopTab')"
 		>
 			<img
 				src="/src/assets/images/page-vertical-up-green.png"
@@ -19,6 +20,7 @@
 				alt="Active Dot"
 				class="h-5 w-5 cursor-pointer"
 				@click="emit('goToTopTab')"
+				@touchstart.prevent="emit('goToTopTab')"
 			/>
 			<img
 				src="/src/assets/images/active-dot-purple.png"
@@ -58,6 +60,7 @@
 						<div
 							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
 							@click="animateExpandable"
+							@touchstart.prevent="animateExpandable"
 						>
 							<p class="text-xl font-bold text-white">Summary of treatment-emergent adverse events, safety population*</p>
 							<div class="flex items-center gap-x-5">
