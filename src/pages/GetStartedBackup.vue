@@ -1,52 +1,19 @@
 <template>
 	<div class="animation-container">
-		<!-- Masked area (original colored background) -->
-		<div
-			class="masked-background"
-			ref="maskedBg"
-		></div>
+		<!-- Canvas for the animation -->
+		<canvas
+			ref="canvas"
+			class="animation-canvas"
+		></canvas>
 
-		<!-- SVG that defines the mask -->
-		<svg
-			class="mask-svg"
-			width="0"
-			height="0"
-		>
-			<defs>
-				<mask
-					id="svgMask"
-					maskUnits="userSpaceOnUse"
-				>
-					<!-- Initially everything is visible (white) -->
-					<rect
-						width="100%"
-						height="100%"
-						fill="white"
-					/>
-
-					<!-- The moving shape will cut out from the mask (black) -->
-					<g ref="maskPathGroup">
-						<path
-							d="M305.2 1079.6L216.1 872.55H394.3L260.65 547.193L-170 1612V1109.17L275.5 0L721 1079.6H305.2Z"
-							fill="black"
-						/>
-					</g>
-				</mask>
-			</defs>
-		</svg>
-
-		<!-- Moving SVG shape -->
-		<div
-			class="svg-container"
-			ref="svgContainer"
-		>
+		<!-- Hidden SVG for reference -->
+		<div style="display: none">
 			<svg
+				ref="svgRef"
 				xmlns="http://www.w3.org/2000/svg"
-				width="100%"
-				height="100%"
+				width="721"
+				height="1080"
 				viewBox="0 0 721 1080"
-				fill="none"
-				preserveAspectRatio="none"
 			>
 				<path
 					d="M305.2 1079.6L216.1 872.55H394.3L260.65 547.193L-170 1612V1109.17L275.5 0L721 1079.6H305.2Z"
@@ -61,32 +28,79 @@
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 
-const svgContainer = ref(null);
-const maskedBg = ref(null);
-const maskPathGroup = ref(null);
+const canvas = ref(null);
+const svgRef = ref(null);
 
 onMounted(() => {
-	// Apply the mask to the background
-	maskedBg.value.style.mask = 'url(#svgMask)';
-	maskedBg.value.style.webkitMask = 'url(#svgMask)';
+	// Set up canvas
+	const ctx = canvas.value.getContext('2d');
+	canvas.value.width = window.innerWidth;
+	canvas.value.height = window.innerHeight;
 
-	// Calculate the SVG width based on its viewBox
-	const svgWidth = 721;
+	// Fill with initial background color
+	ctx.fillStyle = '#333';
+	ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
 
-	// Set initial positions
-	gsap.set([svgContainer.value, maskPathGroup.value], {
-		x: -svgWidth,
-	});
+	// Convert SVG to image for canvas
+	const svgString = new XMLSerializer().serializeToString(svgRef.value);
+	const svgBlob = new Blob([svgString], { type: 'image/svg+xml' });
+	const svgUrl = URL.createObjectURL(svgBlob);
 
-	// Create animation timeline
-	const tl = gsap.timeline();
+	const svgImage = new Image();
+	svgImage.onload = function () {
+		// Start animation once SVG is loaded
+		startAnimation(svgImage);
 
-	// Animate both the visible SVG and the mask SVG together
-	tl.to([svgContainer.value, maskPathGroup.value], {
-		x: window.innerWidth,
-		duration: 3,
-		ease: 'power2.inOut',
-	});
+		// Cleanup
+		URL.revokeObjectURL(svgUrl);
+	};
+	svgImage.src = svgUrl;
+
+	function startAnimation(svgImg) {
+		// Calculate scaled dimensions
+		const scale = canvas.value.height / svgImg.height;
+		const scaledWidth = svgImg.width * scale;
+		const scaledHeight = canvas.value.height;
+
+		// Animation position
+		const startX = -scaledWidth;
+		const endX = canvas.value.width;
+
+		// Create an object to animate
+		let animObj = { x: startX };
+
+		gsap.fromTo(
+			animObj,
+			{ x: startX },
+			{
+				x: endX,
+				duration: 3,
+				ease: 'power2.inOut',
+				onUpdate: function () {
+					const x = animObj.x;
+
+					// Clear canvas
+					ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
+
+					// Draw colored background
+					ctx.fillStyle = '#333';
+					ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
+
+					// Create the wipe effect
+					ctx.save();
+
+					// Draw SVG as mask
+					ctx.globalCompositeOperation = 'destination-out';
+					ctx.drawImage(svgImg, x, 0, scaledWidth, scaledHeight);
+
+					ctx.restore();
+
+					// Draw SVG on top
+					ctx.drawImage(svgImg, x, 0, scaledWidth, scaledHeight);
+				},
+			}
+		);
+	}
 });
 </script>
 
@@ -96,30 +110,13 @@ onMounted(() => {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	background-color: white; /* White background underneath the mask*/
 }
 
-.masked-background {
+.animation-canvas {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #333; /* Original background color */
-	z-index: 10;
-}
-
-.mask-svg {
-	position: absolute;
-	pointer-events: none;
-}
-
-.svg-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 721px; /* Match SVG viewBox width */
-	height: 100vh;
-	z-index: 2;
 }
 </style>
