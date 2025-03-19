@@ -144,6 +144,10 @@ const startEraserAnimation = () => {
 		left: '100%',
 		duration: 1.4, // Slightly longer for a smooth feel
 		ease: 'power4.inOut',
+		onComplete: () => {
+			// Redirect to the next page after animation
+			router.push({ name: 'home' });
+		},
 	});
 
 	// 2. Apply blur effect during transition (optional)
@@ -154,10 +158,6 @@ const startEraserAnimation = () => {
 			duration: 1.4,
 			ease: 'power4.inOut',
 			filter: 'blur(2px)', // Adds a subtle blur effect
-			onComplete: () => {
-				// Redirect to the next page after animation
-				router.push({ name: 'home' });
-			},
 		},
 		0
 	);
@@ -176,16 +176,5 @@ const startEraserAnimation = () => {
 	backface-visibility: hidden;
 	transform: translate(-50%, -50%);
 	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-</style>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.1s;
-}
-.fade-enter-from,
-.fade-leave-to {
-	opacity: 0;
 }
 </style>

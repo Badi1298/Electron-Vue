@@ -1,6 +1,6 @@
 <template>
 	<RouterLink
-		:to="{ name: 'home', query: { navigatedAwayBy: 'explore-another-button' } }"
+		:to="{ name: 'get-started', query: { navigatedAwayBy: 'explore-another-button' } }"
 		class="absolute left-0 top-16"
 	>
 		<button class="flex items-center shadow-explore rounded-r-[20px]">
