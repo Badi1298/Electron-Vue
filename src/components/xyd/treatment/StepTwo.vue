@@ -72,10 +72,10 @@
 		</div>
 
 		<footer class="pt-6">
-			<the-footer class="footer mb-6">
+			<the-footer class="footer mb-6 max-w-[1446px] pr-[60px]">
 				*FDA primary endpoint, EMA secondary endpoint: Early clinical response at 48 and 72 hours of therapy was defined as both cessation of spread of
-				the erythema associated with the infection (i.e. no increase in the surface area as compared with baseline) and a temperature of 37.6°C<br />
-				or lower at three consecutive readings performed 6 hours apart.<sup>8 †</sup>Without needing rescue antibacterial therapy<sup>9</sup>
+				the erythema associated with the infection (i.e. no increase in the surface area as compared with baseline) and a temperature of 37.6°C or lower
+				at three consecutive readings performed 6 hours apart.<sup>8 †</sup>Without needing rescue antibacterial therapy<sup>9</sup>
 			</the-footer>
 			<ExploreAnother />
 			<button

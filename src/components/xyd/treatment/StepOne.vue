@@ -54,9 +54,9 @@
 		</div>
 
 		<footer class="relative pb-6 pt-8">
-			<the-footer class="footer mb-4"
+			<the-footer class="footer mb-4 max-w-[1446px] pr-[60px]">
 				>*EMA primary end-point: Clinical success at End-of-treatment visit (Day 14-15) in the ITT population defined as decreased lesion size (both
-				length and width measurements), a temperature of ≤37.6°C, local signs of fluctuance and localized heat/warmth were absent; local signs of<br />
+				length and width measurements), a temperature of ≤37.6°C, local signs of fluctuance and localized heat/warmth were absent; local signs of
 				tenderness to palpation and swelling/induration were no worse than mild; and for patients with a wound infection, the severity of purulent
 				drainage was improved and no worse than mild relative to baseline; no need for further systemic antibacterial treatment for the SSTI.<br />
 				ITT: Intent To Treat.</the-footer
