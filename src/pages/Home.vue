@@ -393,11 +393,17 @@
 			<!-- Overlay screen with Get Started button -->
 			<div
 				ref="overlayScreen"
-				class="absolute top-0 left-0 w-full h-full bg-primary-turqoise text-white z-10 flex flex-col items-center justify-center"
+				class="absolute top-0 left-0 w-full h-full bg-home bg-[#195C68] text-white z-10 flex flex-col items-center justify-center"
 			>
-				<div class="text-center max-w-xl p-8">
-					<h1 class="text-3xl font-bold mb-4">Welcome to Our App</h1>
-					<p class="text-lg mb-6">Click the button below to get started</p>
+				<div class="text-white">
+					<div class="absolute top-52 left-[26%]">
+						<h2 class="text-[32px] font-extrabold leading-[1.2]">
+							We offer a complimentary range of treatments extending<br />
+							across the antimicrobial landscape<sup>1-3</sup>
+							<span class="text-[40px]"> –</span>
+						</h2>
+						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+					</div>
 					<button
 						@click="startEraserAnimation"
 						class="mt-8 px-6 py-3 text-lg bg-white text-primary-turqoise rounded hover:bg-cool-grey transition-colors"
@@ -507,7 +513,7 @@ const backgroundConfigs = {
 onMounted(() => {
 	// Initialize the overlay screen
 	gsap.set(overlayScreen.value, {
-		clipPath: 'inset(0 0 0 100%)', // Initially visible (0% instead of 100% to see the overlay)
+		clipPath: 'inset(0 0 0 0)', // Initially visible (0% instead of 100% to see the overlay)
 		position: 'absolute',
 		top: 0,
 		left: 0,
@@ -521,7 +527,7 @@ onMounted(() => {
 		position: 'absolute',
 		top: 0,
 		left: 0,
-		display: 'none', // Remove this to see the eraser
+		// display: 'none', // Remove this to see the eraser
 	});
 
 	// Set initial 3D transform origin
