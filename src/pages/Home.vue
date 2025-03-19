@@ -396,7 +396,7 @@
 				class="absolute top-0 left-0 w-full h-full bg-home bg-[#195C68] text-white z-10 flex flex-col items-center justify-center"
 			>
 				<div class="text-white">
-					<div class="absolute top-[18%] left-[26.4%] flex flex-col gap-y-[100px]">
+					<section class="absolute top-[18%] left-[26.4%] flex flex-col gap-y-[100px]">
 						<div>
 							<h2 class="text-[32px] font-extrabold leading-[1.2]">
 								We offer a complimentary range of treatments extending<br />
@@ -421,14 +421,37 @@
 							</h2>
 							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
 						</div>
-					</div>
+						<button
+							ref="xydButton"
+							class="flex items-center justify-end w-[264px] gap-x-7 py-2.5 px-[22px] bg-primary-green text-white text-2xl ml-72"
+							@click="startEraserAnimation"
+						>
+							<span>Get started</span>
+							<img
+								src="/src/assets/images/chevron-right-white.png"
+								alt="Chevron Right"
+								class="w-[50px]"
+							/>
+						</button>
+					</section>
 
-					<button
-						@click="startEraserAnimation"
-						class="absolute bottom-0 px-6 py-3 text-lg bg-white text-primary-turqoise rounded hover:bg-cool-grey transition-colors"
-					>
-						Get Started
-					</button>
+					<footer class="absolute bottom-8 left-[41.5%] text-[10px] leading-tight">
+						1. EXBLIFEP® Summary of Product Characteristics 2024. 2. XYDALBA® Summary of Product Characteristics 2024. 3. ZEVTERA® Summary of<br />
+						Product Characteristics 2024. 4. World Health Organization. WHO Bacterial Priority Pathogens List 2024. Available at:
+						<span class="underline">https://www.who.int/<br />publications/i/item/9789240093461.</span> Accessed March 2025. 5. Kaye KS
+						<span class="italic">et al. JAMA </span>2022;328:1304-1314. 6. McCarthy MW <span class="italic">et al. Infect Dis Ther</span><br />
+						2020;9:53-67. 7. Giacobbe D <span class="italic">et al. ERATCK </span>2019;17(9):689-698. 8. Boyd SE
+						<span class="italic">et al. Antimicrob Agents Chemother </span>2022;66:e0021622. 9. Belley A
+						<span class="italic"
+							>et<br />
+							al. J Glob Antimicrob Resist </span
+						>2021;25:93-101. 10. D'Angelo RG <span class="italic">et al. Expert Opin Pharmacother </span>2016;17:953-967.
+					</footer>
+					<img
+						src="/src/assets/images/advanz-logo-bg-white.png"
+						alt="Advanz Logo"
+						class="absolute bottom-0 right-0 w-[392px]"
+					/>
 				</div>
 			</div>
 
