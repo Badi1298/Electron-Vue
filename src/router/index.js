@@ -2,13 +2,13 @@ import { createMemoryHistory, createRouter } from 'vue-router';
 
 const routes = [
 	{
-		path: '/',
+		path: '/get-started',
 		component: () => import('@/pages/GetStarted.vue'),
 		name: 'get-started',
 		meta: { brand: 'NONE' },
 	},
 	{
-		path: '/home',
+		path: '/',
 		component: () => import('../pages/Home.vue'),
 		name: 'home',
 		meta: { brand: 'NONE' },

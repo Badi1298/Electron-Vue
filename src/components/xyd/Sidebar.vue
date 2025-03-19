@@ -108,7 +108,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'xyd-safety', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[100px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/xyd/safety'),
 								'text-[#969696]': !isActive('/xyd/safety'),
@@ -248,8 +248,8 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
 import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 import { gsap } from 'gsap';
 
