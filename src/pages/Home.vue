@@ -1,481 +1,401 @@
 <template>
-	<div>
-		<div class="relative w-full h-screen overflow-hidden">
-			<div class="relative flex flex-col justify-center w-full h-full px-28 py-8">
-				<our-portfolio />
-				<div ref="exblifepBackground">
-					<img
-						src="/src/assets/images/textured-background.png"
-						alt="Textured Background"
-						class="absolute top-0 left-0 w-full h-full -z-30"
-					/>
+	<div class="relative w-full h-screen overflow-hidden">
+		<div class="relative flex flex-col justify-center w-full h-full px-28 py-8">
+			<our-portfolio />
+			<div ref="exblifepBackground">
+				<img
+					src="/src/assets/images/textured-background.png"
+					alt="Textured Background"
+					class="absolute top-0 left-0 w-full h-full -z-30"
+				/>
+				<img
+					src="/src/assets/images/exblifep-logo.svg"
+					alt="Exblifep Logo"
+					class="absolute top-[150px] left-[130px] h-[179px] -z-30 opacity-5"
+				/>
+				<img
+					src="/src/assets/images/hallway-bed.png"
+					alt="Hallway Bed"
+					class="absolute -right-36 bottom-0 h-[874px] -z-30 opacity-10"
+				/>
+				<div class="absolute right-60 top-[38%] font-effra">
 					<img
 						src="/src/assets/images/exblifep-logo.svg"
 						alt="Exblifep Logo"
-						class="absolute top-[150px] left-[130px] h-[179px] -z-30 opacity-5"
+						class="w-[307px]"
 					/>
-					<img
-						src="/src/assets/images/hallway-bed.png"
-						alt="Hallway Bed"
-						class="absolute -right-36 bottom-0 h-[874px] -z-30 opacity-10"
-					/>
-					<div class="absolute right-60 top-[38%] font-effra">
+					<p class="mt-6 text-2xl text-cool-grey">
+						EXBLIFEP<sup>®</sup> is where microbiological<br />
+						eradication* meets efficacy<sup>1</sup>
+					</p>
+					<button
+						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+						@click="router.push('/exblifep')"
+						@touchstart.prevent="router.push('/exblifep')"
+					>
+						<span>Get started</span>
 						<img
-							src="/src/assets/images/exblifep-logo.svg"
-							alt="Exblifep Logo"
-							class="w-[307px]"
+							src="/src/assets/images/chevron-right-white.png"
+							alt="Chevron Right"
+							class="w-[50px]"
 						/>
-						<p class="mt-6 text-2xl text-cool-grey">
-							EXBLIFEP<sup>®</sup> is where microbiological<br />
-							eradication* meets efficacy<sup>1</sup>
-						</p>
-						<button
-							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
-							@click="router.push('/exblifep')"
-							@touchstart.prevent="router.push('/exblifep')"
-						>
-							<span>Get started</span>
-							<img
-								src="/src/assets/images/chevron-right-white.png"
-								alt="Chevron Right"
-								class="w-[50px]"
-							/>
-						</button>
-					</div>
-					<footer class="absolute bottom-8 left-28 grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]">
-						<div>
-							<the-footer
-								>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103
-								CFU/mL in urine.<sup>1</sup><br />
-								EXBLIFEP<sup>®</sup> is indicated for the treatment of the following infections in adults: Complicated urinary tract infections
-								(cUTI), including pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
-								Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the
-								infections listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.<sup
-									>5</sup
-								></the-footer
-							>
-							<the-footer class="mt-1"
-								>1. Kaye KS <span class="italic">et al. JAMA</span>2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother
-								2013;45(3):283-291. 3. Kadry N <span class="italic">et al. Clin Infect Dis</span>2023;76(10):1768-1775. 4. Albin OR
-								<span class="italic">et al. Clin Infect Dis</span>2020;71(12):3033-3041.<br />
-								5. EXBLIFEP<sup>®</sup> Summary of Product Characteristics (March 2024). Available at:
-								<span class="underline"
-									>https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</span
-								></the-footer
-							>
-						</div>
-						<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey max-w-fit">
-							▼ This medicinal product is subject to additional monitoring. This will allow<br />
-							quick identification of new safety information. Healthcare professionals<br />
-							are asked to report any suspected adverse reactions.
-						</div>
-					</footer>
+					</button>
 				</div>
-				<div ref="zevteraDetails">
-					<img
-						src="/src/assets/images/home-zevtera-bg.png"
-						alt="Zevtera Background"
-						class="absolute top-0 left-0 w-full h-full -z-30"
-					/>
+				<footer class="absolute bottom-8 left-28 grid grid-cols-[1fr_0.4fr] items-end gap-x-4 max-w-[1470px]">
+					<div>
+						<the-footer
+							>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103
+							CFU/mL in urine.<sup>1</sup><br />
+							EXBLIFEP<sup>®</sup> is indicated for the treatment of the following infections in adults: Complicated urinary tract infections
+							(cUTI), including pyelonephritis; Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP);<br />
+							Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the infections
+							listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.<sup
+								>5</sup
+							></the-footer
+						>
+						<the-footer class="mt-1"
+							>1. Kaye KS <span class="italic">et al. JAMA</span>2022;328(13):1304-1314. 2. Kiem S, Schentag JJ. Infect Chemother
+							2013;45(3):283-291. 3. Kadry N <span class="italic">et al. Clin Infect Dis</span>2023;76(10):1768-1775. 4. Albin OR
+							<span class="italic">et al. Clin Infect Dis</span>2020;71(12):3033-3041.<br />
+							5. EXBLIFEP<sup>®</sup> Summary of Product Characteristics (March 2024). Available at:
+							<span class="underline"
+								>https://www.ema.europa.eu/en/documents/product-information/exblifep-epar-product-information_en.pdf.</span
+							></the-footer
+						>
+					</div>
+					<div class="flex items-center justify-center px-3 py-2 border border-black font-effra text-[10px] text-cool-grey max-w-fit">
+						▼ This medicinal product is subject to additional monitoring. This will allow<br />
+						quick identification of new safety information. Healthcare professionals<br />
+						are asked to report any suspected adverse reactions.
+					</div>
+				</footer>
+			</div>
+			<div ref="zevteraDetails">
+				<img
+					src="/src/assets/images/home-zevtera-bg.png"
+					alt="Zevtera Background"
+					class="absolute top-0 left-0 w-full h-full -z-30"
+				/>
+				<img
+					src="/src/assets/images/zevtera-mabelio-logo.png"
+					alt="Zevtera Mabelio Logo"
+					class="w-[1076px] absolute top-[116px] -z-30 opacity-5"
+				/>
+				<img
+					src="/src/assets/images/mabelio-bullet.png"
+					alt="Mabelio Bullet"
+					class="absolute top-[19%] right-0 w-[1325px] -z-30 opacity-10"
+				/>
+				<div class="absolute top-[38%] right-[182px] font-effra">
 					<img
 						src="/src/assets/images/zevtera-mabelio-logo.png"
-						alt="Zevtera Mabelio Logo"
-						class="w-[1076px] absolute top-[116px] -z-30 opacity-5"
+						alt="Exblifep Logo"
+						class="w-[426px]"
 					/>
-					<img
-						src="/src/assets/images/mabelio-bullet.png"
-						alt="Mabelio Bullet"
-						class="absolute top-[19%] right-0 w-[1325px] -z-30 opacity-10"
-					/>
-					<div class="absolute top-[38%] right-[182px] font-effra">
+					<p class="mt-7 text-2xl font-uni-grotesk">
+						Allows the reduction of the number of<br />
+						agents<sup>2</sup>, thanks to its expanded spectrum<br />
+						of antimicrobial activity<sup>3</sup>
+					</p>
+					<button
+						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-16 bg-primary-purple text-white text-2xl"
+						@click="router.push('/zevtera')"
+						@touchstart.prevent="router.push('/zevtera')"
+					>
+						<span>Get started</span>
 						<img
-							src="/src/assets/images/zevtera-mabelio-logo.png"
-							alt="Exblifep Logo"
-							class="w-[426px]"
+							src="/src/assets/images/chevron-right-white.png"
+							alt="Chevron Right"
+							class="w-[50px]"
 						/>
-						<p class="mt-7 text-2xl font-uni-grotesk">
-							Allows the reduction of the number of<br />
-							agents<sup>2</sup>, thanks to its expanded spectrum<br />
-							of antimicrobial activity<sup>3</sup>
-						</p>
-						<button
-							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-16 bg-primary-purple text-white text-2xl"
-							@click="router.push('/zevtera')"
-							@touchstart.prevent="router.push('/zevtera')"
-						>
-							<span>Get started</span>
-							<img
-								src="/src/assets/images/chevron-right-white.png"
-								alt="Chevron Right"
-								class="w-[50px]"
-							/>
-						</button>
-					</div>
-					<footer class="absolute bottom-8 left-28 max-w-[1150px]">
-						<the-footer
-							>Zevtera<sup>®</sup> is indicated for the treatment of the following infections in adults, term neonates, infants, children and
-							adolescents: Hospital-acquired pneumonia (HAP),<br />
-							excluding ventilator-associated pneumonia (VAP); Community-acquired pneumonia (CAP). Consideration should be given to official
-							guidance on the appropriate use of antibacterial agents.<sup>4</sup><br />
-							1. Awad SS <span class="italic">et al. Clin Infect Dis</span> 2014;59(1):51-61. 2. Crapis M
-							<span class="italic">et al. J Chemother</span> 2020:Sep EO. 3. Giacobbe D
-							<span class="italic">et al. Expert Rev Anti-infect Ther</span> 2019;17(9):689-698.<br />
-							4. ZEVTERA® Summary of Product Characteristics (March 2024). Available at:
-							<span class="underline">https://www.medicines.org.uk/emc/product/9164/smpc.</span></the-footer
-						>
-					</footer>
+					</button>
 				</div>
-				<div ref="xydBackground">
-					<img
-						src="/src/assets/images/home-xyd-large-bg.png"
-						alt="Xyd Background"
-						class="absolute top-0 left-0 w-full h-full -z-30"
-					/>
+				<footer class="absolute bottom-8 left-28 max-w-[1150px]">
+					<the-footer
+						>Zevtera<sup>®</sup> is indicated for the treatment of the following infections in adults, term neonates, infants, children and
+						adolescents: Hospital-acquired pneumonia (HAP),<br />
+						excluding ventilator-associated pneumonia (VAP); Community-acquired pneumonia (CAP). Consideration should be given to official guidance
+						on the appropriate use of antibacterial agents.<sup>4</sup><br />
+						1. Awad SS <span class="italic">et al. Clin Infect Dis</span> 2014;59(1):51-61. 2. Crapis M
+						<span class="italic">et al. J Chemother</span> 2020:Sep EO. 3. Giacobbe D
+						<span class="italic">et al. Expert Rev Anti-infect Ther</span> 2019;17(9):689-698.<br />
+						4. ZEVTERA® Summary of Product Characteristics (March 2024). Available at:
+						<span class="underline">https://www.medicines.org.uk/emc/product/9164/smpc.</span></the-footer
+					>
+				</footer>
+			</div>
+			<div ref="xydBackground">
+				<img
+					src="/src/assets/images/home-xyd-large-bg.png"
+					alt="Xyd Background"
+					class="absolute top-0 left-0 w-full h-full -z-30"
+				/>
+				<img
+					src="/src/assets/images/xyd-logo-white.png"
+					alt="Xyd Logo White"
+					class="absolute top-[120px] left-[110px] h-[200px] -z-30 opacity-5"
+				/>
+				<div class="absolute top-[38%] right-[212px] font-effra">
 					<img
 						src="/src/assets/images/xyd-logo-white.png"
-						alt="Xyd Logo White"
-						class="absolute top-[120px] left-[110px] h-[200px] -z-30 opacity-5"
+						alt="Exblifep Logo"
+						class="w-[338px]"
 					/>
-					<div class="absolute top-[38%] right-[212px] font-effra">
+					<p class="mt-7 text-2xl text-white">
+						Xydalba™ delivers two weeks of<br />
+						effective treatment in a single dose,<sup>1</sup><br />
+						meaning your patients can spend less<br />
+						days in hospital<sup>2,3</sup>
+					</p>
+					<button
+						ref="xydButton"
+						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-9 bg-primary-green text-white text-2xl"
+						@click="router.push('/xyd')"
+						@touchstart.prevent="router.push('/xyd')"
+					>
+						<span>Get started</span>
 						<img
-							src="/src/assets/images/xyd-logo-white.png"
-							alt="Exblifep Logo"
-							class="w-[338px]"
+							src="/src/assets/images/chevron-right-white.png"
+							alt="Chevron Right"
+							class="w-[50px]"
 						/>
-						<p class="mt-7 text-2xl text-white">
-							Xydalba™ delivers two weeks of<br />
-							effective treatment in a single dose,<sup>1</sup><br />
-							meaning your patients can spend less<br />
-							days in hospital<sup>2,3</sup>
-						</p>
-						<button
-							ref="xydButton"
-							class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-9 bg-primary-green text-white text-2xl"
-							@click="router.push('/xyd')"
-							@touchstart.prevent="router.push('/xyd')"
-						>
-							<span>Get started</span>
-							<img
-								src="/src/assets/images/chevron-right-white.png"
-								alt="Chevron Right"
-								class="w-[50px]"
-							/>
-						</button>
-					</div>
-					<footer class="absolute bottom-8 left-28 max-w-[1400px]">
-						<the-footer class="text-white"
-							>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen
-							of dalbavancin in ABSSSI.<sup>4</sup> Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen
-							(97.3%).<sup>5</sup><br />
-							Xydalba™ is indicated for the treatment of Acute Bacterial Skin and Skin Structure Infections (ABSSSI) in adults. Consideration
-							should be given to official guidance on the appropriate use of antibacterial agents.<sup>1</sup><br />
-							1. XYDALBA™ Summary of Product Characteristics (September 2024). Available at:
-							<span class="underline">https://www.ema.europa.eu/en/documents/product-information/xydalba-epar-product-information_en.pdf.</span>
-							2. Marcellusi A <span class="italic">et al. Expert Rev Pharmacoecon Outcomes Res</span> 2019;4:1-19.<br />
-							3. McCarthy MW <span class="italic">et al. Infect Dis Ther</span> 2020;9:53-67. 4. Dunne MW
-							<span class="italic">et al. Clin Infect Dis</span> 2016;62:545-551. 5. Giorgobiani M
-							<span class="italic">et al. Pediatr Infect Dis J</span> 2023;42(3):199-205.</the-footer
-						>
-					</footer>
+					</button>
 				</div>
-				<div class="relative flex flex-1 items-center w-fit">
-					<!-- Carousel -->
-					<div class="relative w-[1120px] h-[702px] flex justify-center">
+				<footer class="absolute bottom-8 left-28 max-w-[1400px]">
+					<the-footer class="text-white"
+						>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen of
+						dalbavancin in ABSSSI.<sup>4</sup> Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen (97.3%).<sup
+							>5</sup
+						><br />
+						Xydalba™ is indicated for the treatment of Acute Bacterial Skin and Skin Structure Infections (ABSSSI) in adults. Consideration should
+						be given to official guidance on the appropriate use of antibacterial agents.<sup>1</sup><br />
+						1. XYDALBA™ Summary of Product Characteristics (September 2024). Available at:
+						<span class="underline">https://www.ema.europa.eu/en/documents/product-information/xydalba-epar-product-information_en.pdf.</span>
+						2. Marcellusi A <span class="italic">et al. Expert Rev Pharmacoecon Outcomes Res</span> 2019;4:1-19.<br />
+						3. McCarthy MW <span class="italic">et al. Infect Dis Ther</span> 2020;9:53-67. 4. Dunne MW
+						<span class="italic">et al. Clin Infect Dis</span> 2016;62:545-551. 5. Giorgobiani M
+						<span class="italic">et al. Pediatr Infect Dis J</span> 2023;42(3):199-205.</the-footer
+					>
+				</footer>
+			</div>
+			<div class="relative flex flex-1 items-center w-fit">
+				<!-- Carousel -->
+				<div class="relative w-[1120px] h-[702px] flex justify-center">
+					<div
+						ref="carouselRef"
+						class="carousel relative w-full h-full select-none"
+						@mousedown="startDrag"
+						@touchstart="startDrag"
+						@mouseup="endDrag"
+						@touchend="endDrag"
+						@mouseleave="endDrag"
+						@mousemove="onDrag"
+						@touchmove="onDrag"
+					>
+						<!-- Explicit declaration of each carousel item -->
 						<div
-							ref="carouselRef"
-							class="carousel relative w-full h-full select-none"
-							@mousedown="startDrag"
-							@touchstart="startDrag"
-							@mouseup="endDrag"
-							@touchend="endDrag"
-							@mouseleave="endDrag"
-							@mousemove="onDrag"
-							@touchmove="onDrag"
+							ref="item0Ref"
+							class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
+							style="filter: drop-shadow(0px 3.811px 25.268px #1f17f6)"
 						>
-							<!-- Explicit declaration of each carousel item -->
 							<div
-								ref="item0Ref"
-								class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
-								style="filter: drop-shadow(0px 3.811px 25.268px #1f17f6)"
+								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								:class="{ 'shadow-xl': activeIndex === 0 }"
 							>
-								<div
-									class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-									:class="{ 'shadow-xl': activeIndex === 0 }"
-								>
-									<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
-										<img
-											src="/src/assets/images/exblifep-logo.svg"
-											alt="Exblifep Life"
-											class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
-										/>
-										<img
-											src="/src/assets/images/lime-green-border.png"
-											alt="Lime Green"
-											class="absolute bottom-[24rem] left-40 w-full h-1"
-										/>
-										<img
-											src="/src/assets/images/hallway-bed.png"
-											alt="Hallway Bed"
-											class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
-										/>
-										<img
-											src="/src/assets/images/resistance-and-recurrence.png"
-											alt="Resistance and Recurrence"
-											class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[370px] z-20"
-										/>
-									</div>
-								</div>
-							</div>
-
-							<div
-								ref="item1Ref"
-								class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
-								style="filter: drop-shadow(0px 3.811px 25.268px #fcc100)"
-							>
-								<div
-									class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-									:class="{ 'shadow-xl': activeIndex === 1 }"
-								>
-									<div class="relative w-full h-full bg-white overflow-hidden pointer-events-none">
-										<img
-											src="/src/assets/images/home-zevtera-doctor-bg.png"
-											alt="Xyd Background"
-											class="h-[702px] w-auto"
-										/>
-										<img
-											src="/src/assets/images/home-mabelio-bullet.png"
-											alt="Bullet"
-											class="absolute bottom-56 left-14 z-10 w-[434px]"
-										/>
-										<img
-											src="/src/assets/images/strike-fast.png"
-											alt="Strike Fast"
-											class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
-										/>
-										<img
-											src="/src/assets/images/zevtera-mabelio-logo.png"
-											alt="Zevtera Mabelio Logo"
-											class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
-										/>
-										<img
-											src="/src/assets/images/home-zevtera-bullet-trail.png"
-											alt="Bullet Trail"
-											class="absolute bottom-0 left-0 w-full"
-										/>
-									</div>
-								</div>
-							</div>
-
-							<div
-								ref="item2Ref"
-								class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
-								style="filter: drop-shadow(0px 3.811px 25.268px #ffffff)"
-							>
-								<div
-									class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-									:class="{ 'shadow-xl': activeIndex === 2 }"
-								>
-									<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
-										<img
-											src="/src/assets/images/home-xyd-background.png"
-											alt="Xyd Background"
-											class="h-[702px] w-auto"
-										/>
-										<p
-											class="absolute bottom-28 left-1/2 -translate-x-1/2 text-white text-[48px] leading-[54px] font-bold w-[466px] text-center"
-										>
-											One dose does it.
-										</p>
-										<img
-											src="/src/assets/images/xyd-logo-white.png"
-											alt="Xyd Logo"
-											class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[250px]"
-										/>
-									</div>
+								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
+									<img
+										src="/src/assets/images/exblifep-logo.svg"
+										alt="Exblifep Life"
+										class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
+									/>
+									<img
+										src="/src/assets/images/lime-green-border.png"
+										alt="Lime Green"
+										class="absolute bottom-[24rem] left-40 w-full h-1"
+									/>
+									<img
+										src="/src/assets/images/hallway-bed.png"
+										alt="Hallway Bed"
+										class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
+									/>
+									<img
+										src="/src/assets/images/resistance-and-recurrence.png"
+										alt="Resistance and Recurrence"
+										class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[370px] z-20"
+									/>
 								</div>
 							</div>
 						</div>
 
-						<button
-							v-if="activeIndex === 0"
-							class="absolute -bottom-[20px] left-16 z-10"
-							@click="goToTheLeft"
-							@touchstart.prevent="goToTheLeft"
+						<div
+							ref="item1Ref"
+							class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
+							style="filter: drop-shadow(0px 3.811px 25.268px #fcc100)"
 						>
-							<img
-								src="/src/assets/images/home-arrow-left-green.png"
-								alt="Arrow Left"
-								class="w-[84px]"
-							/>
-						</button>
-						<button
-							v-else-if="activeIndex === 1"
-							class="absolute -bottom-[20px] left-16 z-10"
-							@click="goToTheLeft"
-							@touchstart.prevent="goToTheLeft"
-						>
-							<img
-								src="/src/assets/images/home-arrow-left-purple.png"
-								alt="Arrow Left"
-								class="w-[84px]"
-							/>
-						</button>
-						<button
-							v-else
-							class="absolute -bottom-[20px] left-16 z-10"
-							@click="goToTheLeft"
-							@touchstart.prevent="goToTheLeft"
-						>
-							<img
-								src="/src/assets/images/home-arrow-left-white.png"
-								alt="Arrow Left"
-								class="w-[84px]"
-							/>
-						</button>
-						<button
-							v-if="activeIndex === 0"
-							class="absolute -bottom-[20px] right-16 z-10"
-							@click="goToTheRight"
-							@touchstart.prevent="goToTheRight"
-						>
-							<img
-								src="/src/assets/images/home-arrow-right-green.png"
-								alt="Arrow Left"
-								class="w-[84px]"
-							/>
-						</button>
-						<button
-							v-else-if="activeIndex === 1"
-							class="absolute -bottom-[20px] right-16 z-10"
-							@click="goToTheRight"
-							@touchstart.prevent="goToTheRight"
-						>
-							<img
-								src="/src/assets/images/home-arrow-right-purple.png"
-								alt="Arrow Left"
-								class="w-[84px]"
-							/>
-						</button>
-						<button
-							v-else
-							class="absolute -bottom-[20px] right-16 z-10"
-							@click="goToTheRight"
-							@touchstart.prevent="goToTheRight"
-						>
-							<img
-								src="/src/assets/images/home-arrow-right-white.png"
-								alt="Arrow Left"
-								class="w-[84px]"
-							/>
-						</button>
-					</div>
-				</div>
+							<div
+								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								:class="{ 'shadow-xl': activeIndex === 1 }"
+							>
+								<div class="relative w-full h-full bg-white overflow-hidden pointer-events-none">
+									<img
+										src="/src/assets/images/home-zevtera-doctor-bg.png"
+										alt="Xyd Background"
+										class="h-[702px] w-auto"
+									/>
+									<img
+										src="/src/assets/images/home-mabelio-bullet.png"
+										alt="Bullet"
+										class="absolute bottom-56 left-14 z-10 w-[434px]"
+									/>
+									<img
+										src="/src/assets/images/strike-fast.png"
+										alt="Strike Fast"
+										class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
+									/>
+									<img
+										src="/src/assets/images/zevtera-mabelio-logo.png"
+										alt="Zevtera Mabelio Logo"
+										class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
+									/>
+									<img
+										src="/src/assets/images/home-zevtera-bullet-trail.png"
+										alt="Bullet Trail"
+										class="absolute bottom-0 left-0 w-full"
+									/>
+								</div>
+							</div>
+						</div>
 
-				<div class="flex flex-col gap-y-2.5 absolute bottom-0 right-0 items-end">
-					<div
-						class="flex gap-x-6 items-center bg-white rounded-l-[20px] border-2 border-[#195C68] border-r-0 px-2.5 py-[3px] cursor-pointer"
-						@click="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
-						@touchstart.prevent="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
+						<div
+							ref="item2Ref"
+							class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
+							style="filter: drop-shadow(0px 3.811px 25.268px #ffffff)"
+						>
+							<div
+								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+								:class="{ 'shadow-xl': activeIndex === 2 }"
+							>
+								<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
+									<img
+										src="/src/assets/images/home-xyd-background.png"
+										alt="Xyd Background"
+										class="h-[702px] w-auto"
+									/>
+									<p
+										class="absolute bottom-28 left-1/2 -translate-x-1/2 text-white text-[48px] leading-[54px] font-bold w-[466px] text-center"
+									>
+										One dose does it.
+									</p>
+									<img
+										src="/src/assets/images/xyd-logo-white.png"
+										alt="Xyd Logo"
+										class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[250px]"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button
+						v-if="activeIndex === 0"
+						class="absolute -bottom-[20px] left-16 z-10"
+						@click="goToTheLeft"
+						@touchstart.prevent="goToTheLeft"
 					>
 						<img
-							src="/src/assets/images/prescribing-information-turqoise.png"
-							alt="Prescribing Information"
-							class="w-10 h-10"
+							src="/src/assets/images/home-arrow-left-green.png"
+							alt="Arrow Left"
+							class="w-[84px]"
 						/>
-						<span class="text-xl leading-tight text-[#195C68]"
-							>Prescribing<br />
-							information</span
-						>
+					</button>
+					<button
+						v-else-if="activeIndex === 1"
+						class="absolute -bottom-[20px] left-16 z-10"
+						@click="goToTheLeft"
+						@touchstart.prevent="goToTheLeft"
+					>
 						<img
-							src="/src/assets/images/chevron-right-turqoise-bg.png"
-							alt="Prescribing Information"
-							class="w-10 h-10 mr-10 ml-1"
+							src="/src/assets/images/home-arrow-left-purple.png"
+							alt="Arrow Left"
+							class="w-[84px]"
 						/>
-					</div>
-					<img
-						src="/src/assets/images/home-advanz-logo.png"
-						alt="Home Advanz Logo"
-						class="w-[392px]"
-					/>
+					</button>
+					<button
+						v-else
+						class="absolute -bottom-[20px] left-16 z-10"
+						@click="goToTheLeft"
+						@touchstart.prevent="goToTheLeft"
+					>
+						<img
+							src="/src/assets/images/home-arrow-left-white.png"
+							alt="Arrow Left"
+							class="w-[84px]"
+						/>
+					</button>
+					<button
+						v-if="activeIndex === 0"
+						class="absolute -bottom-[20px] right-16 z-10"
+						@click="goToTheRight"
+						@touchstart.prevent="goToTheRight"
+					>
+						<img
+							src="/src/assets/images/home-arrow-right-green.png"
+							alt="Arrow Left"
+							class="w-[84px]"
+						/>
+					</button>
+					<button
+						v-else-if="activeIndex === 1"
+						class="absolute -bottom-[20px] right-16 z-10"
+						@click="goToTheRight"
+						@touchstart.prevent="goToTheRight"
+					>
+						<img
+							src="/src/assets/images/home-arrow-right-purple.png"
+							alt="Arrow Left"
+							class="w-[84px]"
+						/>
+					</button>
+					<button
+						v-else
+						class="absolute -bottom-[20px] right-16 z-10"
+						@click="goToTheRight"
+						@touchstart.prevent="goToTheRight"
+					>
+						<img
+							src="/src/assets/images/home-arrow-right-white.png"
+							alt="Arrow Left"
+							class="w-[84px]"
+						/>
+					</button>
 				</div>
 			</div>
 
-			<!-- Overlay screen with Get Started button -->
-			<div
-				ref="overlayScreen"
-				class="absolute top-0 left-0 w-full h-full bg-home bg-[#195C68] text-white z-10 flex flex-col items-center justify-center"
-			>
-				<div class="text-white">
-					<section class="absolute top-[18%] left-[26.4%] flex flex-col gap-y-[100px]">
-						<div>
-							<h2 class="text-[32px] font-extrabold leading-[1.2]">
-								We offer a complimentary range of treatments extending<br />
-								across the antimicrobial landscape<sup>1-3</sup>
-								<span class="text-[40px]"> –</span>
-							</h2>
-							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
-						</div>
-						<div class="ml-[100px]">
-							<h2 class="text-[32px] font-extrabold leading-[1.2]">
-								Putting humanity first - we strive to remove treatment<br />
-								barriers and reduce the burden of care
-								<span class="text-[40px]"> –</span>
-							</h2>
-							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
-						</div>
-						<div class="ml-[200px]">
-							<h2 class="text-[32px] font-extrabold leading-[1.2]">
-								Forging a different path by providing effective<br />
-								treatments with predictable outcomes<sup>5-7</sup>
-								<span class="text-[40px]"> –</span>
-							</h2>
-							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
-						</div>
-						<button
-							ref="xydButton"
-							class="flex items-center justify-end w-[264px] gap-x-7 py-2.5 px-[22px] bg-primary-green text-white text-2xl ml-72"
-							@click="startEraserAnimation"
-							@touchstart.prevent="startEraserAnimation"
-						>
-							<span>Get started</span>
-							<img
-								src="/src/assets/images/chevron-right-white.png"
-								alt="Chevron Right"
-								class="w-[50px]"
-							/>
-						</button>
-					</section>
-
-					<footer class="absolute bottom-8 left-[41.5%] text-[10px] leading-tight">
-						1. EXBLIFEP® Summary of Product Characteristics 2024. 2. XYDALBA® Summary of Product Characteristics 2024. 3. ZEVTERA® Summary of<br />
-						Product Characteristics 2024. 4. World Health Organization. WHO Bacterial Priority Pathogens List 2024. Available at:
-						<span class="underline">https://www.who.int/<br />publications/i/item/9789240093461.</span> Accessed March 2025. 5. Kaye KS
-						<span class="italic">et al. JAMA </span>2022;328:1304-1314. 6. McCarthy MW <span class="italic">et al. Infect Dis Ther</span><br />
-						2020;9:53-67. 7. Giacobbe D <span class="italic">et al. ERATCK </span>2019;17(9):689-698. 8. Boyd SE
-						<span class="italic">et al. Antimicrob Agents Chemother </span>2022;66:e0021622. 9. Belley A
-						<span class="italic"
-							>et<br />
-							al. J Glob Antimicrob Resist </span
-						>2021;25:93-101. 10. D'Angelo RG <span class="italic">et al. Expert Opin Pharmacother </span>2016;17:953-967.
-					</footer>
+			<div class="flex flex-col gap-y-2.5 absolute bottom-0 right-0 items-end">
+				<div
+					class="flex gap-x-6 items-center bg-white rounded-l-[20px] border-2 border-[#195C68] border-r-0 px-2.5 py-[3px] cursor-pointer"
+					@click="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
+					@touchstart.prevent="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
+				>
 					<img
-						src="/src/assets/images/advanz-logo-bg-white.png"
-						alt="Advanz Logo"
-						class="absolute bottom-0 right-0 w-[392px]"
+						src="/src/assets/images/prescribing-information-turqoise.png"
+						alt="Prescribing Information"
+						class="w-10 h-10"
+					/>
+					<span class="text-xl leading-tight text-[#195C68]"
+						>Prescribing<br />
+						information</span
+					>
+					<img
+						src="/src/assets/images/chevron-right-turqoise-bg.png"
+						alt="Prescribing Information"
+						class="w-10 h-10 mr-10 ml-1"
 					/>
 				</div>
-			</div>
-
-			<!-- Eraser element using an image - moved outside overlay to prevent scaling issues -->
-			<div
-				ref="eraserContainer"
-				class="absolute top-0 left-0 h-screen pointer-events-none z-50"
-			>
 				<img
-					ref="eraser"
-					class="h-full object-contain block"
-					src="/src/assets/images/A.png"
-					alt="Eraser"
+					src="/src/assets/images/home-advanz-logo.png"
+					alt="Home Advanz Logo"
+					class="w-[392px]"
 				/>
 			</div>
 		</div>
