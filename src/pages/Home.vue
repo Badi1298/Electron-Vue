@@ -192,88 +192,103 @@
 							<!-- Explicit declaration of each carousel item -->
 							<div
 								ref="item0Ref"
-								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-								:class="{ 'shadow-xl': activeIndex === 0 }"
+								class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
+								style="filter: drop-shadow(0px 3.811px 25.268px #1f17f6)"
 							>
-								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
-									<img
-										src="/src/assets/images/exblifep-logo.svg"
-										alt="Exblifep Life"
-										class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
-									/>
-									<img
-										src="/src/assets/images/lime-green-border.png"
-										alt="Lime Green"
-										class="absolute bottom-[24rem] left-40 w-full h-1"
-									/>
-									<img
-										src="/src/assets/images/hallway-bed.png"
-										alt="Hallway Bed"
-										class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
-									/>
-									<img
-										src="/src/assets/images/resistance-and-recurrence.png"
-										alt="Resistance and Recurrence"
-										class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[370px] z-20"
-									/>
+								<div
+									class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+									:class="{ 'shadow-xl': activeIndex === 0 }"
+								>
+									<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
+										<img
+											src="/src/assets/images/exblifep-logo.svg"
+											alt="Exblifep Life"
+											class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
+										/>
+										<img
+											src="/src/assets/images/lime-green-border.png"
+											alt="Lime Green"
+											class="absolute bottom-[24rem] left-40 w-full h-1"
+										/>
+										<img
+											src="/src/assets/images/hallway-bed.png"
+											alt="Hallway Bed"
+											class="absolute -bottom-12 -left-36 z-10 min-w-[670px] opacity-20"
+										/>
+										<img
+											src="/src/assets/images/resistance-and-recurrence.png"
+											alt="Resistance and Recurrence"
+											class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[370px] z-20"
+										/>
+									</div>
 								</div>
 							</div>
 
 							<div
 								ref="item1Ref"
-								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-								:class="{ 'shadow-xl': activeIndex === 1 }"
+								class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
+								style="filter: drop-shadow(0px 3.811px 25.268px #fcc100)"
 							>
-								<div class="relative w-full h-full bg-white overflow-hidden pointer-events-none">
-									<img
-										src="/src/assets/images/home-zevtera-doctor-bg.png"
-										alt="Xyd Background"
-										class="h-[702px] w-auto"
-									/>
-									<img
-										src="/src/assets/images/home-mabelio-bullet.png"
-										alt="Bullet"
-										class="absolute bottom-56 left-14 z-10 w-[434px]"
-									/>
-									<img
-										src="/src/assets/images/strike-fast.png"
-										alt="Strike Fast"
-										class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
-									/>
-									<img
-										src="/src/assets/images/zevtera-mabelio-logo.png"
-										alt="Zevtera Mabelio Logo"
-										class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
-									/>
-									<img
-										src="/src/assets/images/home-zevtera-bullet-trail.png"
-										alt="Bullet Trail"
-										class="absolute bottom-0 left-0 w-full"
-									/>
+								<div
+									class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+									:class="{ 'shadow-xl': activeIndex === 1 }"
+								>
+									<div class="relative w-full h-full bg-white overflow-hidden pointer-events-none">
+										<img
+											src="/src/assets/images/home-zevtera-doctor-bg.png"
+											alt="Xyd Background"
+											class="h-[702px] w-auto"
+										/>
+										<img
+											src="/src/assets/images/home-mabelio-bullet.png"
+											alt="Bullet"
+											class="absolute bottom-56 left-14 z-10 w-[434px]"
+										/>
+										<img
+											src="/src/assets/images/strike-fast.png"
+											alt="Strike Fast"
+											class="absolute bottom-36 left-1/2 -translate-x-1/2 w-[288px]"
+										/>
+										<img
+											src="/src/assets/images/zevtera-mabelio-logo.png"
+											alt="Zevtera Mabelio Logo"
+											class="absolute bottom-14 left-1/2 -translate-x-1/2 w-[288px]"
+										/>
+										<img
+											src="/src/assets/images/home-zevtera-bullet-trail.png"
+											alt="Bullet Trail"
+											class="absolute bottom-0 left-0 w-full"
+										/>
+									</div>
 								</div>
 							</div>
 
 							<div
 								ref="item2Ref"
-								class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
-								:class="{ 'shadow-xl': activeIndex === 2 }"
+								class="absolute top-1/2 left-1/2 w-0 h-0 carousel-item-wrapper"
+								style="filter: drop-shadow(0px 3.811px 25.268px #ffffff)"
 							>
-								<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
-									<img
-										src="/src/assets/images/home-xyd-background.png"
-										alt="Xyd Background"
-										class="h-[702px] w-auto"
-									/>
-									<p
-										class="absolute bottom-28 left-1/2 -translate-x-1/2 text-white text-[48px] leading-[54px] font-bold w-[466px] text-center"
-									>
-										One dose does it.
-									</p>
-									<img
-										src="/src/assets/images/xyd-logo-white.png"
-										alt="Xyd Logo"
-										class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[250px]"
-									/>
+								<div
+									class="carousel-item absolute top-1/2 left-1/2 w-[566px] h-[702px] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-shadow duration-300"
+									:class="{ 'shadow-xl': activeIndex === 2 }"
+								>
+									<div class="relative w-full h-full bg-textured overflow-hidden pointer-events-none">
+										<img
+											src="/src/assets/images/home-xyd-background.png"
+											alt="Xyd Background"
+											class="h-[702px] w-auto"
+										/>
+										<p
+											class="absolute bottom-28 left-1/2 -translate-x-1/2 text-white text-[48px] leading-[54px] font-bold w-[466px] text-center"
+										>
+											One dose does it.
+										</p>
+										<img
+											src="/src/assets/images/xyd-logo-white.png"
+											alt="Xyd Logo"
+											class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[250px]"
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -703,5 +718,6 @@ const animateBackground = (config) => {
 	backface-visibility: hidden;
 	transform: translate(-50%, -50%);
 	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	/* filter: drop-shadow(0px 3.811px 95.268px #1f17f6); */
 }
 </style>
