@@ -66,35 +66,29 @@ onMounted(() => {
 		const startX = -scaledWidth;
 		const endX = canvas.value.width;
 
-		// Create an object to animate
-		let animObj = { x: startX };
+		// Define the target object to animate
+		const animationTarget = { x: startX };
 
 		gsap.fromTo(
-			animObj,
-			{ x: startX },
+			animationTarget, // Target
+			{ x: startX }, // From vars (starting state)
 			{
+				// To vars (ending state and config)
 				x: endX,
 				duration: 3,
 				ease: 'power2.inOut',
 				onUpdate: function () {
-					const x = animObj.x;
-
+					const x = animationTarget.x; // Access x directly from the target
 					// Clear canvas
 					ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
-
 					// Draw colored background
 					ctx.fillStyle = '#333';
 					ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
-
 					// Create the wipe effect
 					ctx.save();
-
-					// Draw SVG as mask
 					ctx.globalCompositeOperation = 'destination-out';
 					ctx.drawImage(svgImg, x, 0, scaledWidth, scaledHeight);
-
 					ctx.restore();
-
 					// Draw SVG on top
 					ctx.drawImage(svgImg, x, 0, scaledWidth, scaledHeight);
 				},
