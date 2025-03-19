@@ -617,6 +617,9 @@ const positionItems = () => {
 		// Calculate z-index (items in front have higher z-index)
 		const zIndex = Math.round(mapRange(z, -radius * 0.6, radius * 0.6, 10, 20));
 
+		const colors = ['#1f17f6', '#fcc100', '#ffffff'];
+		const filter = index === activeIndex.value ? `drop-shadow(0px 3.811px 25.268px ${colors[index]}` : 'none';
+
 		if (itemRefs[index]) {
 			gsap.to(itemRefs[index], {
 				x: x + offsetX,
@@ -626,8 +629,7 @@ const positionItems = () => {
 				rotationY: 0, // Always face front
 				duration: isDragging.value ? 0.1 : 1,
 				ease: 'power4.out',
-				filter:
-					index === activeIndex.value ? `drop-shadow(0px 3.811px 25.268px ${index === 0 ? '#1f17f6' : index === 1 ? '#fcc100' : '#ffffff'}` : 'none',
+				filter,
 				zIndex,
 			});
 		}
