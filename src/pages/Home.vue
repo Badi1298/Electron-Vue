@@ -626,6 +626,8 @@ const positionItems = () => {
 				rotationY: 0, // Always face front
 				duration: isDragging.value ? 0.1 : 1,
 				ease: 'power4.out',
+				filter:
+					index === activeIndex.value ? `drop-shadow(0px 3.811px 25.268px ${index === 0 ? '#1f17f6' : index === 1 ? '#fcc100' : '#ffffff'}` : 'none',
 				zIndex,
 			});
 		}
