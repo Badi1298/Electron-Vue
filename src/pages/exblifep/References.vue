@@ -27,7 +27,7 @@
 				/>
 			</div>
 			<ol class="text-xl list-decimal text-cool-grey list-inside mt-8 pb-40 font-effra">
-				<li class="flex gap-2"><span class="w-6 text-center">1.</span> Kaye KS <span class="italic"></span>et al. JAMA 2022;328(13):1304-1314.</li>
+				<li class="flex gap-2"><span class="w-6 text-center">1.</span> Kaye KS<span class="italic">et al. JAMA </span>2022;328(13):1304-1314.</li>
 				<li class="flex gap-2"><span class="w-6 text-center">2.</span> Kiem S, Schentag JJ. Infect Chemother 2013;45(3):283-291.</li>
 				<li class="flex gap-2">
 					<span class="w-6 text-center">3.</span> Kadry N <span class="italic">et al. Clin Infect Dis</span> 2023;76(10):1768-1775.
