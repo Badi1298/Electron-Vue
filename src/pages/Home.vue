@@ -396,17 +396,36 @@
 				class="absolute top-0 left-0 w-full h-full bg-home bg-[#195C68] text-white z-10 flex flex-col items-center justify-center"
 			>
 				<div class="text-white">
-					<div class="absolute top-52 left-[26%]">
-						<h2 class="text-[32px] font-extrabold leading-[1.2]">
-							We offer a complimentary range of treatments extending<br />
-							across the antimicrobial landscape<sup>1-3</sup>
-							<span class="text-[40px]"> –</span>
-						</h2>
-						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+					<div class="absolute top-[18%] left-[26.4%] flex flex-col gap-y-[100px]">
+						<div>
+							<h2 class="text-[32px] font-extrabold leading-[1.2]">
+								We offer a complimentary range of treatments extending<br />
+								across the antimicrobial landscape<sup>1-3</sup>
+								<span class="text-[40px]"> –</span>
+							</h2>
+							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+						</div>
+						<div class="ml-[100px]">
+							<h2 class="text-[32px] font-extrabold leading-[1.2]">
+								Putting humanity first - we strive to remove treatment<br />
+								barriers and reduce the burden of care
+								<span class="text-[40px]"> –</span>
+							</h2>
+							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+						</div>
+						<div class="ml-[200px]">
+							<h2 class="text-[32px] font-extrabold leading-[1.2]">
+								Forging a different path by providing effective<br />
+								treatments with predictable outcomes<sup>5-7</sup>
+								<span class="text-[40px]"> –</span>
+							</h2>
+							<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+						</div>
 					</div>
+
 					<button
 						@click="startEraserAnimation"
-						class="mt-8 px-6 py-3 text-lg bg-white text-primary-turqoise rounded hover:bg-cool-grey transition-colors"
+						class="absolute bottom-0 px-6 py-3 text-lg bg-white text-primary-turqoise rounded hover:bg-cool-grey transition-colors"
 					>
 						Get Started
 					</button>
