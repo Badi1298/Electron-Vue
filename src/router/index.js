@@ -3,7 +3,7 @@ import { createMemoryHistory, createRouter } from 'vue-router';
 const routes = [
 	{
 		path: '/get-started',
-		component: () => import('@/pages/GetStarted.vue'),
+		component: () => import('@/pages/GetStartedBackup.vue'),
 		name: 'get-started',
 		meta: { brand: 'NONE' },
 	},
