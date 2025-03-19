@@ -4,7 +4,7 @@
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
 		<button
-			class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
+			class="absolute left-[40.75%] top-0 cursor-pointer z-20"
 			@click="emit('goToMiddleTab')"
 			@touchstart.prevent="emit('goToMiddleTab')"
 		>
@@ -131,7 +131,7 @@
 				and symptoms,<br />
 				≥80% reduction in lesion size on Day 14 and ≥90% on Day 28.10
 			</the-footer>
-			<div class="flex justify-between items-center mt-4 mr-12">
+			<div class="flex justify-between items-center mt-4 mr-[400px]">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'next-section-button' } }">
 					<next-section class="bg-primary-green" />

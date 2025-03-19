@@ -3,17 +3,6 @@
 		ref="middleTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
-		<button
-			class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
-			@click="emit('goToTopTab')"
-			@touchstart.prevent="emit('goToTopTab')"
-		>
-			<img
-				src="/src/assets/images/page-vertical-up-green.png"
-				alt="Down Button"
-				class="w-[140px] h-[50px]"
-			/>
-		</button>
 		<VLazyImage
 			:src="Background"
 			alt="Step 2 Background"
@@ -41,6 +30,17 @@
 			/>
 		</div>
 		<div class="page-content flex flex-col justify-end font-effra relative max-w-[1446px]">
+			<button
+				class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
+				@click="emit('goToTopTab')"
+				@touchstart.prevent="emit('goToTopTab')"
+			>
+				<img
+					src="/src/assets/images/page-vertical-up-green.png"
+					alt="Down Button"
+					class="w-[140px] h-[50px]"
+				/>
+			</button>
 			<div
 				class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium font-effra transform transition-all duration-300 absolute top-14"
 				:class="[sidebarOpen ? 'right-[60px]' : 'right-32']"
@@ -177,7 +177,7 @@
 			</the-footer>
 			<ExploreAnother />
 			<button
-				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				class="absolute left-[40.75%] bottom-0"
 				@click="emit('goToBottomTab')"
 				@touchstart.prevent="emit('goToBottomTab')"
 			>

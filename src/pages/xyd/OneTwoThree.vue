@@ -1,5 +1,5 @@
 <template>
-	<div class="overflow-y-scroll">
+	<div class="overflow-scroll min-w-[100vw]">
 		<step-one
 			:sidebarOpen="sidebarOpen"
 			:scroll-into-view="scrollToTopTab"

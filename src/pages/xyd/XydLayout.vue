@@ -18,14 +18,24 @@
 				</transition>
 			</router-view>
 		</div>
-		<Sidebar v-model:open="sidebarOpen" />
+		<Sidebar
+			v-model:open="sidebarOpen"
+			:class="{ '-ml-[350px]': isOneTwoThreeRoute }"
+		/>
 	</main>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 import Sidebar from '@/components/xyd/Sidebar.vue';
 
 const sidebarOpen = ref(true);
+
+const route = useRoute();
+
+const isOneTwoThreeRoute = computed(() => {
+	return route.name === 'xyd-one-two-three';
+});
 </script>
