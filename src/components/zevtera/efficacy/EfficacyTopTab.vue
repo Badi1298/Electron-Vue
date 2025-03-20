@@ -113,10 +113,11 @@
 					ref="bacterialActivityDetails"
 					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 absolute top-1/2 -translate-y-1/2 left-[190px] right-[60px] bg-white z-10 rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card"
 				>
-					<h2 class="text-[32px] font-bold pr-3">
-						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
+					<h2 class="text-[32px] font-bold font-stag-sans leading-tight text-charcoal pr-3">
+						ZEVTERA®/ MABELIO® exhibits rapid in vitro bactericidal<br />
+						activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
 					</h2>
-					<div class="flex gap-x-28">
+					<div class="flex justify-center mr-5 gap-x-28">
 						<div>
 							<h3 class="text-2xl font-uni-grotesk italic mb-2.5 text-center">Staphylococcus aureus*</h3>
 							<img
@@ -209,7 +210,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<ExploreAnother />
+			<explore-another />
 			<button
 				class="absolute left-1/2 -translate-x-1/2 bottom-0"
 				@click="emit('goToBottomTab')"
