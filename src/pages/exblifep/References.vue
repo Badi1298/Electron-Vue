@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="relative z-[9999] w-screen h-screen flex justify-center items-center bg-black/40"
+		class="relative z-[9999] w-screen h-screen flex justify-center items-center bg-black"
 		@click="router.go(-1)"
 		@touchstart.prevent="router.go(-1)"
 	>
