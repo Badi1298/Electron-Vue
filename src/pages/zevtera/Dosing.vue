@@ -118,10 +118,12 @@
 </template>
 
 <script setup>
-import { ref, toRef, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, toRef, computed, inject, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
+import { trackAction } from '@/utils/analytics.js';
 import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
 import NextSection from '@/components/NextSection.vue';
@@ -135,11 +137,17 @@ const props = defineProps({
 	},
 });
 
-const dosingTable = ref(null);
-const dosingTableActive = ref(false);
+const route = useRoute();
 
 const sidebarOpenRef = toRef(props, 'sidebarOpen');
 usePageAnimation(sidebarOpenRef);
+
+const sessionId = inject('sessionId');
+
+const dosingTable = ref(null);
+const dosingTableActive = ref(false);
+
+const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(dosingTable.value, { height: 0 });
@@ -150,6 +158,7 @@ const showDosingTable = () => {
 		gsap.to(dosingTable.value, { height: 0, duration: 0.5 });
 	} else {
 		gsap.to(dosingTable.value, { height: 480, duration: 0.5 });
+		trackAction('dosing-table', sessionId.value, brand.value);
 	}
 
 	dosingTableActive.value = !dosingTableActive.value;

@@ -223,10 +223,12 @@
 </template>
 
 <script setup>
-import { ref, toRef, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, toRef, computed, inject, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
+import { trackAction } from '@/utils/analytics.js';
 import { usePageAnimation } from '@/composables/usePageAnimation.js';
 import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
@@ -242,9 +244,13 @@ const props = defineProps({
 	},
 });
 
+const route = useRoute();
+
 const sidebarOpenRef = toRef(props, 'sidebarOpen');
 usePageAnimation(sidebarOpenRef);
 useAnimateSelectTab(sidebarOpenRef);
+
+const sessionId = inject('sessionId');
 
 const content = ref(null);
 const easeOfUse = ref(null);
@@ -256,6 +262,8 @@ const wellTolaratedActive = ref(false);
 const gutFlora = ref(null);
 const gutFloraDetails = ref(null);
 const gutFloraActive = ref(false);
+
+const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(wellTolaratedDetails.value, { opacity: 0, display: 'none' });
@@ -313,6 +321,10 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 // Now you can create the specific animations by passing the right parameters:
 
 const animateWellTolarated = () => {
+	if (!wellTolaratedActive.value) {
+		trackAction('safety-well-toerated', sessionId.value, brand.value);
+	}
+
 	return animateSection({
 		activeRef: wellTolaratedActive,
 		detailsRef: wellTolaratedDetails,
@@ -324,6 +336,10 @@ const animateWellTolarated = () => {
 };
 
 const animateGutFlora = () => {
+	if (!gutFloraActive.value) {
+		trackAction('safety-gut-flora', sessionId.value, brand.value);
+	}
+
 	return animateSection({
 		activeRef: gutFloraActive,
 		detailsRef: gutFloraDetails,
