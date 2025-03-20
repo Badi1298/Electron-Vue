@@ -158,7 +158,7 @@
 						<div class="grid grid-cols-[1fr_1fr] gap-x-2">
 							<button
 								class="flex items-center justify-center py-3 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
-								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
+								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white font-bold' : 'bg-[#E4E4E4]']"
 								@click="activateDay3"
 								@touchstart.prevent="activateDay3"
 							>
@@ -166,7 +166,7 @@
 							</button>
 							<button
 								class="flex items-center justify-center py-3 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
-								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
+								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white font-bold' : 'bg-[#E4E4E4]']"
 								@click="activateDay4"
 								@touchstart.prevent="activateDay4"
 							>
