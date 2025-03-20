@@ -338,10 +338,14 @@ const toggleSidebar = async () => {
 			sidebar.value,
 			{
 				width: 350,
-				marginTop: 32,
-				clipPath: 'none',
+				clipPath: 'inset(0% 0 0 0)',
 				ease: 'power4.inOut',
 				duration: 0.4,
+				onComplete: () => {
+					gsap.to(sidebar.value, {
+						clipPath: 'none',
+					});
+				},
 			},
 			0
 		)
