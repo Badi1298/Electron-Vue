@@ -79,6 +79,8 @@ ipcMain.handle('write-action-data', async (_, action, sessionId, brand) => {
 
 		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
 
+		console.log(action, sessionId, brand);
+
 		if (!data.sessions[sessionId].brands[brand].actions) {
 			data.sessions[sessionId].brands[brand].actions = [];
 		}

@@ -51,8 +51,8 @@
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
-							@click="activeTab = Tabs.OVERALL_SUCCESS"
-							@touchstart.prevent="activeTab = Tabs.OVERALL_SUCCESS"
+							@click="activateOverallSuccess"
+							@touchstart.prevent="activateOverallSuccess"
 						>
 							Overall success*: Day 14 in PAS
 						</button>
@@ -136,12 +136,14 @@
 </template>
 
 <script setup>
-import { ref, toRef, watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, toRef, inject, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
 import VLazyImage from 'v-lazy-image';
 
+import { trackAction } from '@/utils/analytics.js';
 import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
 import ChartA from '@/assets/images/chart-a.png';
@@ -169,8 +171,12 @@ const props = defineProps({
 
 const emit = defineEmits(['goToBottomTab']);
 
+const route = useRoute();
+
 const sidebarOpenRef = toRef(props, 'sidebarOpen');
 useAnimateSelectTab(sidebarOpenRef);
+
+const sessionId = inject('sessionId');
 
 const topTab = ref(null);
 const activeTab = ref(Tabs.OVERALL_SUCCESS);
@@ -232,4 +238,9 @@ onMounted(() => {
 		gsap.set('.select-tab', { right: '250px' });
 	}
 });
+
+const activateOverallSuccess = () => {
+	activeTab.value = Tabs.OVERALL_SUCCESS;
+	trackAction('efficacy-overall-success', sessionId.value, route.meta.brand);
+};
 </script>

@@ -53,7 +53,7 @@ const handleRouteChange = (to, from) => {
 };
 
 router.beforeEach((to, from, next) => {
-	// handleRouteChange(to, from);
+	handleRouteChange(to, from);
 	next();
 });
 
@@ -66,21 +66,21 @@ const resetInactivityTimer = () => {
 	}, 30000);
 };
 
-// onMounted(() => {
-// 	resetInactivityTimer();
+onMounted(() => {
+	resetInactivityTimer();
 
-// 	window.addEventListener('mousemove', resetInactivityTimer);
-// 	window.addEventListener('keydown', resetInactivityTimer);
-// 	window.addEventListener('click', resetInactivityTimer);
-// });
+	window.addEventListener('mousemove', resetInactivityTimer);
+	window.addEventListener('keydown', resetInactivityTimer);
+	window.addEventListener('click', resetInactivityTimer);
+});
 
-// onUnmounted(() => {
-// 	clearTimeout(inactivityTimer);
+onUnmounted(() => {
+	clearTimeout(inactivityTimer);
 
-// 	window.removeEventListener('mousemove', resetInactivityTimer);
-// 	window.removeEventListener('keydown', resetInactivityTimer);
-// 	window.removeEventListener('click', resetInactivityTimer);
-// });
+	window.removeEventListener('mousemove', resetInactivityTimer);
+	window.removeEventListener('keydown', resetInactivityTimer);
+	window.removeEventListener('click', resetInactivityTimer);
+});
 </script>
 
 <style>
