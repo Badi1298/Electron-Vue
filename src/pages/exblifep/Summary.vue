@@ -11,7 +11,7 @@
 					class="h-1.5 w-[300px] my-5"
 				/>
 			</div>
-			<section class="grid grid-cols-2 bg-white py-6 px-8 text-xl text-cool-grey gap-y-10 gap-x-20 max-w-[1380px]">
+			<section class="grid grid-cols-2 bg-white py-6 px-8 text-xl text-cool-grey gap-y-10 max-w-[1380px]">
 				<div class="flex gap-x-7 items-center col-span-2">
 					<img
 						src="/src/assets/images/summary-icon-1.png"
@@ -22,7 +22,8 @@
 					<p>
 						EXBLIFEP<sup>®</sup> is indicated for the
 						<span class="text-dark-blue font-bold"
-							>treatment of adult patients with cUTI including AP, HAP/VAP and bacteraemia associated with these infections,</span
+							>treatment of adult patients with cUTI including AP, HAP/VAP and bacteraemia<br />
+							associated with these infections,</span
 						>
 						caused by gram-negative bacteria<sup>5</sup>
 					</p>
@@ -37,7 +38,8 @@
 					<p>
 						EXBLIFEP<sup>®</sup> demonstrated
 						<span class="text-dark-blue font-bold">non-inferiority and superiority vs piperacillin/tazobactam</span> in the composite endpoint of
-						clinical cure and microbiological eradication in adults with cUTIs at Day 14 in the Primary Analysis Set?<sup>†1</sup>
+						clinical cure and microbiological eradication in adults with cUTIs<br />
+						at Day 14 in the Primary Analysis Set?<sup>†1</sup>
 					</p>
 				</div>
 				<div class="flex gap-x-7 items-center">
@@ -48,8 +50,11 @@
 					/>
 					<div class="min-w-[3px] h-[66px] bg-dark-blue"></div>
 					<p>
-						EXBLIFEP<sup>®</sup> is indicated to treat HAP/VAP, and
-						<span class="text-dark-blue font-bold">could be a useful carbapenem-sparing option for ESBL-producing pathogens<sup>5,9</sup></span>
+						EXBLIFEP<sup>®</sup> is indicated to treat HAP/VAP, and<br />
+						<span class="text-dark-blue font-bold"
+							>could be a useful carbapenem-sparing option<br />
+							for ESBL-producing pathogens<sup>5,10</sup></span
+						>
 					</p>
 				</div>
 				<div class="flex gap-x-7 items-center">
@@ -61,7 +66,7 @@
 					<div class="min-w-[3px] h-[66px] bg-dark-blue"></div>
 					<p>
 						EXBLIFEP<sup>®</sup> demonstrated <span class="text-dark-blue font-bold">high intrapulmonary penetration</span> and similar distribution
-						kinetics of both compounds into the ELF, supporting its use in the treatment of HAP/VAP<sup>6,10</sup>
+						kinetics of both compounds into the ELF, supporting its use in the treatment of HAP/VAP<sup>6,9</sup>
 					</p>
 				</div>
 				<div class="flex gap-x-7 items-center">
@@ -73,7 +78,11 @@
 					<div class="min-w-[3px] h-[66px] bg-dark-blue"></div>
 					<p>
 						EXBLIFEP<sup>®</sup> demonstrated a
-						<span class="text-dark-blue font-bold">favourable overall safety profile, comparable to</span> piperacillin tazobactam<sup>1</sup>
+						<span class="text-dark-blue font-bold"
+							>favourable overall<br />
+							safety profile, comparable to</span
+						>
+						piperacillin tazobactam<sup>1,9</sup>
 					</p>
 				</div>
 			</section>
