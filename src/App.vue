@@ -63,7 +63,7 @@ const resetInactivityTimer = () => {
 	clearTimeout(inactivityTimer);
 	inactivityTimer = setTimeout(() => {
 		router.push('/screensaver');
-	}, 30000);
+	}, 300000);
 };
 
 onMounted(() => {
