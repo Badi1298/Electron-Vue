@@ -8,7 +8,7 @@
 						alt="EXBLIFEP®"
 						class="w-64 ml-[74px]"
 					/>
-					<div class="images-container">
+					<div class="images-container z-20">
 						<VLazyImage
 							:src="HallwayBed"
 							alt="Hallway Bed"
@@ -20,17 +20,38 @@
 							class="resistance-and-recurrence"
 						/>
 					</div>
-					<div class="flex items-center gap-x-5 py-10 px-14 border-x-0 border-y-[6px] border-[#1F17F6] max-w-[1078px]">
-						<chevron-right class="w-24 h-24" />
-						<h1 class="relative text-[40px] text-center font-bold leading-tight text-electric-blue font-effra">
-							EXBLIFEP<sup class="text-2xl font-normal">®</sup> is where microbiological eradication* meets efficacy<sup class="text-[26px]"
-								>1</sup
-							>
-						</h1>
+					<div class="relative flex items-center gap-x-9 pt-5 pb-8 px-14 max-w-[1078px] font-effra">
+						<chevron-right class="min-w-[62px] min-h-[64px]" />
+						<img
+							src="/src/assets/images/exblifep-blue-line.png"
+							alt="Top Blue Line"
+							class="absolute -top-0.5 left-0 w-full"
+						/>
+						<img
+							src="/src/assets/images/exblifep-blue-line.png"
+							alt="Top Blue Line"
+							class="absolute bottom-0 left-0 w-full"
+						/>
+						<div class="flex flex-col">
+							<h1 class="relative text-2xl font-bold leading-tight text-electric-blue font-effra">
+								EXBLIFEP<sup class="text-base">®</sup> is where microbiological eradication* meets efficacy<sup class="text-base">1</sup>
+							</h1>
+							<div class="flex flex-col leading-tight">
+								<p class="text-cool-grey">EXBLIFEP® is indicated for the treatment of the following infections in adults:</p>
+								<ul class="list-disc pl-5 ml-3 text-cool-grey">
+									<li>Complicated urinary tract infections (cUTI), including pyelonephritis</li>
+									<li>Hospital-acquired pneumonia (HAP), including ventilator associated pneumonia (VAP)</li>
+								</ul>
+								<p class="text-cool-grey">
+									Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the
+									infections listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.5
+								</p>
+							</div>
+						</div>
 					</div>
 				</section>
 				<section class="pt-36 -translate-x-1">
-					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in -</h2>
+					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in:</h2>
 					<card
 						title="Efficacy"
 						subtitle="EXBLIFEP<sup>®</sup> superiority in primary endpoint vs. piperacillin/tazobactam<sup>1</sup>"
@@ -61,12 +82,23 @@
 				</section>
 			</div>
 		</div>
-		<footer>
-			<the-footer class="transition-all duration-300 ml-[124px]"
-				>For full list of adverse reactions and frequency please consult the Summary of Product Characteristics.<br />
-				ALT, alanine transaminase; AST, aspartate aminotransferase; SAE, serious adverse event.</the-footer
-			>
-			<div class="flex justify-between items-center mt-4 mr-12">
+		<footer class="pt-2 pr-[70px] font-effra">
+			<div class="flex items-end ml-[54px] gap-x-9">
+				<the-footer
+					>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL in
+					urine.<sup>1</sup><br />
+					For healthcare professionals only.<br />
+					This medicine has been authorised by the EMA. Product is not yet commercialised in all European markets, because it is in the reimbursement
+					phase. MAH for Europe: Advanz Pharma Limited, Unit 17 Northwood House, Northwood Crescent, Dublin 9, D09 V504, Ireland. MAH for UK: Mercury
+					Pharmaceuticals Ltd, Dashwood House, 69 Old Broad Street, London, EC2M 1QS, UK.<br />
+					©2025 ADVANZ PHARMA® | GL/CEFE/PM/0051 - Date of preparation: March 2025
+				</the-footer>
+				<div class="flex items-center text-[10px] text-cool-grey h-[50px] px-4 border border-black max-w-[468px]">
+					▼ This medicinal product is subject to additional monitoring. This will allow quick identification of new safety information. Healthcare
+					professionals are asked to report any suspected adverse reactions.
+				</div>
+			</div>
+			<div class="flex justify-between items-center mt-2 mr-12">
 				<ExploreAnother />
 			</div>
 		</footer>
