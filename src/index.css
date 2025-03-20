@@ -139,28 +139,28 @@
 /* UniGroteskStd */
 @font-face {
 	font-family: 'UniGroteskStd';
-	src: url('/src/assets/fonts/UniGroteskStdRegular.otf') format('opentype');
+	src: url('/src/assets/fonts/UniGroteskStdReg.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'UniGroteskStd';
-	src: url('/src/assets/fonts/UniGroteskStdRegularItalic.otf') format('opentype');
+	src: url('/src/assets/fonts/UniGroteskStdRegIta.otf') format('opentype');
 	font-weight: normal;
 	font-style: italic;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'UniGroteskStd';
-	src: url('/src/assets/fonts/UniGroteskStdMedium.otf') format('opentype');
+	src: url('/src/assets/fonts/UniGroteskStdMed.otf') format('opentype');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'UniGroteskStd';
-	src: url('/src/assets/fonts/UniGroteskStdBold.otf') format('opentype');
+	src: url('/src/assets/fonts/UniGroteskStdBld.otf') format('opentype');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
