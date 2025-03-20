@@ -155,16 +155,16 @@
 							<button
 								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
 								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
-								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
-								@touchstart.prevent="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_3"
+								@click="activateDay3"
+								@touchstart.prevent="activateDay3"
 							>
 								Day 3
 							</button>
 							<button
 								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
 								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
-								@click="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
-								@touchstart.prevent="activeClinicalEfficayTab = clinicalEfficacyTabs.DAY_4"
+								@click="activateDay4"
+								@touchstart.prevent="activateDay4"
 							>
 								Day 4
 							</button>
@@ -224,12 +224,14 @@
 </template>
 
 <script setup>
-import { ref, toRef, watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, toRef, computed, inject, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
 import VLazyImage from 'v-lazy-image';
 
+import { trackAction } from '@/utils/analytics.js';
 import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
 import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
@@ -237,6 +239,11 @@ import ChartB from '@/assets/images/clinical-efficacy-chart-2.png';
 
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
+
+const clinicalEfficacyTabs = Object.freeze({
+	DAY_3: 1,
+	DAY_4: 2,
+});
 
 const props = defineProps({
 	sidebarOpen: {
@@ -251,8 +258,12 @@ const props = defineProps({
 
 const emit = defineEmits(['goToBottomTab']);
 
+const route = useRoute();
+
 const sidebarOpenRef = toRef(props, 'sidebarOpen');
 useAnimateSelectTab(sidebarOpenRef);
+
+const sessionId = inject('sessionId');
 
 const topTab = ref(null);
 const content = ref(null);
@@ -265,11 +276,9 @@ const clinicalEfficacy = ref(null);
 const clinicalEfficacyDetails = ref(null);
 const clinicalEfficacyActive = ref(false);
 
-const clinicalEfficacyTabs = Object.freeze({
-	DAY_3: 1,
-	DAY_4: 2,
-});
 const activeClinicalEfficayTab = ref(clinicalEfficacyTabs.DAY_3);
+
+const brand = computed(() => route.meta.brand);
 
 watch(
 	() => props.scrollIntoView,
@@ -335,6 +344,8 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 // Now you can create the specific animations by passing the right parameters:
 
 const animateBacterialActivity = () => {
+	trackAction('efficacy-bactericidal-activity', sessionId.value, brand.value);
+
 	return animateSection({
 		activeRef: bacterialActivityActive,
 		detailsRef: bacterialActivityDetails,
@@ -346,6 +357,8 @@ const animateBacterialActivity = () => {
 };
 
 const animateClinicalEfficacy = () => {
+	trackAction('efficacy-clinical-efficacy', sessionId.value, brand.value);
+
 	return animateSection({
 		activeRef: clinicalEfficacyActive,
 		detailsRef: clinicalEfficacyDetails,
@@ -354,5 +367,15 @@ const animateClinicalEfficacy = () => {
 		fadeElements: [bacterialActivity.value, content.value],
 		slideDivisor: props.sidebarOpen ? 1.97 : 1.67,
 	});
+};
+
+const activateDay3 = () => {
+	activeClinicalEfficayTab.value = clinicalEfficacyTabs.DAY_3;
+	trackAction('efficacy-clinical-efficacy-day-3', sessionId.value, brand.value);
+};
+
+const activateDay4 = () => {
+	activeClinicalEfficayTab.value = clinicalEfficacyTabs.DAY_4;
+	trackAction('efficacy-clinical-efficacy-day-4', sessionId.value, brand.value);
 };
 </script>
