@@ -54,10 +54,10 @@
 					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in:</h2>
 					<card
 						title="Efficacy"
-						subtitle="EXBLIFEP<sup>®</sup> superiority in primary endpoint vs. piperacillin/tazobactam<sup>1</sup>"
+						subtitle="EXBLIFEP<sup>®</sup> superiority in primary<br /> endpoint vs. piperacillin/tazobactam<sup>1</sup>"
 						button-class="bg-[#97D700] text-black"
 						discover-more-path="/exblifep/efficacy"
-						class="mt-9 font-effra"
+						class="mt-9 font-effra min-w-[424px]"
 					>
 						<chart-icon class="min-w-[106px]" />
 					</card>
@@ -66,7 +66,7 @@
 						subtitle="Comparable safety profile<br /> to piperacillin/tazobactam<sup>1</sup>"
 						button-class="bg-cool-grey text-white"
 						discover-more-path="/exblifep/safety"
-						class="mt-11 font-effra"
+						class="mt-11 font-effra min-w-[424px]"
 					>
 						<shield-icon class="min-w-[106px]" />
 					</card>
@@ -75,7 +75,7 @@
 						subtitle="Recommended dosing and<br /> administration details<sup>5</sup>"
 						button-class="bg-electric-blue text-white"
 						discover-more-path="/exblifep/dosing"
-						class="mt-11 font-effra"
+						class="mt-11 font-effra min-w-[424px]"
 					>
 						<bottle-icon class="min-w-[106px]" />
 					</card>
