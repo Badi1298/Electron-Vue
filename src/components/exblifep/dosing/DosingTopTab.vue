@@ -171,9 +171,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, computed, inject, onMounted, watch } from 'vue';
 
 import { gsap } from 'gsap';
+
+import { trackAction } from '@/utils/analytics.js';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
@@ -192,6 +195,10 @@ const props = defineProps({
 
 const emit = defineEmits(['goToBottomTab']);
 
+const route = useRoute();
+
+const sessionId = inject('sessionId');
+
 const fullDosingButton = ref(null);
 const emptyDosingButton = ref(null);
 const fullAdministrationButton = ref(null);
@@ -202,6 +209,7 @@ const tabs = ref([
 		id: 1,
 		class: 'dosing',
 		name: 'Dosing',
+		action: 'dosing-dosing',
 		details: `
 			<p class="pr-20">
 				The recommended dose for patients with normal renal<br /> function is
@@ -233,6 +241,7 @@ const tabs = ref([
 		id: 2,
 		class: 'administration',
 		name: 'Method of administration',
+		action: 'dosing-administration',
 		details: `
 			<p>Administered as:<sup>5</sup></p>
 			<ul class="flex flex-col gap-y-3.5 list-disc pl-5 ml-3">
@@ -258,6 +267,8 @@ const tabs = ref([
 
 const topTab = ref(null);
 const activeTab = ref(1);
+
+const brand = computed(() => route.meta.brand);
 
 watch(
 	() => props.scrollIntoView,
@@ -345,6 +356,8 @@ const activateTab = async (newTab) => {
 
 	const previousTab = tabs.value.find((tab) => tab.id === activeTab.value);
 	const nextTab = newTab;
+
+	trackAction(newTab.action, sessionId.value, brand.value);
 
 	previousTab.active = false;
 

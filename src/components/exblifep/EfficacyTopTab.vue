@@ -59,8 +59,8 @@
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
-							@click="activeTab = Tabs.CLINICAL_CURE"
-							@touchstart.prevent="activeTab = Tabs.CLINICAL_CURE"
+							@click="activateClinicalCure"
+							@touchstart.prevent="activateClinicalCure"
 						>
 							Clinical cure & Microbiological eradication: Day 14 in PAS
 						</button>
@@ -137,7 +137,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { ref, toRef, inject, watch, onMounted } from 'vue';
+import { ref, computed, toRef, inject, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
@@ -180,6 +180,8 @@ const sessionId = inject('sessionId');
 
 const topTab = ref(null);
 const activeTab = ref(Tabs.OVERALL_SUCCESS);
+
+const brand = computed(() => route.meta.brand);
 
 watch(
 	() => props.scrollIntoView,
@@ -241,6 +243,11 @@ onMounted(() => {
 
 const activateOverallSuccess = () => {
 	activeTab.value = Tabs.OVERALL_SUCCESS;
-	trackAction('efficacy-overall-success', sessionId.value, route.meta.brand);
+	trackAction('efficacy-overall-success', sessionId.value, brand.value);
+};
+
+const activateClinicalCure = () => {
+	activeTab.value = Tabs.CLINICAL_CURE;
+	trackAction('efficacy-clinical-cure', sessionId.value, brand.value);
 };
 </script>
