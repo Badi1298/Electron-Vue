@@ -190,7 +190,7 @@
 							<VLazyImage
 								:src="ChartB"
 								alt="Chart B"
-								class="w-full h-full"
+								class="w-[804px] object-cover"
 							/>
 						</div>
 					</div>
@@ -238,8 +238,8 @@ import VLazyImage from 'v-lazy-image';
 import { trackAction } from '@/utils/analytics.js';
 import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
-import ChartA from '@/assets/images/clinical-efficacy-chart-1.png';
-import ChartB from '@/assets/images/clinical-efficacy-chart-2.png';
+import ChartA from '@/assets/images/zevtera-efficacy-day-3.svg';
+import ChartB from '@/assets/images/zevtera-efficacy-day-4.png';
 
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
