@@ -374,8 +374,8 @@
 			<div class="flex flex-col gap-y-2.5 absolute bottom-0 right-0 items-end">
 				<div
 					class="flex gap-x-6 items-center bg-white rounded-l-[20px] border-2 border-[#195C68] border-r-0 px-2.5 py-[3px] cursor-pointer"
-					@click="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
-					@touchstart.prevent="router.push({ name: 'zevtera-prescribing-information', query: { from: 'home-prescribing-information-button' } })"
+					@click="router.push({ name: prescribingInformationRouteName, query: { from: 'home-prescribing-information-button' } })"
+					@touchstart.prevent="router.push({ name: prescribingInformationRouteName, query: { from: 'home-prescribing-information-button' } })"
 				>
 					<img
 						src="/src/assets/images/prescribing-information-turqoise.png"
@@ -410,6 +410,7 @@ import { gsap } from 'gsap';
 
 import TheFooter from '@/components/TheFooter.vue';
 import OurPortfolio from '@/components/home/OurPortfolio.vue';
+import { computed } from 'vue';
 
 const router = useRouter();
 
@@ -482,6 +483,14 @@ const backgroundConfigs = {
 		},
 	},
 };
+
+const prescribingInformationRouteName = computed(() => {
+	return activeIndex.value === 0
+		? 'exblifep-prescribing-information'
+		: activeIndex.value === 1
+		? 'zevtera-prescribing-information'
+		: 'xyd-prescribing-information';
+});
 
 onMounted(() => {
 	// Initialize the overlay screen
