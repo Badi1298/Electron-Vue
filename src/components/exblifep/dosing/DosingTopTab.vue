@@ -19,7 +19,9 @@
 		<div class="page-content flex flex-col justify-end font-effra relative pb-12">
 			<div class="relative flex justify-between mr-12">
 				<div>
-					<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Dosing and administration of EXBLIFEP<sup>®5</sup></h1>
+					<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
+						Dosing and administration of EXBLIFEP®<sup class="text-[22px]">5</sup>
+					</h1>
 					<img
 						src="/src/assets/images/lime-green-border.png"
 						alt="Lime Green Border"
@@ -109,7 +111,7 @@
 							class="opacity-0"
 							:class="`${tabs[1].class}-content`"
 						>
-							<div class="flex items-end">
+							<div class="flex items-end mt-8">
 								<img
 									src="/src/assets/images/iv-bag-blue.png"
 									alt="Dosing Bottle"
@@ -124,7 +126,7 @@
 								v-html="tabs[1].details"
 							></div>
 							<div
-								class="max-w-fit bg-[#00EAFF] shadow-dark py-4 ml-10 flex items-center mt-10 z-10 border-[3px] border-white pr-20 translate-y-14"
+								class="max-w-fit bg-[#00EAFF] shadow-dark py-4 ml-10 flex mt-4 items-center z-10 border-[3px] border-white pr-20 translate-y-14"
 							>
 								<div class="pl-7 pr-3 py-2 border-r-2 border-[#002470]">
 									<img
@@ -350,12 +352,12 @@ const activateTab = async (newTab) => {
 
 	tl.to(`.${previousTab.class}-content`, {
 		opacity: 0,
-		duration: 0.4,
+		duration: 0.2,
 	})
 		.to(`.${previousTab.class}`, {
 			opacity: 0,
 			width: 20,
-			duration: 0.7,
+			duration: 0.5,
 		})
 		.to(
 			`.${nextTab.class}`,
@@ -365,13 +367,13 @@ const activateTab = async (newTab) => {
 				borderRight: '2px solid #1F17F6',
 				borderTop: '2px solid #1F17F6',
 				borderBottom: '2px solid #1F17F6',
-				duration: 0.6,
+				duration: 0.5,
 			},
 			'-=0.3'
 		)
 		.to(`.${nextTab.class}-content`, {
 			opacity: 1,
-			duration: 0.3,
+			duration: 0.2,
 			onComplete: () => {
 				activeTab.value = newTab.id;
 				nextTab.active = true;
