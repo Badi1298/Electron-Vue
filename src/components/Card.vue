@@ -1,15 +1,17 @@
 <template>
-	<div class="flex max-w-[424px] h-[186px] justify-between bg-white shadow-exblifep-card items-center rounded-[10px] px-8">
-		<div class="flex flex-col gap-y-2">
-			<h3 class="font-medium text-xl">{{ title }}</h3>
-			<p
-				class="text-sm"
-				v-html="subtitle"
-			></p>
+	<div class="flex h-[186px] justify-between items-center bg-white pb-6 shadow-exblifep-card rounded-[10px] px-8">
+		<div class="flex flex-col h-full justify-between">
+			<div>
+				<h3 class="font-medium text-xl">{{ title }}</h3>
+				<p
+					class="text-sm"
+					v-html="subtitle"
+				></p>
+			</div>
 
 			<RouterLink :to="{ path: discoverMorePath, query: { navigatedAwayBy: 'discover-more-button' } }">
 				<button
-					class="flex items-center justify-center py-3 text-sm mt-2.5 w-[150px]"
+					class="flex items-center justify-center py-3 text-sm w-[150px]"
 					:class="buttonClass"
 				>
 					<span class="max-h-[16px]">Discover More</span>
