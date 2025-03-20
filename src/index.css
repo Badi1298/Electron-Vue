@@ -45,27 +45,78 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: 'Effra';
+	src: url('/src/assets/fonts/EffraXBold.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
 
 /* Gothic */
 @font-face {
 	font-family: 'Gothic';
-	src: url('/src/assets/fonts/Gothic.TTF') format('truetype');
+	src: url('/src/assets/fonts/GOTHIC.TTF') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Gothic';
-	src: url('/src/assets/fonts/GothicItalic.TTF') format('truetype');
+	src: url('/src/assets/fonts/GOTHICI.TTF') format('truetype');
 	font-weight: normal;
 	font-style: italic;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Gothic';
-	src: url('/src/assets/fonts/GothicBold.TTF') format('truetype');
+	src: url('/src/assets/fonts/GOTHICB.TTF') format('truetype');
 	font-weight: bold;
 	font-style: normal;
+	font-display: swap;
+}
+
+/* Futura */
+@font-face {
+	font-family: 'Futura';
+	src: url('/src/assets/fonts/FuturaRegular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Futura';
+	src: url('/src/assets/fonts/FuturaRegularOblique.otf') format('opentype');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Futura';
+	src: url('/src/assets/fonts/FuturaHeavy.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Futura';
+	src: url('/src/assets/fonts/FuturaHeavyOblique.ttf') format('opentype');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Futura';
+	src: url('/src/assets/fonts/FuturaBold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Futura';
+	src: url('/src/assets/fonts/FuturaBoldOblique.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
 	font-display: swap;
 }
 
