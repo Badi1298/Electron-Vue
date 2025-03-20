@@ -3,21 +3,36 @@
 		<div class="flex flex-col justify-center">
 			<div class="flex">
 				<section class="flex flex-col pt-24">
-					<VLazyImage
-						:src="Logo"
-						alt="EXBLIFEP®"
-						class="w-64 ml-[74px]"
-					/>
-					<div class="images-container z-20">
+					<div class="flex">
+						<VLazyImage
+							:src="Logo"
+							alt="EXBLIFEP®"
+							class="w-[270px] h-[60px] object-contain ml-[50px]"
+						/>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="18"
+							height="18"
+							viewBox="0 0 18 18"
+							fill="none"
+							class="-translate-x-2"
+						>
+							<path
+								d="M9.0251 17.8112L0.177734 0.843628H17.8669L9.0251 17.8112Z"
+								fill="black"
+							/>
+						</svg>
+					</div>
+					<div class="images-container z-20 mt-10">
 						<VLazyImage
 							:src="HallwayBed"
 							alt="Hallway Bed"
-							class="hallway-bed h-[560px]"
+							class="hallway-bed w-[738px] h-[522px] object-contain"
 						/>
 						<VLazyImage
 							:src="ResistanceAndRecurrence"
 							alt="Resistance and Recurrence"
-							class="resistance-and-recurrence"
+							class="absolute bottom-0 right-0 h-[727px] object-contain"
 						/>
 					</div>
 					<div class="relative flex items-center gap-x-9 pt-5 pb-8 px-14 max-w-[1078px] font-effra">
@@ -50,7 +65,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="pt-36 -translate-x-1">
+				<section class="pt-[172px] -translate-x-1">
 					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in:</h2>
 					<card
 						title="Efficacy"
@@ -141,15 +156,7 @@ defineProps({
 }
 
 .hallway-bed {
-	object-fit: cover;
 	-webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
 	mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
-}
-
-.resistance-and-recurrence {
-	position: absolute;
-	top: -150px;
-	right: 0px;
-	max-width: 644px;
 }
 </style>

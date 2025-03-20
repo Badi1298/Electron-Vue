@@ -1,5 +1,5 @@
 <template>
-	<div class="flex max-w-[424px] justify-between bg-white shadow-exblifep-card items-center rounded-[10px] px-8 pt-9 pb-6">
+	<div class="flex max-w-[424px] h-[186px] justify-between bg-white shadow-exblifep-card items-center rounded-[10px] px-8">
 		<div class="flex flex-col gap-y-2">
 			<h3 class="font-medium text-xl">{{ title }}</h3>
 			<p
