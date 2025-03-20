@@ -82,8 +82,8 @@
 				</section>
 			</div>
 		</div>
-		<footer class="pt-2 pr-[70px] font-effra">
-			<div class="flex items-end ml-[54px] gap-x-9">
+		<footer class="pt-2 font-effra">
+			<div class="flex items-end ml-[54px] max-w-[1446px] gap-x-9">
 				<the-footer
 					>*In the ALLIUM study, microbiological eradication is defined as reduction of the qualifying baseline pathogen to less than 103 CFU/mL in
 					urine.<sup>1</sup><br />
