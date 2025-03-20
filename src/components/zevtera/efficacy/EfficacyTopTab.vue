@@ -30,7 +30,8 @@
 						alt="Touch to select tab"
 						class="w-[70px] h-[70px]"
 					/>
-					<span>Touch a step to continue</span>
+					<span class="text-1">Touch a step to continue</span>
+					<span class="text-2">Select a tab</span>
 				</div>
 			</div>
 
@@ -297,6 +298,7 @@ onMounted(() => {
 	gsap.set(clinicalEfficacyDetails.value, { opacity: 0 });
 	gsap.set('.bacterial-swap-card', { opacity: 0 });
 	gsap.set('.clinical-swap-card', { opacity: 0 });
+	gsap.set('.text-2', { display: 'none' });
 });
 
 const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fadeElements, slideDivisor }) => {
@@ -364,6 +366,18 @@ const animateBacterialActivity = () => {
 const animateClinicalEfficacy = () => {
 	if (!clinicalEfficacyActive.value) {
 		trackAction('Efficacy', 'clinical-efficacy', sessionId.value, brand.value);
+
+		const tl = gsap.timeline();
+		tl.to('.select-tab', { opacity: 0, duration: 0.7, ease: 'power2.inOut' })
+			.to('.text-1', { autoAlpha: 0, duration: 0.1, onComplete: () => gsap.set('.text-1', { display: 'none' }) })
+			.to('.text-2', { autoAlpha: 1, duration: 0.1, onComplete: () => gsap.set('.text-2', { display: 'block' }) })
+			.to('.select-tab', { opacity: 1, duration: 0.3, ease: 'power2.inOut' });
+	} else {
+		const tl = gsap.timeline();
+		tl.to('.select-tab', { opacity: 0, duration: 0.7, ease: 'power2.inOut' })
+			.to('.text-2', { autoAlpha: 0, duration: 0.1, onComplete: () => gsap.set('.text-2', { display: 'none' }) })
+			.to('.text-1', { autoAlpha: 1, duration: 0.1, onComplete: () => gsap.set('.text-1', { display: 'block' }) })
+			.to('.select-tab', { opacity: 1, duration: 0.3, ease: 'power2.inOut' });
 	}
 
 	return animateSection({
