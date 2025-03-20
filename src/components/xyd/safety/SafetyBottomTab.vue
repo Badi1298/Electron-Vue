@@ -124,9 +124,12 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, computed, inject, watch, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
+
+import { trackAction } from '@/utils/analytics.js';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
@@ -145,11 +148,16 @@ const props = defineProps({
 
 const emit = defineEmits(['goToTopTab']);
 
-const bottomTab = ref(null);
+const route = useRoute();
+
+const sessionId = inject('sessionId');
 
 const chart = ref(null);
+const bottomTab = ref(null);
 
 const isExpanded = ref(false);
+
+const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(chart.value, { height: 0 });
@@ -170,6 +178,7 @@ const animateExpandable = () => {
 			height: 620,
 			duration: 0.6,
 		});
+		trackAction('safety-profile-chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}

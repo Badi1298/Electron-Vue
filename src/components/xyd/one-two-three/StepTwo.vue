@@ -192,9 +192,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { onMounted, ref, computed, inject, watch } from 'vue';
 
 import { gsap } from 'gsap';
+
+import { trackAction } from '@/utils/analytics.js';
 
 import VLazyImage from 'v-lazy-image';
 
@@ -216,10 +219,16 @@ const props = defineProps({
 
 const emit = defineEmits(['goToTopTab', 'goToBottomTab']);
 
+const route = useRoute();
+
+const sessionId = inject('sessionId');
+
 const chart = ref(null);
 const middleTab = ref(null);
 
 const isExpanded = ref(false);
+
+const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(chart.value, { height: 0 });
@@ -240,6 +249,7 @@ const animateExpandable = () => {
 			height: 662,
 			duration: 0.6,
 		});
+		trackAction('123-two-weeks-chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}
