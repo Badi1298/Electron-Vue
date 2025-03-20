@@ -175,23 +175,30 @@
 						</div>
 						<div
 							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3"
-							class="w-[863px] h-[464px]"
+							class="w-[863px] h-[464px] border-2 flex flex-col items-center pt-8 border-primary-purple"
 						>
+							<h3 class="text-2xl font-stag-sans font-bold">Early improvement at Day 3 in patients with CAP by risk factors (CE)<sup>6</sup></h3>
 							<VLazyImage
 								:src="ChartA"
 								alt="Chart A"
-								class="w-full h-full"
+								class="w-[803px] h-auto object-cover"
 							/>
+							<span class="text-[10px] mt-5 font-uni-grotesk text-[#555]">Adapted from Scheeren T et al. 2019.6</span>
 						</div>
 						<div
 							v-if="activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4"
-							class="w-[863px] h-[464px]"
+							class="w-[863px] h-[464px] border-2 flex flex-col items-center pt-8 border-primary-purple"
 						>
+							<h3 class="text-2xl font-stag-sans font-bold text-center">
+								Early improvement at Day 4 in patients with HAP<br />
+								(excluding VAP) by risk factor (CE)<sup>6</sup>
+							</h3>
 							<VLazyImage
 								:src="ChartB"
-								alt="Chart B"
-								class="w-[804px] object-cover"
+								alt="Chart A"
+								class="w-[803px] h-auto object-cover -mt-8"
 							/>
+							<span class="text-[10px] mt-5 font-uni-grotesk text-[#555]">Adapted from Scheeren T et al. 2019.6</span>
 						</div>
 					</div>
 					<footer class="text-[10px] text-[#555] mt-4 mr-12 font-uni-grotesk">
@@ -238,7 +245,7 @@ import VLazyImage from 'v-lazy-image';
 import { trackAction } from '@/utils/analytics.js';
 import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 
-import ChartA from '@/assets/images/zevtera-efficacy-day-3.svg';
+import ChartA from '@/assets/images/zevtera-efficacy-day-3.png';
 import ChartB from '@/assets/images/zevtera-efficacy-day-4.png';
 
 import TheTitle from '@/components/zevtera/TheTitle.vue';
