@@ -40,7 +40,9 @@
 					class="flex flex-col gap-y-16"
 				>
 					<the-title>More for your difficult-to-treat patients*</the-title>
-					<div class="relative bg-primary-green px-6 h-[284px] flex flex-col justify-center rounded-[20px] overflow-hidden">
+					<div
+						class="relative bg-primary-green px-6 h-[284px] flex flex-col justify-center rounded-[20px] overflow-hidden shadow-zevtera-efficacy-pathogens-card"
+					>
 						<h3 class="text-[32px] font-bold text-white">
 							Demonstrated<br />
 							efficacy<sup>5,6</sup>
@@ -54,7 +56,7 @@
 				</div>
 				<div
 					ref="bacterialActivity"
-					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer z-50"
+					class="relative bg-primary-green ml-10 rounded-[20px] max-w-[420px] cursor-pointer shadow-zevtera-efficacy-pathogens-card z-50"
 					@click="animateBacterialActivity"
 					@touchstart.prevent="animateBacterialActivity"
 				>
@@ -83,7 +85,7 @@
 				</div>
 				<div
 					ref="clinicalEfficacy"
-					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer z-50"
+					class="relative bg-primary-green rounded-[20px] overflow-hidden max-w-[420px] cursor-pointer shadow-zevtera-efficacy-pathogens-card z-50"
 					@click="animateClinicalEfficacy"
 					@touchstart.prevent="animateClinicalEfficacy"
 				>
