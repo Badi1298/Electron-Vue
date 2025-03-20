@@ -20,7 +20,7 @@
 							class="absolute bottom-0 right-0 h-[727px] object-contain"
 						/>
 					</div>
-					<div class="relative flex items-center gap-x-9 pt-5 pb-8 px-14 max-w-[1078px] font-effra">
+					<div class="relative flex items-center gap-x-9 pt-5 pb-8 pl-14 pr-6 max-w-[1078px] font-effra">
 						<chevron-right class="min-w-[62px] min-h-[64px]" />
 						<img
 							src="/src/assets/images/exblifep-blue-line.png"
@@ -44,7 +44,8 @@
 								</ul>
 								<p class="text-cool-grey">
 									Treatment of patients with bacteraemia that occurs in association with, or is suspected to be associated with, any of the
-									infections listed above. Consideration should be given to official guidance on the appropriate use of antibacterial agents.5
+									infections listed above. Consideration should be given to official guidance on the appropriate use of antibacterial
+									agents.<sup>5</sup>
 								</p>
 							</div>
 						</div>
@@ -54,10 +55,10 @@
 					<h2 class="text-[32px] font-bold text-electric-blue font-effra">I'm interested in:</h2>
 					<card
 						title="Efficacy"
-						subtitle="EXBLIFEP<sup>®</sup> superiority in primary<br /> endpoint vs. piperacillin/tazobactam<sup>1</sup>"
+						subtitle="EXBLIFEP® superiority in primary<br /> endpoint vs. piperacillin/tazobactam<sup>1</sup>"
 						button-class="bg-[#97D700] text-black"
 						discover-more-path="/exblifep/efficacy"
-						class="mt-9 font-effra min-w-[424px]"
+						class="mt-9 font-effra min-w-[424px] pt-9"
 					>
 						<chart-icon class="min-w-[106px]" />
 					</card>
@@ -66,7 +67,7 @@
 						subtitle="Comparable safety profile<br /> to piperacillin/tazobactam<sup>1</sup>"
 						button-class="bg-cool-grey text-white"
 						discover-more-path="/exblifep/safety"
-						class="mt-11 font-effra min-w-[424px]"
+						class="mt-11 font-effra min-w-[424px] pt-9"
 					>
 						<shield-icon class="min-w-[106px]" />
 					</card>
@@ -75,7 +76,7 @@
 						subtitle="Recommended dosing and<br /> administration details<sup>5</sup>"
 						button-class="bg-electric-blue text-white"
 						discover-more-path="/exblifep/dosing"
-						class="mt-11 font-effra min-w-[424px]"
+						class="mt-11 font-effra min-w-[424px] pt-9"
 					>
 						<bottle-icon class="min-w-[106px]" />
 					</card>

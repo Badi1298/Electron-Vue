@@ -2,7 +2,7 @@
 	<div class="flex h-[186px] justify-between items-center bg-white pb-6 shadow-exblifep-card rounded-[10px] px-8">
 		<div class="flex flex-col h-full justify-between">
 			<div>
-				<h3 class="font-medium text-xl">{{ title }}</h3>
+				<h3 class="font-bold text-[20px] text-black">{{ title }}</h3>
 				<p
 					class="text-sm"
 					v-html="subtitle"
@@ -11,7 +11,7 @@
 
 			<RouterLink :to="{ path: discoverMorePath, query: { navigatedAwayBy: 'discover-more-button' } }">
 				<button
-					class="flex items-center justify-center py-3 text-sm w-[150px]"
+					class="flex items-center justify-center py-3 text-sm w-[150px] mt-1.5"
 					:class="buttonClass"
 				>
 					<span class="max-h-[16px]">Discover More</span>
