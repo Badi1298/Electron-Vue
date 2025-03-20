@@ -6,7 +6,7 @@
 		<img
 			src="/src/assets/images/page-vertical-up-blue.png"
 			alt="Vertical Up Blue"
-			class="absolute top-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px] cursor-pointer z-50"
+			class="absolute top-0 left-1/2 w-[140px] h-[50px] cursor-pointer z-50"
 			@click="emit('goToTopTab')"
 			@touchstart.prevent="emit('goToTopTab')"
 		/>
@@ -102,14 +102,14 @@
 				</div>
 
 				<div class="min-w-[416px] max-w-[416px]">
-					<h4 class="text-2xl font-bold leading-normal text-[#002470]">
+					<h4 class="text-2xl font-bold text-[#002470] leading-tight">
 						In an intrapulmonary PK study<br />
 						of 20 healthy volunteers:<sup>*6</sup>
 					</h4>
-					<p class="text-xl leading-normal font-medium text-cool-grey mt-4">
+					<p class="text-xl leading-tight font-medium text-cool-grey mt-4">
 						Concentration-time of cefepime and enmetazobactam in plasma and epithelial lining fluid were similar
 					</p>
-					<p class="text-xl text-cool-grey mt-3">
+					<p class="text-xl text-cool-grey mt-3 leading-tight">
 						Percentage of partitioning of total<br />
 						drug concentrations between plasma<br />
 						and epithelial lining fluid:
@@ -118,7 +118,7 @@
 						<li class="text-xl text-cool-grey">Cefepime (mean [SD]): 60.59% (±28.62%)</li>
 						<li class="text-xl text-cool-grey">Enmetazobactam: 53.03% (±21.05%)</li>
 					</ul>
-					<p class="text-xl text-cool-grey mt-3">
+					<p class="text-xl text-cool-grey mt-3 leading-tight">
 						Using the ratio of the ELF-to-plasma fAUCs over the entire 8 hour dosing interval, biodistribution coefficients of 46% for
 						enmetazobactam and 46.8% for cefepime were obtained.<sup>9</sup>
 					</p>
