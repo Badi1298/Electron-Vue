@@ -17,10 +17,10 @@
 				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-center font-effra">
+		<div class="page-content flex flex-col justify-end mb-2 font-effra">
 			<div class="relative flex justify-between mr-12">
 				<div>
-					<the-title class="max-w-[920px]">
+					<the-title class="max-w-[920px] leading-tight">
 						EXBLIFEP® achieved superiority in overall treatment success* in patients with cUTIs vs piperacillin/tazobactam<sup>1</sup>
 					</the-title>
 					<img
@@ -29,7 +29,7 @@
 						class="h-1.5 w-auto my-5"
 					/>
 				</div>
-				<div class="select-tab absolute top-5 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
+				<div class="select-tab absolute top-0 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
 					<img
 						src="/src/assets/images/touch.png"
 						alt="Touch to select tab"
@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<p class="max-w-[1300px] text-xl leading-normal">
+			<p class="max-w-[1300px] text-xl leading-normal text-cool-grey">
 				In ALLIUM, EXBLIFEP® demonstrated both non-inferiority and statistical superiority in overall treatment success (a composite endpoint of
 				clinical cure and microbiological eradication) at Day 14 vs piperacillin/tazobactam in patients in the PAS with cUTIs caused by gram-negative
 				pathogens<sup>1</sup>
@@ -47,7 +47,7 @@
 
 			<section class="flex pt-5 gap-x-[22px] z-10 relative">
 				<div class="flex flex-col w-[1280px]">
-					<div class="grid grid-cols-[1fr_2fr] gap-x-2">
+					<div class="grid grid-cols-[1fr_1.68fr] gap-x-2">
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
@@ -91,12 +91,12 @@
 								<img
 									src="/src/assets/images/chevron-right-bleu.png"
 									alt="Chevron Right Bleu"
-									class="w-[62px] h-[64px] mr-7"
+									class="w-[62px] h-[64px]"
 								/>
 							</div>
 							<h2 class="pl-10 text-2xl font-bold text-[#002470] max-w-[1200px]">
-								EXBLIFEP® demonstrated statistical superiority in microbiological eradication, and no significant difference in the other
-								secondary outcome of clinical cure<sup>1</sup>
+								EXBLIFEP® demonstrated statistical superiority in microbiological eradication,<br />
+								and no significant difference in the other secondary outcome of clinical cure<sup>1</sup>
 							</h2>
 						</div>
 					</div>
