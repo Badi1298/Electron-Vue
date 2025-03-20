@@ -3,7 +3,7 @@
 		<div class="page-content flex flex-col justify-center font-effra">
 			<div>
 				<h1 class="text-[32px] font-bold text-electric-blue max-w-[920px]">
-					Exblifep<sup>®</sup> is where microbiological eradication* meets efficacy<sup>1</sup>
+					EXBLIFEP® is where microbiological eradication* meets efficacy<sup class="font-extrabold">1</sup>
 				</h1>
 				<img
 					src="/src/assets/images/lime-green-border.png"

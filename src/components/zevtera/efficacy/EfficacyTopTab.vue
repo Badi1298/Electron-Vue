@@ -153,20 +153,20 @@
 					<div class="flex flex-col w-[863px]">
 						<div class="grid grid-cols-[1fr_1fr] gap-x-2">
 							<button
-								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
+								class="flex items-center justify-center py-3 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
 								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_3 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
 								@click="activateDay3"
 								@touchstart.prevent="activateDay3"
 							>
-								Day 3
+								<span class="max-h-[26px]">Day 3</span>
 							</button>
 							<button
-								class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
+								class="flex items-center justify-center py-3 rounded-t-[20px] text-2xl transition-colors duration-500 font-uni-grotesk"
 								:class="[activeClinicalEfficayTab === clinicalEfficacyTabs.DAY_4 ? 'bg-primary-purple text-white' : 'bg-[#E4E4E4]']"
 								@click="activateDay4"
 								@touchstart.prevent="activateDay4"
 							>
-								Day 4
+								<span class="max-h-[26px]">Day 4</span>
 							</button>
 						</div>
 						<div

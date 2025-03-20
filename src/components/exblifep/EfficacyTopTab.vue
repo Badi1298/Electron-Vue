@@ -49,20 +49,20 @@
 				<div class="flex flex-col w-[1280px]">
 					<div class="grid grid-cols-[1fr_1.68fr] gap-x-2">
 						<button
-							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
+							class="flex items-center justify-center py-3 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4] text-dark-blue']"
 							@click="activateOverallSuccess"
 							@touchstart.prevent="activateOverallSuccess"
 						>
-							Overall success*: Day 14 in PAS
+							<span class="max-h-[26px]">Overall success*: Day 14 in PAS </span>
 						</button>
 						<button
-							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
+							class="flex items-center justify-center py-3 rounded-t-[20px] text-2xl transition-colors duration-500"
 							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4] text-dark-blue']"
 							@click="activateClinicalCure"
 							@touchstart.prevent="activateClinicalCure"
 						>
-							Clinical cure & Microbiological eradication: Day 14 in PAS
+							<span class="max-h-[26px]">Clinical cure & Microbiological eradication: Day 14 in PAS </span>
 						</button>
 					</div>
 					<div
