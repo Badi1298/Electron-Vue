@@ -344,7 +344,9 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 // Now you can create the specific animations by passing the right parameters:
 
 const animateBacterialActivity = () => {
-	trackAction('efficacy-bactericidal-activity', sessionId.value, brand.value);
+	if (!bacterialActivityActive.value) {
+		trackAction('efficacy-bactericidal-activity', sessionId.value, brand.value);
+	}
 
 	return animateSection({
 		activeRef: bacterialActivityActive,
@@ -357,7 +359,9 @@ const animateBacterialActivity = () => {
 };
 
 const animateClinicalEfficacy = () => {
-	trackAction('efficacy-clinical-efficacy', sessionId.value, brand.value);
+	if (!clinicalEfficacyActive.value) {
+		trackAction('efficacy-clinical-efficacy', sessionId.value, brand.value);
+	}
 
 	return animateSection({
 		activeRef: clinicalEfficacyActive,
