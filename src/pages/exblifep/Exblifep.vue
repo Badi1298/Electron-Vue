@@ -3,26 +3,11 @@
 		<div class="flex flex-col justify-center">
 			<div class="flex">
 				<section class="flex flex-col pt-24">
-					<div class="flex">
-						<VLazyImage
-							:src="Logo"
-							alt="EXBLIFEP®"
-							class="w-[270px] h-[60px] object-contain ml-[50px]"
-						/>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="18"
-							height="18"
-							viewBox="0 0 18 18"
-							fill="none"
-							class="-translate-x-2"
-						>
-							<path
-								d="M9.0251 17.8112L0.177734 0.843628H17.8669L9.0251 17.8112Z"
-								fill="black"
-							/>
-						</svg>
-					</div>
+					<VLazyImage
+						:src="Logo"
+						alt="EXBLIFEP®"
+						class="w-[270px] h-[60px] object-contain ml-[50px]"
+					/>
 					<div class="images-container z-20 mt-10">
 						<VLazyImage
 							:src="HallwayBed"
@@ -121,7 +106,7 @@
 </template>
 
 <script setup>
-import Logo from '@/assets/images/exblifep-logo.svg';
+import Logo from '@/assets/images/exblifep-logo.png';
 import HallwayBed from '@/assets/images/hallway-bed.png';
 import ResistanceAndRecurrence from '@/assets/images/resistance-and-recurrence.png';
 

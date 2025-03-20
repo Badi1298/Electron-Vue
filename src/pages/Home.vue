@@ -204,7 +204,7 @@
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
 									<img
-										src="/src/assets/images/exblifep-logo.svg"
+										src="/src/assets/images/exblifep-logo.png"
 										alt="Exblifep Life"
 										class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
 									/>

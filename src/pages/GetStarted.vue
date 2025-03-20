@@ -137,7 +137,7 @@ onMounted(() => {
 		// display: 'none', // Remove this to see the eraser
 	});
 
-	gsap.fromTo([text1.value, text2.value, text3.value, button.value], { opacity: 0 }, { opacity: 1, stagger: 0.5 });
+	gsap.fromTo([text1.value, text2.value, text3.value, button.value], { opacity: 0 }, { opacity: 1, stagger: 0.5 }).delay(0.5);
 });
 
 // Function to trigger the animation
