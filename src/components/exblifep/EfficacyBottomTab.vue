@@ -27,7 +27,7 @@
 		<div class="page-content flex flex-col justify-center font-effra relative pr-[60px]">
 			<div class="flex justify-between mr-12 items-center">
 				<div>
-					<h1 class="text-[32px] text-electric-blue font-bold leading-normal max-w-[1000px]">
+					<h1 class="text-[32px] text-electric-blue font-bold max-w-[1000px]">
 						EXBLIFEP<sup>®</sup> demonstrated high intrapulmonary penetration in healthy volunteers, supporting its use in the treatment of
 						HAP/VAP<sup>6</sup>
 					</h1>

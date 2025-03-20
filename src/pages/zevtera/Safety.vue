@@ -59,7 +59,7 @@
 					</div>
 					<div class="pb-28 text-charcoal">
 						<h2 class="text-5xl font-bold mt-7 pl-7">Well-tolerated</h2>
-						<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">
+						<p class="text-2xl mt-4 font-uni-grotesk pl-7">
 							ZEVTERA®/MABELIO® is<br />
 							generally well tolerated<sup>9</sup>
 						</p>
@@ -88,7 +88,7 @@
 					/>
 					<div class="pb-28 text-charcoal">
 						<h2 class="text-5xl font-bold mt-7 pl-7">Less impact on gut flora<sup>†4,10,11</sup></h2>
-						<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">
+						<p class="text-2xl mt-4 font-uni-grotesk pl-7">
 							Low risk of adversely affecting<br />
 							the gut microflora
 						</p>
@@ -112,7 +112,7 @@
 						/>
 						<div class="pb-28 text-charcoal">
 							<h2 class="text-5xl font-bold mt-7 pl-7">Ease of use<sup>‡4</sup></h2>
-							<p class="text-2xl leading-normal mt-4 font-uni-grotesk pl-7">Explore the ZEVTERA® dosing regimen</p>
+							<p class="text-2xl mt-4 font-uni-grotesk pl-7">Explore the ZEVTERA® dosing regimen</p>
 						</div>
 					</RouterLink>
 				</div>
@@ -163,7 +163,7 @@
 					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 min-w-[1200px] min-h-[790px] absolute top-1/2 -translate-y-[59%] left-[190px] right-[60px] bg-white rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card z-10"
 				>
 					<h2 class="text-[32px] font-bold pr-3">Less impact on gut flora<sup>4,10,11</sup></h2>
-					<div class="flex flex-col gap-y-[60px] mt-11 font-uni-grotesk text-charcoal text-xl leading-normal">
+					<div class="flex flex-col gap-y-[60px] mt-11 font-uni-grotesk text-charcoal text-xl">
 						<div class="flex items-center gap-x-11">
 							<img
 								src="/src/assets/images/intestines-orange.png"

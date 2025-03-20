@@ -19,7 +19,7 @@
 		<div class="page-content flex flex-col justify-end font-effra relative pb-12">
 			<div class="relative flex justify-between mr-12">
 				<div>
-					<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
+					<h1 class="text-[32px] font-bold text-electric-blue max-w-[920px]">
 						Dosing and administration of EXBLIFEP®<sup class="text-[22px]">5</sup>
 					</h1>
 					<img

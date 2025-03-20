@@ -33,7 +33,7 @@
 				<ul class="flex flex-col gap-y-4 px-4">
 					<RouterLink :to="{ name: 'xyd-home', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/xyd'),
 								'text-[#969696]': !isActive('/xyd'),
@@ -58,7 +58,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'xyd-one-two-three', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/xyd/one-two-three'),
 								'text-[#969696]': !isActive('/xyd/one-two-three'),
@@ -83,7 +83,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/xyd/treatment'),
 								'text-[#969696]': !isActive('/xyd/treatment'),
@@ -108,7 +108,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'xyd-safety', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/xyd/safety'),
 								'text-[#969696]': !isActive('/xyd/safety'),
@@ -133,7 +133,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'xyd-summary', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/xyd/summary'),
 								'text-[#969696]': !isActive('/xyd/summary'),

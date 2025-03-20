@@ -75,7 +75,7 @@
 				>
 					<h3
 						ref="detailsTitle"
-						class="font-bold text-2xl leading-normal text-center"
+						class="font-bold text-2xl text-center"
 					>
 						Early improvement at Day 4 in patients with HAP<br />
 						(excluding VAP) by pathogen type(CE)<sup>6</sup>

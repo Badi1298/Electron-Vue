@@ -1,5 +1,5 @@
 <template>
-	<p class="text-[10px] font-effra text-cool-grey leading-normal">
+	<p class="text-[10px] font-effra text-cool-grey">
 		<slot></slot>
 	</p>
 </template>

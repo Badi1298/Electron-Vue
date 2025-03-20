@@ -2,7 +2,7 @@
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10 h-full">
 		<div class="page-content flex flex-col justify-center font-effra">
 			<div>
-				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
+				<h1 class="text-[32px] font-bold text-electric-blue max-w-[920px]">
 					Exblifep<sup>®</sup> is where microbiological eradication* meets efficacy<sup>1</sup>
 				</h1>
 				<img

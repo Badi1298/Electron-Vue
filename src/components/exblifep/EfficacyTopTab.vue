@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<p class="max-w-[1300px] text-xl leading-normal text-cool-grey">
+			<p class="max-w-[1300px] text-xl text-cool-grey">
 				In ALLIUM, EXBLIFEP® demonstrated both non-inferiority and statistical superiority in overall treatment success (a composite endpoint of
 				clinical cure and microbiological eradication) at Day 14 vs piperacillin/tazobactam in patients in the PAS with cUTIs caused by gram-negative
 				pathogens<sup>1</sup>

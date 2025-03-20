@@ -9,7 +9,7 @@
 		/>
 		<div class="page-content flex flex-col justify-center font-effra">
 			<div>
-				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">
+				<h1 class="text-[32px] font-bold leading-tight text-electric-blue max-w-[920px]">
 					EXBLIFEP<sup>®</sup> demonstrated a favourable overall safety profile, comparable to piperacillin/tazobactam<sup>1,9</sup>
 				</h1>
 				<img
@@ -41,7 +41,7 @@
 					</p>
 					<p class="text-xl text-cool-grey">
 						Treatment-emergent adverse events occurred in 50.0% of EXBLIFEP®-treated patients vs 44.0% with piperacillin/tazobactam; most were
-						mild-to-moderate in severity1
+						mild-to-moderate in severity<sup>1</sup>
 					</p>
 				</div>
 				<img

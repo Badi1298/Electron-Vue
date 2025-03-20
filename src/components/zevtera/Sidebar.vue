@@ -33,7 +33,7 @@
 				<ul class="flex flex-col gap-y-4 px-4">
 					<RouterLink :to="{ name: 'zevtera-home', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera'),
 								'text-[#969696]': !isActive('/zevtera'),
@@ -58,7 +58,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'zevtera-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/efficacy'),
 								'text-[#969696]': !isActive('/zevtera/efficacy'),
@@ -83,7 +83,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'zevtera-safety', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/safety'),
 								'text-[#969696]': !isActive('/zevtera/safety'),
@@ -108,7 +108,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'zevtera-dosing', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/dosing'),
 								'text-[#969696]': !isActive('/zevtera/dosing'),
@@ -133,7 +133,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'zevtera-summary', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/zevtera/summary'),
 								'text-[#969696]': !isActive('/zevtera/summary'),

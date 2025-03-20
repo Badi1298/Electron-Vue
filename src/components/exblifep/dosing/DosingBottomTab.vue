@@ -29,7 +29,7 @@
 			:class="[sidebarOpen ? 'ml-[124px]' : 'ml-[224px]']"
 		>
 			<div class="pt-[70px]">
-				<h1 class="text-[32px] font-bold text-electric-blue leading-normal max-w-[920px]">Reconstitution and dilution of EXBLIFEP<sup>®5</sup></h1>
+				<h1 class="text-[32px] font-bold text-electric-blue max-w-[920px]">Reconstitution and dilution of EXBLIFEP<sup>®5</sup></h1>
 				<img
 					src="/src/assets/images/lime-green-border.png"
 					alt="Lime Green Border"
