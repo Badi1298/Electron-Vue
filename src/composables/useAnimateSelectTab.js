@@ -1,4 +1,4 @@
-import { onMounted, watch } from 'vue';
+import { onMounted, watch, computed } from 'vue';
 import { gsap } from 'gsap';
 
 export function useAnimateSelectTab(sidebarOpen) {
@@ -7,23 +7,14 @@ export function useAnimateSelectTab(sidebarOpen) {
 		closed: '250px',
 	};
 
-	const animateTab = (targetPosition) => {
-		const tl = gsap.timeline();
+	const duration = computed(() => (sidebarOpen.value ? 0.4 : 0.5));
 
-		tl.to('.select-tab', {
-			opacity: 0,
-			duration: 0.3,
-		})
-			.set(
-				'.select-tab',
-				{
-					right: targetPosition,
-				},
-				'+=0.2'
-			)
-			.to('.select-tab', {
-				opacity: 1,
-			});
+	const animateTab = (targetPosition) => {
+		gsap.to('.select-tab', {
+			right: targetPosition,
+			duration: duration.value,
+			ease: 'power4.inOut',
+		});
 	};
 
 	watch(sidebarOpen, (isOpen) => {

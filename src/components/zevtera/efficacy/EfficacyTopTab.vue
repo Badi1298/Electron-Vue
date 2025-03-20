@@ -24,7 +24,7 @@
 					alt="Bullet Long"
 					class="absolute top-1/2 -translate-y-1/2 -left-20 w-[1400px] h-[162px]"
 				/>
-				<div class="select-tab absolute top-1/2 -translate-y-1/2 flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium">
+				<div class="select-tab absolute top-1/2 -translate-y-1/2 flex gap-x-3.5 items-center text-charcoal text-2xl font-bold font-uni-grotesk">
 					<img
 						src="/src/assets/images/touch-purple.png"
 						alt="Touch to select tab"

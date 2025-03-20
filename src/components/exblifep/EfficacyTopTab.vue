@@ -117,9 +117,7 @@
 				(MIC ≤64 μg/mL).<sup>1†</sup>Treatment difference is the difference in the overall success rate between the two treatment arms (95% CIs,
 				2-sided, stratified Newcombe method).<sup>1</sup></the-footer
 			>
-			<div class="flex items-start">
-				<explore-another />
-			</div>
+			<explore-another />
 			<button
 				class="absolute left-1/2 bottom-0"
 				@click="emit('goToBottomTab')"
@@ -191,55 +189,6 @@ watch(
 		}
 	}
 );
-
-watch(
-	() => props.sidebarOpen,
-	(value) => {
-		if (value) {
-			const tl = gsap.timeline();
-
-			tl.to('.select-tab', {
-				opacity: 0,
-				duration: 0.3,
-			})
-				.set(
-					'.select-tab',
-					{
-						right: '0px',
-					},
-					'+=0.2'
-				)
-				.to('.select-tab', {
-					opacity: 1,
-				});
-		} else {
-			const tl = gsap.timeline();
-
-			tl.to('.select-tab', {
-				opacity: 0,
-				duration: 0.3,
-			})
-				.set(
-					'.select-tab',
-					{
-						right: '250px',
-					},
-					'+=0.2'
-				)
-				.to('.select-tab', {
-					opacity: 1,
-				});
-		}
-	}
-);
-
-onMounted(() => {
-	if (props.sidebarOpen) {
-		gsap.set('.select-tab', { right: '0' });
-	} else {
-		gsap.set('.select-tab', { right: '250px' });
-	}
-});
 
 const activateOverallSuccess = () => {
 	activeTab.value = Tabs.OVERALL_SUCCESS;
