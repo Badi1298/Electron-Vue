@@ -11,7 +11,7 @@
 					class="h-1.5 w-[300px] my-5"
 				/>
 			</div>
-			<section class="grid grid-cols-2 bg-white py-6 px-8 text-xl text-cool-grey gap-y-10 max-w-[1380px]">
+			<section class="grid grid-cols-2 bg-white py-6 px-8 text-xl text-cool-grey gap-y-10 gap-x-12 max-w-[1380px]">
 				<div class="flex gap-x-7 items-center col-span-2">
 					<img
 						src="/src/assets/images/summary-icon-1.png"
@@ -22,8 +22,7 @@
 					<p>
 						EXBLIFEP<sup>®</sup> is indicated for the
 						<span class="text-dark-blue font-bold"
-							>treatment of adult patients with cUTI including AP, HAP/VAP and bacteraemia<br />
-							associated with these infections,</span
+							>treatment of adult patients with cUTI including pyelonephritis, HAP/VAP and bacteraemia associated with these infections,</span
 						>
 						caused by gram-negative bacteria<sup>5</sup>
 					</p>
@@ -53,7 +52,7 @@
 						EXBLIFEP<sup>®</sup> is indicated to treat HAP/VAP, and<br />
 						<span class="text-dark-blue font-bold"
 							>could be a useful carbapenem-sparing option<br />
-							for ESBL-producing pathogens<sup>5,10</sup></span
+							for ESBL Class A-producing pathogens<sup>5,10</sup></span
 						>
 					</p>
 				</div>
