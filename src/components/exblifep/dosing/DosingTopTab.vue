@@ -16,6 +16,13 @@
 				@click="emit('goToBottomTab')"
 			/>
 		</div> -->
+		<img
+			src="/src/assets/images/back-button-white.png"
+			alt="Back Button"
+			class="absolute top-1/2 -translate-y-1/2 h-[150px] cursor-pointer"
+			@click="router.push({ name: 'exblifep-safety', query: { navigatedAwayBy: 'back-button' } })"
+			@touchstart.prevent="router.push({ name: 'exblifep-safety', query: { navigatedAwayBy: 'back-button' } })"
+		/>
 		<div class="page-content flex flex-col justify-end font-effra relative pb-12">
 			<div class="relative flex justify-between mr-12">
 				<div>
@@ -171,7 +178,7 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { ref, computed, inject, onMounted, watch } from 'vue';
 
 import { gsap } from 'gsap';
@@ -196,6 +203,7 @@ const props = defineProps({
 const emit = defineEmits(['goToBottomTab']);
 
 const route = useRoute();
+const router = useRouter();
 
 const sessionId = inject('sessionId');
 
