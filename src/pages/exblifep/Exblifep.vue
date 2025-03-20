@@ -106,7 +106,7 @@
 </template>
 
 <script setup>
-import Logo from '@/assets/images/exblifep-logo.png';
+import Logo from '@/assets/images/exblifep-logo.svg';
 import HallwayBed from '@/assets/images/hallway-bed.png';
 import ResistanceAndRecurrence from '@/assets/images/resistance-and-recurrence.png';
 

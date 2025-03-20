@@ -53,7 +53,7 @@
 									class="w-[30px] h-[30px]"
 								/>
 							</div>
-							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Home</p>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2 max-h-[22px]">Home</p>
 						</li>
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
@@ -78,7 +78,7 @@
 									class="w-[30px] h-[30px]"
 								/>
 							</div>
-							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Efficacy</p>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2 max-h-[22px]">Efficacy</p>
 						</li>
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
@@ -103,7 +103,7 @@
 									class="w-[30px] h-[30px]"
 								/>
 							</div>
-							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Safety</p>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2 max-h-[22px]">Safety</p>
 						</li>
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
@@ -156,7 +156,7 @@
 									class="w-[30px] h-[30px]"
 								/>
 							</div>
-							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2">Summary</p>
+							<p class="sidebar-text absolute left-[52px] top-1/2 -translate-y-1/2 max-h-[22px]">Summary</p>
 						</li>
 					</RouterLink>
 				</ul>

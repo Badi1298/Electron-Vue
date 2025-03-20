@@ -29,11 +29,11 @@
 						eradication* meets efficacy<sup>1</sup>
 					</p>
 					<button
-						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white text-2xl"
+						class="relative flex items-center justify-end min-w-[264px] gap-x-7 py-2.5 px-[22px] mt-24 bg-electric-blue text-white"
 						@click="router.push('/exblifep')"
 						@touchstart.prevent="router.push('/exblifep')"
 					>
-						<span>Get started</span>
+						<span class="text-2xl max-h-[26px]">Get started</span>
 						<img
 							src="/src/assets/images/chevron-right-white.png"
 							alt="Chevron Right"
@@ -102,7 +102,7 @@
 						@click="router.push('/zevtera')"
 						@touchstart.prevent="router.push('/zevtera')"
 					>
-						<span>Get started</span>
+						<span class="max-h-[26px]">Get started</span>
 						<img
 							src="/src/assets/images/chevron-right-white.png"
 							alt="Chevron Right"
@@ -153,7 +153,7 @@
 						@click="router.push('/xyd')"
 						@touchstart.prevent="router.push('/xyd')"
 					>
-						<span>Get started</span>
+						<span class="max-h-[26px]">Get started</span>
 						<img
 							src="/src/assets/images/chevron-right-white.png"
 							alt="Chevron Right"
@@ -204,7 +204,7 @@
 							>
 								<div class="relative w-full h-full bg-textured overflow-hidden bg-white pointer-events-none">
 									<img
-										src="/src/assets/images/exblifep-logo.png"
+										src="/src/assets/images/exblifep-logo.svg"
 										alt="Exblifep Life"
 										class="absolute bottom-[25.5rem] left-1/2 -translate-x-1/2 w-[170px]"
 									/>
