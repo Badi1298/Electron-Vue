@@ -4,7 +4,7 @@
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
 		<button
-			class="absolute left-1/2 -translate-x-1/2 top-0 z-50"
+			class="absolute left-1/2 top-0 z-50"
 			@click="emit('goToTopTab')"
 			@touchstart.prevent="emit('goToTopTab')"
 		>

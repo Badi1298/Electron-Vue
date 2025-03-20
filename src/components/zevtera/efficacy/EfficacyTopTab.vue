@@ -213,7 +213,7 @@
 		<footer class="relative pb-6">
 			<explore-another />
 			<button
-				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				class="absolute left-1/2 bottom-0"
 				@click="emit('goToBottomTab')"
 				@touchstart.prevent="emit('goToBottomTab')"
 			>
