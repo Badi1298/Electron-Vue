@@ -71,6 +71,32 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand, n
 	}
 });
 
+ipcMain.handle('write-action-data', async (_, action, sessionId, brand) => {
+	try {
+		if (brand === 'NONE') {
+			return 'success';
+		}
+
+		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));
+
+		if (!data.sessions[sessionId].brands[brand].actions) {
+			data.sessions[sessionId].brands[brand].actions = [];
+		}
+
+		data.sessions[sessionId].brands[brand].actions.push({
+			action,
+			timestamp: format(new Date(), 'pp'),
+		});
+
+		writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+		return 'success';
+	} catch (err) {
+		console.error('Error writing action data:', err);
+		return 'error';
+	}
+});
+
 ipcMain.handle('get-time-tracking-data', async () => {
 	try {
 		const data = JSON.parse(readFileSync(filePath, { encoding: 'utf-8' }));

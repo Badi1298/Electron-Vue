@@ -19,7 +19,7 @@
 
 <script setup>
 import { useRoute, useRouter } from 'vue-router';
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, provide, onMounted, onUnmounted } from 'vue';
 
 import { trackPageTime, exportToExcel } from './utils/analytics';
 
@@ -27,6 +27,8 @@ const route = useRoute();
 const router = useRouter();
 
 const sessionId = ref(crypto.randomUUID());
+provide('sessionId', sessionId);
+
 let startTime = performance.now();
 
 const startNewSession = () => {
