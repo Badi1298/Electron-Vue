@@ -24,7 +24,7 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-treatment sidebar"
 		>
 			<div
 				ref="sidebarContent"

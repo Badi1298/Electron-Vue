@@ -6,14 +6,10 @@
 				@click="toggleSidebar"
 				@touchstart.prevent="toggleSidebar"
 			>
-				<button class="absolute top-1/2 -translate-y-1/2 -left-5 bg-[#ECECEC] text-white p-2.5 rounded-md">
+				<button class="absolute top-1/2 -translate-y-1/2 -left-5 bg-[#ECECEC] text-white p-2.5 rounded-md drop-shadow-md">
 					<SimpleChevronRightIcon
-						v-if="open"
-						class="w-6 h-6"
-					/>
-					<SimpleChevronLeftIcon
-						v-else
-						class="w-6 h-6"
+						class="w-6 h-6 transition-all duration-300"
+						:class="{ 'rotate-180': !open }"
 					/>
 				</button>
 				<div
@@ -24,7 +20,7 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-treatment sidebar"
 		>
 			<div
 				ref="sidebarContent"
@@ -253,8 +249,7 @@ import { ref, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
 
-import SimpleChevronLeftIcon from '../../icons/SimpleChevronLeftIcon.vue';
-import SimpleChevronRightIcon from '../../icons/SimpleChevronRightIcon.vue';
+import SimpleChevronRightIcon from '@/icons/SimpleChevronRightIcon.vue';
 
 const props = defineProps({
 	open: {
@@ -335,10 +330,14 @@ const toggleSidebar = async () => {
 			sidebar.value,
 			{
 				width: 350,
-				marginTop: 32,
-				clipPath: 'none',
+				clipPath: 'inset(0% 0 0 0)',
 				ease: 'power4.inOut',
 				duration: 0.4,
+				onComplete: () => {
+					gsap.to(sidebar.value, {
+						clipPath: 'none',
+					});
+				},
 			},
 			0
 		)
