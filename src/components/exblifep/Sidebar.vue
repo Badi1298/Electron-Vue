@@ -24,7 +24,7 @@
 		</div>
 		<aside
 			ref="sidebar"
-			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar sidebar"
+			class="z-10 flex flex-col mb-8 bg-white rounded-l-[20px] relative shadow-sidebar font-effra sidebar"
 		>
 			<div
 				ref="sidebarContent"
@@ -33,7 +33,7 @@
 				<ul class="flex flex-col gap-y-4 px-4">
 					<RouterLink :to="{ name: 'exblifep-home', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep'),
 								'text-[#969696]': !isActive('/exblifep'),
@@ -58,7 +58,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-efficacy', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/efficacy'),
 								'text-[#969696]': !isActive('/exblifep/efficacy'),
@@ -83,7 +83,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-safety', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/safety'),
 								'text-[#969696]': !isActive('/exblifep/safety'),
@@ -108,7 +108,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-dosing', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[100px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[100px] text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/dosing'),
 								'text-[#969696]': !isActive('/exblifep/dosing'),
@@ -136,7 +136,7 @@
 					</RouterLink>
 					<RouterLink :to="{ name: 'exblifep-summary', query: { navigatedAwayBy: 'sidebar' } }">
 						<li
-							class="list__item relative px-3 py-5 min-h-[70px] font-uni-grotesk text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
+							class="list__item relative px-3 py-5 min-h-[70px] text-xl leading-normal rounded-md flex gap-x-2.5 items-center"
 							:class="{
 								'bg-[#EFEFEF] font-bold text-black': isActive('/exblifep/summary'),
 								'text-[#969696]': !isActive('/exblifep/summary'),
@@ -192,7 +192,7 @@
 					<div class="grid grid-cols-2 text-center">
 						<RouterLink :to="{ name: 'exblifep-references', query: { navigatedAwayBy: 'sidebar' } }">
 							<p
-								class="text-xl font-uni-grotesk text-[#969696]"
+								class="text-xl text-[#969696]"
 								@click="referencesPopupOpen = true"
 								@touchstart.prevent="referencesPopupOpen = true"
 							>
@@ -201,7 +201,7 @@
 						</RouterLink>
 						<RouterLink :to="{ name: 'exblifep-prescribing-information', query: { navigatedAwayBy: 'sidebar' } }">
 							<p
-								class="text-xl font-uni-grotesk text-[#969696]"
+								class="text-xl text-[#969696]"
 								@click="prescribingPopupOpen = true"
 								@touchstart.prevent="prescribingPopupOpen = true"
 							>
