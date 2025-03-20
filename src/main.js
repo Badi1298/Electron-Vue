@@ -71,7 +71,7 @@ ipcMain.handle('write-time-data', async (_, page, timeSpent, sessionId, brand, n
 	}
 });
 
-ipcMain.handle('write-action-data', async (_, action, sessionId, brand) => {
+ipcMain.handle('write-action-data', async (_, page, action, sessionId, brand) => {
 	try {
 		if (brand === 'NONE') {
 			return 'success';
@@ -84,6 +84,7 @@ ipcMain.handle('write-action-data', async (_, action, sessionId, brand) => {
 		}
 
 		data.sessions[sessionId].brands[brand].actions.push({
+			page,
 			action,
 			timestamp: format(new Date(), 'pp'),
 		});

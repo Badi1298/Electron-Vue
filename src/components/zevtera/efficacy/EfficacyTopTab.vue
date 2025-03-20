@@ -345,7 +345,7 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 
 const animateBacterialActivity = () => {
 	if (!bacterialActivityActive.value) {
-		trackAction('efficacy-bactericidal-activity', sessionId.value, brand.value);
+		trackAction('Efficacy', 'bactericidal-activity', sessionId.value, brand.value);
 	}
 
 	return animateSection({
@@ -360,7 +360,7 @@ const animateBacterialActivity = () => {
 
 const animateClinicalEfficacy = () => {
 	if (!clinicalEfficacyActive.value) {
-		trackAction('efficacy-clinical-efficacy', sessionId.value, brand.value);
+		trackAction('Efficacy', 'clinical-efficacy', sessionId.value, brand.value);
 	}
 
 	return animateSection({
@@ -375,11 +375,11 @@ const animateClinicalEfficacy = () => {
 
 const activateDay3 = () => {
 	activeClinicalEfficayTab.value = clinicalEfficacyTabs.DAY_3;
-	trackAction('efficacy-clinical-efficacy-day-3', sessionId.value, brand.value);
+	trackAction('Efficacy', 'clinical-efficacy-day-3', sessionId.value, brand.value);
 };
 
 const activateDay4 = () => {
 	activeClinicalEfficayTab.value = clinicalEfficacyTabs.DAY_4;
-	trackAction('efficacy-clinical-efficacy-day-4', sessionId.value, brand.value);
+	trackAction('Efficacy', 'clinical-efficacy-day-4', sessionId.value, brand.value);
 };
 </script>

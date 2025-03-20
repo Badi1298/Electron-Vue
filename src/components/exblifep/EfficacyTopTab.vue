@@ -243,11 +243,11 @@ onMounted(() => {
 
 const activateOverallSuccess = () => {
 	activeTab.value = Tabs.OVERALL_SUCCESS;
-	trackAction('efficacy-overall-success', sessionId.value, brand.value);
+	trackAction('Efficacy', 'overall-success', sessionId.value, brand.value);
 };
 
 const activateClinicalCure = () => {
 	activeTab.value = Tabs.CLINICAL_CURE;
-	trackAction('efficacy-clinical-cure', sessionId.value, brand.value);
+	trackAction('Efficacy', 'clinical-cure', sessionId.value, brand.value);
 };
 </script>

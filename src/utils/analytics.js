@@ -7,9 +7,9 @@ export function trackPageTime(page, timeSpent, sessionId, brand, navigatedAwayBy
 		.catch((err) => console.error(err));
 }
 
-export function trackAction(action, sessionId, brand) {
+export function trackAction(page, action, sessionId, brand) {
 	window.electronAPI
-		.trackAction(action, sessionId, brand)
+		.trackAction(page, action, sessionId, brand)
 		.then((response) => console.log(response))
 		.catch((err) => console.error(err));
 }

@@ -195,7 +195,7 @@ const animateExpandable = () => {
 			height: 600,
 			duration: 0.6,
 		});
-		trackAction('effective-treatment-chart', sessionId.value, brand.value);
+		trackAction('Effective treatment', 'chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}

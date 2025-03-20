@@ -158,7 +158,7 @@ const showDosingTable = () => {
 		gsap.to(dosingTable.value, { height: 0, duration: 0.5 });
 	} else {
 		gsap.to(dosingTable.value, { height: 480, duration: 0.5 });
-		trackAction('dosing-table', sessionId.value, brand.value);
+		trackAction('Dosing', 'table', sessionId.value, brand.value);
 	}
 
 	dosingTableActive.value = !dosingTableActive.value;

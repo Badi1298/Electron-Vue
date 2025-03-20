@@ -249,7 +249,7 @@ const animateExpandable = () => {
 			height: 662,
 			duration: 0.6,
 		});
-		trackAction('123-two-weeks-chart', sessionId.value, brand.value);
+		trackAction('1, 2, 3', 'two-weeks-chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}

@@ -209,7 +209,7 @@ const tabs = ref([
 		id: 1,
 		class: 'dosing',
 		name: 'Dosing',
-		action: 'dosing-dosing',
+		action: 'dosing',
 		details: `
 			<p class="pr-20">
 				The recommended dose for patients with normal renal<br /> function is
@@ -241,7 +241,7 @@ const tabs = ref([
 		id: 2,
 		class: 'administration',
 		name: 'Method of administration',
-		action: 'dosing-administration',
+		action: 'administration',
 		details: `
 			<p>Administered as:<sup>5</sup></p>
 			<ul class="flex flex-col gap-y-3.5 list-disc pl-5 ml-3">
@@ -357,7 +357,7 @@ const activateTab = async (newTab) => {
 	const previousTab = tabs.value.find((tab) => tab.id === activeTab.value);
 	const nextTab = newTab;
 
-	trackAction(newTab.action, sessionId.value, brand.value);
+	trackAction('Dosing and administration', newTab.action, sessionId.value, brand.value);
 
 	previousTab.active = false;
 

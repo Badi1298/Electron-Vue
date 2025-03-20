@@ -178,7 +178,7 @@ const animateExpandable = () => {
 			height: 620,
 			duration: 0.6,
 		});
-		trackAction('safety-profile-chart', sessionId.value, brand.value);
+		trackAction('Safety Profile', 'chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}

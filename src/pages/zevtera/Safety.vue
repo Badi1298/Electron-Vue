@@ -322,7 +322,7 @@ const animateSection = ({ activeRef, detailsRef, mainRef, swapCardSelector, fade
 
 const animateWellTolarated = () => {
 	if (!wellTolaratedActive.value) {
-		trackAction('safety-well-toerated', sessionId.value, brand.value);
+		trackAction('Safety', 'well-tolerated', sessionId.value, brand.value);
 	}
 
 	return animateSection({
@@ -337,7 +337,7 @@ const animateWellTolarated = () => {
 
 const animateGutFlora = () => {
 	if (!gutFloraActive.value) {
-		trackAction('safety-gut-flora', sessionId.value, brand.value);
+		trackAction('Safety', 'gut-flora', sessionId.value, brand.value);
 	}
 
 	return animateSection({
