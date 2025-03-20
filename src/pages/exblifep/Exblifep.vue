@@ -63,7 +63,7 @@
 					</card>
 					<card
 						title="Safety"
-						subtitle="Comparable safety profile<br /> to piperacillin/tazobactam<sup>5</sup>"
+						subtitle="Comparable safety profile<br /> to piperacillin/tazobactam<sup>1</sup>"
 						button-class="bg-cool-grey text-white"
 						discover-more-path="/exblifep/safety"
 						class="mt-11 font-effra"

@@ -3,7 +3,7 @@
 		ref="topTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
 	>
-		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 -translate-y-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/active-dot.png"
 				alt="Active Dot"
@@ -50,7 +50,7 @@
 					<div class="grid grid-cols-[1fr_1.68fr] gap-x-2">
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
-							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
+							:class="[activeTab === Tabs.OVERALL_SUCCESS ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4] text-dark-blue']"
 							@click="activateOverallSuccess"
 							@touchstart.prevent="activateOverallSuccess"
 						>
@@ -58,7 +58,7 @@
 						</button>
 						<button
 							class="py-2.5 rounded-t-[20px] text-2xl transition-colors duration-500"
-							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4]']"
+							:class="[activeTab === Tabs.CLINICAL_CURE ? 'bg-electric-blue text-white' : 'bg-[#E4E4E4] text-dark-blue']"
 							@click="activateClinicalCure"
 							@touchstart.prevent="activateClinicalCure"
 						>
@@ -106,7 +106,7 @@
 
 		<footer class="relative pb-6">
 			<the-footer class="footer mb-4">
-				>CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
+				CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set.<br />
 				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the
 				baseline signs and symptoms present at screening (clinical cure) and reduction of qualifying baseline pathogen to less than 10<sup>3</sup>
