@@ -44,7 +44,7 @@
 					<div
 						class="relative bg-primary-green px-6 h-[284px] flex flex-col justify-center rounded-[20px] overflow-hidden shadow-zevtera-efficacy-pathogens-card"
 					>
-						<h3 class="text-[32px] font-bold text-white">
+						<h3 class="text-[32px] font-bold font-stag-sans text-white">
 							Demonstrated<br />
 							efficacy<sup>5,6</sup>
 						</h3>
@@ -76,12 +76,12 @@
 						alt="Arrow Down"
 						class="h-[175px] w-auto mt-5"
 					/>
-					<h2 class="text-5xl text-white font-bold mt-7 pl-7">
+					<h2 class="text-5xl text-white font-stag-sans font-bold mt-7 pl-7">
 						Fast<br />
 						bactericidal activity
 					</h2>
 					<p class="text-2xl text-white mt-4 font-uni-grotesk pl-7">
-						ZEVTERA® exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup>5</sup>
+						Exhibits rapid in vitro bactericidal activity in Gram-positive and Gram-negative pathogens<sup class="text-[50%] -top-[0.9em]">5</sup>
 					</p>
 				</div>
 				<div
@@ -105,9 +105,9 @@
 						alt="Arrow Down"
 						class="h-[225px] w-auto mt-[22px] ml-7"
 					/>
-					<h2 class="text-5xl text-white font-bold mt-7 pl-7">Clinical efficacy from Days 3-4</h2>
+					<h2 class="text-5xl text-white font-stag-sans font-bold mt-7 pl-7">Clinical efficacy from Days 3-4</h2>
 					<p class="text-2xl text-white mt-4 font-uni-grotesk pl-7 pr-4">
-						Early improvement at Day 3 in patients with CAP by risk factors (CE)<sup>6</sup>
+						Early improvement at D3 in patients with CAP and at D4 in patients with HAP (CE)<sup class="text-[50%] -top-[0.9em]">6</sup>
 					</p>
 				</div>
 				<div

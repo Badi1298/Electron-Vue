@@ -37,8 +37,8 @@
 			<div class="relative gap-x-28 items-center flex-1 content-center">
 				<div>
 					<the-title
-						>More pathogens<br />
-						covered</the-title
+						>More<br />
+						pathogens covered</the-title
 					>
 					<div class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-8 max-w-[582px]">
 						<img
@@ -46,7 +46,7 @@
 							alt="Tick"
 							class="w-[82px] h-auto"
 						/>
-						<h4 class="text-[32px] font-bold text-white">Documented use<sup>3</sup></h4>
+						<h4 class="text-[32px] font-bold font-stag-sans text-white">Documented use<sup class="text-[50%] -top-[0.7em]">3</sup></h4>
 					</div>
 					<div
 						class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-[18px] max-w-[582px]"
@@ -56,7 +56,7 @@
 							alt="Tick"
 							class="w-[82px] h-auto"
 						/>
-						<h4 class="text-[32px] font-bold text-white">Empiric use<sup>2,7,8</sup></h4>
+						<h4 class="text-[32px] font-bold font-stag-sans text-white">Empiric use<sup class="text-[50%] -top-[0.7em]">2,7,8</sup></h4>
 					</div>
 					<div
 						class="flex items-center gap-x-5 bg-primary-green px-6 py-5 rounded-[20px] shadow-zevtera-efficacy-pathogens-card mt-[18px] max-w-[582px]"
@@ -66,16 +66,18 @@
 							alt="Tick"
 							class="w-[82px] h-auto"
 						/>
-						<h4 class="text-[32px] font-bold text-white">Adapted to your local stewardship program<sup>4,8</sup></h4>
+						<h4 class="text-[32px] font-bold font-stag-sans text-white">
+							Adapted to your local stewardship program<sup class="text-[50%] -top-[0.7em]">4,8</sup>
+						</h4>
 					</div>
 				</div>
 				<div
 					ref="details"
-					class="absolute right-[60px] top-1/2 -translate-y-1/2 z-50 flex flex-col bg-white p-12 rounded-[20px] border-primary-green border-[5px]"
+					class="absolute right-[60px] top-1/2 -translate-y-1/2 z-50 flex flex-col bg-white p-12 rounded-[20px] border-primary-green border-[5px] shadow-zevtera-efficacy-more-pathogens-card"
 				>
 					<h3
 						ref="detailsTitle"
-						class="font-bold text-2xl text-center"
+						class="font-bold text-2xl text-center font-stag-sans"
 					>
 						Early improvement at Day 4 in patients with HAP<br />
 						(excluding VAP) by pathogen type(CE)<sup>6</sup>
