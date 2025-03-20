@@ -5,40 +5,40 @@
 			ref="overlayScreen"
 			class="absolute top-0 left-0 w-full h-full bg-home bg-[#195C68] text-white z-10 flex flex-col items-center justify-center"
 		>
-			<div class="text-white">
+			<div class="text-white font-futura">
 				<section class="absolute top-[18%] left-[26.4%] flex flex-col gap-y-[100px]">
 					<div
 						ref="text1"
 						class="opacity-0"
 					>
-						<h2 class="text-[32px] font-extrabold leading-[1.2]">
+						<h2 class="text-[32px] font-semibold leading-[1.2]">
 							We offer a complimentary range of treatments extending<br />
 							across the antimicrobial landscape<sup>1-3</sup>
 							<span class="text-[40px]"> –</span>
 						</h2>
-						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list <sup>4</sup></p>
 					</div>
 					<div
 						ref="text2"
 						class="ml-[100px] opacity-0"
 					>
-						<h2 class="text-[32px] font-extrabold leading-[1.2]">
+						<h2 class="text-[32px] font-semibold leading-[1.2]">
 							Putting humanity first - we strive to remove treatment<br />
 							barriers and reduce the burden of care
 							<span class="text-[40px]"> –</span>
 						</h2>
-						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+						<p class="text-[24px]">forging a smoother path to recovery for patients today, and safeguarding the future</p>
 					</div>
 					<div
 						ref="text3"
 						class="ml-[200px] opacity-0"
 					>
-						<h2 class="text-[32px] font-extrabold leading-[1.2]">
+						<h2 class="text-[32px] font-semibold leading-[1.2]">
 							Forging a different path by providing effective<br />
 							treatments with predictable outcomes<sup>5-7</sup>
 							<span class="text-[40px]"> –</span>
 						</h2>
-						<p class="text-[24px]">including resistant pathogens outlined in WHO's Bacterial Priority Pathogen list 4</p>
+						<p class="text-[24px]">even in difficult-to-treat patients who currently have limited treatment options <sup>8-10</sup></p>
 					</div>
 					<button
 						ref="button"
@@ -55,17 +55,20 @@
 					</button>
 				</section>
 
-				<footer class="absolute bottom-8 left-[41.5%] text-[10px] leading-tight">
-					1. EXBLIFEP® Summary of Product Characteristics 2024. 2. XYDALBA® Summary of Product Characteristics 2024. 3. ZEVTERA® Summary of<br />
-					Product Characteristics 2024. 4. World Health Organization. WHO Bacterial Priority Pathogens List 2024. Available at:
-					<span class="underline">https://www.who.int/<br />publications/i/item/9789240093461.</span> Accessed March 2025. 5. Kaye KS
-					<span class="italic">et al. JAMA </span>2022;328:1304-1314. 6. McCarthy MW <span class="italic">et al. Infect Dis Ther</span><br />
-					2020;9:53-67. 7. Giacobbe D <span class="italic">et al. ERATCK </span>2019;17(9):689-698. 8. Boyd SE
-					<span class="italic">et al. Antimicrob Agents Chemother </span>2022;66:e0021622. 9. Belley A
-					<span class="italic"
-						>et<br />
-						al. J Glob Antimicrob Resist </span
-					>2021;25:93-101. 10. D'Angelo RG <span class="italic">et al. Expert Opin Pharmacother </span>2016;17:953-967.
+				<footer class="absolute bottom-4 left-[41.5%] text-[10px] leading-tight">
+					<p>
+						1. EXBLIFEP® Summary of Product Characteristics 2024. 2. XYDALBA® Summary of Product Characteristics 2024. 3. ZEVTERA® Summary of<br />
+						Product Characteristics 2024. 4. World Health Organization. WHO Bacterial Priority Pathogens List 2024. Available at:
+						<span class="underline">https://www.who.int/<br />publications/i/item/9789240093461.</span> Accessed March 2025. 5. Kaye KS
+						<span class="italic">et al. JAMA </span>2022;328:1304-1314. 6. McCarthy MW <span class="italic">et al. Infect Dis Ther</span><br />
+						2020;9:53-67. 7. Giacobbe D <span class="italic">et al. ERATCK </span>2019;17(9):689-698. 8. Boyd SE
+						<span class="italic">et al. Antimicrob Agents Chemother </span>2022;66:e0021622. 9. Belley A
+						<span class="italic"
+							>et<br />
+							al. J Glob Antimicrob Resist </span
+						>2021;25:93-101. 10. D'Angelo RG <span class="italic">et al. Expert Opin Pharmacother </span>2016;17:953-967.
+					</p>
+					<p class="mt-1.5">GL/CEFE/PM/0051 | March 2025</p>
 				</footer>
 				<img
 					src="/src/assets/images/advanz-logo-bg-white.png"
