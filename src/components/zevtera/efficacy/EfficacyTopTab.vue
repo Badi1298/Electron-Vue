@@ -218,6 +218,7 @@
 		</div>
 
 		<footer class="relative pb-6">
+			<the-footer class="footer mb-8">*Patients' groups who are severely ill or at high risk of poor outcomes</the-footer>
 			<explore-another />
 			<button
 				class="absolute left-1/2 bottom-0"
@@ -248,6 +249,7 @@ import { useAnimateSelectTab } from '@/composables/useAnimateSelectTab.js';
 import ChartA from '@/assets/images/zevtera-efficacy-day-3.png';
 import ChartB from '@/assets/images/zevtera-efficacy-day-4.png';
 
+import TheFooter from '@/components/TheFooter.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
 
