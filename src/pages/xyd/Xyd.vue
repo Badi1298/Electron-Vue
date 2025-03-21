@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full">
+	<div class="grid grid-cols-1 grid-rows-1 pb-6 h-full font-gothic">
 		<div class="flex flex-col justify-center">
 			<div class="page-content flex justify-between items-center max-w-[1386px]">
 				<section class="flex flex-col pt-24">
@@ -15,17 +15,17 @@
 					/>
 
 					<div class="pt-7 mt-14">
-						<h1 class="relative text-[75px] font-bold leading-tight text-white">One dose does it.*</h1>
-						<p class="text-[32px] text-white font-normal">
+						<h1 class="relative text-[75px] font-bold leading-tight text-white">One dose does it.</h1>
+						<p class="text-[32px] text-white font-normal leading-tight">
 							Xydalba™ delivers two weeks of effective<br />
-							treatment in a single dose,<sup>1</sup> meaning your<br />
-							patients can spend <span class="font-bold">less days in hospital.</span><sup>2,3</sup>
+							treatment in a single dose,<sup class="text-[60%] -top-[0.7em]">1</sup> meaning your<br />
+							patients can spend <span class="font-bold">less days in hospital.</span><sup class="text-[60%] -top-[0.7em]">2,3</sup>
 						</p>
 					</div>
 				</section>
-				<section class="pt-36 -translate-x-1">
+				<section class="pt-36 translate-y-5">
 					<h2 class="text-[32px] font-bold text-white">I'm interested in:</h2>
-					<div class="flex h-[186px] justify-between items-center bg-white shadow-exblifep-card rounded-[10px] px-8 min-w-[465px] font-gothic">
+					<div class="flex h-[186px] justify-between items-center bg-white shadow-exblifep-card rounded-[10px] px-8 min-w-[465px] font-gothic mt-9">
 						<div class="flex flex-col h-full justify-center">
 							<h3 class="font-bold text-[20px] leading-tight text-black">1,2,3</h3>
 							<p class="text-sm leading-tight mt-1.5">
@@ -90,20 +90,20 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer class="footer text-white"
+			<the-footer class="footer text-white font-gothic leading-snug"
 				>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen of
 				dalbavancin in ABSSSI.<sup>4</sup><br />
-				Clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen (97.3%).<sup>5</sup><br />
-				Xydalba™ is indicated for the treatment of Acute Bacterial Skin and Skin Structure Infections (ABSSSI) in adults. Consideration should be given
-				to official guidance on the appropriate use of antibacterial agents.<sup>1</sup><br />
+				In paediatric patients, clinical cure rate similar across dalbavancin Single-Dose (97.4%) and 2-dose regimen (97.3%).<sup>5</sup><br />
+				Xydalba™ is indicated for the treatment of Acute Bacterial Skin and Skin Structure Infections (ABSSSI) in adults and paediatric patients aged 3
+				months and older. Consideration should be given to official guidance on the appropriate use of antibacterial agents.<sup>1</sup><br />
 				More information about this product may be requested from the local representative of the marketing authorisation holder. MAH for Europe: AbbVie
 				Deutschland GmbH & Co. KG, Knollstraße, 67061 Ludwigshafen, Germany. MAH for UK: AbbVie Ltd., Maidenhead, SL6 4UB, UK.<br />
 				Commercialised by ADVANZ PHARMA® in France, UK, Ireland, Luxembourg, Norway, Denmark, Finland, Sweden, Germany; local contacts are available in
 				the Patient Information Leaflet (<span class="underline"
-					>https://www.ema.europa.eu/en/documents/product-information/xydalba-epar-product-information_en.pdf</span
-				>).<br />
-				Xydalba™ is a trademark of Allergan Pharmaceuticals International Limited ©2025 ADVANZ PHARMA®</the-footer
-			>
+					>https://www.ema.europa.eu/en/documents/product-information/xydalba-epar-product-<br />information_en.pdf</span
+				>). Xydalba™ is a trademark of Allergan Pharmaceuticals International Limited ©2025 ADVANZ PHARMA® GL/CEFE/PM/0051 - Date of preparation: March
+				2025
+			</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 			</div>
