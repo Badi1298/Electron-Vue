@@ -7,7 +7,7 @@
 						<VLazyImage
 							:src="MabelioBullet"
 							alt="Mabelio Bullet"
-							class="w-[1070px] h-auto"
+							class="w-[1070px] h-[424px] object-cover"
 						/>
 						<VLazyImage
 							:src="StrikeFast"
