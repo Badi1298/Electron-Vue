@@ -25,45 +25,67 @@
 				</section>
 				<section class="pt-36 -translate-x-1">
 					<h2 class="text-[32px] font-bold text-white">I'm interested in:</h2>
-					<card
-						title="1, 2, 3"
-						subtitle="1 dose of Xydalba™ gives your patients<br /> 2 weeks of effective treatment in a<br /> single 30-minute infusion<sup>1</sup>"
-						button-class="bg-[#982384] text-white"
-						discover-more-path="/xyd/one-two-three"
-						class="mt-9 min-w-[465px]"
-					>
+					<div class="flex h-[186px] justify-between items-center bg-white shadow-exblifep-card rounded-[10px] px-8 min-w-[465px] font-gothic">
+						<div class="flex flex-col h-full justify-center">
+							<h3 class="font-bold text-[20px] leading-tight text-black">1,2,3</h3>
+							<p class="text-sm leading-tight mt-1.5">
+								1 dose of Xydalba™ gives your patients<br />
+								2 weeks of effective treatment in a<br />
+								single 30-minute infusion<sup>1</sup>
+							</p>
+
+							<RouterLink :to="{ name: 'xyd-one-two-three', query: { navigatedAwayBy: 'discover-more-button' } }">
+								<button class="flex items-center justify-center py-3 mt-2 text-sm w-[150px] bg-[#982384] text-white">
+									<span :class="buttonTextClass">Discover more</span>
+								</button>
+							</RouterLink>
+						</div>
 						<img
 							src="/src/assets/images/123-icon-purple.png"
 							alt="Chart Dark Green"
 							class="w-[106px] h-auto"
 						/>
-					</card>
-					<card
-						title="Effective paediatric treatment"
-						subtitle="Xydalba™ provided effective treatment<br /> in adult and paediatric patientst<sup>5</sup>"
-						button-class="bg-[#276B88] text-white"
-						discover-more-path="/xyd/treatment"
-						class="mt-11 max-w-[465px]"
-					>
+					</div>
+					<div class="flex h-[186px] justify-between items-center bg-white shadow-exblifep-card rounded-[10px] px-8 min-w-[465px] font-gothic mt-11">
+						<div class="flex flex-col h-full justify-center">
+							<h3 class="font-bold text-[20px] leading-tight text-black">Effective treatment</h3>
+							<p class="text-sm leading-tight mt-1.5">
+								Xydalba™ provided effective treatment<br />
+								in adult and paediatric patientst<sup>t5</sup>
+							</p>
+							<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'discover-more-button' } }">
+								<button class="flex items-center justify-center py-3 mt-[18px] text-sm w-[150px] bg-[#276B88] text-white">
+									<span :class="buttonTextClass">Discover more</span>
+								</button>
+							</RouterLink>
+						</div>
 						<img
 							src="/src/assets/images/dosing-bottle-turqoise.png"
 							alt="Shiled Orange"
-							class="w-[106px] h-auto"
+							class="w-[106px] h-auto font-gothic"
 						/>
-					</card>
-					<card
-						title="Safety profile"
-						subtitle="Well-tolerated safety profile, consistent in both adult and paediatric patients<sup>1,5</sup>"
-						button-class="bg-[#009656] text-white"
-						discover-more-path="/xyd/safety"
-						class="mt-11 max-w-[465px]"
+					</div>
+					<div
+						class="flex h-[186px] justify-between items-center bg-white shadow-exblifep-card rounded-[10px] px-8 min-w-[465px] font-gothic mt-11 max-w-[465px]"
 					>
+						<div class="flex flex-col h-full justify-center">
+							<h3 class="font-bold text-[20px] leading-tight text-black">Safety profile</h3>
+							<p class="text-sm leading-tight mt-1.5">
+								Well-tolerated safety profile, consistent<br />
+								in both adult and paediatric patients<sup>1,5</sup>
+							</p>
+							<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'discover-more-button' } }">
+								<button class="flex items-center justify-center py-3 mt-[18px] text-sm w-[150px] bg-[#009656] text-white">
+									<span :class="buttonTextClass">Discover more</span>
+								</button>
+							</RouterLink>
+						</div>
 						<img
 							src="/src/assets/images/shield-green.png"
 							alt="Dosing Golden"
 							class="w-[106px] h-auto"
 						/>
-					</card>
+					</div>
 				</section>
 			</div>
 		</div>

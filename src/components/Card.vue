@@ -14,7 +14,7 @@
 					class="flex items-center justify-center py-3 text-sm w-[150px] mt-1.5"
 					:class="buttonClass"
 				>
-					<span class="max-h-[16px]">Discover More</span>
+					<span :class="buttonTextClass">Discover more</span>
 				</button>
 			</RouterLink>
 		</div>
@@ -33,6 +33,10 @@ defineProps({
 		default: '',
 	},
 	buttonClass: {
+		type: String,
+		default: '',
+	},
+	buttonTextClass: {
 		type: String,
 		default: '',
 	},

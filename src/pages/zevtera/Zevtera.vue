@@ -53,6 +53,7 @@
 						title="Efficacy"
 						subtitle="Demonstrated efficacy with clinical<br /> efficacy from Days 3-4, with more pathogens covered<sup>5-8</sup>"
 						button-class="bg-[#009656] text-white"
+						button-text-class="max-h-4"
 						discover-more-path="/zevtera/efficacy"
 						class="mt-9 font-uni-grotesk max-w-[424px] pt-7"
 					>
@@ -66,6 +67,7 @@
 						title="Safety"
 						subtitle="ZEVTERA®/MABELIO® is<br /> generally well tolerated<sup>9</sup>"
 						button-class="bg-[#FFA94D] text-black"
+						button-text-class="max-h-4"
 						discover-more-path="/zevtera/safety"
 						class="mt-11 font-uni-grotesk max-w-[424px] pt-9"
 					>
@@ -79,6 +81,7 @@
 						title="Dosing"
 						subtitle="Ease-of-use dosing<sup>4</sup>"
 						button-class="bg-[#FCC100] text-black"
+						button-text-class="max-h-4"
 						discover-more-path="/zevtera/dosing"
 						class="mt-11 font-uni-grotesk max-w-[424px] pt-9"
 					>
