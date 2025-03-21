@@ -3,7 +3,7 @@
 		ref="topTab"
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10"
 	>
-		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 -translate-y-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/active-dot-purple.png"
 				alt="Active Dot"

@@ -25,7 +25,7 @@
 							src="/src/assets/images/chevron-right-charcoal.png"
 							alt="Chevron Right"
 							:class="[dosingTableActive ? 'transform rotate-180' : '']"
-							class="w-11 h-11 transition-all duration-500"
+							class="w-[45px] object-contain transition-all duration-500"
 						/>
 					</div>
 					<div

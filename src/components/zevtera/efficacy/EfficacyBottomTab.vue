@@ -14,7 +14,7 @@
 				class="w-[140px] h-[50px] cursor-pointer"
 			/>
 		</button>
-		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 -translate-y-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
