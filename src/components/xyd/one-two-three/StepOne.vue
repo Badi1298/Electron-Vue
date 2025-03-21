@@ -29,7 +29,7 @@
 				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-center font-gothic">
+		<div class="ml-[124px] flex flex-col justify-center font-gothic">
 			<div class="flex items-center gap-x-4">
 				<span class="text-[220px] text-primary-purple font-bold">1.</span>
 				<h1 class="font-bold text-[75px] text-primary-purple leading-none translate-y-5">
@@ -90,7 +90,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer class="footer mb-4">ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer>
+			<the-footer class="ml-[124px] mb-4">ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer>
 			<ExploreAnother />
 			<button
 				class="absolute left-[42%] bottom-0"
