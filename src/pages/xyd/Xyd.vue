@@ -36,7 +36,7 @@
 
 							<RouterLink :to="{ name: 'xyd-one-two-three', query: { navigatedAwayBy: 'discover-more-button' } }">
 								<button class="flex items-center justify-center py-3 mt-2 text-sm w-[150px] bg-[#982384] text-white">
-									<span :class="buttonTextClass">Discover more</span>
+									<span>Discover more</span>
 								</button>
 							</RouterLink>
 						</div>
@@ -55,7 +55,7 @@
 							</p>
 							<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'discover-more-button' } }">
 								<button class="flex items-center justify-center py-3 mt-[18px] text-sm w-[150px] bg-[#276B88] text-white">
-									<span :class="buttonTextClass">Discover more</span>
+									<span>Discover more</span>
 								</button>
 							</RouterLink>
 						</div>
@@ -76,7 +76,7 @@
 							</p>
 							<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'discover-more-button' } }">
 								<button class="flex items-center justify-center py-3 mt-[18px] text-sm w-[150px] bg-[#009656] text-white">
-									<span :class="buttonTextClass">Discover more</span>
+									<span>Discover more</span>
 								</button>
 							</RouterLink>
 						</div>
