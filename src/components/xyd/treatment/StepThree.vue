@@ -35,7 +35,7 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-end font-effra pb-6 relative max-w-[1446px]">
+		<div class="page-content flex flex-col justify-end font-gothic pb-6 relative max-w-[1446px]">
 			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ provided effective treatment in a paediatric population<sup>5</sup></h1>
 
 			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px] mt-12">
@@ -80,21 +80,25 @@
 						>
 							<p class="text-xl font-bold text-white">Clinical response* in paediatric patients, all cohorts, mITT<sup>†</sup> population</p>
 							<div class="flex items-center gap-x-5">
-								<div
-									v-if="!isExpanded"
-									class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green"
-								>
+								<div class="small-graph flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
 									<img
 										src="/src/assets/images/xyd-treatment-chart-3.svg"
 										alt="Small Chart"
 										class="w-[120px] h-auto"
 									/>
 								</div>
-								<img
-									src="/src/assets/images/touch-purple.png"
-									alt="Touch Icon"
-									class="w-[70px] h-[70px]"
-								/>
+								<div class="w-[70px] h-[70px] relative">
+									<img
+										src="/src/assets/images/touch-purple.png"
+										alt="Touch Icon"
+										class="absolute top-0 left-0 w-full h-full"
+									/>
+									<img
+										src="/src/assets/images/close-button-purple.png"
+										alt="Close Button"
+										class="close-button absolute top-0 left-0 w-full h-full"
+									/>
+								</div>
 							</div>
 						</div>
 						<div
@@ -116,7 +120,7 @@
 						alt="Clock"
 						class="w-[90px] h-[90px] mx-auto"
 					/>
-					<p class="text-[22px] text-primary-purple font-bold text-center">
+					<p class="text-[22px] text-primary-purple font-bold text-center leading-tight">
 						Clinical responses were similar across Xydalba™ single dose and 2-dose regimens and similar to comparator<sup>‡</sup> treatments
 					</p>
 				</div>
@@ -124,11 +128,12 @@
 		</div>
 
 		<footer>
-			<the-footer class="footer mb-4 pr-[60px] max-w-[1446px] font-gothic">
+			<the-footer class="footer mb-4 max-w-[1446px] font-gothic">
 				*Sponsor assessment. †mITT: randomised patients who received ≥1 dose of study drug and had a diagnosis of ABSSSI (or, in cohort 5,
 				suspected/confirmed sepsis) not known to be caused exclusively by a Gram-negative organism. <sup>†</sup>Vancomycin IV, oxacillin IV; or
-				flucloxacillin IV ABSSSI: Acute Bacterial Skin and Skin Structure Infections; EOT: End of treatment; mITT: Modified intent-to-treat; TOC: Test
-				of cure; IV: Intravenous.
+				flucloxacillin IV<br />
+				ABSSSI: Acute Bacterial Skin and Skin Structure Infections; EOT: End of treatment; mITT: Modified intent-to-treat; TOC: Test of cure; IV:
+				Intravenous.
 			</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
@@ -178,6 +183,7 @@ const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(chart.value, { height: 0 });
+	gsap.set('.close-button', { autoAlpha: 0 });
 });
 
 watch(
@@ -195,8 +201,12 @@ const animateExpandable = () => {
 			height: 600,
 			duration: 0.6,
 		});
+		gsap.to('.close-button', { autoAlpha: 1, duration: 0.6 });
+		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
 		trackAction('Effective treatment', 'chart', sessionId.value, brand.value);
 	} else {
+		gsap.to('.close-button', { autoAlpha: 0, duration: 0.6 });
+		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.3 });
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}
 

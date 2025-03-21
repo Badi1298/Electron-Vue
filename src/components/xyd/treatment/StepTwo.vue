@@ -35,16 +35,16 @@
 				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-end font-effra relative max-w-[1446px]">
+		<div class="page-content flex flex-col justify-end font-gothic relative max-w-[1446px]">
 			<h1 class="text-[40px] font-bold text-primary-purple">
 				Xydalba™ delivers long-lasting treatment without compromising<br />
-				on early clinical response<sup>8</sup>
+				on early clinical response<sup class="text-[65%] -top-[0.5em]">8</sup>
 			</h1>
 
 			<section class="grid grid-cols-[1fr_0.34fr] items-end gap-x-6 mt-7 pr-[60px]">
 				<div>
 					<div class="bg-primary-green py-7 rounded-t-[20px] pl-10 text-xl font-bold text-white">
-						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup>8</sup>
+						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup class="text-[65%] -top-[0.55em]">8</sup>
 					</div>
 					<div class="bg-white px-16 py-3.5 shadow-treatment w-[1016px] h-[587px]">
 						<VLazyImage
@@ -65,7 +65,10 @@
 						class="w-[90px] h-[90px] mx-auto"
 					/>
 					<p class="text-[22px] text-primary-purple text-center">
-						81.4% of patients benefited from a ≥20% reduction in lesion size in 48-72 hours<sup>†9</sup>
+						81.4% of patients benefited from a <span class="font-bold">≥20% reduction</span> in lesion size in 48-72 hours<sup
+							class="text-[65%] -top-[0.4em]"
+							>†9</sup
+						>
 					</p>
 				</div>
 			</section>
@@ -74,8 +77,8 @@
 		<footer class="pt-6">
 			<the-footer class="footer mb-6 max-w-[1446px] pr-[60px] font-gothic">
 				*FDA primary endpoint, EMA secondary endpoint: Early clinical response at 48 and 72 hours of therapy was defined as both cessation of spread of
-				the erythema associated with the infection (i.e. no increase in the surface area as compared with baseline) and a temperature of 37.6°C or lower
-				at three consecutive readings performed 6 hours apart.<sup>8 †</sup>Without needing rescue antibacterial therapy<sup>9</sup>
+				the erythema associated with the infection (i.e. no increase in the surface area as compared with baseline) and a temperature of 37.6°C<br />
+				or lower at three consecutive readings performed 6 hours apart.<sup>8 †</sup>Without needing rescue antibacterial therapy<sup>9</sup>
 			</the-footer>
 			<ExploreAnother />
 			<button
@@ -116,8 +119,6 @@ const props = defineProps({
 
 const emit = defineEmits(['goToTopTab', 'goToBottomTab']);
 
-const chart = ref(null);
-const details = ref(null);
 const middleTab = ref(null);
 
 watch(

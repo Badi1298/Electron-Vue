@@ -1,5 +1,5 @@
 <template>
-	<div class="flex absolute right-0 min-h-screen">
+	<div class="flex">
 		<div class="flex items-center absolute z-20 top-[17%] w-[324px]">
 			<div
 				class="relative transform w-full"
