@@ -118,16 +118,23 @@
 										class="w-[120px] h-auto"
 									/>
 								</div>
-								<img
-									src="/src/assets/images/touch-purple.png"
-									alt="Touch Icon"
-									class="w-[70px] h-[70px]"
-								/>
+								<div class="w-[70px] h-[70px] relative">
+									<img
+										src="/src/assets/images/touch-purple.png"
+										alt="Touch Icon"
+										class="absolute top-0 left-0 w-full h-full"
+									/>
+									<img
+										src="/src/assets/images/close-button-purple.png"
+										alt="Close Button"
+										class="close-button absolute top-0 left-0 w-full h-full"
+									/>
+								</div>
 							</div>
 						</div>
 						<div
 							ref="chart"
-							class="flex flex-col bg-white overflow-hidden"
+							class="flex flex-col bg-white overflow-hidden shadow-treatment"
 						>
 							<img
 								src="/src/assets/images/step-2-big-chart.png"
@@ -162,8 +169,8 @@
 			</section>
 		</div>
 
-		<footer class="pt-6">
-			<the-footer class="footer mb-6">
+		<footer class="pt-6 font-gothic">
+			<the-footer class="footer mb-6 leading-tight">
 				*Vancomycin/linezolid in Discover studies.<sup>8 †</sup>Pooled analysis of dalbavancin-treated patients in phase 2/3 studies vs. those receiving
 				comparator agents (vancomycin, linezolid, cefazolin, nafcillin, or oxacillin).<sup>9 ‡</sup>MIC90 = minimum inhibitory concentration at which
 				90% of the isolates<br />
@@ -229,6 +236,7 @@ const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(chart.value, { height: 0 });
+	gsap.set('.close-button', { autoAlpha: 0 });
 });
 
 watch(
@@ -246,11 +254,13 @@ const animateExpandable = () => {
 			height: 662,
 			duration: 0.6,
 		});
+		gsap.to('.close-button', { autoAlpha: 1, duration: 0.6 });
 		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
 		trackAction('1, 2, 3', 'two-weeks-chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
-		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.6 });
+		gsap.to('.close-button', { autoAlpha: 0, duration: 0.6 });
+		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.3 });
 	}
 
 	isExpanded.value = !isExpanded.value;
