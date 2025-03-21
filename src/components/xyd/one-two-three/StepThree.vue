@@ -40,30 +40,30 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div class="ml-[124px] flex flex-col justify-center font-effra relative">
+		<div class="ml-[124px] flex flex-col justify-center font-gothic relative">
 			<div class="relative flex items-center gap-x-4">
-				<span class="text-[220px] text-primary-turqoise">3.</span>
-				<h1 class="font-bold text-[75px] text-primary-turqoise leading-none translate-y-3">
+				<span class="text-[220px] text-primary-turqoise font-bold">3.</span>
+				<h1 class="font-bold text-[75px] text-primary-turqoise leading-none translate-y-5">
 					30<br />
 					minutes
 				</h1>
 			</div>
 
-			<section class="-mt-14">
+			<section class="-mt-10">
 				<p class="text-primary-turqoise text-2xl font-bold">
 					In one 30-minute infusion Xydalba<sup>™</sup> provides<br />
-					convenience for you and your patients<sup>2,3</sup>
+					convenience for you and your patients<sup class="text-[60%] -top-[0.55em]">2,3</sup>
 				</p>
-				<p class="text-xl text-dark-grey mt-5">
+				<p class="text-xl text-dark-grey mt-5 leading-tight">
 					In the post hoc analysis of the single dose phase 3 study, the<br />
-					majority of adult patients:<sup>10</sup>
+					majority of adult patients:<sup class="text-[60%] -top-[0.55em]">10</sup>
 				</p>
-				<ul class="flex flex-col gap-y-7 mt-4">
-					<li class="flex items-center gap-x-5">
+				<ul class="flex flex-col gap-y-4 mt-4">
+					<li class="flex items-start gap-x-5">
 						<img
 							src="/src/assets/images/list-item-emblem-turqoise.png"
 							alt="List Item Emblem"
-							class="w-[58px]"
+							class="w-[58px] translate-y-0.5"
 						/>
 						<p class="text-primary-turqoise text-2xl font-bold">
 							Preferred a single, 30-minute infusion<br />
@@ -74,21 +74,23 @@
 						<img
 							src="/src/assets/images/list-item-emblem-turqoise.png"
 							alt="List Item Emblem"
-							class="w-[58px]"
+							class="w-[58px] translate-y-0.5"
 						/>
-						<p class="text-primary-turqoise text-2xl font-bold">Achieved similar levels of clinical success<sup>†</sup></p>
+						<p class="text-primary-turqoise text-2xl font-bold">
+							Achieved similar levels of clinical success<sup class="text-[70%] -top-[0.55em]">†</sup>
+						</p>
 					</li>
 				</ul>
 				<p class="text-xl text-dark-grey mt-5">
 					Outpatients treated with one, 30-minute Xydalba<sup>™</sup> IV infusion<br />
-					reported greater satisfaction than inpatients in terms of:<sup>10</sup>
+					reported greater satisfaction than inpatients in terms of:<sup class="text-[60%] -top-[0.55em]">10</sup>
 				</p>
-				<ul class="flex flex-col gap-y-7 mt-4">
+				<ul class="flex flex-col gap-y-4 mt-4">
 					<li class="flex items-center gap-x-5">
 						<img
 							src="/src/assets/images/list-item-emblem-turqoise.png"
 							alt="List Item Emblem"
-							class="w-[58px]"
+							class="w-[58px] translate-y-0.5"
 						/>
 						<p class="text-primary-turqoise text-2xl font-bold">Effect of treatment on their infection</p>
 					</li>
@@ -96,7 +98,7 @@
 						<img
 							src="/src/assets/images/list-item-emblem-turqoise.png"
 							alt="List Item Emblem"
-							class="w-[58px]"
+							class="w-[58px] translate-y-0.5"
 						/>
 						<p class="text-primary-turqoise text-2xl font-bold">The care they received</p>
 					</li>
@@ -104,7 +106,7 @@
 						<img
 							src="/src/assets/images/list-item-emblem-turqoise.png"
 							alt="List Item Emblem"
-							class="w-[58px]"
+							class="w-[58px] translate-y-0.5"
 						/>
 						<p class="text-primary-turqoise text-2xl font-bold">Lack of interference with daily activities</p>
 					</li>
