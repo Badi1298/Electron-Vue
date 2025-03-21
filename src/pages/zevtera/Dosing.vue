@@ -10,7 +10,7 @@
 			<p class="text-2xl font-medium font-uni-grotesk mt-4">
 				The recommended regimen for adult and paediatric patients with normal renal function is shown in the table.
 			</p>
-			<section class="pr-[60px] mt-6 max-w-[1386px]">
+			<section class="mt-6 max-w-[1386px]">
 				<div class="relative">
 					<div
 						class="relative flex items-center justify-between bg-[#FCC100] py-5 px-10 rounded-[20px] z-50 cursor-pointer"
@@ -32,14 +32,28 @@
 						ref="dosingTable"
 						class="bg-white absolute top-24 left-0 z-40 shadow-zevtera-efficacy-pathogens-card rounded-b-[30px] overflow-hidden"
 					>
-						<img
-							src="/src/assets/images/zevtera-dosing-table.png"
-							alt="Zevtera Dosing Table"
-							class="p-10"
-						/>
-						<p class="p-10 pb-6 text-xs font-uni-grotesk">
+						<div class="pb-6 pt-8 px-10">
+							<img
+								src="/src/assets/images/zevtera-dosing-table.png"
+								alt="Zevtera Dosing Table"
+								class="w-[1290px]"
+							/>
+						</div>
+						<p class="px-10 pb-5 text-xs font-uni-grotesk">
 							*Special precautions for disposal and other handling (See section Reconsitution and dilution)
 						</p>
+						<div class="flex items-center px-10 pb-11 gap-x-[30px]">
+							<safety-shield
+								width="80"
+								height="80"
+								color="#FCC100"
+								class="min-w-[80px] min-h-[80px] max-w-[80px] max-h-[80px]"
+							/>
+							<p class="text-2xl font-uni-grotesk text-charcoal">
+								The safety and efficacy of ZEVTERA®/MABELIO® in preterm neonates have not been established. ZEVTERA®/MABELIO® is not recommended
+								for use in preterm neonates.<sup class="text-[55%] -top-[0.7em]">4</sup>
+							</p>
+						</div>
 					</div>
 				</div>
 				<div class="flex flex-col gap-y-14 mt-8 bg-white rounded-[30px] px-10 pt-14 min-h-[500px] shadow-zevtera-efficacy-pathogens-card">
@@ -117,6 +131,8 @@ import { gsap } from 'gsap';
 import { trackAction } from '@/utils/analytics.js';
 import { usePageAnimation } from '@/composables/usePageAnimation.js';
 
+import SafetyShield from '@/icons/SafetyShield.vue';
+
 import NextSection from '@/components/NextSection.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
@@ -148,7 +164,7 @@ const showDosingTable = () => {
 	if (dosingTableActive.value) {
 		gsap.to(dosingTable.value, { height: 0, duration: 0.5 });
 	} else {
-		gsap.to(dosingTable.value, { height: 480, duration: 0.5 });
+		gsap.to(dosingTable.value, { height: 515, duration: 0.5 });
 		trackAction('Dosing', 'table', sessionId.value, brand.value);
 	}
 
