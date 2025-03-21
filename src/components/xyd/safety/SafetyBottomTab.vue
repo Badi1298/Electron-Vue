@@ -14,7 +14,7 @@
 				class="w-[140px] h-[50px]"
 			/>
 		</button>
-		<div class="flex flex-col gap-y-6 absolute top-1/2 left-[52px]">
+		<div class="flex flex-col gap-y-6 absolute top-1/2 -translate-y-1/2 left-[52px]">
 			<img
 				src="/src/assets/images/inactive-dot.png"
 				alt="Active Dot"
@@ -103,9 +103,7 @@
 				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px] min-h-[580px]">
 					<safety-shield />
 					<p class="text-[22px] text-primary-purple font-bold text-center leading-tight">
-						The safety profile of Xydalba™ in paediatric patients was consistent with that of adults with ABSSSI<sup class="text-[65%] -top-[0.4em]"
-							>5</sup
-						>
+						The safety profile of Xydalba™ in paediatric patients was consistent with that of adults with ABSSSI<sup class="text-[65%]">5</sup>
 					</p>
 				</div>
 			</section>
