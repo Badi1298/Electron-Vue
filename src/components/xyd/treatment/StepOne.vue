@@ -24,13 +24,15 @@
 				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-end font-effra max-w-[1446px]">
-			<h1 class="text-[40px] font-bold text-primary-purple">Xydalba™ demonstrated clinical success at Day 14-15<sup>8</sup></h1>
+		<div class="page-content flex flex-col justify-end font-gothic max-w-[1446px]">
+			<h1 class="text-[40px] font-bold text-primary-purple">
+				Xydalba™ demonstrated clinical success at Day 14-15<sup class="text-[65%] -top-[0.5em]">8</sup>
+			</h1>
 
 			<section class="grid grid-cols-[1fr_0.34fr] items-end gap-x-6 mt-7 pr-[60px]">
 				<div>
 					<div class="bg-primary-green py-7 rounded-t-[20px] pl-10 text-xl font-bold text-white">
-						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup>8</sup>
+						Xydalba™ provides clinical success at end-of-treatment similar to vancomycin/linezolid<sup class="text-[65%] -top-[0.55em]">8</sup>
 					</div>
 					<div class="bg-white px-16 py-6 shadow-treatment">
 						<VLazyImage
@@ -45,9 +47,10 @@
 						alt="Clock"
 						class="w-[90px] h-[90px] mx-auto"
 					/>
-					<p class="text-[22px] text-primary-purple text-center">
+					<p class="text-[22px] text-primary-purple text-center leading-tight">
 						Xydalba™ delivers the clinical success your patients need, with
-						<span class="font-bold">91% achieving relief from symptoms at two weeks,</span> in patients infected with S. aureus (including MRSA)*8
+						<span class="font-bold">91% achieving relief from symptoms at two weeks,</span> in patients infected with S. aureus (including
+						MRSA)*<sup class="text-[65%] -top-[0.4em]">8</sup>
 					</p>
 				</div>
 			</section>
@@ -55,7 +58,7 @@
 
 		<footer class="relative pb-6 pt-8">
 			<the-footer class="footer mb-4 max-w-[1446px] pr-[60px] font-gothic">
-				>*EMA primary end-point: Clinical success at End-of-treatment visit (Day 14-15) in the ITT population defined as decreased lesion size (both
+				*EMA primary end-point: Clinical success at End-of-treatment visit (Day 14-15) in the ITT population defined as decreased lesion size (both
 				length and width measurements), a temperature of ≤37.6°C, local signs of fluctuance and localized heat/warmth were absent; local signs of
 				tenderness to palpation and swelling/induration were no worse than mild; and for patients with a wound infection, the severity of purulent
 				drainage was improved and no worse than mild relative to baseline; no need for further systemic antibacterial treatment for the SSTI.<br />
