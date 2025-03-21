@@ -4,7 +4,7 @@
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
 		<button
-			class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
+			class="absolute left-1/2 top-0 cursor-pointer z-20"
 			@click="emit('goToTopTab')"
 			@touchstart.prevent="emit('goToTopTab')"
 		>
@@ -28,10 +28,10 @@
 				class="h-5 w-5 cursor-pointer"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-end font-effra pb-6 relative max-w-[1446px]">
+		<div class="page-content flex flex-col justify-end font-gothic pb-6 relative max-w-[1446px]">
 			<h1 class="text-[40px] font-bold text-primary-purple">
-				The safety profile of Xydalba™ in paediatric patients<br />
-				is consistent with adults<sup>5</sup>
+				The safety profile of Xydalba<sup class="text-[70%]">™</sup> in paediatric patients<br />
+				is consistent with adults<sup class="text-[60%] -top-[0.6em]">5</sup>
 			</h1>
 
 			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px] mt-24">
@@ -43,7 +43,8 @@
 							class="w-[166px] h-auto"
 						/>
 						<p class="text-2xl text-primary-purple">
-							TEAEs occurred in 7.2%, 9.0% and 3.3% of patients in Xydalba™ single dose, Xydalba™ 2-dose and comparator arms<sup>5</sup>
+							TEAEs occurred in 7.2%, 9.0% and 3.3% of patients in Xydalba<sup class="text-[85%] -top-[0.1em]">™</sup><br />
+							single dose, Xydalba<sup class="text-[85%] -top-[0.1em]">™</sup> 2-dose and comparator arms<sup class="text-[60%]">5</sup>
 						</p>
 					</div>
 					<div class="flex gap-[30px] items-center">
@@ -52,7 +53,7 @@
 							alt="Treatment Pie"
 							class="w-[166px] h-auto"
 						/>
-						<p class="text-2xl text-primary-purple">Safety was comparable across the five age cohorts<sup>5</sup></p>
+						<p class="text-2xl text-primary-purple">Safety was comparable across the five age cohorts<sup class="text-[60%]">5</sup></p>
 					</div>
 
 					<div class="h-[112px] mt-3.5"></div>
@@ -94,13 +95,11 @@
 					</div>
 				</div>
 				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px] min-h-[580px]">
-					<img
-						src="/src/assets/images/dosing-bottle-purple.png"
-						alt="Clock"
-						class="w-[90px] h-[90px] mx-auto"
-					/>
-					<p class="text-[22px] text-primary-purple font-bold text-center">
-						Clinical responses were similar across Xydalba™ single dose and 2-dose regimens and similar to comparator<sup>‡</sup> treatments
+					<safety-shield />
+					<p class="text-[22px] text-primary-purple font-bold text-center leading-tight">
+						The safety profile of Xydalba™ in paediatric patients was consistent with that of adults with ABSSSI<sup class="text-[65%] -top-[0.4em]"
+							>5</sup
+						>
 					</p>
 				</div>
 			</section>
@@ -130,6 +129,8 @@ import { ref, computed, inject, watch, onMounted } from 'vue';
 import { gsap } from 'gsap';
 
 import { trackAction } from '@/utils/analytics.js';
+
+import SafetyShield from '@/icons/SafetyShield.vue';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';

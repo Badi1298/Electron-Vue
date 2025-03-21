@@ -17,15 +17,18 @@
 				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-end font-effra">
-			<h1 class="text-[40px] font-bold text-primary-purple">
-				Xydalba™ delivers two weeks of fast-acting, effective<br />
-				treatment in one single dose, while remaining well-tolerated<sup>1</sup>
+		<div class="page-content flex flex-col justify-end font-gothic">
+			<h1 class="text-[40px] font-bold text-primary-purple leading-tight">
+				Xydalba<sup class="text-[70%]">™</sup> delivers two weeks of fast-acting, effective<br />
+				treatment in one single dose, while remaining well-tolerated<sup class="text-[60%] -top-[0.6em]">1</sup>
 			</h1>
 
-			<p class="text-2xl text-primary-purple mt-5">
+			<p class="text-2xl text-primary-purple mt-5 leading-tight">
 				Analysis of 2,473 adult patients enrolled in Phase II/III trials receiving either the single or two-dose regimen of<br />
-				Xydalba™ showed that the most common adverse reactions were generally of mild or moderate severity<sup>1</sup>
+				Xydalba<sup class="text-[65%]">™</sup> showed that the most common adverse reactions were generally of mild or moderate severity<sup
+					class="text-[65%]"
+					>1</sup
+				>
 			</p>
 
 			<section class="flex pt-11">
@@ -71,8 +74,8 @@
 			</section>
 		</div>
 
-		<footer class="relative pb-6 pt-8">
-			<the-footer class="footer mb-4 pr-[60px] font-gothic"
+		<footer class="relative pb-6">
+			<the-footer class="footer pr-[60px] font-gothic mb-[60px] mt-5"
 				>*Sponsor assessment. <sup>†</sup>mITT: randomised patients who received ≥1 dose of study drug and had a diagnosis of ABSSSI (or, in cohort 5,
 				suspected/confirmed sepsis) not known to be caused exclusively by a gram-negative organism. <sup>†</sup>Vancomycin IV, oxacillin IV; or
 				flucloxacillin IV<br />
@@ -81,7 +84,7 @@
 			>
 			<ExploreAnother />
 			<button
-				class="absolute left-1/2 -translate-x-1/2 bottom-0"
+				class="absolute left-1/2 bottom-0"
 				@click="emit('goToBottomTab')"
 				@touchstart.prevent="emit('goToBottomTab')"
 			>
