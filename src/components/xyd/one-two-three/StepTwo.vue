@@ -169,8 +169,8 @@
 			</section>
 		</div>
 
-		<footer class="pt-6 font-gothic">
-			<the-footer class="footer mb-6 leading-tight">
+		<footer class="pt-6">
+			<the-footer class="footer mb-6 leading-tight font-gothic">
 				*Vancomycin/linezolid in Discover studies.<sup>8 †</sup>Pooled analysis of dalbavancin-treated patients in phase 2/3 studies vs. those receiving
 				comparator agents (vancomycin, linezolid, cefazolin, nafcillin, or oxacillin).<sup>9 ‡</sup>MIC90 = minimum inhibitory concentration at which
 				90% of the isolates<br />

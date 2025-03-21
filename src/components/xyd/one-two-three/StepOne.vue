@@ -90,7 +90,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer class="ml-[124px] mb-4">ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer>
+			<the-footer class="ml-[124px] mb-4 font-gothic">ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer>
 			<ExploreAnother />
 			<button
 				class="absolute left-[42%] bottom-0"

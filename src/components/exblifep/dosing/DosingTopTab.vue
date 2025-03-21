@@ -153,7 +153,7 @@
 			</div>
 		</div>
 		<footer class="relative pb-6">
-			<the-footer class="footer mb-4"
+			<the-footer class="footer mb-4 font-effra"
 				>EXBLIFEP® is not indicated in children as the safety and efficacy in children below 18 years of age has not yet been established. No data are
 				available.5
 			</the-footer>

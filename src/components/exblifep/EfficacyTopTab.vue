@@ -105,7 +105,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer class="footer mb-4">
+			<the-footer class="footer mb-4 font-effra">
 				CFU, colony-forming unit; CI, confidence interval; cUTI, complicated urinary tract infection; MIC, minimum inhibitory concentration; PAS,
 				primary analysis set.<br />
 				*Primary outcome was the proportion of patients in the primary analysis set (PAS) who achieved a composite outcome of complete resolution of the

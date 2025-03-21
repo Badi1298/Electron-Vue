@@ -207,7 +207,7 @@
 		</div>
 
 		<footer class="relative pb-6">
-			<the-footer class="footer mb-4"
+			<the-footer class="footer mb-4 font-uni-grotesk"
 				>*Among patients who had requirements for de-escalation therapy from linezolid, piperacillin/tazobactam or meropenem combinations<sup>2</sup
 				><br /><sup>†</sup>I.e., ceftazidime, cefotoxitin, ceftroaxone or retapenem<sup>10</sup><br /><sup>‡</sup>No dose adjustment except for renally
 				impaired patients<sup>4</sup></the-footer

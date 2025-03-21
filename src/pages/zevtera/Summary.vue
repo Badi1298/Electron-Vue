@@ -152,7 +152,7 @@
 		</div>
 
 		<footer class="flex flex-col gap-y-6">
-			<the-footer class="footer max-w-[1380px]">*Patients' groups who are severely ill or at high risk of poor outcomes </the-footer>
+			<the-footer class="footer max-w-[1380px] font-uni-grotesk">*Patients' groups who are severely ill or at high risk of poor outcomes </the-footer>
 			<div class="flex justify-end items-center mt-4 mr-12">
 				<explore-another-short />
 			</div>

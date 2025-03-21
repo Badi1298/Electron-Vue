@@ -95,7 +95,7 @@
 			</div>
 		</div>
 		<footer>
-			<the-footer class="transition-all duration-300 ml-24"
+			<the-footer class="transition-all duration-300 ml-24 font-uni-grotesk"
 				>Zevtera® is the trademark in UK, Germany, Spain, Denmark, Norway, Sweden and Finland; Mabelio® is the trademark in France and Italy.
 				Commercialised by ADVANZ PHARMA® in Germany, Spain, Italy,<br />
 				France, and UK. Zevtera® / Mabelio ® is licensed to ADVANZ PHARMA by Basilea Pharmaceutica International AG.<br />©2025 ADVANZ

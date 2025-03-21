@@ -124,7 +124,7 @@
 		</div>
 
 		<footer>
-			<the-footer class="ml-[124px] mb-4">
+			<the-footer class="ml-[124px] mb-4 font-gothic">
 				*One 3-hr infusion, one 30-min infusion once a week for two weeks, two 1-hr infusions a day for a week, few days of two 1-hr infusions a day
 				then one pill 3-4<br />
 				times a day for rest of week.10 †Clinical success included ≥20% reduction of erythema at 48-72 hrs, resolution or improvement of clinical signs

@@ -101,7 +101,7 @@
 			</section>
 		</div>
 		<footer class="flex flex-col">
-			<the-footer class="footer max-w-[1380px]">
+			<the-footer class="footer max-w-[1380px] font-effra">
 				AMR, antimicrobial resistance; AP, acute pyelonephritis; CFU, colony-forming unit; cUTI, complicated urinary tract infection; ELF, epithelial
 				lining fluid; HAP/VAP, hospital-acquired pneumonia/ventilator associated pneumonia; MIC, minimum inhibitory concentration.<br />
 				*In the ALLIUM study, microbiological eradication is defined as &lt; 103 CFU/mL of qualifying baseline pathogen in urine.<sup>1</sup><br />
