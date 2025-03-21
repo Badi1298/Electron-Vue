@@ -5,12 +5,12 @@
 		@touchstart.prevent="router.go(-1)"
 	>
 		<div
-			class="popup min-w-[1470px] px-16 py-12"
+			class="bg-white min-w-[1470px] min-h-[850px] px-16 py-12 font-gothic"
 			@click.stop
 			@touchstart.stop
 		>
 			<div class="flex justify-between items-center">
-				<h1 class="text-[40px] font-bold">References</h1>
+				<h1 class="text-[32px] font-bold text-primary-purple">References</h1>
 				<img
 					src="/src/assets/images/close-button-purple.png"
 					alt="Close Button"
@@ -19,7 +19,7 @@
 					@touchstart.prevent="router.go(-1)"
 				/>
 			</div>
-			<ol class="text-xl font-uni-grotesk list-decimal list-inside mt-10 pb-40">
+			<ol class="text-xl list-decimal list-inside mt-10 pb-40">
 				<li class="flex gap-2">
 					<span class="w-6 text-center">1.</span> XYDALBA™ Summary of Product Characteristics (September 2024). Available at:
 					https://www.ema.europa.eu/en/documents/<br />product-information/xydalba-epar-product-information_en.pdf.
@@ -58,9 +58,3 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 </script>
-
-<style scoped>
-.popup {
-	background: linear-gradient(180deg, #f6f7f9 36.47%, #ef7b00 123.64%);
-}
-</style>

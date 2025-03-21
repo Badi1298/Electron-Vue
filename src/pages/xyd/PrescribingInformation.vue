@@ -5,7 +5,7 @@
 		@touchstart.prevent="router.go(-1)"
 	>
 		<div
-			class="popup min-w-[1470px] px-16 py-12"
+			class="bg-white min-w-[1470px] px-16 py-12"
 			@click.stop
 			@touchstart.stop
 		>
@@ -38,9 +38,3 @@ import PrescribingInformation from '@/assets/images/prescribing-information-xyd.
 
 const router = useRouter();
 </script>
-
-<style scoped>
-.popup {
-	background: linear-gradient(180deg, #f6f7f9 36.47%, #ef7b00 123.64%);
-}
-</style>

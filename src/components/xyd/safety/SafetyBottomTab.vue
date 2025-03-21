@@ -59,7 +59,7 @@
 					</div>
 
 					<div class="h-[112px] mt-3.5"></div>
-					<div class="absolute bottom-0 left-0 w-[1041px] overflow-hidden">
+					<div class="absolute bottom-0 left-0 w-[1041px]">
 						<div
 							class="relative min-h-[112px] flex gap-x-5 items-center justify-between mt-[60px] bg-primary-green rounded-t-[20px] py-2 px-11 cursor-pointer"
 							@click="animateExpandable"
@@ -187,7 +187,6 @@ const animateExpandable = () => {
 		});
 		gsap.to('.close-button', { autoAlpha: 1, duration: 0.3 });
 		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
-
 		trackAction('Safety Profile', 'chart', sessionId.value, brand.value);
 	} else {
 		gsap.to('.close-button', { autoAlpha: 0, duration: 0.3 });

@@ -3,7 +3,7 @@
 		<img
 			src="/src/assets/images/xyd-summary-bg.png"
 			alt="Summary BG"
-			class="h-screen w-fit rounded-r-[20px]"
+			class="h-screen w-fit"
 		/>
 		<div class="relative flex flex-col flex-1 px-9 pb-10">
 			<section class="flex flex-col flex-1 justify-end mb-20">
