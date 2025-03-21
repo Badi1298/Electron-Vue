@@ -32,7 +32,7 @@
 		</div>
 		<Sidebar
 			v-model:open="sidebarOpen"
-			:class="{ '-ml-[350px]': isOneTwoThreeRoute }"
+			:class="{ 'absolute right-0 min-h-screen': isOneTwoThreeRoute }"
 		/>
 	</main>
 </template>
