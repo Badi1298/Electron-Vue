@@ -11,10 +11,10 @@
 					<VLazyImage
 						:src="Background"
 						alt="Background"
-						class="absolute top-0 left-0 -z-10"
+						class="absolute top-0 left-0 z-0"
 					/>
 
-					<div class="pt-7 mt-14">
+					<div class="relative z-20 pt-7 mt-14">
 						<h1 class="relative text-[75px] font-bold leading-tight text-white">One dose does it.</h1>
 						<p class="text-[32px] text-white font-normal leading-tight">
 							Xydalba™ delivers two weeks of effective<br />
@@ -23,7 +23,7 @@
 						</p>
 					</div>
 				</section>
-				<section class="pt-36 translate-y-5">
+				<section class="relative z-20 pt-36 translate-y-5">
 					<h2 class="text-[32px] font-bold text-white">I'm interested in:</h2>
 					<div class="flex h-[186px] justify-between items-center bg-white shadow-exblifep-card rounded-[10px] px-8 min-w-[465px] font-gothic mt-9">
 						<div class="flex flex-col h-full justify-center">
@@ -89,7 +89,7 @@
 				</section>
 			</div>
 		</div>
-		<footer>
+		<footer class="relative z-20">
 			<the-footer class="footer text-white font-gothic leading-snug"
 				>*Clinical success achieved in 84% of adult patients (ITT) on day 14 in the phase 3 study assessing a single dose vs 2-dose regimen of
 				dalbavancin in ABSSSI.<sup>4</sup><br />

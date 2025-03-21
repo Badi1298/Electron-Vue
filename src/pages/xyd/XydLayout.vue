@@ -1,5 +1,5 @@
 <template>
-	<main class="flex justify-between">
+	<main class="flex justify-between bg-[#F6F7F9]">
 		<transition
 			name="fade"
 			mode="out-in"
