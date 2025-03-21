@@ -111,10 +111,7 @@
 								deliver plasma concentrations above the MIC<sub>90</sub> for over 15 days<sup>‡1</sup>
 							</p>
 							<div class="flex items-center gap-x-5">
-								<div
-									v-if="!isExpanded"
-									class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green"
-								>
+								<div class="small-graph flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
 									<img
 										src="/src/assets/images/step-two-small-chart.png"
 										alt="Small Chart"
@@ -249,9 +246,11 @@ const animateExpandable = () => {
 			height: 662,
 			duration: 0.6,
 		});
+		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
 		trackAction('1, 2, 3', 'two-weeks-chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
+		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.6 });
 	}
 
 	isExpanded.value = !isExpanded.value;
