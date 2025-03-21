@@ -67,13 +67,13 @@
 							<div class="list-image absolute top-1/2 -translate-y-1/2">
 								<img
 									v-if="isActive('/xyd/one-two-three')"
-									src="/src/assets/images/chart-sidebar-full.png"
+									src="/src/assets/images/123-sidebar-full.png"
 									alt="Home Icon"
 									class="w-[30px] h-[30px]"
 								/>
 								<img
 									v-else
-									src="/src/assets/images/chart-sidebar.png"
+									src="/src/assets/images/123-sidebar.png"
 									alt="Home Icon"
 									class="w-[30px] h-[30px]"
 								/>
@@ -92,13 +92,13 @@
 							<div class="list-image absolute top-1/2 -translate-y-1/2">
 								<img
 									v-if="isActive('/xyd/treatment')"
-									src="/src/assets/images/shield-sidebar-full.png"
+									src="/src/assets/images/bottle-sidebar-full.png"
 									alt="Home Icon"
 									class="w-[30px] h-[30px]"
 								/>
 								<img
 									v-else
-									src="/src/assets/images/shield-sidebar.png"
+									src="/src/assets/images/bottle-sidebar.png"
 									alt="Home Icon"
 									class="w-[30px] h-[30px]"
 								/>
@@ -117,13 +117,13 @@
 							<div class="list-image absolute top-1/2 -translate-y-1/2">
 								<img
 									v-if="isActive('/xyd/safety')"
-									src="/src/assets/images/bottle-sidebar-full.png"
+									src="/src/assets/images/shield-sidebar-full.png"
 									alt="Home Icon"
 									class="w-[30px] h-[30px]"
 								/>
 								<img
 									v-else
-									src="/src/assets/images/bottle-sidebar.png"
+									src="/src/assets/images/shield-sidebar.png"
 									alt="Home Icon"
 									class="w-[30px] h-[30px]"
 								/>
