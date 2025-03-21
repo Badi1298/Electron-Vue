@@ -123,6 +123,7 @@
 		</div>
 
 		<footer>
+			<the-footer class="footer mb-8">*Patients' groups who are severely ill or at high risk of poor outcomes</the-footer>
 			<div class="flex justify-between items-center mt-4 mr-12">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'zevtera-safety', query: { navigatedAwayBy: 'next-section-button' } }">
@@ -140,6 +141,7 @@ import { gsap } from 'gsap';
 
 import PathogensChart from '@/assets/images/pathogens-chart.png';
 
+import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
 import TheTitle from '@/components/zevtera/TheTitle.vue';
 import ExploreAnother from '@/components/ExploreAnother.vue';
