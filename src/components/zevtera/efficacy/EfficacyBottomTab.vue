@@ -203,78 +203,33 @@ onMounted(() => {
 });
 
 const expandDetails = () => {
+	const tl = gsap.timeline({
+		onComplete: () => {
+			detailsExpanded.value = !detailsExpanded.value;
+		},
+	});
+
 	if (detailsExpanded.value) {
-		gsap.set([expandIcon.value, closeIcon.value], {
-			pointerEvents: 'none',
-		});
-		gsap.to(detailsFooter.value, {
-			opacity: 0,
-			display: 'none',
-			duration: 0.2,
-		});
-		gsap.to(details.value, {
-			width: 675,
-			height: 560,
-			translateY: 0,
-		});
-		gsap.to(pathogensChart.value, {
-			width: 503,
-			marginRight: 32,
-		});
-		gsap.to(detailsTitle.value, {
-			scale: 1,
-		});
-		gsap.to(expandIcon.value, {
-			bottom: 20,
-			opacity: 1,
-		});
-		gsap.to(closeIcon.value, {
-			opacity: 0,
-			display: 'none',
-			bottom: 20,
-		}).then(() => {
-			gsap.set([expandIcon.value, closeIcon.value], {
-				pointerEvents: 'auto',
-			});
-		});
+		// Collapsing animations
+		tl.set([expandIcon.value, closeIcon.value], { pointerEvents: 'none' })
+			.to(detailsFooter.value, { opacity: 0, display: 'none', duration: 0.2 })
+			.to(details.value, { width: 675, height: 560, translateY: 0 }, '<')
+			.to(pathogensChart.value, { width: 503, marginRight: 32 }, '<')
+			.to(detailsTitle.value, { scale: 1 }, '<')
+			.to(expandIcon.value, { bottom: 20, opacity: 1 }, '<')
+			.to(closeIcon.value, { opacity: 0, display: 'none', bottom: 20 }, '<')
+			.set([expandIcon.value, closeIcon.value], { pointerEvents: 'auto' });
 	} else {
-		gsap.set([expandIcon.value, closeIcon.value], {
-			pointerEvents: 'none',
-		});
-		gsap.to(details.value, {
-			width: 1205,
-			height: 860,
-			translateY: -30,
-			paddingTop: 30,
-		});
-		gsap.to(pathogensChart.value, {
-			width: 800,
-			marginRight: 200,
-		});
-		gsap.to(detailsTitle.value, {
-			scale: 1.3,
-		});
-		gsap.to(expandIcon.value, {
-			bottom: 130,
-			opacity: 0,
-		});
-		gsap.to(closeIcon.value, {
-			opacity: 1,
-			display: 'block',
-			bottom: 130,
-		});
-		gsap.to(detailsFooter.value, {
-			opacity: 1,
-			display: 'block',
-		})
-			.delay(0.5)
-			.then(() => {
-				gsap.set([expandIcon.value, closeIcon.value], {
-					pointerEvents: 'auto',
-				});
-			});
+		// Expanding animations
+		tl.set([expandIcon.value, closeIcon.value], { pointerEvents: 'none' })
+			.to(details.value, { width: 1205, height: 860, translateY: -30, paddingTop: 30 })
+			.to(pathogensChart.value, { width: 800, marginRight: 200 }, '<')
+			.to(detailsTitle.value, { scale: 1.3 }, '<')
+			.to(expandIcon.value, { bottom: 130, opacity: 0 }, '<')
+			.to(closeIcon.value, { opacity: 1, display: 'block', bottom: 130 }, '<')
+			.to(detailsFooter.value, { opacity: 1, display: 'block' }, 0.5)
+			.set([expandIcon.value, closeIcon.value], { pointerEvents: 'auto' });
 	}
-	detailsExpanded.value = !detailsExpanded.value;
 };
 </script>
 
