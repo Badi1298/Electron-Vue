@@ -202,11 +202,11 @@ const animateExpandable = () => {
 			height: 600,
 			duration: 0.6,
 		});
-		gsap.to('.close-button', { autoAlpha: 1, duration: 0.6 });
+		gsap.to('.close-button', { autoAlpha: 1, duration: 0.3 });
 		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
 		trackAction('Effective treatment', 'chart', sessionId.value, brand.value);
 	} else {
-		gsap.to('.close-button', { autoAlpha: 0, duration: 0.6 });
+		gsap.to('.close-button', { autoAlpha: 0, duration: 0.3 });
 		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.3 });
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}

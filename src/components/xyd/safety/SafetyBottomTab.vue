@@ -67,21 +67,25 @@
 						>
 							<p class="text-xl font-bold text-white">Summary of treatment-emergent adverse events, safety population*</p>
 							<div class="flex items-center gap-x-5">
-								<div
-									v-if="!isExpanded"
-									class="flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green"
-								>
+								<div class="small-graph flex items-center justify-center bg-white w-[170px] h-24 rounded-xl border border-primary-green">
 									<img
 										src="/src/assets/images/safety-table.png"
 										alt="Small Chart"
 										class="w-[120px] h-auto"
 									/>
 								</div>
-								<img
-									src="/src/assets/images/touch-purple.png"
-									alt="Touch Icon"
-									class="w-[70px] h-[70px]"
-								/>
+								<div class="w-[70px] h-[70px] relative">
+									<img
+										src="/src/assets/images/touch-purple.png"
+										alt="Touch Icon"
+										class="absolute top-0 left-0 w-full h-full"
+									/>
+									<img
+										src="/src/assets/images/close-button-purple.png"
+										alt="Close Button"
+										class="close-button absolute top-0 left-0 w-full h-full"
+									/>
+								</div>
 							</div>
 						</div>
 						<div
@@ -165,6 +169,7 @@ const brand = computed(() => route.meta.brand);
 
 onMounted(() => {
 	gsap.set(chart.value, { height: 0 });
+	gsap.set('.close-button', { autoAlpha: 0 });
 });
 
 watch(
@@ -182,8 +187,13 @@ const animateExpandable = () => {
 			height: 620,
 			duration: 0.6,
 		});
+		gsap.to('.close-button', { autoAlpha: 1, duration: 0.3 });
+		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
+
 		trackAction('Safety Profile', 'chart', sessionId.value, brand.value);
 	} else {
+		gsap.to('.close-button', { autoAlpha: 0, duration: 0.3 });
+		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.3 });
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
 	}
 

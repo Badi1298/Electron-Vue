@@ -254,12 +254,12 @@ const animateExpandable = () => {
 			height: 662,
 			duration: 0.6,
 		});
-		gsap.to('.close-button', { autoAlpha: 1, duration: 0.6 });
+		gsap.to('.close-button', { autoAlpha: 1, duration: 0.3 });
 		gsap.to('.small-graph', { autoAlpha: 0, duration: 0.3 });
 		trackAction('1, 2, 3', 'two-weeks-chart', sessionId.value, brand.value);
 	} else {
 		gsap.to(chart.value, { height: 0, duration: 0.6 });
-		gsap.to('.close-button', { autoAlpha: 0, duration: 0.6 });
+		gsap.to('.close-button', { autoAlpha: 0, duration: 0.3 });
 		gsap.to('.small-graph', { autoAlpha: 1, duration: 0.3 });
 	}
 
