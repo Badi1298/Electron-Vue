@@ -37,22 +37,24 @@
 			<section class="relative grid grid-cols-[1fr_0.3fr] gap-x-8 pr-[60px] mt-24">
 				<div class="flex flex-col gap-y-10">
 					<div class="flex gap-[30px] items-center">
-						<img
-							src="/src/assets/images/safety-health-purple.png"
-							alt="Treatment Pie"
-							class="w-[166px] h-auto"
-						/>
+						<div class="border-[15px] rounded-full p-[31px] border-primary-purple">
+							<healthy-person
+								width="75"
+								height="75"
+							/>
+						</div>
 						<p class="text-2xl text-primary-purple">
 							TEAEs occurred in 7.2%, 9.0% and 3.3% of patients in Xydalba<sup class="text-[85%] -top-[0.1em]">™</sup><br />
 							single dose, Xydalba<sup class="text-[85%] -top-[0.1em]">™</sup> 2-dose and comparator arms<sup class="text-[60%]">5</sup>
 						</p>
 					</div>
 					<div class="flex gap-[30px] items-center">
-						<img
-							src="/src/assets/images/safety-shield-purple.png"
-							alt="Treatment Pie"
-							class="w-[166px] h-auto"
-						/>
+						<div class="border-[15px] rounded-full p-[31px] border-primary-purple">
+							<safety-shield
+								width="75"
+								height="75"
+							/>
+						</div>
 						<p class="text-2xl text-primary-purple">Safety was comparable across the five age cohorts<sup class="text-[60%]">5</sup></p>
 					</div>
 
@@ -131,6 +133,7 @@ import { gsap } from 'gsap';
 import { trackAction } from '@/utils/analytics.js';
 
 import SafetyShield from '@/icons/SafetyShield.vue';
+import HealthyPerson from '@/icons/HealthyPerson.vue';
 
 import TheFooter from '@/components/TheFooter.vue';
 import NextSection from '@/components/NextSection.vue';
