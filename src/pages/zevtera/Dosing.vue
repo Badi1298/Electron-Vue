@@ -13,7 +13,7 @@
 			<section class="pr-[60px] mt-6 max-w-[1386px]">
 				<div class="relative">
 					<div
-						class="relative flex items-center justify-between bg-primary-light-orange py-5 px-10 rounded-[20px] z-50 cursor-pointer"
+						class="relative flex items-center justify-between bg-[#FCC100] py-5 px-10 rounded-[20px] z-50 cursor-pointer"
 						@click="showDosingTable"
 						@touchstart.prevent="showDosingTable"
 					>
@@ -42,63 +42,54 @@
 						</p>
 					</div>
 				</div>
-				<div class="flex flex-col gap-y-20 mt-8 bg-white rounded-[30px] px-10 py-12 min-h-[500px] shadow-zevtera-efficacy-pathogens-card">
-					<div class="flex gap-x-7 items-center">
-						<img
-							src="/src/assets/images/shield-orange-bright.png"
-							alt="Shield"
-							class="w-20 h-20"
-						/>
-						<p class="text-2xl font-uni-grotesk text-charcoal">
-							The safety and efficacy of ZEVTERA® in preterm neonates have not been established. ZEVTERA® is not recommended for use in preterm
-							neonates.<sup>4</sup>
-						</p>
-					</div>
-					<div class="grid grid-cols-[0.7fr_1fr_1fr_1fr] items-center">
-						<h4 class="text-[40px] leading-snug font-uni-grotesk"><span class="font-bold">Ease of use</span> in patients with comorbidities</h4>
-						<div class="relative flex flex-col min-h-[242px] items-center font-uni-grotesk text-charcoal mx-6">
-							<div class="min-h-[90px]">
+				<div class="flex flex-col gap-y-14 mt-8 bg-white rounded-[30px] px-10 pt-14 min-h-[500px] shadow-zevtera-efficacy-pathogens-card">
+					<h4 class="text-[40px] text-center leading-tight font-uni-grotesk">
+						<span class="font-bold text-charcoal">Ease of use</span> in patients with comorbidities
+					</h4>
+					<div class="grid grid-cols-[1fr_1fr_1fr] gap-x-[52px]">
+						<div class="relative flex flex-col min-h-[242px] items-center font-uni-grotesk text-charcoal">
+							<div class="min-h-[111px]">
 								<img
 									src="/src/assets/images/Elderly.png"
 									alt="Elderly"
-									class="w-[99px]"
+									class="w-[125px]"
 								/>
 							</div>
-							<h5 class="mt-4 text-[23px] font-medium">Elderly</h5>
-							<p class="text-center mt-1.5 text-[15px] leading-snug">
-								<span class="font-medium fontsm">No dose adjustment</span> is necessary in elderly patients, except in cases of moderate to
-								severe renal impairment<sup>4</sup>
+							<h5 class="mt-4 text-[30px] font-medium">Elderly</h5>
+							<p class="text-center mt-1.5 text-xl leading-tight">
+								<span class="font-medium">No dose adjustment</span> is necessary in elderly patients, except in cases of moderate to severe
+								renal impairment<sup class="text-[50%] -top-[1em]">4</sup>
 							</p>
-							<div class="w-px h-[100px] -right-[24px] top-1/2 -translate-y-1/2 bg-[#CECECE] absolute"></div>
+							<div class="w-px h-[127px] -right-8 top-1/2 -translate-y-1/2 bg-[#CECECE] absolute"></div>
 						</div>
-						<div class="relative flex flex-col min-h-[242px] items-center font-uni-grotesk text-charcoal mx-6">
-							<div class="flex items-center min-h-[90px]">
+						<div class="relative flex flex-col min-h-[242px] items-center font-uni-grotesk text-charcoal -mr-10">
+							<div class="flex items-center min-h-[111px]">
 								<img
 									src="/src/assets/images/Liver.png"
+									alt="Liver"
+									class="w-[114px]"
+								/>
+							</div>
+							<h5 class="mt-4 text-[30px] font-medium">Hepatic Impairment</h5>
+							<p class="text-center mt-1.5 text-xl leading-tight">
+								<span class="font-medium">No dose adjustment</span> is considered necessary<br />
+								as there is no relevant hepatic metabolism<sup class="text-[50%] -top-[1em]">3</sup><br />
+								There is no experience in patients with hepatic impairement<sup class="text-[50%] -top-[1em]">4</sup>
+							</p>
+							<div class="w-px h-[127px] -right-4 top-1/2 -translate-y-1/2 bg-[#CECECE] absolute"></div>
+						</div>
+						<div class="flex flex-col items-center min-h-[242px] font-uni-grotesk text-charcoal">
+							<div class="flex items-center min-h-[111px]">
+								<img
+									src="/src/assets/images/Scale.png"
 									alt="Elderly"
 									class="w-[90px]"
 								/>
 							</div>
-							<h5 class="mt-4 text-[23px] font-medium">Hepatic Impairment</h5>
-							<p class="text-center mt-1.5 text-[15px] leading-snug">
-								<span class="font-medium">No dose adjustment</span> is considered necessary as there is no relevant hepatic metabolism<sup
-									>3</sup
-								>
-								There is no experience in patients with hepatic impairement<sup>4</sup>
-							</p>
-							<div class="w-px h-[100px] -right-[24px] top-1/2 -translate-y-1/2 bg-[#CECECE] absolute"></div>
-						</div>
-						<div class="flex flex-col items-center min-h-[242px] font-uni-grotesk text-charcoal mx-6">
-							<div class="flex items-center min-h-[90px]">
-								<img
-									src="/src/assets/images/Scale.png"
-									alt="Elderly"
-									class="w-[70px]"
-								/>
-							</div>
-							<h5 class="mt-4 text-[23px] font-medium">Weight/BMI</h5>
-							<p class="text-center mt-1.5 text-[15px] leading-snug">
-								<span class="font-medium">No dose adjustment</span> based on body weight in adults<sup>4</sup>
+							<h5 class="mt-4 text-[30px] font-medium">Weight/BMI</h5>
+							<p class="text-center mt-1.5 text-xl leading-tight">
+								<span class="font-medium">No dose adjustment</span> based on body<br />
+								weight in adults<sup class="text-[50%] -top-[1em]">4</sup>
 							</p>
 						</div>
 					</div>
