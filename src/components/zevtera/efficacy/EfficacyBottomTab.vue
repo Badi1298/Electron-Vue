@@ -204,6 +204,9 @@ onMounted(() => {
 
 const expandDetails = () => {
 	if (detailsExpanded.value) {
+		gsap.set([expandIcon.value, closeIcon.value], {
+			pointerEvents: 'none',
+		});
 		gsap.to(detailsFooter.value, {
 			opacity: 0,
 			display: 'none',
@@ -229,8 +232,15 @@ const expandDetails = () => {
 			opacity: 0,
 			display: 'none',
 			bottom: 20,
+		}).then(() => {
+			gsap.set([expandIcon.value, closeIcon.value], {
+				pointerEvents: 'auto',
+			});
 		});
 	} else {
+		gsap.set([expandIcon.value, closeIcon.value], {
+			pointerEvents: 'none',
+		});
 		gsap.to(details.value, {
 			width: 1205,
 			height: 860,
@@ -256,7 +266,13 @@ const expandDetails = () => {
 		gsap.to(detailsFooter.value, {
 			opacity: 1,
 			display: 'block',
-		}).delay(0.5);
+		})
+			.delay(0.5)
+			.then(() => {
+				gsap.set([expandIcon.value, closeIcon.value], {
+					pointerEvents: 'auto',
+				});
+			});
 	}
 	detailsExpanded.value = !detailsExpanded.value;
 };
