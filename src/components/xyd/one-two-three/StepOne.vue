@@ -93,7 +93,7 @@
 			<the-footer class="footer mb-4">ABSSSI: Acute Bacterial Skin and Skin Structure Infections.</the-footer>
 			<ExploreAnother />
 			<button
-				class="absolute left-[40.75%] bottom-0"
+				class="absolute left-[42%] bottom-0"
 				@click="emit('goToMiddleTab')"
 				@touchstart.prevent="emit('goToMiddleTab')"
 			>

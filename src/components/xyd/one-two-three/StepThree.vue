@@ -4,7 +4,7 @@
 		class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10 pb-6"
 	>
 		<button
-			class="absolute left-[40.75%] top-0 cursor-pointer z-20"
+			class="absolute left-[42%] top-0 cursor-pointer z-20"
 			@click="emit('goToMiddleTab')"
 			@touchstart.prevent="emit('goToMiddleTab')"
 		>

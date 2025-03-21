@@ -29,20 +29,20 @@
 				@touchstart.prevent="emit('goToBottomTab')"
 			/>
 		</div>
-		<div class="page-content flex flex-col justify-end font-effra relative max-w-[1446px]">
-			<button
-				class="absolute left-1/2 -translate-x-1/2 top-0 cursor-pointer z-20"
-				@click="emit('goToTopTab')"
-				@touchstart.prevent="emit('goToTopTab')"
-			>
-				<img
-					src="/src/assets/images/page-vertical-up-green.png"
-					alt="Down Button"
-					class="w-[140px] h-[50px]"
-				/>
-			</button>
+		<button
+			class="absolute left-[42%] top-0 cursor-pointer z-20"
+			@click="emit('goToTopTab')"
+			@touchstart.prevent="emit('goToTopTab')"
+		>
+			<img
+				src="/src/assets/images/page-vertical-up-green.png"
+				alt="Down Button"
+				class="w-[140px] h-[50px]"
+			/>
+		</button>
+		<div class="page-content flex flex-col justify-end relative max-w-[1446px] font-gothic">
 			<div
-				class="flex gap-x-3.5 items-center text-cool-grey text-2xl font-medium font-effra transform transition-all duration-300 absolute top-14"
+				class="flex gap-x-3.5 items-center text-cool-grey text-2xl transform transition-all duration-300 absolute top-14 font-effra font-bold"
 				:class="[sidebarOpen ? 'right-[60px]' : 'right-32']"
 			>
 				<img
@@ -50,11 +50,11 @@
 					alt="Touch to select tab"
 					class="w-[70px] h-[70px]"
 				/>
-				<span>Tap to expand</span>
+				<span class="max-h-[26px]">Tap to expand</span>
 			</div>
 			<div class="relative flex items-center gap-x-4">
-				<span class="text-[220px] text-primary-green">2.</span>
-				<h1 class="font-bold text-[75px] text-primary-green leading-none translate-y-3">
+				<span class="text-[220px] text-primary-green font-bold">2.</span>
+				<h1 class="font-bold text-[75px] text-primary-green leading-none translate-y-5">
 					Two<br />
 					weeks
 				</h1>
@@ -151,13 +151,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="flex flex-col gap-y-8 items-center justify-center px-3.5 border-2 border-primary-purple rounded-r-[20px]">
+				<div class="flex flex-col gap-y-8 items-center justify-center px-2 border-2 border-primary-purple rounded-r-[20px]">
 					<img
 						src="/src/assets/images/clock-purple.png"
 						alt="Clock"
 						class="w-[90px] h-[90px] mx-auto"
 					/>
-					<p class="text-[22px] text-primary-purple font-bold text-center">
+					<p class="text-[22px] leading-tight text-primary-purple font-bold text-center">
 						The rapid and long-lasting action of Xydalba™ means you can be confident that your patients are getting the course of treatment they
 						need<sup>1</sup>
 					</p>
@@ -177,7 +177,7 @@
 			</the-footer>
 			<ExploreAnother />
 			<button
-				class="absolute left-[40.75%] bottom-0"
+				class="absolute left-[42%] bottom-0"
 				@click="emit('goToBottomTab')"
 				@touchstart.prevent="emit('goToBottomTab')"
 			>
