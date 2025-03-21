@@ -136,7 +136,7 @@
 			<div class="flex justify-between items-center mt-4 mr-[400px]">
 				<ExploreAnother />
 				<RouterLink :to="{ name: 'xyd-treatment', query: { navigatedAwayBy: 'next-section-button' } }">
-					<next-section class="bg-primary-green" />
+					<next-section class="bg-primary-green font-gothic text-[24.5px]" />
 				</RouterLink>
 			</div>
 		</footer>
