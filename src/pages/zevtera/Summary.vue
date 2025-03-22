@@ -1,6 +1,6 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10 h-full">
-		<div class="page-content flex flex-col justify-end pb-8 font-stag-sans">
+		<div class="page-content flex flex-col justify-end pb-3 font-stag-sans">
 			<img
 				src="/src/assets/images/zevtera-mabelio-logo.png"
 				alt="Zevtera Mabelio Logo"
@@ -152,7 +152,11 @@
 		</div>
 
 		<footer class="flex flex-col gap-y-6">
-			<the-footer class="footer max-w-[1380px] font-uni-grotesk">*Patients' groups who are severely ill or at high risk of poor outcomes </the-footer>
+			<the-footer class="footer max-w-[1380px] font-uni-grotesk"
+				>*Patient groups who are severely ill or at high risk of poor outcomes.<br />
+				<sup>†</sup>No dose adjustment except for renally impaired patients<sup>4</sup><br />
+				<sup>‡</sup>I.e. ceftazidime, cefotoxitin, ceftroaxone or retapenem<sup>10</sup></the-footer
+			>
 			<div class="flex justify-end items-center mt-4 mr-12">
 				<explore-another-short />
 			</div>
