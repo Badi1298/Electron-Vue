@@ -1,9 +1,9 @@
 <template>
 	<main class="flex bg-textured">
 		<img
-			src="/src/assets/images/exblifep-logo.svg"
+			src="/src/assets/images/exblifep-logo-no-triangle.png"
 			alt="Exblifep Logo"
-			class="absolute top-20 right-10 z-50"
+			class="absolute top-20 right-10 z-50 w-[250px]"
 		/>
 		<div class="flex flex-1 flex-col h-screen">
 			<router-view v-slot="{ Component }">
