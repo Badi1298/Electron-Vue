@@ -15,7 +15,7 @@
 					<img
 						src="/src/assets/images/lime-green-border.png"
 						alt="Lime Green Border"
-						class="h-1.5 w-[136px] my-5"
+						class="h-1.5 w-[240px] my-5"
 					/>
 				</div>
 				<img
