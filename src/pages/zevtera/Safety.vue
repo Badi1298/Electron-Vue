@@ -160,7 +160,7 @@
 							</div>
 						</div>
 					</div>
-					<footer class="text-[10px] text-[#555] mt-3 mr-12 font-uni-grotesk">Adapted from Syed YY et al. 2014.<sup>9</sup></footer>
+					<footer class="text-[10px] text-[#555] mt-1 mr-12 font-uni-grotesk">Adapted from Syed YY et al. 2014.<sup>9</sup></footer>
 				</div>
 				<div
 					ref="gutFloraDetails"
