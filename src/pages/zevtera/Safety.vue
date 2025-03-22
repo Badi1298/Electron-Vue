@@ -1,6 +1,6 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
-		<div class="page-content flex flex-col font-effra">
+		<div class="page-content flex flex-col font-stag-sans">
 			<div class="relative flex justify-end mr-12 mt-14 min-h-[80px]">
 				<img
 					src="/src/assets/images/bullet-long.png"
@@ -30,7 +30,7 @@
 						alt="Tick"
 						class="w-[82px] h-auto"
 					/>
-					<h4 class="text-[32px] font-bold text-charcoal">Less number of agents*<sup>2</sup></h4>
+					<h4 class="text-[32px] font-bold text-charcoal ml-5">Less number of agents*<sup class="text-[60%]">2</sup></h4>
 				</div>
 			</div>
 			<section class="relative grid grid-cols-3 flex-1 mt-8 mr-[60px] gap-x-16 pb-10">
@@ -61,7 +61,7 @@
 						<h2 class="text-5xl font-bold mt-7 pl-7">Well-tolerated</h2>
 						<p class="text-2xl mt-4 font-uni-grotesk pl-7">
 							ZEVTERA®/MABELIO® is<br />
-							generally well tolerated<sup>9</sup>
+							generally well tolerated<sup class="text-[60%] -top-[0.7em]">9</sup>
 						</p>
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 						class="w-[291px] mt-4"
 					/>
 					<div class="pb-28 text-charcoal">
-						<h2 class="text-5xl font-bold mt-7 pl-7">Less impact on gut flora<sup>†4,10,11</sup></h2>
+						<h2 class="text-5xl font-bold mt-7 pl-7">Less impact on gut flora<sup class="text-[60%]">†4,10,11</sup></h2>
 						<p class="text-2xl mt-4 font-uni-grotesk pl-7">
 							Low risk of adversely affecting<br />
 							the gut microflora
@@ -111,7 +111,7 @@
 							class="w-[276px] mt-4"
 						/>
 						<div class="pb-28 text-charcoal">
-							<h2 class="text-5xl font-bold mt-7 pl-7">Ease of use<sup>‡4</sup></h2>
+							<h2 class="text-5xl font-bold mt-7 pl-7">Ease of use<sup class="text-[60%]">‡4</sup></h2>
 							<p class="text-2xl mt-4 font-uni-grotesk pl-7">Explore the ZEVTERA® dosing regimen</p>
 						</div>
 					</RouterLink>
@@ -120,13 +120,13 @@
 					ref="wellTolaratedDetails"
 					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 min-w-[1200px] min-h-[790px] absolute top-1/2 -translate-y-[59%] left-[190px] right-[60px] bg-white rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card z-10"
 				>
-					<h2 class="text-[32px] font-bold pr-3">ZEVTERA®/MABELIO® is generally well tolerated<sup>9</sup></h2>
-					<p class="text-2xl font-medium font-uni-grotesk">
-						Most common adverse (incidence ≥5%, regardless of causality)<br />
-						in patients with HAP<sup>9</sup>
+					<h2 class="text-[32px] font-bold pr-3 leading-tight">ZEVTERA®/MABELIO® is generally well tolerated<sup class="text-[60%]">9</sup></h2>
+					<p class="text-2xl font-medium font-uni-grotesk leading-tight">
+						Most common adverse events (incidence ≥5%, regardless of<br />
+						causality) in patients with HAP<sup class="text-[50%] -top-[1em]">9</sup>
 					</p>
 
-					<div class="flex justify-between pr-14 gap-x-16">
+					<div class="flex justify-between pr-14 gap-x-16 mt-1">
 						<img
 							src="/src/assets/images/adverse-events.png"
 							alt="Adverse Events"
@@ -139,9 +139,11 @@
 									alt="Caution"
 									class="w-[80px] h-[80px]"
 								/>
-								<p class="text-xl font-uni-grotesk text-charcoal text-center">
-									ZEVTERA<sup>®</sup> - The incidence of treatment related adverse events was similar to that<br />
-									with other cephalosporins<sup>1</sup>
+								<p class="text-xl font-uni-grotesk text-charcoal text-center leading-tight">
+									The incidence of treatment related adverse events was similar to that with other cephalosporins<sup
+										class="text-[60%] -top-[0.7em]"
+										>1</sup
+									>
 								</p>
 							</div>
 							<div class="flex flex-col items-center gap-y-6">
@@ -150,8 +152,10 @@
 									alt="Caution"
 									class="w-[80px] h-[80px]"
 								/>
-								<p class="text-xl font-uni-grotesk text-charcoal text-center">
-									In pooled therapeutic clinical studies, 1,668 patients received ZEVTERA<sup>®4</sup>
+								<p class="text-xl font-uni-grotesk text-charcoal text-center leading-tight">
+									In pooled therapeutic clinical studies, 1,668 patients received ZEVTERA®/MABELIO®<sup class="text-[60%] -top-[0.7em]"
+										>4</sup
+									>
 								</p>
 							</div>
 						</div>
@@ -162,7 +166,7 @@
 					ref="gutFloraDetails"
 					class="flex flex-col gap-y-5 pl-[260px] pt-14 pb-8 min-w-[1200px] min-h-[790px] absolute top-1/2 -translate-y-[59%] left-[190px] right-[60px] bg-white rounded-[30px] overflow-hidden shadow-zevtera-efficacy-card z-10"
 				>
-					<h2 class="text-[32px] font-bold pr-3">Less impact on gut flora<sup>4,10,11</sup></h2>
+					<h2 class="text-[32px] font-bold pr-3">Less impact on gut flora<sup class="text-[60%]">4,10,11</sup></h2>
 					<div class="flex flex-col gap-y-[60px] mt-11 font-uni-grotesk text-charcoal text-xl">
 						<div class="flex items-center gap-x-11">
 							<img
@@ -172,7 +176,7 @@
 							/>
 							<p>
 								<span class="font-bold">Low risk of adversely affecting the gut microflora</span> because<br />
-								ZEVTERA® is eliminated almost entirely (89%) via the kidneys<sup>4,10</sup>
+								ZEVTERA®/MABELIO® is eliminated almost entirely (89%) via the kidneys<sup class="text-[55%] -top-[0.9em]">4,10</sup>
 							</p>
 						</div>
 						<div class="flex items-center gap-x-11">
@@ -182,12 +186,12 @@
 								class="w-[122px] h-auto"
 							/>
 							<p>
-								In a healthy volunteer study (N=12), 7 days of treatment with
+								In a healthy volunteer study (N=12), 7 days of treatment with<br />
 								<span class="font-bold"
-									>ZEVTERA®<br />
-									did not significantly impact human intestinal flora</span
-								>, and there were no<br />
-								measurable levels of ZEVTERA® in faeces<sup>11</sup>
+									>ZEVTERA®/MABELIO® did not significantly impact human<br />
+									intestinal flora</span
+								>, and there were no measurable levels of<br />
+								ZEVTERA®/MABELIO® in faeces<sup class="text-[55%] -top-[0.9em]">11</sup>
 							</p>
 						</div>
 						<div class="flex items-center gap-x-11">
@@ -197,8 +201,9 @@
 								class="w-[122px] h-auto"
 							/>
 							<p>
-								<span class="italic">Clostridioides difficile</span> colitis is uncommon with ZEVTERA® (reported during<br />
-								therapy or by follow-up visit with a frequency of 1/1,000 to&lt;1/100<sup>4</sup>)
+								<span class="italic">Clostridioides difficile</span> colitis is uncommon with ZEVTERA®/MABELIO®<br />
+								(reported during therapy or by follow-up visit with a frequency of 1/1,000<br />
+								to&lt;1/100)<sup class="text-[55%] -top-[0.9em]">4</sup>
 							</p>
 						</div>
 					</div>
