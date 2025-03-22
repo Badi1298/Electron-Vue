@@ -1,12 +1,19 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 min-h-screen relative z-10">
-		<div class="page-content flex flex-col font-effra">
+		<img
+			src="/src/assets/images/back-button-white.png"
+			alt="Back Button"
+			class="absolute top-1/2 -translate-y-1/2 h-[150px] cursor-pointer"
+			@click="router.push({ name: 'zevtera-safety', query: { navigatedAwayBy: 'back-button' } })"
+			@touchstart.prevent="router.push({ name: 'zevtera-safety', query: { navigatedAwayBy: 'back-button' } })"
+		/>
+		<div class="page-content flex flex-col">
 			<img
 				src="/src/assets/images/bullet-long.png"
 				alt="Bullet Long"
 				class="-ml-20 mt-3 w-[1440px]"
 			/>
-			<the-title>Dosing<sup>4</sup></the-title>
+			<the-title class="-mt-3">Dosing<sup class="text-[60%] -top-[0.6em]">4</sup></the-title>
 			<p class="text-2xl font-medium font-uni-grotesk mt-4">
 				The recommended regimen for adult and paediatric patients with normal renal function is shown in the table.
 			</p>
@@ -123,7 +130,7 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { ref, toRef, computed, inject, onMounted } from 'vue';
 
 import { gsap } from 'gsap';
@@ -145,6 +152,7 @@ const props = defineProps({
 });
 
 const route = useRoute();
+const router = useRouter();
 
 const sidebarOpenRef = toRef(props, 'sidebarOpen');
 usePageAnimation(sidebarOpenRef);
