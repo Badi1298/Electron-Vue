@@ -1,6 +1,6 @@
 <template>
 	<div class="grid grid-cols-1 grid-rows-1 pb-6 relative z-10 h-full">
-		<div class="page-content flex flex-col justify-end pb-8 font-effra">
+		<div class="page-content flex flex-col justify-end pb-8 font-stag-sans">
 			<img
 				src="/src/assets/images/zevtera-mabelio-logo.png"
 				alt="Zevtera Mabelio Logo"
@@ -14,136 +14,136 @@
 						class="absolute w-[1400px] h-[634px] object-cover -z-10 rounded-[20px]"
 					/>
 					<div class="rounded-[20px] py-12 pl-7 pr-3.5 w-[408px]">
-						<h3 class="text-[40px] font-bold leading-tight">
+						<h3 class="text-[40px] font-bold leading-[1.1]">
 							More for your<br />
 							difficult to treat patients*
 						</h3>
 						<div class="flex flex-col gap-y-6">
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card mt-6"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card mt-[18px]"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Demonstrated efficacy</h4>
+								<h4 class="text-xl font-medium">Demonstrated efficacy<sup class="text-[60%] -top-[0.6em]">5,6</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Fast bactericidal activity</h4>
+								<h4 class="text-xl font-medium">Fast bactericidal activity<sup class="text-[60%] -top-[0.6em]">5</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Clinical efficacy from D3-4</h4>
+								<h4 class="text-xl font-medium">Clinical efficacy from D3-4<sup class="text-[60%] -top-[0.6em]">6</sup></h4>
 							</div>
 						</div>
 					</div>
 					<div class="rounded-[20px] py-12 pl-1 w-[408px]">
-						<h3 class="text-[40px] font-bold leading-tight min-h-[150px]">
+						<h3 class="text-[40px] font-bold leading-[1.1] min-h-[150px]">
 							More<br />
 							pathogens covered
 						</h3>
 						<div class="flex flex-col gap-y-6">
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card mt-6"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Polymicrobial infections</h4>
+								<h4 class="text-xl font-medium">Polymicrobial infections<sup class="text-[60%] -top-[0.6em]">5</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Empiric use</h4>
+								<h4 class="text-xl font-medium">Empiric use<sup class="text-[60%] -top-[0.6em]">2,7,8</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Documented use</h4>
+								<h4 class="text-xl font-medium">Documented use<sup class="text-[60%] -top-[0.6em]">3</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">
+								<h4 class="text-xl font-medium">
 									Adapted to your local<br />
-									stewardship program
+									stewardship program<sup class="text-[60%] -top-[0.6em]">4,8</sup>
 								</h4>
 							</div>
 						</div>
 					</div>
 					<div class="rounded-[20px] py-12 pl-2 pr-7 w-[408px]">
-						<h3 class="text-[40px] font-bold leading-tight min-h-[150px]">Less burden to treat your patients</h3>
+						<h3 class="text-[40px] font-bold leading-[1.1] min-h-[150px]">Less burden to treat your patients</h3>
 						<div class="flex flex-col gap-y-6">
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card mt-6"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Less number of agents</h4>
+								<h4 class="text-xl font-medium text-charcoal">Less number of agents<sup class="text-[60%] -top-[0.6em]">†2</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Less impact on gut flora</h4>
+								<h4 class="text-xl font-medium text-charcoal">Less impact on gut flora<sup class="text-[60%] -top-[0.6em]">‡4,10,11</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Well tolerated</h4>
+								<h4 class="text-xl font-medium text-charcoal">Well tolerated<sup class="text-[60%] -top-[0.6em]">9</sup></h4>
 							</div>
 							<div
-								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-3 rounded-xl shadow-zevtera-efficacy-pathogens-card"
+								class="relative flex items-center gap-x-5 z-30 bg-primary-light-orange px-4 py-4 rounded-xl shadow-zevtera-efficacy-pathogens-card"
 							>
 								<img
 									src="/src/assets/images/tick-icon-black.png"
 									alt="Tick"
 									class="w-[52px] h-auto"
 								/>
-								<h4 class="text-xl font-medium text-charcoal">Ease-of-use</h4>
+								<h4 class="text-xl font-medium text-charcoal">Ease-of-use<sup class="text-[60%] -top-[0.6em]">‡4</sup></h4>
 							</div>
 						</div>
 					</div>
